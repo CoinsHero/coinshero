@@ -191,7 +191,6 @@ if (stats) {
 
 module.exports = {
   config,
-  currentDirectory,
   srcPath,
   port
 };

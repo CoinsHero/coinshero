@@ -1,13 +1,10 @@
-const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const config = require('./webpack.shared.config').config;
-const currentDirectory = require('./webpack.shared.config').currentDirectory;
 const srcPath = require('./webpack.shared.config').srcPath;
 
 config.plugins.push(new webpack.optimize.UglifyJsPlugin({
@@ -36,9 +33,6 @@ config.plugins.push(new webpack.DefinePlugin({
   // using NODE_ENV=produciton. That's why for all the deployments we're setting NODE_ENV=production.
   'process.env.NODE_ENV': JSON.stringify('production')
 }));
-
-// Coping the `dev.html` file which contains information for the dev team
-config.plugins.push(new CopyPlugin([{from: path.join(currentDirectory, 'dev.html'), to: 'dev.html'}]));
 
 config.module.rules.push({
   test: /\.(scss|css)$/,
