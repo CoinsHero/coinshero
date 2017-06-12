@@ -32,7 +32,7 @@ config.entry.application.unshift(`webpack-dev-server/client?${config.output.publ
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
 config.plugins.push(new webpack.NamedModulesPlugin());
 
-const compiler = webpack(config, handleCompile);
+const compiler = webpack(config);
 
 /**
  * Opens the app in the browser
@@ -41,14 +41,14 @@ const compiler = webpack(config, handleCompile);
 function openBrowser() {
   if (process.platform === 'darwin') {
     try {
-            // Try our best to reuse existing tab
-            // on OS X Google Chrome with AppleScript
+      // Try our best to reuse existing tab
+      // on OS X Google Chrome with AppleScript
       execSync('ps cax | grep "Google Chrome"');
       execSync(
-                'osascript ' +
+        'osascript ' +
                 path.resolve(__dirname, './openChrome.applescript ') +
                 config.output.publicPath
-            );
+      );
       return;
     } catch (err) {
       // Ignore errors.

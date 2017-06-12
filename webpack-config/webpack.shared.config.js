@@ -9,7 +9,6 @@ const InlineChunkWebpackPlugin = require('html-webpack-inline-chunk-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const InterpolateLoaderOptionsPlugin = require('interpolate-loader-options-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CopyPlugin = require('copy-webpack-plugin');
 
 const webpackUtils = require('./webpack.utils');
 
@@ -122,9 +121,9 @@ const config = {
     ]
   },
   plugins: [
-    new CleanPlugin(['dist'], { root: currentDirectory }),
+    new CleanPlugin(['dist'], {root: currentDirectory}),
     // For more moment locales change `en` with `en|fr|hu`
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
 
     // Async loaded vendors chunk
     new webpack.optimize.CommonsChunkPlugin({

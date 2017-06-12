@@ -10,7 +10,8 @@ const config = {
 /*
  This piece of code gets you the list of origins that was used by your website (assuming the current session performed
  requests to all the different origins):
- [...new Set(performance.getEntries().map((req) => new URL(req.name).origin))].map((url) => `<link rel="dns-prefetch" href="${url}">`).join('\n')
+ [...new Set(performance.getEntries().map((req) => new URL(req.name).origin))].map((url) => {
+ `<link rel="dns-prefetch" href="${url}">`}).join('\n')
 
  So what needs to be done is that every now and then we'll need to update our list by doing:
  1. Go to all the pages in website

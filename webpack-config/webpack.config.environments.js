@@ -38,7 +38,7 @@ config.plugins.push(new webpack.DefinePlugin({
 }));
 
 // Coping the `dev.html` file which contains information for the dev team
-config.plugins.push(new CopyPlugin([{ from: path.join(currentDirectory, 'dev.html'), to: 'dev.html' }]));
+config.plugins.push(new CopyPlugin([{from: path.join(currentDirectory, 'dev.html'), to: 'dev.html'}]));
 
 config.module.rules.push({
   test: /\.(scss|css)$/,

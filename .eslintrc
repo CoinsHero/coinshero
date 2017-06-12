@@ -24,9 +24,21 @@
   },
 
   "rules": {
+    /** general eslint rules **/
+    "comma-dangle": ["error", "never"],
+    "require-jsdoc": 0,
+    "valid-jsdoc": 0,
+    "max-len": ["error", {
+      "code": 140,
+      "tabWidth": 2
+    }],
+    "indent": ["error", 2],
+    "no-console": 0,
+
     /** no-unsafe-innerhtml rule **/
     "no-unsafe-innerhtml/no-unsafe-innerhtml" : 2,
 
+    /** promise plugin rules **/
     "promise/always-return": "off",
     "promise/no-return-wrap": "error",
     "promise/param-names": "error",
@@ -37,6 +49,7 @@
     "promise/no-callback-in-promise": "off",
     "promise/avoid-new": "off",
 
+    /** react plugin rules **/
     "react/jsx-equals-spacing": [2, "never"],
     "react/jsx-handler-names": [2, {
       "eventHandlerPrefix": "_handle",
@@ -47,13 +60,6 @@
       "ignore": []
     }],
     "react/require-render-return": 2,
-    "require-jsdoc": 0,
-    "max-len": ["error", {
-      "code": 130,
-      "tabWidth": 2
-    }],
-    "indent": ["error", 2],
-    "no-console": 0
   },
 
   "extends": ["eslint:recommended", "google", "plugin:react/recommended"]
