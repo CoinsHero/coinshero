@@ -18,3 +18,8 @@ loadAllPolyfills()
     console.log('Error: ', e);
     loadApplication();
   });
+
+// Add support for HMR (Hot Module Replacement)
+if (module.hot) {
+  module.hot.accept();
+}

@@ -1,6 +1,7 @@
 const getDevServerOptions = (options) => {
   return Object.assign({
     host: '0.0.0.0',
+    public: 'local-coinsmarket.com:3001',
     headers: {
       'Access-Control-Allow-Origin': '*',
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
