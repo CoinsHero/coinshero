@@ -2,7 +2,7 @@
 
 ### Additional information for the reviewer
 
-\<Replace this line with an interesting fact / story you find online that could make your reviewer like you. Don't bother asking for a review if it's not a good one :rofl \>
+\<Replace this line with an interesting fact / story you find online that could make your reviewer like you. Don't bother asking for a review if it's not a good one :rofl: \>
 
 ### Issue
 Github issue: #number
