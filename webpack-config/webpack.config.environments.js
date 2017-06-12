@@ -52,7 +52,8 @@ config.module.rules.push({
         options: {
           plugins: () => {
             return [autoprefixer];
-          }
+          },
+          sourceMap: true
         }
       },
       {
