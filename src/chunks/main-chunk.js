@@ -1,5 +1,14 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import config from 'config';
+
+import { Main } from '../components/Main';
+
 const runMain = () => {
-  // TODO: Implement ReactDOM render
+  ReactDOM.render(
+    <Main />,
+    document.getElementById('root')
+  );
 };
 
 export default runMain;
