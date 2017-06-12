@@ -43,7 +43,7 @@ config.module.rules.push({
       {
         loader: 'css-loader',
         options: {
-          sourceMap: true,
+          sourceMap: false,
           minimize: true
         }
       },
@@ -53,13 +53,13 @@ config.module.rules.push({
           plugins: () => {
             return [autoprefixer];
           },
-          sourceMap: true
+          sourceMap: false
         }
       },
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: true
+          sourceMap: false
         }
       }
     ]
