@@ -3,12 +3,12 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 // Plugins
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const config = require("./webpack.shared.config").config;
-const currentDirectory = require("./webpack.shared.config").currentDirectory;
-const srcPath = require("./webpack.shared.config").srcPath;
+const config = require('./webpack.shared.config').config;
+const currentDirectory = require('./webpack.shared.config').currentDirectory;
+const srcPath = require('./webpack.shared.config').srcPath;
 
 config.plugins.push(new webpack.optimize.UglifyJsPlugin({
   compressor: {
@@ -27,7 +27,7 @@ config.plugins.push(new webpack.optimize.UglifyJsPlugin({
 
 // Support for ExtractTextPlugin
 config.plugins.push(new ExtractTextPlugin({
-  filename: "[name]-[contenthash].css",
+  filename: '[name]-[contenthash].css',
   allChunks: true
 }));
 config.plugins.push(new webpack.DefinePlugin({

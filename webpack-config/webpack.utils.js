@@ -18,12 +18,12 @@ module.exports = {
     return origins.reduce((tags, origin) => {
       // preconnect also doing DNS prefetching, so why we're adding them both?
       // Because at the moment of writing (18-Feb-2017) IE, Edge & Safari doesn't support preconnect just yet.
-      const dnPrefetch = `<link rel=\"dns-prefetch\" href=\"${origin}\">\n`;
+      const dnPrefetch = `<link rel='dns-prefetch' href='${origin}'>\n`;
 
       // In case the origin is different than the website's origin we'll need to add 'crossorigin' at the end
-      const preconnect = `<link rel="preconnect" href="${origin}" ${publicPath.startsWith(origin) ? '' : 'crossorigin'} >\n`;
+      const preconnect = `<link rel='preconnect' href='${origin}' ${publicPath.startsWith(origin) ? '' : 'crossorigin'} >\n`;
 
       return tags + dnPrefetch + preconnect;
-    }, "");
+    }, '');
   }
 };

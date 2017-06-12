@@ -1,7 +1,7 @@
 const autoprefixer = require('autoprefixer');
 
-const config = require("./webpack.shared.config").config;
-const srcPath = require("./webpack.shared.config").srcPath;
+const config = require('./webpack.shared.config').config;
+const srcPath = require('./webpack.shared.config').srcPath;
 
 config.devtool = 'source-map';
 

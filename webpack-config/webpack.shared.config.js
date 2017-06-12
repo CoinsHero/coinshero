@@ -11,7 +11,7 @@ const InterpolateLoaderOptionsPlugin = require('interpolate-loader-options-webpa
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyPlugin = require('copy-webpack-plugin');
 
-const webpackUtils = require("./webpack.utils");
+const webpackUtils = require('./webpack.utils');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 const stats = process.env.STATS || false;
@@ -21,8 +21,8 @@ const hostProtocol = process.env.HOST_PROTOCOL || 'https';
 let publicPath = `${hostProtocol}://${hostAddress}`;
 
 // We do not add the port by default cause otherwise our PR website demo solution will be broken cause the S3 folder name
-// is part of the "domain" name
-if (port && port !== "443") {
+// is part of the 'domain' name
+if (port && port !== '443') {
   publicPath = `${publicPath}:${port}`;
 }
 
@@ -128,7 +128,7 @@ const config = {
 
     // Async loaded vendors chunk
     new webpack.optimize.CommonsChunkPlugin({
-      async: "vendors",
+      async: 'vendors',
       children: true,
       minChunks: (module, count) => {
         return module.resource &&
@@ -138,7 +138,7 @@ const config = {
     }),
     // For better caching - https://github.com/webpack/webpack/tree/master/examples/chunkhash
     new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest",
+      name: 'manifest',
       minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
@@ -156,7 +156,7 @@ const config = {
       }
     }),
     // We're inlining some chunks for couple since they are very small (~ 1KB) and it's a waste to make a round trip just for them.
-    // The loading of the "manifest" chunk is part of the caching improvement described
+    // The loading of the 'manifest' chunk is part of the caching improvement described
     // in: https://github.com/webpack/webpack/tree/master/examples/chunkhash
     new InlineChunkWebpackPlugin({
       inlineChunks: ['manifest'],
