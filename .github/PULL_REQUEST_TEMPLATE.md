@@ -14,5 +14,6 @@ Please check all the notes you took care of. You should have them all checked.
 
 - [] **Feature Flag** - I verified that my code does not need a feature flag or is protected by a feature flag.
 - [] **Cross browser** - I checked that my code works on: FF, Safari (>=10.0) & Chrome.
+- [] **Mobile responsiveness** - I checked that my code works on the above browser also in mobile view.
 - [] **Up to date with develop** - My branch is up to date with develop and I checked that I'm using the latest pieces in the code and everything still works.
 - [] **Unit Tests** - I covered and updated the unit tests according to this commit changes (if necessary).
