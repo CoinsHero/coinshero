@@ -1,3 +1,54 @@
 {
+  "plugins": [
+    "react",
+    "no-unsafe-innerhtml",
+    "promise"
+  ],
 
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeaturs": {
+      "jsx": true,
+      "generators": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+
+  "settings": {
+    "react": {
+      "version": "15.4.2"
+    }
+  },
+
+  "rules": {
+    /** no-unsafe-innerhtml rule **/
+    "no-unsafe-innerhtml/no-unsafe-innerhtml" : 2,
+
+    "promise/always-return": "off",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "off",
+    "promise/no-promise-in-callback": "off",
+    "promise/no-callback-in-promise": "off",
+    "promise/avoid-new": "off",
+
+    "react/jsx-equals-spacing": [2, "never"],
+    "react/jsx-handler-names": [2, {
+      "eventHandlerPrefix": "_handle",
+      "eventHandlerPropPrefix": "on"
+    }],
+    "react/jsx-pascal-case": [2, {
+      "allowAllCaps": true,
+      "ignore": []
+    }],
+    "react/require-render-return": 2,
+    "require-jsdoc": 0
+  },
+
+  "extends": ["plugin:react/recommended"]
 }
