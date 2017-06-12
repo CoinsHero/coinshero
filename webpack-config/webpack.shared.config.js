@@ -146,7 +146,7 @@ const config = {
       resourceHintsMetaTags,
       inject: true,
       template: indexHtmlPath,
-      favicon: srcPath + '/assets/favicons/autodesk-favicon.png'
+      favicon: srcPath + '/assets/favicons/coinsmarket-favicon.png'
     }),
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {
