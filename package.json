@@ -95,5 +95,9 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
+  },
+  "engines": {
+    "node": ">=8.1.0",
+    "npm": ">-5.0.3"
   }
 }
