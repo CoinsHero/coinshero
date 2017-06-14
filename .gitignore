@@ -26,3 +26,5 @@ webpack.stats.json
 
 # zips
 *.zip
+
+package-lock.json
