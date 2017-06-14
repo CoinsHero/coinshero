@@ -10,16 +10,14 @@ let currentLang;
 export const DEFAULT_LANGUAGE = {
   code: 'en'
 };
-export let languages = {
+
+export const languages = {
+  [DEFAULT_LANGUAGE.code]: DEFAULT_LANGUAGE,
   'he': {
     code: 'he',
     isRTL: true
   }
 };
-
-languages = Object.assign(languages, {
-  [DEFAULT_LANGUAGE.code]: DEFAULT_LANGUAGE
-});
 
 const languagesTexts = {
   [languages.en.code]: englishUSTexts,
