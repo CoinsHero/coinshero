@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    "babel-plugin-syntax-trailing-function-commas",
+    "babel-plugin-transform-class-properties",
+    ["babel-plugin-transform-object-rest-spread", { "useBuiltIns": true }],
+    "babel-plugin-syntax-dynamic-import"
+  ],
+  "presets": [
+    ["es2015", { "modules": false }],
+    "react"
+  ],
+  "env": {
+    "local": {
+    },
+    "es": {
+    },
+    "test": {
+      "plugins": [
+        "babel-plugin-transform-es2015-modules-commonjs",
+        "./webpack-config/babel/plugins/use-react-router-common-js"
+      ]
+    }
+  }
+}

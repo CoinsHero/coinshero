@@ -1,0 +1,66 @@
+{
+  "plugins": [
+    "react",
+    "no-unsafe-innerhtml",
+    "promise"
+  ],
+
+  "parser": "babel-eslint",
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeaturs": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+
+  "rules": {
+    /** general eslint rules **/
+    "comma-dangle": ["error", "never"],
+    "require-jsdoc": 0,
+    "valid-jsdoc": 0,
+    "max-len": ["error", {
+      "code": 140,
+      "tabWidth": 2
+    }],
+    "indent": ["error", 2],
+    "no-console": 0,
+
+    /** no-unsafe-innerhtml rule **/
+    "no-unsafe-innerhtml/no-unsafe-innerhtml" : 2,
+
+    /** promise plugin rules **/
+    "promise/always-return": "off",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "off",
+    "promise/no-promise-in-callback": "off",
+    "promise/no-callback-in-promise": "off",
+    "promise/avoid-new": "off",
+
+    /** react plugin rules **/
+    "react/jsx-equals-spacing": [2, "never"],
+    "react/jsx-handler-names": [2, {
+      "eventHandlerPrefix": "_handle",
+      "eventHandlerPropPrefix": "on"
+    }],
+    "react/jsx-pascal-case": [2, {
+      "allowAllCaps": true,
+      "ignore": []
+    }],
+    "react/require-render-return": 2,
+  },
+
+  "extends": ["eslint:recommended", "google", "plugin:react/recommended"]
+}
