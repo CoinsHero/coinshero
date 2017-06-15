@@ -3,7 +3,8 @@
     "babel-plugin-syntax-trailing-function-commas",
     "babel-plugin-transform-class-properties",
     ["babel-plugin-transform-object-rest-spread", { "useBuiltIns": true }],
-    "babel-plugin-syntax-dynamic-import"
+    "babel-plugin-syntax-dynamic-import",
+    "babel-plugin-lodash"
   ],
   "presets": [
     ["es2015", { "modules": false }],
