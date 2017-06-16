@@ -8,7 +8,7 @@ import {
   cyan700, grey600, pink700, pink500, pink400, fullWhite
 } from 'material-ui/styles/colors';
 
-const primaryColor = '#262626';
+const primaryColor = '#383838';
 
 // All overrides could be found here: https://github.com/callemall/material-ui/blob/master/src/styles/getMuiTheme.js
 const muiTheme = getMuiTheme({
