@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getSiteTheme from '../helpers/getSiteTheme';
+import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
 import {setLanguage, getLanguage, languages} from '../i18n';
 import App from './App';
@@ -9,12 +12,13 @@ import App from './App';
 import '../styles/components/_Site.scss';
 
 class Site extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     // TODO: Take that from the URL / where ever is needed to handle it + LTR/RTL - https://github.com/kazazor/coinsmarket/issues/8
     // Setting the locale of the user
-    setLanguage(languages.he.code);
+    const language = setLanguage(languages.he.code);
+    props.setLocaleInStore(language);
 
     try {
       // Needed for onTouchTap
@@ -36,7 +40,7 @@ class Site extends Component {
 }
 
 Site.propTypes = {
-
+  setLocaleInStore: PropTypes.func.isRequired
 };
 
-export default Site;
+export default connect(null, { setLocaleInStore })(Site);

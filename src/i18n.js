@@ -34,6 +34,8 @@ export const setLanguage = (lang) => {
 
   currentLang = languages[lang];
   T.setTexts(Object.assign({}, languagesTexts[DEFAULT_LANGUAGE.code], languagesTexts[currentLang.code]));
+
+  return languages[lang];
 };
 
 export const getLanguage = () => currentLang;
