@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {setLanguage, getLanguage, languages} from '../i18n';
 
-import Main from '../components/Main';
+import Site from '../components/Site';
 
 const runMain = () => {
-  // TODO: Take that from the URL / where ever is needed to handle it + LTR/RTL - https://github.com/kazazor/coinsmarket/issues/8
-  // Setting the locale of the user
-  setLanguage(languages.he.code);
-
   ReactDOM.render(
-    <Main isRTL={getLanguage().isRTL}/>,
+    <Site />,
     document.getElementById('root')
   );
 };
