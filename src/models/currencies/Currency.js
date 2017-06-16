@@ -17,13 +17,13 @@ class Currency {
     this.symbol = options.symbol;
     /**
      * If the symbol of the currency should appear at the start or the end of the price
-     * @type {Currency.SYMBOL_LOCATION}
+     * @type {Currency.SYMBOL_LOCATIONS}
      */
-    this.symbolLocation = Currency.SYMBOL_LOCATION[options.symbolLocation] || Currency.SYMBOL_LOCATION.START;
+    this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
   }
 }
 
-Currency.SYMBOL_LOCATION = {
+Currency.SYMBOL_LOCATIONS = {
   START: 's',
   END: 'e'
 };
