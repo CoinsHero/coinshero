@@ -12,9 +12,9 @@
     "start": "node_modules/.bin/cross-env BABEL_ENV=local HOST_PROTOCOL=http NODE_ENV=local NODE_PORT=3001 HOST_ADDRESS=local-coinsmarket.com node --harmony ./scripts/start.js",
     "start:environments": "node_modules/.bin/cross-env BABEL_ENV=local HOST_PROTOCOL=http NODE_PORT=3001 HOST_ADDRESS=local-coinsmarket.com node --harmony ./scripts/start.js",
     "start:dev": "node_modules/.bin/cross-env NODE_ENV=dev npm run start:environments",
-    "build": "node_modules/.bin/cross-env BABEL_ENV=es NODE_ENV=local HOST_PROTOCOL=http NODE_PORT=3001 HOST_ADDRESS=local-coinsmarket.com ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.local.js --progress",
+    "build": "node_modules/.bin/cross-env BABEL_ENV=es NODE_ENV=local HOST_PROTOCOL=http NODE_PORT=3001 HOST_ADDRESS=local-coinsmarket.com node --harmony ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.local.js --progress",
     "build:stats": "node_modules/.bin/cross-env STATS=true npm run build",
-    "build:environments": "node_modules/.bin/cross-env BABEL_ENV=es HOST_PROTOCOL=https NODE_PORT=443 ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.environments.js --progress",
+    "build:environments": "node_modules/.bin/cross-env BABEL_ENV=es HOST_PROTOCOL=https NODE_PORT=443 node --harmony ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.environments.js --progress",
     "build:dev": "node_modules/.bin/cross-env NODE_ENV=dev HOST_ADDRESS=coinsmarket-dev.com npm run build:environments",
     "build:dev:stats": "node_modules/.bin/cross-env STATS=true npm run build:dev"
   },
