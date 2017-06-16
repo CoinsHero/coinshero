@@ -44,7 +44,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 Site.propTypes = {
-  setLocaleInStore: PropTypes.func.isRequired
+  setLocaleInStore: PropTypes.func.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string.isRequired,
+    isRTL: PropTypes.bool
+  })
 };
 
 export default connect(mapStateToProps, { setLocaleInStore })(Site);

@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === 'local') {
 const execSync = require('child_process').execSync;
 const opn = require('opn');
 
-const port = process.env.NODE_PORT || 443;
+const sharedConfig = require('../webpack-config/webpack.shared.config');
+const port = sharedConfig.port || 443;
 
 // We're doing it because as part of the caching solution for the manifest described here:
 // https://github.com/webpack/webpack/tree/master/examples/chunkhash

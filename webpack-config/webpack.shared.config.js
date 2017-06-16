@@ -1,4 +1,5 @@
 const path = require('path');
+const url = require('url');
 
 const webpack = require('webpack');
 
@@ -13,10 +14,16 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const webpackUtils = require('./webpack.utils');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'local';
+
+const configFilePath = path.resolve(`./webpack-config/env-configs/${process.env.NODE_ENV}.js`);
+const configFile = require(configFilePath);
+const siteURL = url.parse(configFile.ORIGINS.COINS_MARKET);
+
 const stats = process.env.STATS || false;
-const port = process.env.NODE_PORT || 443;
-const hostAddress = process.env.HOST_ADDRESS;
-const hostProtocol = process.env.HOST_PROTOCOL || 'https';
+const port = process.env.NODE_PORT || siteURL.port;
+const hostAddress = process.env.HOST_ADDRESS || siteURL.hostname;
+const hostProtocol = process.env.HOST_PROTOCOL || siteURL.protocol.slice(0, siteURL.protocol.length - 1);
+
 let publicPath = `${hostProtocol}://${hostAddress}`;
 
 // We do not add the port by default cause otherwise our PR website demo solution will be broken cause the S3 folder name
@@ -36,9 +43,7 @@ const indexHtmlPath = path.resolve(currentDirectory, 'index.html');
 const indexHtmlTitle = 'Coins Market';
 const buildPath = path.resolve(currentDirectory, 'dist');
 
-const configFilePath = path.resolve(`./webpack-config/env-configs/${process.env.NODE_ENV}.js`);
-
-const resourceHintsMetaTags = webpackUtils.buildResourceHintsMetaTags(require(configFilePath).RESOURCE_HINTS_ORIGINS, publicPath);
+const resourceHintsMetaTags = webpackUtils.buildResourceHintsMetaTags(configFile.RESOURCE_HINTS_ORIGINS, publicPath);
 
 const config = {
   entry: {

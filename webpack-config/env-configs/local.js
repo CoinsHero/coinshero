@@ -3,7 +3,7 @@ const config = {
   },
   // Every entry that will be added here will be added as a resource hint in the index.html file
   ORIGINS: {
-    COINS_MARKET: 'https://local-coinsmarket.com'
+    COINS_MARKET: 'http://local-coinsmarket.com:3001'
   }
 };
 

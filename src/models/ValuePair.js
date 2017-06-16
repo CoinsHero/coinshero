@@ -1,7 +1,4 @@
-import Currency from './currencies/Currency';
-
 export default class ValuePair {
-
   constructor() {
     /**
      *
