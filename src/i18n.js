@@ -37,5 +37,3 @@ export const setLanguage = (lang) => {
 
   return languages[lang];
 };
-
-export const getLanguage = () => currentLang;

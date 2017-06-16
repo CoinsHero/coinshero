@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
-import {setLanguage, getLanguage, languages} from '../i18n';
+import {setLanguage, languages} from '../i18n';
 import App from './App';
 
 import '../styles/components/_Site.scss';
@@ -30,7 +30,7 @@ class Site extends Component {
   }
 
   render() {
-    const isRTL = getLanguage().isRTL;
+    const isRTL = this.props.locale.isRTL;
     return (
       <MuiThemeProvider muiTheme={getSiteTheme(isRTL)}>
         <App isRTL={isRTL}/>
@@ -39,8 +39,16 @@ class Site extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  locale: state.site.locale
+});
+
 Site.propTypes = {
-  setLocaleInStore: PropTypes.func.isRequired
+  setLocaleInStore: PropTypes.func.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
-export default connect(null, { setLocaleInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore })(Site);

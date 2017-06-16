@@ -50,7 +50,7 @@ rules:
   force-element-nesting: 2
   force-pseudo-nesting: 2
   function-name-format:
-    - 1
+    - 2
     - allow-leading-underscore: true
       convention: hyphenatedlowercase
   hex-length:
@@ -60,7 +60,7 @@ rules:
     - 2
     - style: uppercase
   id-name-format:
-    - 1
+    - 2
     - convention: hyphenatedbem
   indentation:
     - 2
@@ -69,10 +69,10 @@ rules:
     - 0
     - include: false
   mixin-name-format:
-    - 1
+    - 2
     - allow-leading-underscore: true
       convention: hyphenatedlowercase
-  mixins-before-declarations: 1
+  mixins-before-declarations: 2
   nesting-depth:
     - 2
     - max-depth: 3
@@ -81,13 +81,13 @@ rules:
     - 2
     - allow-rgba: true
   no-css-comments: 0
-  no-debug: 1
+  no-debug: 2
   no-duplicate-properties: 2
   no-empty-rulesets: 2
   no-extends: 0
-  no-ids: 1
+  no-ids: 2
   no-important: 0
-  no-invalid-hex: 1
+  no-invalid-hex: 2
   no-mergeable-selectors: 2
   no-misspelled-properties:
     - 2
@@ -105,7 +105,7 @@ rules:
     - 2
     - additional-identifiers: []
       excluded-identifiers: []
-  placeholder-in-extend: 1
+  placeholder-in-extend: 2
   placeholder-name-format:
     - 2
     - convention: hyphenatedbem
