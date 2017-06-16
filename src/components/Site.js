@@ -30,7 +30,7 @@ class Site extends Component {
   }
 
   render() {
-    const isRTL = this.props.locale && this.props.locale.isRTL;
+    const isRTL = this.props.locale.isRTL;
     return (
       <MuiThemeProvider muiTheme={getSiteTheme(isRTL)}>
         <App isRTL={isRTL}/>
@@ -39,14 +39,14 @@ class Site extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   locale: state.site.locale
 });
 
 Site.propTypes = {
   setLocaleInStore: PropTypes.func.isRequired,
   locale: PropTypes.shape({
-    code: PropTypes.string.isRequired,
+    code: PropTypes.string,
     isRTL: PropTypes.bool
   })
 };
