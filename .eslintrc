@@ -33,7 +33,9 @@
       "code": 140,
       "tabWidth": 2
     }],
+    "indent": ["error", 2],
     "no-console": 0,
+    "no-warning-comments": ["warn", { "terms": ["todo"], "location": "start" }],
 
     /** no-unsafe-innerhtml rule **/
     "no-unsafe-innerhtml/no-unsafe-innerhtml" : 2,
