@@ -15,12 +15,13 @@ class App extends Component {
     );
 
     // //////// MOCK DATA //////////
-    // Delete as part of https://github.com/kazazor/coinsmarket/issues/15
+    // TODO: Delete as part of https://github.com/kazazor/coinsmarket/issues/15
     const mockPairs = [];
     const USD = require('../models/currencies/USD').default;
+    const ValuePair = require('../models/ValuePair').default;
 
     for (let index = 1; index < 100; index++) {
-      mockPairs.push({
+      let pair = {
         rank: index,
         name: index % 2 === 0 ? `Test name - ${index}` : `שם בעברית קצת - ${index} עם!`,
         marketCap: (Math.random() * 9000000000) + 1,
@@ -29,7 +30,9 @@ class App extends Component {
         volume24h: (Math.random() * 90000000) + 1,
         percentChange24h: (Math.random() * 80) - 40,
         targetCurrency: new USD()
-      });
+      };
+
+      mockPairs.push(ValuePair.parse(pair, this.props.locale));
     }
 
     // //////// MOCK DATA //////////
@@ -38,7 +41,7 @@ class App extends Component {
       <div className={cx}>
         <NavigationHeader />
         <div className='App__container'>
-          <CoinsTable valuePairs={mockPairs} locale={this.props.locale} />
+          <CoinsTable valuePairs={mockPairs} />
         </div>
       </div>
     );
