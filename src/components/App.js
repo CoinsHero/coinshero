@@ -29,7 +29,7 @@ class App extends Component {
       {'root--rtl': this.props.locale.isRTL}
     );
 
-    // //////// MOCK DATA //////////
+    /////////// MOCK DATA //////////
     // TODO: Delete as part of https://github.com/kazazor/coinsmarket/issues/15
     const mockPairs = [];
     const USD = require('../models/currencies/USD').default;
@@ -50,7 +50,8 @@ class App extends Component {
       mockPairs.push(ValuePair.parse(pair, this.props.locale));
     }
 
-    // //////// MOCK DATA //////////
+    /////////// MOCK DATA //////////
+
     return (
       <div className={cx}>
         <NavigationHeader locale={this.props.locale} />
