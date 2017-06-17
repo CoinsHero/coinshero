@@ -1,3 +1,4 @@
+import {round, toCurrencyFormat} from '../../helpers/numbers';
 class Currency {
   constructor(options) {
     /**
@@ -20,6 +21,15 @@ class Currency {
      * @type {Currency.SYMBOL_LOCATIONS}
      */
     this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
+  }
+
+  static adjustCurrencyValue(currency, value, decimalNumbers = 2) {
+    round(value, decimalNumbers);
+    value = toCurrencyFormat(value);
+
+    return currency.symbolLocation === Currency.SYMBOL_LOCATIONS.START ?
+      `${currency.symbol}${value}` :
+      `${value} ${currency.symbol}`;
   }
 }
 
