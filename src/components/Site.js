@@ -32,7 +32,7 @@ class Site extends Component {
   }
 
   isInitialized() {
-    return this.props.locale.code && false;
+    return this.props.locale.code;
   }
 
   render() {
