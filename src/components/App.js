@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
+import Services from '../services/services';
 
 import '../styles/components/_App.scss';
 
@@ -40,6 +41,7 @@ class App extends Component {
         <div className='App__container'>
           <CoinsTable valuePairs={mockPairs} locale={this.props.locale} />
         </div>
+        <Services />
       </div>
     );
   }
