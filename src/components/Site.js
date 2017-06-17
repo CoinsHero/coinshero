@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
-
 import {setLanguage, languages} from '../i18n';
+
 import App from './App';
+import RefreshIndicatorLoading from './RefreshIndicatorLoading';
 
 import '../styles/components/_Site.scss';
 
@@ -29,11 +31,21 @@ class Site extends Component {
     }
   }
 
+  isInitialized() {
+    return this.props.locale.code && false;
+  }
+
   render() {
     const isRTL = this.props.locale.isRTL;
+    const component = this.isInitialized() ?
+      <App locale={this.props.locale}/> :
+      <div className='Site__loader'>
+        <RefreshIndicatorLoading />
+      </div>;
+
     return (
       <MuiThemeProvider muiTheme={getSiteTheme(isRTL)}>
-        <App isRTL={isRTL}/>
+        {component}
       </MuiThemeProvider>
     );
   }

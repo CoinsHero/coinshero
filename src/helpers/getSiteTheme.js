@@ -42,6 +42,10 @@ const overrides = {
     backgroundColor: muiTheme.palette.primary1Color,
     textColor: muiTheme.palette.secondaryTextColor,
     selectedTextColor: muiTheme.palette.alternateTextColor
+  },
+  refreshIndicator: {
+    strokeColor: muiTheme.palette.primary1Color,
+    loadingStrokeColor: muiTheme.palette.accent2Color,
   }
 };
 

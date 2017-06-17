@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     const cx = classnames(
       'App',
-      {'App--rtl': this.props.isRTL}
+      {'App--rtl': this.props.locale.isRTL}
     );
 
     ////////// MOCK DATA //////////
@@ -38,7 +38,7 @@ class App extends Component {
       <div className={cx}>
         <NavigationHeader />
         <div className='App__container'>
-          <CoinsTable valuePairs={mockPairs} />
+          <CoinsTable valuePairs={mockPairs} locale={this.props.locale} />
         </div>
       </div>
     );
@@ -46,7 +46,10 @@ class App extends Component {
 }
 
 App.propTypes = {
-  isRTL: PropTypes.bool
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
 export default App;
