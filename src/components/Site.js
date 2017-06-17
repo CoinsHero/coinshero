@@ -40,7 +40,7 @@ class Site extends Component {
     const component = this.isInitialized() ?
       <App locale={this.props.locale}/> :
       <div className='Site__loader'>
-        <RefreshIndicatorLoading />
+        <RefreshIndicatorLoading size={70} />
       </div>;
 
     return (
