@@ -1,0 +1,15 @@
+@import '../base/_colors';
+
+.CoinsTable {
+  width: 90%;
+
+  .TableRowColumn__percent-change-twenty-four-h {
+    direction: ltr;
+    display: inline-block;
+    color: $green500;
+
+    &--negative {
+      color: $red500;
+    }
+  }
+}

@@ -2,3 +2,11 @@
 @import '../base/normalize';
 
 // Note: We shouldn't load here all the CSS in the system. Each component should load its own CSS
+
+.Site__loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
