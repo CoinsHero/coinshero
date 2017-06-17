@@ -10,6 +10,7 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import T from 'i18n-react';
+import Paper from 'material-ui/Paper';
 
 import '../styles/components/_CoinsTable.scss';
 
@@ -41,7 +42,7 @@ class CoinsTable extends Component {
     const styleAlignTextCenter = {textAlign: 'center'};
 
     return (
-      <div className='CoinsTable'>
+      <Paper className='CoinsTable' zDepth={5}>
         <Table selectable={this.props.selectable}>
           <TableHeader adjustForCheckbox={this.props.displayRowCheckbox} displaySelectAll={this.props.displaySelectAll}>
             <TableRow>
@@ -62,7 +63,7 @@ class CoinsTable extends Component {
             {this._renderRows(this.props.valuePairs, styleAlignTextCenter)}
           </TableBody>
         </Table>
-      </div>
+      </Paper>
     );
   }
 }
