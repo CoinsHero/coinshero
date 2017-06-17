@@ -39,7 +39,7 @@ class App extends Component {
 
     return (
       <div className={cx}>
-        <NavigationHeader />
+        <NavigationHeader locale={this.props.locale} />
         <div className='App__container'>
           <CoinsTable valuePairs={mockPairs} />
         </div>
