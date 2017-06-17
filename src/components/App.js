@@ -15,7 +15,7 @@ class App extends Component {
     );
 
     // //////// MOCK DATA //////////
-    // Delete as part of https://github.com/kazazor/coinsmarket/issues/15
+    // TODO: Delete as part of https://github.com/kazazor/coinsmarket/issues/15
     const mockPairs = [];
     const USD = require('../models/currencies/USD').default;
     const ValuePair = require('../models/ValuePair').default;
