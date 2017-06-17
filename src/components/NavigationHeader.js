@@ -7,8 +7,12 @@ import EditorMonetizationOn from 'material-ui/svg-icons/editor/monetization-on';
 
 class NavigationHeader extends Component {
   render() {
+    const titleStyle = this.props.locale.isRTL ? {
+      marginRight: '20px'
+    } : null;
+
     return (
-      <AppBar title={T.translate('NAVIGATION_HEADER_TITLE')} showMenuIconButton={false}>
+      <AppBar title={T.translate('NAVIGATION_HEADER_TITLE')} titleStyle={titleStyle}>
         <Tabs>
           <Tab
             icon={<EditorMonetizationOn />}
@@ -21,7 +25,10 @@ class NavigationHeader extends Component {
 }
 
 NavigationHeader.propTypes = {
-  isRTL: PropTypes.bool
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  }).isRequired
 };
 
 export default NavigationHeader;
