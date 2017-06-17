@@ -32,7 +32,7 @@ class Site extends Component {
   }
 
   isInitialized() {
-    return this.props.locale.code;
+    return this.props.locale.code && false;
   }
 
   render() {
@@ -40,7 +40,7 @@ class Site extends Component {
     const component = this.isInitialized() ?
       <App locale={this.props.locale}/> :
       <div className='Site__loader'>
-        <RefreshIndicatorLoading />
+        <RefreshIndicatorLoading size={70} />
       </div>;
 
     return (
