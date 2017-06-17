@@ -14,7 +14,7 @@ class App extends Component {
       {'App--rtl': this.props.locale.isRTL}
     );
 
-    ////////// MOCK DATA //////////
+    // //////// MOCK DATA //////////
     // Delete as part of https://github.com/kazazor/coinsmarket/issues/15
     const mockPairs = [];
     const USD = require('../models/currencies/USD').default;
@@ -32,7 +32,7 @@ class App extends Component {
       });
     }
 
-    ////////// MOCK DATA //////////
+    // //////// MOCK DATA //////////
 
     return (
       <div className={cx}>

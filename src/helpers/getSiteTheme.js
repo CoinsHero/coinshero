@@ -45,7 +45,7 @@ const overrides = {
   },
   refreshIndicator: {
     strokeColor: muiTheme.palette.primary1Color,
-    loadingStrokeColor: muiTheme.palette.accent2Color,
+    loadingStrokeColor: muiTheme.palette.accent2Color
   }
 };
 

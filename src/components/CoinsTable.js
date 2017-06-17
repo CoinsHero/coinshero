@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn,
+  TableRowColumn
 } from 'material-ui/Table';
 import T from 'i18n-react';
 
@@ -28,8 +28,8 @@ class CoinsTable extends Component {
       const percentChange24h = round(pair.percentChange24h, 2);
 
       const percentChange24hClasses = classnames(
-        'TableRowColumn__percentChangeTwentyFourH',
-        {'TableRowColumn__percentChangeTwentyFourH--negative': percentChange24h < 0}
+        'TableRowColumn__percent-change-twenty-four-h',
+        {'TableRowColumn__percent-change-twenty-four-h--negative': percentChange24h < 0}
       );
 
       return (
@@ -44,7 +44,7 @@ class CoinsTable extends Component {
             <span className={percentChange24hClasses}>{`${percentChange24h}%`}</span>
           </TableRowColumn>
         </TableRow>
-      )
+      );
     });
   }
 
@@ -62,14 +62,14 @@ class CoinsTable extends Component {
               <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_PRICE')}</TableHeaderColumn>
               <TableHeaderColumn style={styleAlignTextCenter} tooltip={T.translate('TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP')}>
                 {T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}
-                </TableHeaderColumn>
+              </TableHeaderColumn>
               <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableHeaderColumn>
               <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody displayRowCheckbox={this.props.displayRowCheckbox}
-                     preScanRows={this.props.preScanRows}
-                     showRowHover={this.props.showRowHover}>
+            preScanRows={this.props.preScanRows}
+            showRowHover={this.props.showRowHover}>
             {this._renderRows(this.props.valuePairs, this.props.locale, styleAlignTextCenter)}
           </TableBody>
         </Table>
