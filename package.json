@@ -30,15 +30,15 @@
     "classnames": "2.2.5",
     "core-js": "2.4.1",
     "i18n-react": "0.3.0-ts1",
+    "material-ui": "1.0.0-alpha.17",
+    "material-ui-icons": "1.0.0-alpha.3",
     "prop-types": "15.5.10",
     "react": "15.6.0",
     "react-dom": "15.6.0",
     "react-redux": "5.0.5",
+    "react-tap-event-plugin": "2.0.1",
     "redux": "3.6.0",
-    "lodash": "4.17.4",
-    "material-ui": "0.18.3",
-    "seamless-immutable": "7.1.2",
-    "react-tap-event-plugin": "2.0.1"
+    "seamless-immutable": "7.1.2"
   },
   "devDependencies": {
     "autoprefixer": "7.1.1",
@@ -47,6 +47,7 @@
     "babel-jest": "20.0.3",
     "babel-loader": "7.0.0",
     "babel-plugin-lodash": "3.2.11",
+    "babel-plugin-material-ui": "0.3.1",
     "babel-plugin-syntax-dynamic-import": "6.18.0",
     "babel-plugin-syntax-trailing-function-commas": "6.22.0",
     "babel-plugin-transform-class-properties": "6.24.1",

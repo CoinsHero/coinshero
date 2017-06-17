@@ -1,17 +1,32 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 import NavigationHeader from './NavigationHeader';
-import CoinsTable from './CoinsTable';
+// import CoinsTable from './CoinsTable';
 
-import '../styles/components/_App.scss';
+const styleSheet = createStyleSheet('App', (theme) => ({
+  'root': {
+    direction: 'ltr'
+  },
+  'root--rtl': {
+    direction: 'rtl'
+  },
+  'root__container': {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: theme.spacing.unit * 15,
+    alignItems: 'center'
+  }
+}));
 
 class App extends Component {
   render() {
-    const cx = classnames(
-      'App',
-      {'App--rtl': this.props.locale.isRTL}
+    const classes = this.props.classes;
+    const cx = classnamesjss(classes,
+      'root',
+      {'root--rtl': this.props.locale.isRTL}
     );
 
     // //////// MOCK DATA //////////
@@ -36,23 +51,23 @@ class App extends Component {
     }
 
     // //////// MOCK DATA //////////
-
     return (
       <div className={cx}>
         <NavigationHeader locale={this.props.locale} />
-        <div className='App__container'>
-          <CoinsTable valuePairs={mockPairs} />
-        </div>
+        {/* <div className={classes['root__container']}>*/}
+        {/* <CoinsTable valuePairs={mockPairs} />*/}
+        {/* </div>*/}
       </div>
     );
   }
 }
 
 App.propTypes = {
+  classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
   })
 };
 
-export default App;
+export default withStyles(styleSheet)(App);
