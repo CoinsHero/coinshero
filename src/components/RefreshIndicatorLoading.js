@@ -11,7 +11,8 @@ class RefreshIndicatorLoading extends Component {
           size={50}
           left={0}
           top={0}
-          status="loading"
+          status='loading'
+          style={{position: 'relative'}}
         />
       </div>
     );
