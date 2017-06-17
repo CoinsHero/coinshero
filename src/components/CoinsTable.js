@@ -11,37 +11,26 @@ import {
 } from 'material-ui/Table';
 import T from 'i18n-react';
 
-import {round, toCurrencyFormat} from '../helpers/numbers';
-import Currency from '../models/currencies/Currency';
-
 import '../styles/components/_CoinsTable.scss';
 
 class CoinsTable extends Component {
-  _renderRows(valuePairs, locale, columnStyle = {}) {
+  _renderRows(valuePairs, columnStyle = {}) {
     return valuePairs.map((pair) => {
-      // TODO: Probably all this has to go to a parse function after the API call from the backend:
-      // https://github.com/kazazor/coinsmarket/issues/15
-      const price = Currency.adjustCurrencyValue(pair.targetCurrency, pair.price, 8, locale.code);
-      const marketCap = Currency.adjustCurrencyValue(pair.targetCurrency, pair.marketCap, 0, locale.code);
-      const volume24h = Currency.adjustCurrencyValue(pair.targetCurrency, pair.volume24h, 0, locale.code);
-      const availableSupply = toCurrencyFormat(pair.availableSupply, locale.code);
-      const percentChange24h = round(pair.percentChange24h, 2);
-
       const percentChange24hClasses = classnames(
         'TableRowColumn__percent-change-twenty-four-h',
-        {'TableRowColumn__percent-change-twenty-four-h--negative': percentChange24h < 0}
+        {'TableRowColumn__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
       return (
         <TableRow key={pair.rank}>
           <TableRowColumn style={columnStyle}>{pair.rank}</TableRowColumn>
           <TableRowColumn style={columnStyle}>{pair.name}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{marketCap}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{price}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{availableSupply}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{volume24h}</TableRowColumn>
+          <TableRowColumn style={columnStyle}>{pair.displayMarketCap}</TableRowColumn>
+          <TableRowColumn style={columnStyle}>{pair.displayPrice}</TableRowColumn>
+          <TableRowColumn style={columnStyle}>{pair.displayAvailableSupply}</TableRowColumn>
+          <TableRowColumn style={columnStyle}>{pair.displayVolume24h}</TableRowColumn>
           <TableRowColumn style={columnStyle}>
-            <span className={percentChange24hClasses}>{`${percentChange24h}%`}</span>
+            <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
           </TableRowColumn>
         </TableRow>
       );
@@ -70,7 +59,7 @@ class CoinsTable extends Component {
           <TableBody displayRowCheckbox={this.props.displayRowCheckbox}
             preScanRows={this.props.preScanRows}
             showRowHover={this.props.showRowHover}>
-            {this._renderRows(this.props.valuePairs, this.props.locale, styleAlignTextCenter)}
+            {this._renderRows(this.props.valuePairs, styleAlignTextCenter)}
           </TableBody>
         </Table>
       </div>
@@ -84,11 +73,7 @@ CoinsTable.propTypes = {
   displaySelectAll: PropTypes.bool,
   selectable: PropTypes.bool,
   showRowHover: PropTypes.bool,
-  preScanRows: PropTypes.bool,
-  locale: PropTypes.shape({
-    code: PropTypes.string.isRequired,
-    isRTL: PropTypes.bool
-  })
+  preScanRows: PropTypes.bool
 };
 
 CoinsTable.defaultProps = {
