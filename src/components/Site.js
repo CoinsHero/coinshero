@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import {THEMES} from '../helpers/consts';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
