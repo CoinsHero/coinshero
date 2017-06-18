@@ -69,11 +69,6 @@ export default class ValuePair {
      * @type {string}
      */
     this.displayAvailableSupply = undefined;
-    /**
-     * timestamp UTC
-     * @type {number}
-     */
-    this.lastUpdate = undefined;
   }
 
   static parse(coin, locale, index) {
@@ -84,9 +79,13 @@ export default class ValuePair {
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
     valuePair.rank = index;
     valuePair.name = coin.long;
+    valuePair.marketCap = coin.mktcap;
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
+    valuePair.price = coin.price;
     valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, 8, locale.code);
+    valuePair.availableSupply = coin.supply;
     valuePair.displayAvailableSupply = toCurrencyFormat(coin.supply, locale.code);
+    valuePair.volume24h = coin.volume;
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
     valuePair.targetCurrency = targetCurrency;
     valuePair.baseCurrency = new Currency({
