@@ -7,7 +7,7 @@ const config = {
     COINS_API: 'https://coincap.io'
   },
   CONSTS: {
-    COINS_API_INTERVAL: 3000
+    COINS_API_INTERVAL: 10000
   }
 };
 
