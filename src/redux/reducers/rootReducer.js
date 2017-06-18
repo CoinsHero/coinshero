@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import site from './SiteReducer';
+import site from './siteReducer';
+import coins from './coinsReducer';
 
 const rootReducer = combineReducers({
-  site
+  site,
+  coins
 });
 
 export default rootReducer;
