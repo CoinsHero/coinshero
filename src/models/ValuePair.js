@@ -80,6 +80,7 @@ export default class ValuePair {
     const valuePair = new ValuePair();
     const targetCurrency = new USD();
 
+    valuePair.percentChange24h = coin.cap24hrChange;
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
     valuePair.rank = index;
     valuePair.name = coin.long;
@@ -91,15 +92,4 @@ export default class ValuePair {
 
     return valuePair;
   }
-
-  // static parse(object, locale) {
-  //   const pair = Object.assign({}, object);
-  //   pair.displayPrice = Currency.adjustCurrencyValue(pair.targetCurrency, pair.price, 8, locale.code);
-  //   pair.displayMarketCap = Currency.adjustCurrencyValue(pair.targetCurrency, pair.marketCap, 0, locale.code);
-  //   pair.displayVolume24h = Currency.adjustCurrencyValue(pair.targetCurrency, pair.volume24h, 0, locale.code);
-  //   pair.displayAvailableSupply = toCurrencyFormat(pair.availableSupply, locale.code);
-  //   pair.displayPercentChange24h = `${round(pair.percentChange24h, 2)}%`;
-  //
-  //   return pair;
-  // }
 }
