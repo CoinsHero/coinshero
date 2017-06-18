@@ -1,29 +1,9 @@
 import { createMuiTheme } from 'material-ui/styles';
+import { grey, pink, red } from 'material-ui/styles/colors';
 import createPalette from 'material-ui/styles/palette';
-
-// import {fade} from 'material-ui/utils/colorManipulator';
-// import spacing from 'material-ui/styles/spacing';
-
-// // All colors could be found here: https://material-ui-1dab0.firebaseapp.com/style/color
-// import {
-//   red, cyan700, grey600, pink700, pink500, pink400, fullWhite
-// } from 'material-ui/styles/colors';
-
-// const primaryColor = '#383838';
-
-const theme = createMuiTheme({
-  palette: createPalette({
-    type: 'dark' // Switching the dark mode on is a single property value change.
-  }),
-  overrides: {
-
-  }
-});
 
 // // https://material-ui-1dab0.firebaseapp.com/customization/themes#the-other-variables
 // const muiTheme = getMuiTheme({
-//   spacing: spacing,
-//   fontFamily: 'Roboto, sans-serif',
 //   borderRadius: 2,
 //   palette: {
 //     primary1Color: primaryColor,
@@ -59,12 +39,30 @@ const theme = createMuiTheme({
 //   }
 // };
 //
-// merge(muiTheme, overrides);
 
 const getSiteTheme = (isRTL) => {
-  return Object.assign(theme, {
-    direction: isRTL ? 'rtl' : 'ltr'
+  const theme = createMuiTheme({
+    direction: isRTL ? 'rtl' : 'ltr',
+    palette: createPalette({
+      primary: pink,
+      accent: {
+        ...grey,
+        A400: '#383838'
+      },
+      error: red,
+      type: 'dark' // Switching the dark mode on is a single property value change.
+    })
   });
+
+  theme.overrides = {
+    MuiAppBar: {
+      root: {
+        background: theme.palette.accent['A400']
+      }
+    }
+  };
+
+  return theme;
 };
 
 export default getSiteTheme;

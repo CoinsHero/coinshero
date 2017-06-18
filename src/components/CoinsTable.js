@@ -1,66 +1,79 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {
-  Table,
+import Table, {
+  TableCell,
   TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn
+  TableHead,
+  TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
 import Paper from 'material-ui/Paper';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { red, green } from 'material-ui/styles/colors';
+import classnamesjss from '../helpers/classnamesjss';
 
-import '../styles/components/_CoinsTable.scss';
+const numbersStrength = 500;
+const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
+  'root': {
+    width: '90%'
+  },
+  'root__TableCell': {
+    textAlign: 'center'
+  },
+  'root__TableCell__percent-change-twenty-four-h': {
+    direction: 'ltr',
+    display: 'inline-block',
+    color: green[numbersStrength]
+  },
+  'root__TableCell__percent-change-twenty-four-h--negative': {
+    color: red[numbersStrength]
+  }
+}));
 
 class CoinsTable extends Component {
-  _renderRows(valuePairs, columnStyle = {}) {
-    return valuePairs.map((pair) => {
-      const percentChange24hClasses = classnames(
-        'TableRowColumn__percent-change-twenty-four-h',
-        {'TableRowColumn__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
+  _renderRows(props, tableCellClass = {}) {
+    return props.valuePairs.map((pair) => {
+      const percentChange24hClasses = classnamesjss(props.classes,
+        'root__TableCell__percent-change-twenty-four-h',
+        {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
       return (
-        <TableRow key={pair.rank}>
-          <TableRowColumn style={columnStyle}>{pair.rank}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{pair.name}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{pair.displayMarketCap}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{pair.displayPrice}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{pair.displayAvailableSupply}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>{pair.displayVolume24h}</TableRowColumn>
-          <TableRowColumn style={columnStyle}>
+        <TableRow hover={props.showRowHover} key={pair.rank}>
+          <TableCell className={tableCellClass}>{pair.rank}</TableCell>
+          <TableCell className={tableCellClass}>{pair.name}</TableCell>
+          <TableCell className={tableCellClass}>{pair.displayMarketCap}</TableCell>
+          <TableCell className={tableCellClass}>{pair.displayPrice}</TableCell>
+          <TableCell className={tableCellClass}>{pair.displayAvailableSupply}</TableCell>
+          <TableCell className={tableCellClass}>{pair.displayVolume24h}</TableCell>
+          <TableCell className={tableCellClass}>
             <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
-          </TableRowColumn>
+          </TableCell>
         </TableRow>
       );
     });
   }
 
   render() {
-    const styleAlignTextCenter = {textAlign: 'center'};
+    const tableCellClass = this.props.classes['root__TableCell'];
 
+    // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     return (
-      <Paper className='CoinsTable' zDepth={5}>
-        <Table selectable={this.props.selectable}>
-          <TableHeader adjustForCheckbox={this.props.displayRowCheckbox} displaySelectAll={this.props.displaySelectAll}>
+      <Paper className={this.props.classes.root} elevation={12}>
+        <Table>
+          <TableHead>
             <TableRow>
-              <TableHeaderColumn style={styleAlignTextCenter} tooltip={T.translate('TABLE_HEADER_RANK_TOOLTIP')}>#</TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_NAME')}</TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_PRICE')}</TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter} tooltip={T.translate('TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP')}>
-                {T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}
-              </TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableHeaderColumn>
-              <TableHeaderColumn style={styleAlignTextCenter}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableHeaderColumn>
+              <TableCell className={tableCellClass}>#</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_NAME')}</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_PRICE')}</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableCell>
+              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableCell>
             </TableRow>
-          </TableHeader>
-          <TableBody displayRowCheckbox={this.props.displayRowCheckbox}
-            preScanRows={this.props.preScanRows}
-            showRowHover={this.props.showRowHover}>
-            {this._renderRows(this.props.valuePairs, styleAlignTextCenter)}
+          </TableHead>
+          <TableBody>
+            {this._renderRows(this.props, tableCellClass)}
           </TableBody>
         </Table>
       </Paper>
@@ -70,20 +83,13 @@ class CoinsTable extends Component {
 
 CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
-  displayRowCheckbox: PropTypes.bool,
-  displaySelectAll: PropTypes.bool,
-  selectable: PropTypes.bool,
   showRowHover: PropTypes.bool,
-  preScanRows: PropTypes.bool
+  classes: PropTypes.object.isRequired
 };
 
 CoinsTable.defaultProps = {
   valuePairs: [],
-  displayRowCheckbox: false,
-  displaySelectAll: false,
-  selectable: false,
-  showRowHover: true,
-  preScanRows: false
+  showRowHover: true
 };
 
-export default CoinsTable;
+export default withStyles(styleSheet)(CoinsTable);

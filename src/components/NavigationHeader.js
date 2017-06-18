@@ -8,8 +8,7 @@ import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
-  'root': {
-    backgroundColor: theme.palette.primary[500],
+  root: {
     color: theme.palette.getContrastText(theme.palette.primary[500]),
     position: 'static'
   }
@@ -18,7 +17,7 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
 class NavigationHeader extends Component {
   render() {
     return (
-      <AppBar className={this.props.classes['root']}>
+      <AppBar color="inherit" className={this.props.classes['root']}>
         <Toolbar>
           <IconButton color="contrast" aria-label="Menu">
             <MenuIcon />

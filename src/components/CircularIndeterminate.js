@@ -4,7 +4,7 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { CircularProgress } from 'material-ui/Progress';
 
 const styleSheet = createStyleSheet('CircularIndeterminate', (theme) => ({
-  'root': {
+  root: {
     display: 'flex',
     justifyContent: 'center'
   }
