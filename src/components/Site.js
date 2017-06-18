@@ -4,8 +4,9 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
+import {THEMES} from '../helpers/consts';
 import getSiteTheme from '../helpers/getSiteTheme';
-import {setLocaleInStore} from '../redux/actions/bootstrapActions';
+import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
 import App from './App';
@@ -44,7 +45,7 @@ class Site extends Component {
       </div>;
 
     return (
-      <MuiThemeProvider theme={getSiteTheme(isRTL)}>
+      <MuiThemeProvider theme={getSiteTheme({isRTL, theme: this.props.theme})}>
         {component}
       </MuiThemeProvider>
     );
@@ -52,15 +53,18 @@ class Site extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  locale: state.site.locale
+  locale: state.site.locale,
+  theme: state.site.theme
 });
 
 Site.propTypes = {
   setLocaleInStore: PropTypes.func.isRequired,
+  setDarkThemeInStore: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }).isRequired
 };
 
-export default connect(mapStateToProps, { setLocaleInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore })(Site);
