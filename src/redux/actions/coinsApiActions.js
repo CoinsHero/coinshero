@@ -1,10 +1,18 @@
 import { CALL_API } from 'redux-api-middleware';
 import * as Actions from '../ActionNames';
+import config from 'config';
 
-export const fetchCoinsFront = () => ({
+export const fetchCoinsFront = (locale) => ({
   [CALL_API]: {
-    endpoint: 'http://www.coincap.io/front',
+    endpoint: `${config.ORIGINS.COINS_API}/front`,
     method: 'GET',
-    types: [Actions.FETCH_COINS_FRONT, Actions.FETCH_COINS_FRONT_SUCCESS, Actions.FETCH_COINS_FRONT_FAILURE]
+    types: [
+      Actions.FETCH_COINS_FRONT,
+      {
+        type: Actions.FETCH_COINS_FRONT_SUCCESS,
+        meta: { locale }
+      },
+      Actions.FETCH_COINS_FRONT_FAILURE
+    ]
   }
 });

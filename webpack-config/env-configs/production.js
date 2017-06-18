@@ -3,7 +3,8 @@ const config = {
   },
   // Every entry that will be added here will be added as a resource hint in the index.html file
   ORIGINS: {
-    COINS_MARKET: 'https://coinsmarket.com'
+    COINS_MARKET: 'https://coinsmarket.com',
+    COINS_API: 'https://coincap.io'
   }
 };
 

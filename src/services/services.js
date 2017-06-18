@@ -1,14 +1,10 @@
 import React from 'react';
 import CoinsApiService from './CoinsApiService';
 
-export default class Services extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Services = () => (
+  <div className="InvisibleServices" style={{ 'display': 'none' }}>
+    <CoinsApiService />
+  </div>
+);
 
-  render() {
-    return (
-      <CoinsApiService />
-    );
-  }
-}
+export default Services;

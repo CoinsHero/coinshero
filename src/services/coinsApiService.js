@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCoinsFront } from '../redux/actions/coinsApiActions';
+import config from 'config';
 
 class CoinsApiService extends React.Component {
   constructor() {
@@ -11,12 +12,20 @@ class CoinsApiService extends React.Component {
   }
 
   componentWillMount() {
-    this.fetchCoinsFront();
-    this.fetchCoinsFrontInterval = setInterval(() => this.fetchCoinsFront(), 6000);
+    if (this.props.locale) {
+      this.fetchCoinsFront();
+    }
+    this.fetchCoinsFrontInterval = setInterval(() => this.fetchCoinsFront(), config.CONSTS.COINS_API_INTERVAL);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.locale && !this.props.locale) {
+      this.fetchCoinsFront();
+    }
   }
 
   fetchCoinsFront() {
-    this.props.fetchCoinsFront();
+    this.props.fetchCoinsFront(this.props.locale);
   }
 
   componentWillUnmount() {
@@ -31,7 +40,15 @@ class CoinsApiService extends React.Component {
 }
 
 CoinsApiService.propTypes = {
-  fetchCoinsFront: PropTypes.func.isRequired
+  fetchCoinsFront: PropTypes.func.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
-export default connect(null, { fetchCoinsFront })(CoinsApiService);
+const mapStateToProps = (state) => ({
+  locale: state.site.locale
+});
+
+export default connect(mapStateToProps, { fetchCoinsFront })(CoinsApiService);
