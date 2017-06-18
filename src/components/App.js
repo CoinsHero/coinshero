@@ -16,7 +16,7 @@ const styleSheet = createStyleSheet('App', (theme) => ({
   'root__container': {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: theme.spacing.unit * 1.875,
+    marginTop: theme.spacing.unit * 2.5,
     alignItems: 'center'
   }
 }));

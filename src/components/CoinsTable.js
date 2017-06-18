@@ -15,7 +15,8 @@ import classnamesjss from '../helpers/classnamesjss';
 const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root': {
-    width: '90%'
+    width: '90%',
+    marginBottom: theme.spacing.unit * 2.5
   },
   'root__TableCell': {
     textAlign: 'center'
