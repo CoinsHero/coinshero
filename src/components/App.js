@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import classnamesjss from '../helpers/classnamesjss';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
@@ -52,8 +51,4 @@ App.propTypes = {
   coinsData: PropTypes.array
 };
 
-const mapStateToProps = (state) => ({
-  coinsData: state.coins.coinsFront
-});
-
-export default connect(mapStateToProps)(withStyles(styleSheet)(App));
+export default withStyles(styleSheet)(App);

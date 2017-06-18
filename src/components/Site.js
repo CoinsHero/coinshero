@@ -9,7 +9,6 @@ import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
 import App from './App';
-import CircularIndeterminate from './CircularIndeterminate';
 
 import '../styles/components/_Site.scss';
 
@@ -31,28 +30,20 @@ class Site extends Component {
     }
   }
 
-  isInitialized() {
-    return this.props.locale.code;
-  }
-
   render() {
     const isRTL = this.props.locale.isRTL;
-    const component = this.isInitialized() ?
-      <App locale={this.props.locale}/> :
-      <div className={'Site__loader'}>
-        <CircularIndeterminate />
-      </div>;
 
     return (
       <MuiThemeProvider theme={getSiteTheme(isRTL)}>
-        {component}
+        <App coinsData={this.props.coinsData} locale={this.props.locale}/>
       </MuiThemeProvider>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  locale: state.site.locale
+  locale: state.site.locale,
+  coinsData: state.coins.coinsFront
 });
 
 Site.propTypes = {
@@ -60,7 +51,8 @@ Site.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }),
+  coinsData: PropTypes.array
 };
 
 export default connect(mapStateToProps, { setLocaleInStore })(Site);
