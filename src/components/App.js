@@ -1,27 +1,43 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
 import Services from '../services/services';
 
-import '../styles/components/_App.scss';
+const styleSheet = createStyleSheet('App', (theme) => ({
+  'root': {
+    direction: 'ltr'
+  },
+  'root--rtl': {
+    direction: 'rtl'
+  },
+  'root__container': {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: theme.spacing.unit * 2.5,
+    alignItems: 'center'
+  }
+}));
 
 class App extends Component {
   render() {
-    const cx = classnames(
-      'App',
-      {'App--rtl': this.props.locale.isRTL}
+    const classes = this.props.classes;
+    const cx = classnamesjss(classes,
+      'root',
+      {'root--rtl': this.props.locale.isRTL}
     );
 
-    // //////// MOCK DATA //////////
-    // Delete as part of https://github.com/kazazor/coinsmarket/issues/15
+    // ///////// MOCK DATA //////////
+    // TODO: Delete as part of https://github.com/kazazor/coinsmarket/issues/15
     const mockPairs = [];
     const USD = require('../models/currencies/USD').default;
+    const ValuePair = require('../models/ValuePair').default;
 
-    for (let index = 1; index < 100; index++) {
-      mockPairs.push({
+    for (let index = 1; index < 1000; index++) {
+      let pair = {
         rank: index,
         name: index % 2 === 0 ? `Test name - ${index}` : `שם בעברית קצת - ${index} עם!`,
         marketCap: (Math.random() * 9000000000) + 1,
@@ -30,16 +46,18 @@ class App extends Component {
         volume24h: (Math.random() * 90000000) + 1,
         percentChange24h: (Math.random() * 80) - 40,
         targetCurrency: new USD()
-      });
+      };
+
+      mockPairs.push(ValuePair.parse(pair, this.props.locale));
     }
 
-    // //////// MOCK DATA //////////
+    // ///////// MOCK DATA //////////
 
     return (
       <div className={cx}>
-        <NavigationHeader />
-        <div className='App__container'>
-          <CoinsTable valuePairs={mockPairs} locale={this.props.locale} />
+        <NavigationHeader locale={this.props.locale} />
+        <div className={classes['root__container']}>
+          <CoinsTable valuePairs={mockPairs} />
         </div>
         <Services />
       </div>
@@ -48,10 +66,11 @@ class App extends Component {
 }
 
 App.propTypes = {
+  classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
   })
 };
 
-export default App;
+export default withStyles(styleSheet)(App);

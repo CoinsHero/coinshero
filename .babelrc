@@ -4,7 +4,8 @@
     "babel-plugin-transform-class-properties",
     ["babel-plugin-transform-object-rest-spread", { "useBuiltIns": true }],
     "babel-plugin-syntax-dynamic-import",
-    "babel-plugin-lodash"
+    "babel-plugin-lodash",
+    "material-ui"
   ],
   "presets": [
     ["es2015", { "modules": false }],

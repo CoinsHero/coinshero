@@ -1,27 +1,43 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import AppBar from 'material-ui/AppBar';
+import {AppBar, Toolbar, Typography, IconButton} from 'material-ui';
+import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import EditorMonetizationOn from 'material-ui/svg-icons/editor/monetization-on';
+import MenuIcon from 'material-ui-icons/Menu';
+import MonetizationOn from 'material-ui-icons/MonetizationOn';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
+
+const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
+  root: {
+    color: theme.palette.getContrastText(theme.palette.primary[500]),
+    position: 'static'
+  }
+}));
 
 class NavigationHeader extends Component {
   render() {
     return (
-      <AppBar title={T.translate('NAVIGATION_HEADER_TITLE')} showMenuIconButton={false}>
-        <Tabs>
-          <Tab
-            icon={<EditorMonetizationOn />}
-            label={T.translate('TAB_MARKET')}
-          />
-        </Tabs>
+      <AppBar color="inherit" className={this.props.classes['root']}>
+        <Toolbar>
+          <IconButton color="contrast" aria-label="Menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
+          <Tabs onChange={() => {}} index={0}>
+            <Tab icon={<MonetizationOn />} label={T.translate('TAB_MARKET')} />
+          </Tabs>
+        </Toolbar>
       </AppBar>
     );
   }
 }
 
 NavigationHeader.propTypes = {
-  isRTL: PropTypes.bool
+  classes: PropTypes.object.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  }).isRequired
 };
 
-export default NavigationHeader;
+export default withStyles(styleSheet)(NavigationHeader);
