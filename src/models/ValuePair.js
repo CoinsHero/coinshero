@@ -89,6 +89,12 @@ export default class ValuePair {
     valuePair.displayAvailableSupply = toCurrencyFormat(coin.supply, locale.code);
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
     valuePair.targetCurrency = targetCurrency;
+    valuePair.baseCurrency = new Currency({
+      code: coin.short,
+      name: coin.long,
+      symbol: coin.short,
+      symbolLocation: Currency.SYMBOL_LOCATIONS.END
+    });
 
     return valuePair;
   }
