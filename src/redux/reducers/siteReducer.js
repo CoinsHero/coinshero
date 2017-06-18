@@ -11,8 +11,8 @@ const SiteReducer = (state = initialState, action) => {
   switch (action.type) {
   case Actions.SET_LOCALE:
     return state.merge({ locale: action.payload });
-  case Actions.SET_DARK_THEME:
-      return state.merge({ theme: THEMES[action.payload] ? THEMES[action.payload] : THEMES.dark });
+  case Actions.SET_THEME:
+    return state.merge({ theme: THEMES[action.payload] ? THEMES[action.payload] : THEMES.dark });
   default:
     return state;
   }
