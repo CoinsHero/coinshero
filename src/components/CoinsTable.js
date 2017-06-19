@@ -12,6 +12,8 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
 
+import CircularIndeterminate from './CircularIndeterminate';
+
 const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root': {
@@ -57,6 +59,7 @@ class CoinsTable extends Component {
 
   render() {
     const tableCellClass = this.props.classes['root__TableCell'];
+    const hasData = this.props.valuePairs.length > 0;
 
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     return (
@@ -74,9 +77,10 @@ class CoinsTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this._renderRows(this.props, tableCellClass)}
+            {hasData && this._renderRows(this.props, tableCellClass)}
           </TableBody>
         </Table>
+        {!hasData && <CircularIndeterminate />}
       </Paper>
     );
   }

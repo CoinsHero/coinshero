@@ -70,36 +70,37 @@ export default class ValuePair {
      */
     this.displayAvailableSupply = undefined;
     /**
-     * timestamp UTC
-     * @type {number}
+     * The UTC timestamp of the update of this coin
+     * @type {undefined}
      */
-    this.lastUpdate = undefined;
+    this.lastUpdateTimestamp = undefined;
   }
 
   static parse(coin, locale, index) {
     const valuePair = new ValuePair();
     const targetCurrency = new USD();
 
+    valuePair.percentChange24h = coin.cap24hrChange;
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
     valuePair.rank = index;
     valuePair.name = coin.long;
+    valuePair.marketCap = coin.mktcap;
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
+    valuePair.price = coin.price;
     valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, 8, locale.code);
+    valuePair.availableSupply = coin.supply;
     valuePair.displayAvailableSupply = toCurrencyFormat(coin.supply, locale.code);
+    valuePair.volume24h = coin.volume;
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
     valuePair.targetCurrency = targetCurrency;
+    valuePair.baseCurrency = new Currency({
+      code: coin.short,
+      name: coin.long,
+      symbol: coin.short,
+      symbolLocation: Currency.SYMBOL_LOCATIONS.END
+    });
+    valuePair.lastUpdateTimestamp = coin.time;
 
     return valuePair;
   }
-
-  // static parse(object, locale) {
-  //   const pair = Object.assign({}, object);
-  //   pair.displayPrice = Currency.adjustCurrencyValue(pair.targetCurrency, pair.price, 8, locale.code);
-  //   pair.displayMarketCap = Currency.adjustCurrencyValue(pair.targetCurrency, pair.marketCap, 0, locale.code);
-  //   pair.displayVolume24h = Currency.adjustCurrencyValue(pair.targetCurrency, pair.volume24h, 0, locale.code);
-  //   pair.displayAvailableSupply = toCurrencyFormat(pair.availableSupply, locale.code);
-  //   pair.displayPercentChange24h = `${round(pair.percentChange24h, 2)}%`;
-  //
-  //   return pair;
-  // }
 }
