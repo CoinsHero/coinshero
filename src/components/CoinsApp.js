@@ -40,7 +40,7 @@ class CoinsApp extends Component {
       <div className={cx}>
         <NavigationHeader onThemeClick={this._onThemeClick.bind(this)} locale={this.props.locale} />
         <div className={classes['root__container']}>
-          <CoinsTable on valuePairs={this.props.coinsData} />
+          <CoinsTable valuePairs={this.props.coinsData} />
         </div>
         <Services />
       </div>
