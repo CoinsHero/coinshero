@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import {connect} from 'react-redux';
 
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
@@ -42,6 +43,10 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  coinsData: state.coins.coinsFront
+});
+
 App.propTypes = {
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
@@ -51,4 +56,4 @@ App.propTypes = {
   coinsData: PropTypes.array
 };
 
-export default withStyles(styleSheet)(App);
+export default connect(mapStateToProps, null)(withStyles(styleSheet)(App));

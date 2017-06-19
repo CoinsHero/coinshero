@@ -42,8 +42,7 @@ class Site extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  locale: state.site.locale,
-  coinsData: state.coins.coinsFront
+  locale: state.site.locale
 });
 
 Site.propTypes = {
@@ -51,8 +50,7 @@ Site.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  }),
-  coinsData: PropTypes.array
+  })
 };
 
 export default connect(mapStateToProps, { setLocaleInStore })(Site);
