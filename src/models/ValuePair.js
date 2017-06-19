@@ -69,6 +69,11 @@ export default class ValuePair {
      * @type {string}
      */
     this.displayAvailableSupply = undefined;
+    /**
+     * The UTC timestamp of the update of this coin
+     * @type {undefined}
+     */
+    this.lastUpdateTimestamp = undefined;
   }
 
   static parse(coin, locale, index) {
@@ -94,6 +99,7 @@ export default class ValuePair {
       symbol: coin.short,
       symbolLocation: Currency.SYMBOL_LOCATIONS.END
     });
+    valuePair.lastUpdateTimestamp = coin.time;
 
     return valuePair;
   }
