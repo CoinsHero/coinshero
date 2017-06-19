@@ -8,7 +8,7 @@ import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
-import App from './App';
+import CoinsApp from './CoinsApp';
 
 import '../styles/components/_Site.scss';
 
@@ -35,7 +35,7 @@ class Site extends Component {
 
     return (
       <MuiThemeProvider theme={getSiteTheme(isRTL)}>
-        <App coinsData={this.props.coinsData} locale={this.props.locale}/>
+        <CoinsApp locale={this.props.locale}/>
       </MuiThemeProvider>
     );
   }

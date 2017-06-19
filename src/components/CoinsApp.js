@@ -8,7 +8,7 @@ import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
 import Services from '../services/services';
 
-const styleSheet = createStyleSheet('App', (theme) => ({
+const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
   'root': {
     direction: 'ltr'
   },
@@ -23,7 +23,7 @@ const styleSheet = createStyleSheet('App', (theme) => ({
   }
 }));
 
-class App extends Component {
+class CoinsApp extends Component {
   render() {
     const classes = this.props.classes;
     const cx = classnamesjss(classes,
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => ({
   coinsData: state.coins.coinsFront
 });
 
-App.propTypes = {
+CoinsApp.propTypes = {
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
@@ -56,4 +56,4 @@ App.propTypes = {
   coinsData: PropTypes.array
 };
 
-export default connect(mapStateToProps, null)(withStyles(styleSheet)(App));
+export default connect(mapStateToProps, null)(withStyles(styleSheet)(CoinsApp));
