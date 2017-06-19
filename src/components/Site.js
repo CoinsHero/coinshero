@@ -9,8 +9,7 @@ import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setThemeInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
-import App from './App';
-import CircularIndeterminate from './CircularIndeterminate';
+import CoinsApp from './CoinsApp';
 
 import '../styles/components/_Site.scss';
 
@@ -32,21 +31,12 @@ class Site extends Component {
     }
   }
 
-  isInitialized() {
-    return this.props.locale.code;
-  }
-
   render() {
     const isRTL = this.props.locale.isRTL;
-    const component = this.isInitialized() ?
-      <App locale={this.props.locale}/> :
-      <div className={'Site__loader'}>
-        <CircularIndeterminate />
-      </div>;
 
     return (
       <MuiThemeProvider theme={getSiteTheme({isRTL, theme: this.props.theme})}>
-        {component}
+        <CoinsApp locale={this.props.locale}/>
       </MuiThemeProvider>
     );
   }
