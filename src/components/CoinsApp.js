@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
 
+import {toggleThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
 import Services from '../services/services';
@@ -24,6 +25,10 @@ const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
 }));
 
 class CoinsApp extends Component {
+  _onThemeClick() {
+    this.props.toggleThemeInStore();
+  }
+
   render() {
     const classes = this.props.classes;
     const cx = classnamesjss(classes,
@@ -33,9 +38,9 @@ class CoinsApp extends Component {
 
     return (
       <div className={cx}>
-        <NavigationHeader locale={this.props.locale} />
+        <NavigationHeader onThemeClick={this._onThemeClick.bind(this)} locale={this.props.locale} />
         <div className={classes['root__container']}>
-          <CoinsTable valuePairs={this.props.coinsData} />
+          <CoinsTable on valuePairs={this.props.coinsData} />
         </div>
         <Services />
       </div>
@@ -44,16 +49,19 @@ class CoinsApp extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  coinsData: state.coins.coinsFront
+  coinsData: state.coins.coinsFront,
+  isDarkTheme: state.site.isDarkTheme
 });
 
 CoinsApp.propTypes = {
+  toggleThemeInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }),
-  coinsData: PropTypes.array
+  coinsData: PropTypes.array,
+  isDarkTheme: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps, null)(withStyles(styleSheet)(CoinsApp));
+export default connect(mapStateToProps, {toggleThemeInStore})(withStyles(styleSheet)(CoinsApp));

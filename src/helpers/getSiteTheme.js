@@ -12,7 +12,7 @@ const getSiteTheme = (options) => {
         A400: '#383838'
       },
       error: red,
-      type: options.theme
+      type: options.isDarkTheme ? 'dark' : 'light'
     })
   });
 

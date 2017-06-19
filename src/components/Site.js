@@ -4,9 +4,8 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import {THEMES} from '../helpers/consts';
 import getSiteTheme from '../helpers/getSiteTheme';
-import {setLocaleInStore, setThemeInStore} from '../redux/actions/bootstrapActions';
+import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
 import CoinsApp from './CoinsApp';
@@ -35,7 +34,7 @@ class Site extends Component {
     const isRTL = this.props.locale.isRTL;
 
     return (
-      <MuiThemeProvider theme={getSiteTheme({isRTL, theme: this.props.theme})}>
+      <MuiThemeProvider theme={getSiteTheme({isRTL, isDarkTheme: this.props.isDarkTheme})}>
         <CoinsApp locale={this.props.locale}/>
       </MuiThemeProvider>
     );
@@ -44,20 +43,16 @@ class Site extends Component {
 
 const mapStateToProps = (state) => ({
   locale: state.site.locale,
-  theme: state.site.theme
+  isDarkTheme: state.site.isDarkTheme
 });
 
 Site.propTypes = {
   setLocaleInStore: PropTypes.func.isRequired,
-  setThemeInStore: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf([
-    THEMES.dark,
-    THEMES.light
-  ]).isRequired,
+  isDarkTheme: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }).isRequired
 };
 
-export default connect(mapStateToProps, { setLocaleInStore, setThemeInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore })(Site);

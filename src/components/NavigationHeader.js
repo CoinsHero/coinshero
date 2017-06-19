@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import {AppBar, Toolbar, Typography, IconButton} from 'material-ui';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
-import MenuIcon from 'material-ui-icons/Menu';
+import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
-  root: {
+  'root': {
     color: theme.palette.getContrastText(theme.palette.primary[500]),
     position: 'static'
+  },
+  'root__tabs': {
+    display: 'flex',
+    flexGrow: 1
   }
 }));
 
@@ -19,13 +23,13 @@ class NavigationHeader extends Component {
     return (
       <AppBar color="inherit" className={this.props.classes['root']}>
         <Toolbar>
-          <IconButton color="contrast" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
           <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
-          <Tabs onChange={() => {}} index={0}>
+          <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
             <Tab icon={<MonetizationOn />} label={T.translate('TAB_MARKET')} />
           </Tabs>
+          <IconButton onClick={this.props.onThemeClick} color="contrast" aria-label="Toggle light/dark theme">
+            <LightbulbIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     );
@@ -33,6 +37,7 @@ class NavigationHeader extends Component {
 }
 
 NavigationHeader.propTypes = {
+  onThemeClick: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
