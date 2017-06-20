@@ -1,18 +1,18 @@
 import { createMuiTheme } from 'material-ui/styles';
-import { grey, pink, red } from 'material-ui/styles/colors';
+import { lightBlue, pink, red } from 'material-ui/styles/colors';
 import createPalette from 'material-ui/styles/palette';
 
-const getSiteTheme = (isRTL) => {
+const getSiteTheme = (options) => {
   const theme = createMuiTheme({
-    direction: isRTL ? 'rtl' : 'ltr',
+    direction: options.isRTL ? 'rtl' : 'ltr',
     palette: createPalette({
-      primary: pink,
+      primary: lightBlue,
       accent: {
-        ...grey,
-        A400: '#383838'
+        ...pink,
+        A400: '#484848'
       },
       error: red,
-      type: 'dark' // Switching the dark mode on is a single property value change.
+      type: options.isDarkTheme ? 'dark' : 'light'
     })
   });
 
