@@ -18,7 +18,8 @@ const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root': {
     width: '90%',
-    marginBottom: theme.spacing.unit * 2.5
+    marginBottom: theme.spacing.unit * 2.5,
+    overflowX: 'auto'
   },
   'root__TableCell': {
     textAlign: 'center'

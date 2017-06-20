@@ -11,7 +11,8 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
     'background-color': theme.palette.type === 'dark' ? theme.palette.accent['A400'] : theme.palette.primary[600],
     'color': theme.palette.getContrastText(theme.palette.type === 'dark' ? theme.palette.accent['A400'] : theme.palette.primary[500]),
-    'position': 'static'
+    'position': 'fixed',
+    'top': '0px'
   },
   'root__tabs': {
     display: 'flex',
