@@ -24,8 +24,8 @@ class Currency {
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {
-    round(value, decimalNumbers);
-    value = toCurrencyFormat(value, localeCode);
+    value = round(value, decimalNumbers);
+    value = toCurrencyFormat(value, localeCode, decimalNumbers);
 
     return currency.symbolLocation === Currency.SYMBOL_LOCATIONS.START ?
       `${currency.symbol}${value}` :

@@ -6,6 +6,6 @@ export const round = (value, decimalNumbers = 2) => {
   }
 };
 
-export const toCurrencyFormat = (value, localeCode = 'en') => {
-  return Number(value).toLocaleString(localeCode);
+export const toCurrencyFormat = (value, localeCode = 'en', decimalNumbers = 2) => {
+  return Number(value).toLocaleString(localeCode, {minimumFractionDigits: decimalNumbers});
 };
