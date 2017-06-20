@@ -20,7 +20,7 @@ const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
   'root__container': {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: theme.spacing.unit * 2.5,
+    marginTop: theme.spacing.unit * 10,
     alignItems: 'center'
   }
 }));
