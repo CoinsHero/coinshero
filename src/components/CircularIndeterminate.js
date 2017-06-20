@@ -10,7 +10,7 @@ const styleSheet = createStyleSheet('CircularIndeterminate', (theme) => ({
   }
 }));
 
-function CircularIndeterminate(props) {
+const CircularIndeterminate = (props) => {
   const classes = props.classes;
 
   return (
@@ -18,7 +18,7 @@ function CircularIndeterminate(props) {
       <CircularProgress size={props.size} />
     </div>
   );
-}
+};
 
 CircularIndeterminate.propTypes = {
   classes: PropTypes.object.isRequired,
