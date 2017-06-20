@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
 
-import {toggleThemeInStore} from '../redux/actions/bootstrapActions';
+import localStorageSettings from '../helpers/localStorageSettings';
+import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
 import Services from '../services/services';
@@ -26,7 +27,8 @@ const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
 
 class CoinsApp extends Component {
   _onThemeClick() {
-    this.props.toggleThemeInStore();
+    this.props.setDarkThemeInStore(!this.props.isDarkTheme);
+    localStorageSettings.setItem(localStorageSettings.KEYS.isDarkTheme, !this.props.isDarkTheme);
   }
 
   render() {
@@ -54,7 +56,7 @@ const mapStateToProps = (state) => ({
 });
 
 CoinsApp.propTypes = {
-  toggleThemeInStore: PropTypes.func.isRequired,
+  setDarkThemeInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
@@ -64,4 +66,4 @@ CoinsApp.propTypes = {
   isDarkTheme: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps, {toggleThemeInStore})(withStyles(styleSheet)(CoinsApp));
+export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(CoinsApp));

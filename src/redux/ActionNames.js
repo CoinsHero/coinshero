@@ -1,6 +1,6 @@
 // Bootstrap
 export const SET_LOCALE = 'SET_LOCALE';
-export const TOGGLE_THEME = 'TOGGLE_THEME';
+export const SET_DARK_THEME = 'SET_DARK_THEME';
 
 // Coins API
 export const FETCH_COINS_FRONT = 'FETCH_COINS_FRONT';

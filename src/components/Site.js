@@ -4,8 +4,9 @@ import {connect} from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
+import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';
-import {setLocaleInStore} from '../redux/actions/bootstrapActions';
+import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
 import CoinsApp from './CoinsApp';
@@ -20,6 +21,11 @@ class Site extends Component {
     // Setting the locale of the user
     const language = setLanguage(languages.he.code);
     props.setLocaleInStore(language);
+
+    const isDarkTheme = localStorageSettings.getItem(localStorageSettings.KEYS.isDarkTheme, undefined);
+    if (isDarkTheme !== undefined) {
+      props.setDarkThemeInStore(isDarkTheme);
+    }
 
     try {
       // Needed for onTouchTap
@@ -48,6 +54,7 @@ const mapStateToProps = (state) => ({
 
 Site.propTypes = {
   setLocaleInStore: PropTypes.func.isRequired,
+  setDarkThemeInStore: PropTypes.func.isRequired,
   isDarkTheme: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
@@ -55,4 +62,4 @@ Site.propTypes = {
   }).isRequired
 };
 
-export default connect(mapStateToProps, { setLocaleInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore })(Site);
