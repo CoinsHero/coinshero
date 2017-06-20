@@ -9,8 +9,9 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
-    color: theme.palette.getContrastText(theme.palette.primary[500]),
-    position: 'static'
+    'background-color': theme.palette.type === 'dark' ? theme.palette.accent['A400'] : theme.palette.primary[600],
+    'color': theme.palette.getContrastText(theme.palette.type === 'dark' ? theme.palette.accent['A400'] : theme.palette.primary[500]),
+    'position': 'static'
   },
   'root__tabs': {
     display: 'flex',
@@ -21,13 +22,13 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
 class NavigationHeader extends Component {
   render() {
     return (
-      <AppBar color="inherit" className={this.props.classes['root']}>
+      <AppBar className={this.props.classes['root']}>
         <Toolbar>
           <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
           <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
-            <Tab icon={<MonetizationOn />} label={T.translate('TAB_MARKET')} />
+            <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          <IconButton onClick={this.props.onThemeClick} color="contrast" aria-label="Toggle light/dark theme">
+          <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
           </IconButton>
         </Toolbar>

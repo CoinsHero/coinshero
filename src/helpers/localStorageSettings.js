@@ -26,7 +26,7 @@ const setItem = (key, value) => {
       const values = getMainObject();
       values[key] = value;
       localStorage.setItem(MAIN_KEY, JSON.stringify(values));
-    } catch(e) {
+    } catch (e) {
       console.warn('localStorage: Oops.. Something went wrong during the operation');
     }
   }
@@ -39,7 +39,7 @@ const getItem = (key, defaultValue) => {
     try {
       const values = getMainObject();
       value = values[key];
-    } catch(e) {
+    } catch (e) {
       console.warn('localStorage: Oops.. Something went wrong during the operation');
     }
   }
