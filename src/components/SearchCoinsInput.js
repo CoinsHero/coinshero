@@ -29,7 +29,7 @@ const SearchCoinsInput = (props) => {
 
   const debounceOnChange = debounce(props.onChange, DEBOUNCE_TIMEOUT);
   return (
-    // TODO: Take care of search icon colors
+    // TODO: Take care of search icon & text input colors between themes
     <div className={props.classes.root}>
       <SearchIcon className={cx} aria-label="Search for coins" />
       <Input type="search" onChange={ (e) => debounceOnChange(e.target.value) } placeholder={T.translate('SEARCH_COINS_PLACEHOLDER')} />
