@@ -12,6 +12,11 @@ class Currency {
      */
     this.name = options.name;
     /**
+     * The name of the currency to display to the user
+     * @type {undefined}
+     */
+    this.displayName = options.name && options.symbol ? `${options.name} (${options.symbol})` : undefined;
+    /**
      * A symbol (like $) to show next to the currency value
      * @type {string}
      */

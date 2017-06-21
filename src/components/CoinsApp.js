@@ -2,12 +2,10 @@ import React, {Component} from 'react';
 import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-import { Toolbar } from 'material-ui';
 import {connect} from 'react-redux';
 
 import localStorageSettings from '../helpers/localStorageSettings';
 import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
-import SearchCoinsInput from './SearchCoinsInput';
 import NavigationHeader from './NavigationHeader';
 import CoinsTable from './CoinsTable';
 import Services from '../services/services';
@@ -28,10 +26,6 @@ const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
     flexDirection: 'column',
     marginTop: theme.spacing.unit * 11,
     alignItems: 'center'
-  },
-  'root__container__Toolbar': {
-    alignSelf: 'flex-start',
-    padding: 0
   }
 }));
 
@@ -54,9 +48,6 @@ class CoinsApp extends Component {
       <div className={cx}>
         <NavigationHeader onThemeClick={this._onThemeClick.bind(this)} locale={this.props.locale} />
         <div className={classes.root__container}>
-          <Toolbar className={classes.root__container__Toolbar}>
-            <SearchCoinsInput isRTL={this.props.locale.isRTL} onChange={(value) => console.log(value)} />
-          </Toolbar>
           <CoinsTable valuePairs={this.props.coinsData} />
         </div>
         <Services />

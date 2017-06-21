@@ -7,6 +7,7 @@ import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
 import classnamesjss from '../helpers/classnamesjss';
+import SearchCoinsInput from './SearchCoinsInput';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
@@ -39,6 +40,7 @@ class NavigationHeader extends Component {
           <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
+          <SearchCoinsInput isRTL={this.props.locale.isRTL} onChange={(value) => console.log(value)} />
           <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
           </IconButton>

@@ -24,6 +24,9 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__TableCell': {
     textAlign: 'center'
   },
+  'root__TableBody__TableCell': {
+    direction: 'ltr'
+  },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
     display: 'inline-block',
@@ -35,22 +38,27 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
 }));
 
 class CoinsTable extends Component {
-  _renderRows(props, tableCellClass = {}) {
+  _renderRows(props) {
     return props.valuePairs.map((pair) => {
       const percentChange24hClasses = classnamesjss(props.classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
+      const tableBodyCellClass = classnamesjss(props.classes,
+        'root__TableCell',
+        'root__TableBody__TableCell'
+      );
+
       return (
         <TableRow hover={props.showRowHover} key={pair.rank}>
-          <TableCell className={tableCellClass}>{pair.rank}</TableCell>
-          <TableCell className={tableCellClass}>{pair.name}</TableCell>
-          <TableCell className={tableCellClass}>{pair.displayMarketCap}</TableCell>
-          <TableCell className={tableCellClass}>{pair.displayPrice}</TableCell>
-          <TableCell className={tableCellClass}>{pair.displayAvailableSupply}</TableCell>
-          <TableCell className={tableCellClass}>{pair.displayVolume24h}</TableCell>
-          <TableCell className={tableCellClass}>
+          <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.baseCurrency.displayName}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
+          <TableCell className={tableBodyCellClass}>
             <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
           </TableCell>
         </TableRow>
@@ -59,7 +67,7 @@ class CoinsTable extends Component {
   }
 
   render() {
-    const tableCellClass = this.props.classes['root__TableCell'];
+    const tableHeaderCellClass = this.props.classes['root__TableCell'];
     const hasData = this.props.valuePairs.length > 0;
 
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
@@ -68,17 +76,17 @@ class CoinsTable extends Component {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={tableCellClass}>#</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_NAME')}</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_PRICE')}</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableCell>
-              <TableCell className={tableCellClass}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>#</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_NAME')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_PRICE')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableCell>
+              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {hasData && this._renderRows(this.props, tableCellClass)}
+            {hasData && this._renderRows(this.props)}
           </TableBody>
         </Table>
         {!hasData && <CircularIndeterminate />}
