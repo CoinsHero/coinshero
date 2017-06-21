@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Input} from 'material-ui';
+import {TextField} from 'material-ui';
 import T from 'i18n-react';
 import SearchIcon from 'material-ui-icons/Search';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
@@ -32,7 +32,11 @@ const SearchCoinsInput = (props) => {
     // TODO: Take care of search icon & text input colors between themes
     <div className={props.classes.root}>
       <SearchIcon className={cx} aria-label="Search for coins" />
-      <Input type="search" onChange={ (e) => debounceOnChange(e.target.value) } placeholder={T.translate('SEARCH_COINS_PLACEHOLDER')} />
+      <TextField
+        onChange={ (e) => debounceOnChange(e.target.value) }
+        placeholder={T.translate('SEARCH_COINS_PLACEHOLDER')}
+        type="search"
+      />
     </div>
   );
 };
