@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Input} from 'material-ui';
 import T from 'i18n-react';
@@ -25,10 +25,11 @@ const SearchCoinsInput = (props) => {
   const cx = classnamesjss(props.classes,
     {'root__SearchIcon': !props.isRTL},
     {'root__SearchIcon--rtl': props.isRTL}
-    );
+  );
 
   const debounceOnChange = debounce(props.onChange, DEBOUNCE_TIMEOUT);
   return (
+    // TODO: Take care of search icon colors
     <div className={props.classes.root}>
       <SearchIcon className={cx} aria-label="Search for coins" />
       <Input type="search" onChange={ (e) => debounceOnChange(e.target.value) } placeholder={T.translate('SEARCH_COINS_PLACEHOLDER')} />

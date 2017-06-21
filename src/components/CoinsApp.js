@@ -48,6 +48,8 @@ class CoinsApp extends Component {
       {'root--rtl': this.props.locale.isRTL}
     );
 
+    // TODO: Send something to the search function & filter the table
+
     return (
       <div className={cx}>
         <NavigationHeader onThemeClick={this._onThemeClick.bind(this)} locale={this.props.locale} />
