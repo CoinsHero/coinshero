@@ -19,12 +19,7 @@ class CoinsApiService extends React.Component {
       // Only fetch the data if we're not in the middle of fetching it
       // This cold be due to low network connectivity or anything like that
       if (!this.props.isUpdatingData) {
-        // Takes care of situations where the user got offline and this function throws an Error
-        try {
-          this.fetchCoinsFront();
-        } catch (e) {
-          console.warn(e);
-        }
+        this.fetchCoinsFront();
       }
     }, config.CONSTS.COINS_API_INTERVAL);
   }
