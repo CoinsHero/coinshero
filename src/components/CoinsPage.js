@@ -51,7 +51,7 @@ class CoinsPage extends Component {
 
     return (
       <div className={classes.root}>
-        <CoinsTable loading={this.props.valuePairs.length === 0} valuePairs={this.state.displayedValuePairs} />
+        <CoinsTable showLoading={this.props.valuePairs.length === 0} valuePairs={this.state.displayedValuePairs} />
       </div>
     );
   }

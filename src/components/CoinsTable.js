@@ -50,7 +50,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
 
 class CoinsTable extends Component {
   _renderEmptyState() {
-    const showEmptyState = !this.props.loading && this.props.valuePairs.length === 0;
+    const showEmptyState = !this.props.showLoading && this.props.valuePairs.length === 0;
     return showEmptyState ?
       <div className={this.props.classes['root__empty-state']}>
         <InfoOutline className={this.props.classes['root__empty-state__InfoIcon']} />
@@ -106,10 +106,10 @@ class CoinsTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {!this.props.loading && this._renderRows(this.props)}
+            {!this.props.showLoading && this._renderRows(this.props)}
           </TableBody>
         </Table>
-        {this.props.loading && <CircularIndeterminate />}
+        {this.props.showLoading && <CircularIndeterminate />}
         {this._renderEmptyState()}
       </Paper>
     );
@@ -120,7 +120,7 @@ CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
+  showLoading: PropTypes.bool.isRequired
 };
 
 CoinsTable.defaultProps = {

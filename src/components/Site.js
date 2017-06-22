@@ -19,7 +19,7 @@ class Site extends Component {
 
     // TODO: Take that from the URL / where ever is needed to handle it + LTR/RTL - https://github.com/kazazor/coinsmarket/issues/8
     // Setting the locale of the user
-    const language = setLanguage(languages.en.code);
+    const language = setLanguage(languages.he.code);
     props.setLocaleInStore(language);
 
     const isDarkTheme = localStorageSettings.getItem(localStorageSettings.KEYS.isDarkTheme, undefined);

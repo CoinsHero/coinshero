@@ -6,7 +6,7 @@ import SearchIcon from 'material-ui-icons/Search';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import classnamesjss from '../helpers/classnamesjss';
 import {debounce} from 'lodash';
-import {CLIENT_SIDE_DEBOUNCE_TIMEOUT} from '../helpers/consts';
+import {CLIENT_SIDE_DEBOUNCE_DELAY} from '../helpers/consts';
 
 const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
   'root': {
@@ -27,7 +27,7 @@ const SearchCoinsInput = (props) => {
     {'root__SearchIcon--rtl': props.isRTL}
   );
 
-  const debounceOnChange = debounce(props.onChange, CLIENT_SIDE_DEBOUNCE_TIMEOUT);
+  const debounceOnChange = debounce(props.onChange, CLIENT_SIDE_DEBOUNCE_DELAY);
   return (
     // TODO: Take care of search icon & text input colors between themes
     <div className={props.classes.root}>

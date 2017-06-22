@@ -27,10 +27,6 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
 }));
 
 class NavigationHeader extends Component {
-  componentDidUpdate() {
-    console.log('NavigationHeader');
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.showSearch !== nextProps.showSearch ||
       this.props.disableSearch !== nextProps.disableSearch ||
