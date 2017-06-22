@@ -31,11 +31,11 @@ class NavigationHeader extends Component {
     console.log('NavigationHeader');
   }
 
-  shouldComponentUpdate(nextProps, nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     return this.props.showSearch !== nextProps.showSearch ||
       this.props.disableSearch !== nextProps.disableSearch ||
       this.props.locale.code !== nextProps.locale.code ||
-      this.props.theme !== nextProps.theme
+      this.props.theme !== nextProps.theme;
   }
 
   render() {
@@ -51,7 +51,9 @@ class NavigationHeader extends Component {
           <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          {this.props.showSearch && <SearchCoinsInput disabled={this.props.disableSearch} isRTL={this.props.locale.isRTL} onChange={this.props.onSearchChange} />}
+          {this.props.showSearch && <SearchCoinsInput disabled={this.props.disableSearch}
+            isRTL={this.props.locale.isRTL}
+            onChange={this.props.onSearchChange} />}
           <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
           </IconButton>

@@ -56,7 +56,11 @@ class MarketApp extends Component {
 
     return (
       <div className={cx}>
-        <NavigationHeader disableSearch={this.props.coinsData.length === 0} showSearch={true} onThemeClick={this._onThemeClick.bind(this)} onSearchChange={this._onSearchChange.bind(this)} locale={this.props.locale} />
+        <NavigationHeader disableSearch={this.props.coinsData.length === 0}
+          showSearch={true}
+          onThemeClick={this._onThemeClick.bind(this)}
+          onSearchChange={this._onSearchChange.bind(this)}
+          locale={this.props.locale} />
         <div className={classes.root__container}>
           <CoinsPage dataManipulations={{searchQuery: this.state.searchQuery}} valuePairs={this.props.coinsData} />
         </div>

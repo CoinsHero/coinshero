@@ -11,6 +11,7 @@ import Paper from 'material-ui/Paper';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
+import InfoOutline from 'material-ui-icons/InfoOutline';
 
 import CircularIndeterminate from './CircularIndeterminate';
 
@@ -18,6 +19,18 @@ const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root': {
     overflowX: 'auto'
+  },
+  'root__empty-state': {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: theme.palette.error[400],
+    marginBottom: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 2
+  },
+  'root__empty-state__InfoIcon': {
+    marginBottom: theme.spacing.unit / 2
   },
   'root__TableCell': {
     textAlign: 'center'
@@ -36,6 +49,16 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
 }));
 
 class CoinsTable extends Component {
+  _renderEmptyState() {
+    const showEmptyState = !this.props.loading && this.props.valuePairs.length === 0;
+    return showEmptyState ?
+      <div className={this.props.classes['root__empty-state']}>
+        <InfoOutline className={this.props.classes['root__empty-state__InfoIcon']} />
+        {T.translate('COINS_TABLE_EMPTY_STATE')}
+      </div> :
+      null;
+  }
+
   _renderRows(props) {
     return props.valuePairs.map((pair) => {
       const percentChange24hClasses = classnamesjss(props.classes,
@@ -66,7 +89,6 @@ class CoinsTable extends Component {
 
   render() {
     const tableHeaderCellClass = this.props.classes['root__TableCell'];
-    const hasData = this.props.valuePairs.length > 0;
 
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     return (
@@ -84,10 +106,11 @@ class CoinsTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {hasData && this._renderRows(this.props)}
+            {!this.props.loading && this._renderRows(this.props)}
           </TableBody>
         </Table>
-        {!hasData && <CircularIndeterminate />}
+        {this.props.loading && <CircularIndeterminate />}
+        {this._renderEmptyState()}
       </Paper>
     );
   }
@@ -96,7 +119,8 @@ class CoinsTable extends Component {
 CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 CoinsTable.defaultProps = {

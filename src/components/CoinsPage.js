@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+
 import CoinsTable from './CoinsTable';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
@@ -11,35 +12,38 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
 }));
 
 class CoinsPage extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
-      displayedValuePairs: []
+      displayedValuePairs: props.valuePairs
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('CoinsPage');
+    let displayedValuePairs;
+
     if (nextProps.dataManipulations) {
-      let displayedValuePairs = this.state.displayedValuePairs;
+      displayedValuePairs = this.state.displayedValuePairs;
       const searchQuery = nextProps.dataManipulations.searchQuery;
 
-      if (searchQuery === '' && this.props.valuePairs.length !== this.state.displayedValuePairs.length) {
+      if (searchQuery === '' && nextProps.valuePairs.length !== this.state.displayedValuePairs.length) {
         // First initialization of the component and there isn't any query string to filter according to
-        displayedValuePairs = this.props.valuePairs;
+        displayedValuePairs = nextProps.valuePairs;
       } else if (this.props.dataManipulations.searchQuery !== searchQuery && searchQuery === '') {
         // In case we deleted the search query there is no need to run over the list. Just show it all
-        displayedValuePairs = this.props.valuePairs;
+        displayedValuePairs = nextProps.valuePairs;
       } else if (this.props.dataManipulations.searchQuery !== searchQuery) {
         // Search query has been entered by the user
-        displayedValuePairs = this.props.valuePairs.filter((pair) => {
+        displayedValuePairs = nextProps.valuePairs.filter((pair) => {
           return pair.baseCurrency.displayName.match(new RegExp(searchQuery, 'i'));
         });
       }
-
-      this.setState({displayedValuePairs: displayedValuePairs});
+    } else {
+      displayedValuePairs = nextProps.valuePairs;
     }
+
+    this.setState({displayedValuePairs: displayedValuePairs});
   }
 
   render() {
@@ -47,7 +51,7 @@ class CoinsPage extends Component {
 
     return (
       <div className={classes.root}>
-        <CoinsTable valuePairs={this.state.displayedValuePairs} />
+        <CoinsTable loading={this.props.valuePairs.length === 0} valuePairs={this.state.displayedValuePairs} />
       </div>
     );
   }
