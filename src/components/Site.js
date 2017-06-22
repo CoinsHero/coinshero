@@ -9,7 +9,7 @@ import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setLanguage, languages} from '../i18n';
 
-import CoinsApp from './CoinsApp';
+import MarketApp from './MarketApp';
 
 import '../styles/components/_Site.scss';
 
@@ -41,7 +41,7 @@ class Site extends Component {
 
     return (
       <MuiThemeProvider theme={getSiteTheme({isRTL, isDarkTheme: this.props.isDarkTheme})}>
-        <CoinsApp locale={this.props.locale}/>
+        <MarketApp locale={this.props.locale}/>
       </MuiThemeProvider>
     );
   }

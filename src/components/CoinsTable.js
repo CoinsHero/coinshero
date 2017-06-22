@@ -17,8 +17,6 @@ import CircularIndeterminate from './CircularIndeterminate';
 const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root': {
-    width: '100%',
-    marginBottom: theme.spacing.unit * 2.5,
     overflowX: 'auto'
   },
   'root__TableCell': {

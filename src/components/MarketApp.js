@@ -7,10 +7,10 @@ import {connect} from 'react-redux';
 import localStorageSettings from '../helpers/localStorageSettings';
 import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
-import CoinsTable from './CoinsTable';
+import CoinsPage from './CoinsPage';
 import Services from '../services/services';
 
-const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
+const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   'root': {
     direction: 'ltr',
     display: 'flex',
@@ -29,10 +29,22 @@ const styleSheet = createStyleSheet('CoinsApp', (theme) => ({
   }
 }));
 
-class CoinsApp extends Component {
+class MarketApp extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      searchQuery: ''
+    };
+  }
+
   _onThemeClick() {
     this.props.setDarkThemeInStore(!this.props.isDarkTheme);
     localStorageSettings.setItem(localStorageSettings.KEYS.isDarkTheme, !this.props.isDarkTheme);
+  }
+
+  _onSearchChange(searchQuery) {
+    this.setState({searchQuery});
   }
 
   render() {
@@ -42,13 +54,11 @@ class CoinsApp extends Component {
       {'root--rtl': this.props.locale.isRTL}
     );
 
-    // TODO: Send something to the search function & filter the table
-
     return (
       <div className={cx}>
-        <NavigationHeader onThemeClick={this._onThemeClick.bind(this)} locale={this.props.locale} />
+        <NavigationHeader disableSearch={this.props.coinsData.length === 0} showSearch={true} onThemeClick={this._onThemeClick.bind(this)} onSearchChange={this._onSearchChange.bind(this)} locale={this.props.locale} />
         <div className={classes.root__container}>
-          <CoinsTable valuePairs={this.props.coinsData} />
+          <CoinsPage dataManipulations={{searchQuery: this.state.searchQuery}} valuePairs={this.props.coinsData} />
         </div>
         <Services />
       </div>
@@ -57,11 +67,11 @@ class CoinsApp extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  coinsData: state.coins.coinsFront,
+  coinsData: state.coins.coinsData,
   isDarkTheme: state.site.isDarkTheme
 });
 
-CoinsApp.propTypes = {
+MarketApp.propTypes = {
   setDarkThemeInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
@@ -72,4 +82,4 @@ CoinsApp.propTypes = {
   isDarkTheme: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(CoinsApp));
+export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(MarketApp));

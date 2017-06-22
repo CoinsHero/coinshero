@@ -1,1 +1,1 @@
-export const DEBOUNCE_TIMEOUT = 175;
+export const CLIENT_SIDE_DEBOUNCE_TIMEOUT = 225;

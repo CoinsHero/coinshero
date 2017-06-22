@@ -27,6 +27,17 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
 }));
 
 class NavigationHeader extends Component {
+  componentDidUpdate() {
+    console.log('NavigationHeader');
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    return this.props.showSearch !== nextProps.showSearch ||
+      this.props.disableSearch !== nextProps.disableSearch ||
+      this.props.locale.code !== nextProps.locale.code ||
+      this.props.theme !== nextProps.theme
+  }
+
   render() {
     const cx = classnamesjss(this.props.classes,
       'root',
@@ -40,7 +51,7 @@ class NavigationHeader extends Component {
           <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          <SearchCoinsInput isRTL={this.props.locale.isRTL} onChange={(value) => console.log(value)} />
+          {this.props.showSearch && <SearchCoinsInput disabled={this.props.disableSearch} isRTL={this.props.locale.isRTL} onChange={this.props.onSearchChange} />}
           <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
           </IconButton>
@@ -51,6 +62,9 @@ class NavigationHeader extends Component {
 }
 
 NavigationHeader.propTypes = {
+  disableSearch: PropTypes.bool,
+  showSearch: PropTypes.bool,
+  onSearchChange: PropTypes.func.isRequired,
   onThemeClick: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
