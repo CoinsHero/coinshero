@@ -15,7 +15,18 @@ class CoinsApiService extends React.Component {
     if (this.props.locale) {
       this.fetchCoinsFront();
     }
-    this.fetchCoinsFrontInterval = setInterval(() => this.fetchCoinsFront(), config.CONSTS.COINS_API_INTERVAL);
+    this.fetchCoinsFrontInterval = setInterval(() => {
+      // Only fetch the data if we're not in the middle of fetching it
+      // This cold be due to low network connectivity or anything like that
+      if (!this.props.isUpdatingData) {
+        // Takes care of situations where the user got offline and this function throws an Error
+        try {
+          this.fetchCoinsFront();
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+    }, config.CONSTS.COINS_API_INTERVAL);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,6 +52,7 @@ class CoinsApiService extends React.Component {
 
 CoinsApiService.propTypes = {
   fetchCoinsFront: PropTypes.func.isRequired,
+  isUpdatingData: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
@@ -48,7 +60,8 @@ CoinsApiService.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  locale: state.site.locale
+  locale: state.site.locale,
+  isUpdatingData: state.coins.isUpdatingData
 });
 
 export default connect(mapStateToProps, { fetchCoinsFront })(CoinsApiService);
