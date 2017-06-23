@@ -4,7 +4,6 @@ import {withStyles, createStyleSheet} from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import T from 'i18n-react';
-import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
   'root': {
@@ -52,7 +51,6 @@ class LanguageMenu extends Component {
           selected={index === this.state.selectedIndex}
           onClick={(event) => this._handleMenuItemClick.call(this, event, index)}>
           <div className={this.props.classes.MenuItem__container}>
-            <LightbulbIcon />
             {T.translate(locale.translationKey)}
           </div>
         </MenuItem>
@@ -64,9 +62,13 @@ class LanguageMenu extends Component {
     this.setState({selectedIndex: nextProps.selectedIndex});
   }
 
-  // TODO: Add should component update logic
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.selectedIndex !== nextState.selectedIndex ||
+        this.state.open !== nextState.open;
+  }
 
   render() {
+    console.log('LanguageMenu');
     const ariaId = 'switch-languages';
 
     return (
