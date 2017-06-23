@@ -7,10 +7,10 @@ import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
-  root: {
+  'root': {
     direction: 'ltr'
   },
-  root__Button: {
+  'root__Button': {
     textTransform: 'none'
   },
   'MenuItem__container': {
@@ -30,24 +30,27 @@ class LanguageMenu extends Component {
     };
   }
 
-  _handleClick = (event) => {
+  _handleClick(event) {
     this.setState({ open: true, anchorEl: event.currentTarget});
-  };
+  }
 
   _handleMenuItemClick(event, index) {
     // TODO: Dispatch redux set locale change
     this.setState({ open: false, selectedIndex: index });
   }
 
-  _handleRequestClose = () => {
+  _handleRequestClose() {
     this.setState({ open: false });
-  };
+  }
 
   _renderMenuItems() {
     // TODO: Put icon here!!!!
     return this.props.locales.map((locale, index) => {
       return (
-        <MenuItem key={locale.code} selected={index === this.state.selectedIndex} onClick={(event) => this._handleMenuItemClick(event, index)}>
+        <MenuItem
+          key={locale.code}
+          selected={index === this.state.selectedIndex}
+          onClick={(event) => this._handleMenuItemClick.call(this, event, index)}>
           <div className={this.props.classes.MenuItem__container}>
             <LightbulbIcon />
             {T.translate(locale.translationKey)}
@@ -68,10 +71,10 @@ class LanguageMenu extends Component {
 
     return (
       <div>
-        <Button className={this.props.classes.root__Button} aria-owns={ariaId} aria-haspopup="true" onClick={this._handleClick}>
+        <Button className={this.props.classes.root__Button} aria-owns={ariaId} aria-haspopup="true" onClick={this._handleClick.bind(this)}>
           {T.translate(this.props.locales[this.state.selectedIndex].translationKey)}
         </Button>
-        <Menu id={ariaId} anchorEl={this.state.anchorEl} open={this.state.open} onRequestClose={this._handleRequestClose}>
+        <Menu id={ariaId} anchorEl={this.state.anchorEl} open={this.state.open} onRequestClose={this._handleRequestClose.bind(this)}>
           {this._renderMenuItems()}
         </Menu>
       </div>

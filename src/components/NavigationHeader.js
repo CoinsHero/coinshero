@@ -6,7 +6,6 @@ import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
-
 import {languages} from '../i18n';
 import classnamesjss from '../helpers/classnamesjss';
 

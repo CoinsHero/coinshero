@@ -21,29 +21,20 @@ class CoinsPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let displayedValuePairs;
+    let displayedValuePairs = nextProps.valuePairs;
 
     if (nextProps.dataManipulations) {
-      displayedValuePairs = this.state.displayedValuePairs;
-      const searchQuery = nextProps.dataManipulations.searchQuery;
+      const nextSearchQuery = nextProps.dataManipulations.searchQuery;
 
-      if (searchQuery === '' && nextProps.valuePairs.length !== this.state.displayedValuePairs.length) {
-        // First initialization of the component and there isn't any query string to filter according to
-        displayedValuePairs = nextProps.valuePairs;
-      } else if (this.props.dataManipulations.searchQuery !== searchQuery && searchQuery === '') {
-        // In case we deleted the search query there is no need to run over the list. Just show it all
-        displayedValuePairs = nextProps.valuePairs;
-      } else if (this.props.dataManipulations.searchQuery !== searchQuery) {
+      if (nextSearchQuery !== '') {
         // Search query has been entered by the user
         displayedValuePairs = nextProps.valuePairs.filter((pair) => {
-          return pair.baseCurrency.displayName.match(new RegExp(searchQuery, 'i'));
+          return pair.baseCurrency.displayName.match(new RegExp(nextSearchQuery, 'i'));
         });
       }
-    } else {
-      displayedValuePairs = nextProps.valuePairs;
     }
 
-    this.setState({displayedValuePairs: displayedValuePairs});
+    this.setState({displayedValuePairs});
   }
 
   render() {
