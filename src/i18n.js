@@ -5,17 +5,20 @@ import T from 'i18n-react';
 // runtime. This will have to be something to improve on server side rendering if we'll choose to do so.
 import * as englishUSTexts from './locale/en.yml';
 import * as hebrewTexts from './locale/he.yml';
+import * as globalTexts from './locale/global.yml';
 
 let currentLang;
 export const DEFAULT_LANGUAGE = {
-  code: 'en'
+  code: 'en',
+  translationKey: 'LANGUAGE_ENGLISH'
 };
 
 export const languages = {
   [DEFAULT_LANGUAGE.code]: DEFAULT_LANGUAGE,
   'he': {
     code: 'he',
-    isRTL: true
+    isRTL: true,
+    translationKey: 'LANGUAGE_HEBREW'
   }
 };
 
@@ -33,7 +36,7 @@ export const setLanguage = (lang) => {
   }
 
   currentLang = languages[lang];
-  T.setTexts(Object.assign({}, languagesTexts[DEFAULT_LANGUAGE.code], languagesTexts[currentLang.code]));
+  T.setTexts(Object.assign({}, globalTexts, languagesTexts[DEFAULT_LANGUAGE.code], languagesTexts[currentLang.code]));
 
   return languages[lang];
 };
