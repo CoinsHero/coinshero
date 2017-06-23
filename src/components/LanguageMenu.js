@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
-import Button from 'material-ui/Button';
+import {Button} from 'material-ui';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import T from 'i18n-react';
+import {setLanguage} from '../i18n';
+
+import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
   'root': {
@@ -34,7 +38,14 @@ class LanguageMenu extends Component {
   }
 
   _handleMenuItemClick(event, index) {
-    // TODO: Dispatch redux set locale change
+    const currentLocaleCode = this.props.locales[this.state.selectedIndex].code;
+    const newLocale = this.props.locales[index];
+
+    if (currentLocaleCode !== newLocale.code) {
+      setLanguage(newLocale.code);
+      this.props.setLocaleInStore(newLocale);
+    }
+
     this.setState({ open: false, selectedIndex: index });
   }
 
@@ -64,11 +75,11 @@ class LanguageMenu extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.selectedIndex !== nextState.selectedIndex ||
-        this.state.open !== nextState.open;
+        this.state.open !== nextState.open ||
+        this.props.isDarkTheme !== nextProps.isDarkTheme;
   }
 
   render() {
-    console.log('LanguageMenu');
     const ariaId = 'switch-languages';
 
     return (
@@ -84,14 +95,20 @@ class LanguageMenu extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isDarkTheme: state.site.isDarkTheme
+});
+
 LanguageMenu.propTypes = {
+  setLocaleInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locales: PropTypes.arrayOf(PropTypes.shape({
     code: PropTypes.string.isRequired,
     svgId: PropTypes.string.isRequired,
     translationKey: PropTypes.string.isRequired
   })).isRequired,
-  selectedIndex: PropTypes.number.isRequired
+  selectedIndex: PropTypes.number.isRequired,
+  isDarkTheme: PropTypes.bool.isRequired
 };
 
-export default withStyles(styleSheet)(LanguageMenu);
+export default connect(mapStateToProps, {setLocaleInStore} )(withStyles(styleSheet)(LanguageMenu));
