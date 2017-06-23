@@ -80,10 +80,15 @@ export default class ValuePair {
     const valuePair = new ValuePair();
     const targetCurrency = new USD();
 
+    valuePair.baseCurrency = new Currency({
+      code: coin.short,
+      name: coin.long,
+      symbol: coin.short,
+      symbolLocation: Currency.SYMBOL_LOCATIONS.END
+    });
     valuePair.percentChange24h = coin.cap24hrChange;
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
     valuePair.rank = index;
-    valuePair.name = coin.long;
     valuePair.marketCap = coin.mktcap;
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
     valuePair.price = coin.price;
@@ -93,12 +98,6 @@ export default class ValuePair {
     valuePair.volume24h = coin.volume;
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
     valuePair.targetCurrency = targetCurrency;
-    valuePair.baseCurrency = new Currency({
-      code: coin.short,
-      name: coin.long,
-      symbol: coin.short,
-      symbolLocation: Currency.SYMBOL_LOCATIONS.END
-    });
     valuePair.lastUpdateTimestamp = coin.time;
 
     return valuePair;
