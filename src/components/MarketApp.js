@@ -62,7 +62,9 @@ class MarketApp extends Component {
           onSearchChange={this._onSearchChange.bind(this)}
           locale={this.props.locale} />
         <div className={classes.root__container}>
-          <CoinsPage dataManipulations={{searchQuery: this.state.searchQuery}} valuePairs={this.props.coinsData} />
+          <CoinsPage locale={this.props.locale}
+            dataManipulations={{searchQuery: this.state.searchQuery}}
+            valuePairs={this.props.coinsData} />
         </div>
         <Services />
       </div>

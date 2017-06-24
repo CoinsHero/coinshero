@@ -26,6 +26,11 @@ class Currency {
      * @type {Currency.SYMBOL_LOCATIONS}
      */
     this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
+    /**
+     * A URL to the icon of the currency
+     * @type {string}
+     */
+    this.iconUrl = undefined;
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {

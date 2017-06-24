@@ -42,7 +42,9 @@ class CoinsPage extends Component {
 
     return (
       <div className={classes.root}>
-        <CoinsTable showLoading={this.props.valuePairs.length === 0} valuePairs={this.state.displayedValuePairs} />
+        <CoinsTable locale={this.props.locale}
+          showLoading={this.props.valuePairs.length === 0}
+          valuePairs={this.state.displayedValuePairs} />
       </div>
     );
   }
@@ -53,7 +55,11 @@ CoinsPage.propTypes = {
     searchQuery: PropTypes.string
   }),
   classes: PropTypes.object.isRequired,
-  valuePairs: PropTypes.arrayOf(PropTypes.object).isRequired
+  valuePairs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
 export default withStyles(styleSheet)(CoinsPage);

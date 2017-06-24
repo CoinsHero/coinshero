@@ -12,6 +12,7 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
+import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
 import CircularIndeterminate from './CircularIndeterminate';
 
@@ -32,11 +33,28 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
   },
-  'root__TableCell': {
-    textAlign: 'center'
+  'root__TableHead__TableCell': {
+    textAlign: 'start'
   },
   'root__TableBody__TableCell': {
-    direction: 'ltr'
+    direction: 'ltr',
+    textAlign: 'start'
+  },
+  'root__TableBody__TableCell--rtl': {
+    textAlign: 'end'
+  },
+  'root__TableBody__TableCell__displayedNameContainer': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
+  'root__TableBody__TableCell__displayedNameContainer__name': {
+    flexGrow: 1,
+    marginLeft: theme.spacing.unit * 0.75
+  },
+  'root__TableBody__TableCell__displayedNameContainer__name--rtl': {
+    marginLeft: 0,
+    marginRight: theme.spacing.unit * 0.75
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -67,14 +85,29 @@ class CoinsTable extends Component {
       );
 
       const tableBodyCellClass = classnamesjss(props.classes,
-        'root__TableCell',
-        'root__TableBody__TableCell'
+        'root__TableBody__TableCell',
+        {'root__TableBody__TableCell--rtl': props.locale.isRTL}
       );
+
+      const nameCellClass = classnamesjss(props.classes,
+        'root__TableBody__TableCell__displayedNameContainer__name',
+        {'root__TableBody__TableCell__displayedNameContainer__name--rtl': props.locale.isRTL}
+      );
+
+      const icon = pair.iconUrl && <img src={pair.iconUrl} /> || <MonetizationOn />;
 
       return (
         <TableRow hover={props.showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.baseCurrency.displayName}</TableCell>
+          <TableCell className={tableBodyCellClass}>
+            <div className={props.classes.root__TableBody__TableCell__displayedNameContainer}>
+              {!props.locale.isRTL && icon}
+              <span className={nameCellClass}>
+                {pair.baseCurrency.displayName}
+              </span>
+              {props.locale.isRTL && icon}
+            </div>
+          </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
@@ -88,7 +121,7 @@ class CoinsTable extends Component {
   }
 
   render() {
-    const tableHeaderCellClass = this.props.classes['root__TableCell'];
+    const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
 
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     return (
@@ -120,7 +153,11 @@ CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
-  showLoading: PropTypes.bool.isRequired
+  showLoading: PropTypes.bool.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
 CoinsTable.defaultProps = {
