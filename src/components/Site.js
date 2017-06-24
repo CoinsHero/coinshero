@@ -7,7 +7,7 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
-import {setLanguage, DEFAULT_LANGUAGE} from '../i18n';
+import {setLanguage, getUserDefaultLanguage} from '../i18n';
 
 import MarketApp from './MarketApp';
 
@@ -15,7 +15,12 @@ import '../styles/components/_Site.scss';
 
 class Site extends Component {
   _handleLocale(props) {
-    const localeCode = localStorageSettings.getItem(localStorageSettings.KEYS.localeCode, DEFAULT_LANGUAGE.code);
+    let localeCode = localStorageSettings.getItem(localStorageSettings.KEYS.localeCode, undefined);
+
+    if (!localeCode) {
+      localeCode = getUserDefaultLanguage();
+    }
+
     const locale = setLanguage(localeCode);
     props.setLocaleInStore(locale);
   }

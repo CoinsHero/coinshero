@@ -49,3 +49,48 @@ export const setLanguage = (localeCode) => {
 
   return currentLang;
 };
+
+const _localeCodeMapper = (localeCode) => {
+  // In case we support the language
+  if (localeCode && languages[localeCode.toLowerCase()]) {
+    return localeCode.toLowerCase();
+  } else if (localeCode && localeCode.match(new RegExp('en[-]?', 'i'))) {
+    // Any variation of English
+    return DEFAULT_LANGUAGE.code;
+  }
+
+  return undefined;
+};
+
+export const getUserDefaultLanguage = () => {
+  const navigator = window.navigator;
+  let index;
+  let localeCode = null;
+
+  // support for HTML 5.1 "navigator.languages"
+  if (Array.isArray(navigator.languages)) {
+    for (index = 0; index < navigator.languages.length; index++) {
+      localeCode = _localeCodeMapper(navigator.languages[index]);
+
+      if (localeCode) {
+        return localeCode;
+      }
+    }
+  } else {
+    const browserLanguagePropertyKeys = ['language', 'browserLanguage', 'systemLanguage', 'userLanguage'];
+
+    // support for other well known properties in browsers
+    for (index = 0; index < browserLanguagePropertyKeys.length; index++) {
+      localeCode = _localeCodeMapper(navigator[browserLanguagePropertyKeys[index]]);
+
+      if (localeCode) {
+        return localeCode;
+      }
+    }
+
+    // In case no language was found
+    if (!localeCode) {
+      return DEFAULT_LANGUAGE.code;
+    }
+  }
+};
