@@ -4,7 +4,6 @@ TAB_MARKET: Market
 
 # CoinsTable
 TABLE_HEADER_RANK_TOOLTIP: The coins's rank according to its market cap
-TABLE_HEADER_CODE: Code
 TABLE_HEADER_NAME: Name
 TABLE_HEADER_MARKET_CAP: Market Cap
 TABLE_HEADER_PRICE: Price
