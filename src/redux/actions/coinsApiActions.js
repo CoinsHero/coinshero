@@ -16,3 +16,17 @@ export const fetchCoinsData = (locale) => ({
     ]
   }
 });
+
+export const fetchCoinsList = () => ({
+  [CALL_API]: {
+    endpoint: `${config.ORIGINS.CRYPTO_COMPARE}/api/data/coinlist/`,
+    method: 'GET',
+    types: [
+      Actions.FETCH_COINS_LIST,
+      {
+        type: Actions.FETCH_COINS_LIST_SUCCESS
+      },
+      Actions.FETCH_COINS_LIST_FAILURE
+    ]
+  }
+});

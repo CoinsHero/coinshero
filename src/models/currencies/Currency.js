@@ -28,10 +28,10 @@ class Currency {
      */
     this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
     /**
-     * The icon url of the currency
+     * The image url of the currency
      * @type {string}
      */
-    this.iconUrl = undefined;
+    this.imageUrl = options.imageUrl;
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {

@@ -1,28 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchCoinsData } from '../redux/actions/coinsApiActions';
+import { fetchCoinsData, fetchCoinsList } from '../redux/actions/coinsApiActions';
 import config from 'config';
 
 class CoinsApiService extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.fetchCoinsDataInterval;
+    this.fetchCoinsListInterval;
   }
 
   componentWillMount() {
+    // Coins Data
+
     if (this.props.locale) {
       this.fetchCoinsData();
     }
 
     this.fetchCoinsDataInterval = setInterval(() => {
       // Only fetch the data if we're not in the middle of fetching it
-      // This cold be due to low network connectivity or anything like that
+      // This could be due to low network connectivity or anything like that
       if (!this.props.isUpdatingData) {
         this.fetchCoinsData();
       }
     }, config.SERVICES.COINS_IO.COINS_DATA_API_INTERVAL);
+
+    // Coins List
+
+    this.props.fetchCoinsList();
+
+    this.fetchCoinsListInterval = setInterval(() => {
+      // Only fetch the data if we're not in the middle of fetching it
+      // This could be due to low network connectivity or anything like that
+      if (!this.props.isUpdatingCoinsList) {
+        this.props.fetchCoinsList();
+      }
+    }, config.SERVICES.CRYPTO_COMPARE.COINS_LIST_API_INTERVAL);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +63,9 @@ class CoinsApiService extends React.Component {
 
 CoinsApiService.propTypes = {
   fetchCoinsData: PropTypes.func.isRequired,
+  fetchCoinsList: PropTypes.func.isRequired,
   isUpdatingData: PropTypes.bool.isRequired,
+  isUpdatingCoinsList: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
@@ -57,7 +74,8 @@ CoinsApiService.propTypes = {
 
 const mapStateToProps = (state) => ({
   locale: state.site.locale,
-  isUpdatingData: state.coins.isUpdatingData
+  isUpdatingData: state.coins.isUpdatingData,
+  isUpdatingCoinsList: state.coins.isUpdatingCoinsList
 });
 
-export default connect(mapStateToProps, { fetchCoinsData })(CoinsApiService);
+export default connect(mapStateToProps, { fetchCoinsData, fetchCoinsList })(CoinsApiService);

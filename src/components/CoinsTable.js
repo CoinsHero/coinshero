@@ -94,9 +94,9 @@ class CoinsTable extends Component {
         'root__TableBody__TableCell__displayedNameContainer__name',
       );
 
-      const icon = pair.baseCurrency.iconUrl ?
+      const icon = pair.baseCurrency.imageUrl ?
         <img className={props.classes.root__TableBody__TableCell__displayedNameContainer__img}
-          src={pair.baseCurrency.iconUrl}
+          src={pair.baseCurrency.imageUrl}
           alt={pair.baseCurrency.symbol} /> :
         <MonetizationOn />;
 
