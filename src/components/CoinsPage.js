@@ -6,7 +6,7 @@ import CoinsTable from './CoinsTable';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   'root': {
-    width: '100%',
+    width: '90%',
     marginBottom: theme.spacing.unit * 3
   }
 }));

@@ -22,7 +22,7 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   },
   'root__container': {
     display: 'flex',
-    width: '90%',
+    width: '95%',
     flexDirection: 'column',
     marginTop: theme.spacing.unit * 11,
     alignItems: 'center'

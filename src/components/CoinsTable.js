@@ -34,27 +34,22 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     marginBottom: theme.spacing.unit / 2
   },
   'root__TableHead__TableCell': {
-    textAlign: 'start'
+    textAlign: 'center'
   },
   'root__TableBody__TableCell': {
     direction: 'ltr',
-    textAlign: 'start'
-  },
-  'root__TableBody__TableCell--rtl': {
-    textAlign: 'end'
+    textAlign: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer': {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'center'
+  },
+  'root__TableBody__TableCell__displayedNameContainer--rtl': {
+    flexDirection: 'row-reverse'
   },
   'root__TableBody__TableCell__displayedNameContainer__name': {
-    flexGrow: 1,
-    marginLeft: theme.spacing.unit * 0.75
-  },
-  'root__TableBody__TableCell__displayedNameContainer__name--rtl': {
-    marginLeft: 0,
-    marginRight: theme.spacing.unit * 0.75
+    flexGrow: 1
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -84,14 +79,15 @@ class CoinsTable extends Component {
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = classnamesjss(props.classes,
-        'root__TableBody__TableCell',
-        {'root__TableBody__TableCell--rtl': props.locale.isRTL}
+      const tableBodyCellClass = props.classes.root__TableBody__TableCell;
+
+      const nameContainerClass = classnamesjss(props.classes,
+        'root__TableBody__TableCell__displayedNameContainer',
+        {'root__TableBody__TableCell__displayedNameContainer--rtl': props.locale.isRTL}
       );
 
       const nameCellClass = classnamesjss(props.classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
-        {'root__TableBody__TableCell__displayedNameContainer__name--rtl': props.locale.isRTL}
       );
 
       const icon = pair.iconUrl && <img src={pair.iconUrl} /> || <MonetizationOn />;
@@ -100,12 +96,11 @@ class CoinsTable extends Component {
         <TableRow hover={props.showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
-            <div className={props.classes.root__TableBody__TableCell__displayedNameContainer}>
-              {!props.locale.isRTL && icon}
+            <div className={nameContainerClass}>
+              {icon}
               <span className={nameCellClass}>
                 {pair.baseCurrency.displayName}
               </span>
-              {props.locale.isRTL && icon}
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
