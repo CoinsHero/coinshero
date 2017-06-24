@@ -1,4 +1,5 @@
 import {round, toCurrencyFormat} from '../../helpers/numbers';
+
 class Currency {
   constructor(options) {
     /**
@@ -27,7 +28,7 @@ class Currency {
      */
     this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
     /**
-     * A URL to the icon of the currency
+     * The icon url of the currency
      * @type {string}
      */
     this.iconUrl = undefined;

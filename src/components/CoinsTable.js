@@ -7,7 +7,7 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import Paper from 'material-ui/Paper';
+import {Paper, Typography} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
@@ -51,6 +51,10 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__TableBody__TableCell__displayedNameContainer__name': {
     flexGrow: 1
   },
+  'root__TableBody__TableCell__displayedNameContainer__img': {
+    height: theme.spacing.unit * 3,
+    width: theme.spacing.unit * 3
+  },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
     display: 'inline-block',
@@ -90,7 +94,11 @@ class CoinsTable extends Component {
         'root__TableBody__TableCell__displayedNameContainer__name',
       );
 
-      const icon = pair.iconUrl && <img src={pair.iconUrl} /> || <MonetizationOn />;
+      const icon = pair.baseCurrency.iconUrl ?
+        <img className={props.classes.root__TableBody__TableCell__displayedNameContainer__img}
+          src={pair.baseCurrency.iconUrl}
+          alt={pair.baseCurrency.symbol} /> :
+        <MonetizationOn />;
 
       return (
         <TableRow hover={props.showRowHover} key={pair.rank}>
@@ -115,22 +123,37 @@ class CoinsTable extends Component {
     });
   }
 
-  render() {
+  _renderHeaderColumns(columns) {
     const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
+    return columns.map((column) => {
+      return (
+        <TableCell key={column.typography} className={tableHeaderCellClass}>
+          <Typography>
+            {column.typography}
+          </Typography>
+        </TableCell>
+      );
+    });
+  }
 
+  render() {
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
+    const headerColumns = [
+      {typography: '#'},
+      {typography: T.translate('TABLE_HEADER_NAME')},
+      {typography: T.translate('TABLE_HEADER_MARKET_CAP')},
+      {typography: T.translate('TABLE_HEADER_PRICE')},
+      {typography: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
+      {typography: T.translate('TABLE_HEADER_24H_VOLUME')},
+      {typography: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
+    ];
+
     return (
       <Paper className={this.props.classes.root} elevation={12}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={tableHeaderCellClass}>#</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_NAME')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_PRICE')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableCell>
+              {this._renderHeaderColumns(headerColumns)}
             </TableRow>
           </TableHead>
           <TableBody>
