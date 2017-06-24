@@ -9,18 +9,18 @@ const initialState = Immutable.from({ coinsData: [], isUpdatingData: false });
  */
 const CoinsReducer = (state = initialState, action) => {
   switch (action.type) {
-  case Actions.FETCH_COINS_FRONT:
+  case Actions.FETCH_COINS_DATA:
     return state.merge({
       isUpdatingData: true
     });
-  case Actions.FETCH_COINS_FRONT_SUCCESS:
+  case Actions.FETCH_COINS_DATA_SUCCESS:
     return state.merge({
       isUpdatingData: false,
       coinsData: action.payload
         .filter((coin) => coin.mktcap && coin.mktcap !== 'NaN')
         .map((coin, index) => ValuePair.parse(coin, action.meta.locale, index + 1))}
     );
-  case Actions.FETCH_COINS_FRONT_FAILURE:
+  case Actions.FETCH_COINS_DATA_FAILURE:
     return state.merge({
       isUpdatingData: false
     });
