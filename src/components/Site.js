@@ -7,25 +7,37 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
-import {setLanguage, languages} from '../i18n';
+import {setLanguage, getUserDefaultLanguage} from '../i18n';
 
 import MarketApp from './MarketApp';
 
 import '../styles/components/_Site.scss';
 
 class Site extends Component {
-  constructor(props) {
-    super(props);
+  _handleLocale(props) {
+    let localeCode = localStorageSettings.getItem(localStorageSettings.KEYS.localeCode, undefined);
 
-    // TODO: Take that from the URL / where ever is needed to handle it + LTR/RTL - https://github.com/kazazor/coinsmarket/issues/8
-    // Setting the locale of the user
-    const language = setLanguage(languages.he.code);
-    props.setLocaleInStore(language);
+    if (!localeCode) {
+      localeCode = getUserDefaultLanguage();
+    }
 
+    const locale = setLanguage(localeCode);
+    props.setLocaleInStore(locale);
+  }
+
+  _handleTheme(props) {
     const isDarkTheme = localStorageSettings.getItem(localStorageSettings.KEYS.isDarkTheme, undefined);
+
     if (isDarkTheme !== undefined) {
       props.setDarkThemeInStore(isDarkTheme);
     }
+  }
+
+  constructor(props) {
+    super(props);
+
+    this._handleLocale(props);
+    this._handleTheme(props);
 
     try {
       // Needed for onTouchTap

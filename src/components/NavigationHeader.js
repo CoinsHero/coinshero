@@ -6,7 +6,10 @@ import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
+import {languages} from '../i18n';
 import classnamesjss from '../helpers/classnamesjss';
+
+import LanguageMenu from './LanguageMenu';
 import SearchCoinsInput from './SearchCoinsInput';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
@@ -39,6 +42,15 @@ class NavigationHeader extends Component {
       'root',
       {'root--dark': this.props.theme.palette.type === 'dark'}
     );
+    let selectedLocaleIndex = 0;
+    let locales = Object.values(languages);
+
+    for (let index = 0; index < locales.length; index++) {
+      if (locales[index].code === this.props.locale.code) {
+        selectedLocaleIndex = index;
+        break;
+      }
+    }
 
     return (
       <AppBar className={cx}>
@@ -50,6 +62,7 @@ class NavigationHeader extends Component {
           {this.props.showSearch && <SearchCoinsInput disabled={this.props.disableSearch}
             isRTL={this.props.locale.isRTL}
             onChange={this.props.onSearchChange} />}
+          <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />
           <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
           </IconButton>

@@ -1,7 +1,8 @@
 const MAIN_KEY = 'coins_main';
 
 const KEYS = {
-  isDarkTheme: 'isDarkTheme'
+  isDarkTheme: 'isDarkTheme',
+  localeCode: 'localeCode'
 };
 
 const validate = (key) => {
