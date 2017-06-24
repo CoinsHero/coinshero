@@ -5,13 +5,16 @@ import localStorageSettings from './helpers/localStorageSettings';
 // We cannot use dynamic loading in a dynamic require statement. Which means we cannot decide what file to load dynamically at
 // runtime. This will have to be something to improve on server side rendering if we'll choose to do so.
 import * as englishUSTexts from './locale/en.yml';
+import * as gbSVG from 'flag-svg-collection/flags/4x3/gb.svg';
 import * as hebrewTexts from './locale/he.yml';
+import * as ilSVG from 'flag-svg-collection/flags/4x3/il.svg';
 import * as globalTexts from './locale/global.yml';
 
 let currentLang;
 export const DEFAULT_LANGUAGE = {
   code: 'en',
-  translationKey: 'LANGUAGE_ENGLISH'
+  translationKey: 'LANGUAGE_ENGLISH',
+  icon: gbSVG
 };
 
 export const languages = {
@@ -19,7 +22,8 @@ export const languages = {
   'he': {
     code: 'he',
     isRTL: true,
-    translationKey: 'LANGUAGE_HEBREW'
+    translationKey: 'LANGUAGE_HEBREW',
+    icon: ilSVG
   }
 };
 

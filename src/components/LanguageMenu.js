@@ -2,23 +2,37 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
-import {Button} from 'material-ui';
+import {IconButton} from 'material-ui';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import T from 'i18n-react';
-import {setLanguage} from '../i18n';
 
+import classnamesjss from '../helpers/classnamesjss';
+import {setLanguage} from '../i18n';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
   'root': {
     direction: 'ltr'
   },
-  'root__Button': {
-    textTransform: 'none'
+  'root__IconButton': {
+    textTransform: 'none',
+    marginLeft: theme.spacing.unit
+  },
+  'root__IconButton--rtl': {
+    textTransform: 'none',
+    marginLeft: 0,
+    marginRight: theme.spacing.unit
+  },
+  'root__IconButton__img': {
+    height: theme.spacing.unit * 2.5
   },
   'MenuItem__container': {
     display: 'flex',
     alignItems: 'center'
+  },
+  'MenuItem__container__icon': {
+    marginRight: theme.spacing.unit * 1.25,
+    height: theme.spacing.unit * 2.5
   }
 }));
 
@@ -54,7 +68,6 @@ class LanguageMenu extends Component {
   }
 
   _renderMenuItems() {
-    // TODO: Put icon here!!!!
     return this.props.locales.map((locale, index) => {
       return (
         <MenuItem
@@ -62,6 +75,7 @@ class LanguageMenu extends Component {
           selected={index === this.state.selectedIndex}
           onClick={(event) => this._handleMenuItemClick.call(this, event, index)}>
           <div className={this.props.classes.MenuItem__container}>
+            <img src={locale.icon} className={this.props.classes.MenuItem__container__icon} />
             {T.translate(locale.translationKey)}
           </div>
         </MenuItem>
@@ -81,12 +95,20 @@ class LanguageMenu extends Component {
 
   render() {
     const ariaId = 'switch-languages';
+    const buttonClasses = classnamesjss(this.props.classes,
+      'root__IconButton',
+      {'root__IconButton--rtl': this.props.locales[this.state.selectedIndex].isRTL}
+    );
 
     return (
       <div>
-        <Button className={this.props.classes.root__Button} aria-owns={ariaId} aria-haspopup="true" onClick={this._handleClick.bind(this)}>
-          {T.translate(this.props.locales[this.state.selectedIndex].translationKey)}
-        </Button>
+        <IconButton
+          className={buttonClasses}
+          aria-owns={ariaId}
+          aria-haspopup="true"
+          onClick={this._handleClick.bind(this)}>
+          <img src={this.props.locales[this.state.selectedIndex].icon} className={this.props.classes.root__IconButton__img} />
+        </IconButton>
         <Menu id={ariaId} anchorEl={this.state.anchorEl} open={this.state.open} onRequestClose={this._handleRequestClose.bind(this)}>
           {this._renderMenuItems()}
         </Menu>
@@ -104,7 +126,7 @@ LanguageMenu.propTypes = {
   classes: PropTypes.object.isRequired,
   locales: PropTypes.arrayOf(PropTypes.shape({
     code: PropTypes.string.isRequired,
-    svgId: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
     translationKey: PropTypes.string.isRequired
   })).isRequired,
   selectedIndex: PropTypes.number.isRequired,

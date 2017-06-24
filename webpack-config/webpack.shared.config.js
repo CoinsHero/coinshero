@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const InlineChunkWebpackPlugin = require('html-webpack-inline-chunk-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-// const InterpolateLoaderOptionsPlugin = require('interpolate-loader-options-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const webpackUtils = require('./webpack.utils');
@@ -104,18 +103,18 @@ const config = {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader'
       },
-      // {
-      //   test: /\.svg$/,
-      //   use: [
-      //     {
-      //       loader: '@adsk/bim360-svg-store-transform-loader'
-      //     },
-      //     {
-      //       loader: 'svgo-loader',
-      //       options: require('./svgo.plugins')
-      //     }
-      //   ]
-      // },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'file-loader'
+          },
+          {
+            loader: 'svgo-loader',
+            options: require('./svgo.plugins')
+          }
+        ]
+      },
       {
         test: /\.(mp4|webm)$/,
         loader: 'url-loader',
@@ -166,13 +165,6 @@ const config = {
       inlineChunks: ['manifest'],
       quiet: true
     })
-    // new InterpolateLoaderOptionsPlugin({
-    //   loaders: [{
-    //     name: 'svgo-loader',
-    //     // 25 is the index of the cleanupIDs plugin in the plugins array.
-    //     include: ['plugins.25.cleanupIDs.prefix']
-    //   }]
-    // })
   ]
 };
 
