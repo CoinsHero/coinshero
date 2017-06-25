@@ -1,4 +1,5 @@
 import {round, toCurrencyFormat} from '../../helpers/numbers';
+
 class Currency {
   constructor(options) {
     /**
@@ -26,6 +27,11 @@ class Currency {
      * @type {Currency.SYMBOL_LOCATIONS}
      */
     this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
+    /**
+     * The image url of the currency
+     * @type {string}
+     */
+    this.imageUrl = options.imageUrl;
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {

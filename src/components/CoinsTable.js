@@ -7,11 +7,12 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import Paper from 'material-ui/Paper';
+import {Paper, Typography} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
+import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
 import CircularIndeterminate from './CircularIndeterminate';
 
@@ -32,11 +33,27 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
   },
-  'root__TableCell': {
+  'root__TableHead__TableCell': {
     textAlign: 'center'
   },
   'root__TableBody__TableCell': {
-    direction: 'ltr'
+    direction: 'ltr',
+    textAlign: 'center'
+  },
+  'root__TableBody__TableCell__displayedNameContainer': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  'root__TableBody__TableCell__displayedNameContainer--rtl': {
+    flexDirection: 'row-reverse'
+  },
+  'root__TableBody__TableCell__displayedNameContainer__name': {
+    flexGrow: 1
+  },
+  'root__TableBody__TableCell__displayedNameContainer__img': {
+    height: theme.spacing.unit * 3,
+    width: theme.spacing.unit * 3
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -66,15 +83,34 @@ class CoinsTable extends Component {
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = classnamesjss(props.classes,
-        'root__TableCell',
-        'root__TableBody__TableCell'
+      const tableBodyCellClass = props.classes.root__TableBody__TableCell;
+
+      const nameContainerClass = classnamesjss(props.classes,
+        'root__TableBody__TableCell__displayedNameContainer',
+        {'root__TableBody__TableCell__displayedNameContainer--rtl': props.locale.isRTL}
       );
+
+      const nameCellClass = classnamesjss(props.classes,
+        'root__TableBody__TableCell__displayedNameContainer__name',
+      );
+
+      const icon = pair.baseCurrency.imageUrl ?
+        <img className={props.classes.root__TableBody__TableCell__displayedNameContainer__img}
+          src={pair.baseCurrency.imageUrl}
+          alt={pair.baseCurrency.symbol} /> :
+        <MonetizationOn />;
 
       return (
         <TableRow hover={props.showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.baseCurrency.displayName}</TableCell>
+          <TableCell className={tableBodyCellClass}>
+            <div className={nameContainerClass}>
+              {icon}
+              <span className={nameCellClass}>
+                {pair.baseCurrency.displayName}
+              </span>
+            </div>
+          </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
@@ -87,22 +123,37 @@ class CoinsTable extends Component {
     });
   }
 
-  render() {
-    const tableHeaderCellClass = this.props.classes['root__TableCell'];
+  _renderHeaderColumns(columns) {
+    const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
+    return columns.map((column) => {
+      return (
+        <TableCell key={column.typography} className={tableHeaderCellClass}>
+          <Typography>
+            {column.typography}
+          </Typography>
+        </TableCell>
+      );
+    });
+  }
 
+  render() {
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
+    const headerColumns = [
+      {typography: '#'},
+      {typography: T.translate('TABLE_HEADER_NAME')},
+      {typography: T.translate('TABLE_HEADER_MARKET_CAP')},
+      {typography: T.translate('TABLE_HEADER_PRICE')},
+      {typography: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
+      {typography: T.translate('TABLE_HEADER_24H_VOLUME')},
+      {typography: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
+    ];
+
     return (
       <Paper className={this.props.classes.root} elevation={12}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className={tableHeaderCellClass}>#</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_NAME')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_MARKET_CAP')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_PRICE')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_VOLUME')}</TableCell>
-              <TableCell className={tableHeaderCellClass}>{T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}</TableCell>
+              {this._renderHeaderColumns(headerColumns)}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -120,7 +171,11 @@ CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
-  showLoading: PropTypes.bool.isRequired
+  showLoading: PropTypes.bool.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  })
 };
 
 CoinsTable.defaultProps = {
