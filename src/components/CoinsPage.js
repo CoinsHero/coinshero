@@ -10,6 +10,9 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   'root': {
     width: '90%',
     marginBottom: theme.spacing.unit * 3
+  },
+  'root_ToolBar': {
+    padding: 0
   }
 }));
 
@@ -67,7 +70,7 @@ class CoinsPage extends Component {
 
     return (
       <div className={classes.root}>
-        <Toolbar>
+        <Toolbar className={this.props.classes.root_ToolBar}>
           <SearchCoinsInput disabled={this.props.valuePairs.length === 0}
             isRTL={this.props.locale.isRTL}
             onChange={this._onSearchChange.bind(this)}/>
