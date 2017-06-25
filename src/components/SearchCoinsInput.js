@@ -11,7 +11,8 @@ import {CLIENT_SIDE_DEBOUNCE_DELAY} from '../helpers/consts';
 const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
   'root': {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: theme.palette.getContrastText(theme.palette.accent['A400'])
   },
   'root__SearchIcon': {
     marginRight: theme.spacing.unit * 1
@@ -28,10 +29,11 @@ const SearchCoinsInput = (props) => {
   );
 
   const debounceOnChange = debounce(props.onChange, CLIENT_SIDE_DEBOUNCE_DELAY);
+
   return (
     // TODO: Take care of search icon & text input colors between themes
     <div className={props.classes.root}>
-      <SearchIcon color={props.disabled ? 'disabled' : 'inherit'} className={cx} aria-label="Search for coins" />
+      <SearchIcon classes={props.disabled ? props.classes.colorDisabled : null} className={cx} aria-label="Search for coins" />
       <TextField
         disabled={props.disabled}
         onChange={ (e) => debounceOnChange(e.target.value) }
