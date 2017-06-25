@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { Toolbar } from 'material-ui';
 
 import CoinsTable from './CoinsTable';
+import SearchCoinsInput from './SearchCoinsInput';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   'root': {
@@ -16,23 +18,46 @@ class CoinsPage extends Component {
     super();
 
     this.state = {
-      displayedValuePairs: props.valuePairs
+      displayedValuePairs: props.valuePairs,
+      searchQuery: ''
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    let displayedValuePairs = nextProps.valuePairs;
+  _performDataManipulation(options) {
+    let displayedValuePairs = options.valuePairs;
 
-    if (nextProps.dataManipulations) {
-      const nextSearchQuery = nextProps.dataManipulations.searchQuery;
+    if (options.dataManipulations) {
+      const nextSearchQuery = options.dataManipulations.searchQuery;
 
       if (nextSearchQuery !== '') {
         // Search query has been entered by the user
-        displayedValuePairs = nextProps.valuePairs.filter((pair) => {
+        displayedValuePairs = options.valuePairs.filter((pair) => {
           return pair.baseCurrency.displayName.match(new RegExp(nextSearchQuery, 'i'));
         });
       }
     }
+
+    return displayedValuePairs;
+  }
+
+  _onSearchChange(searchQuery) {
+    const displayedValuePairs = this._performDataManipulation({
+      valuePairs: this.props.valuePairs,
+      dataManipulations: {
+        searchQuery
+      }
+    });
+
+    this.setState({searchQuery, displayedValuePairs});
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const displayedValuePairs = this._performDataManipulation({
+      valuePairs: nextProps.valuePairs,
+      dataManipulations: {
+        searchQuery: this.state.searchQuery
+      }
+    });
 
     this.setState({displayedValuePairs});
   }
@@ -42,6 +67,11 @@ class CoinsPage extends Component {
 
     return (
       <div className={classes.root}>
+        <Toolbar>
+          <SearchCoinsInput disabled={this.props.valuePairs.length === 0}
+            isRTL={this.props.locale.isRTL}
+            onChange={this._onSearchChange.bind(this)}/>
+        </Toolbar>
         <CoinsTable locale={this.props.locale}
           showLoading={this.props.valuePairs.length === 0}
           valuePairs={this.state.displayedValuePairs} />
@@ -51,9 +81,6 @@ class CoinsPage extends Component {
 }
 
 CoinsPage.propTypes = {
-  dataManipulations: PropTypes.shape({
-    searchQuery: PropTypes.string
-  }),
   classes: PropTypes.object.isRequired,
   valuePairs: PropTypes.arrayOf(PropTypes.object).isRequired,
   locale: PropTypes.shape({

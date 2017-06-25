@@ -24,7 +24,7 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
     display: 'flex',
     width: '95%',
     flexDirection: 'column',
-    marginTop: theme.spacing.unit * 11,
+    marginTop: theme.spacing.unit * 10,
     alignItems: 'center'
   }
 }));
@@ -32,19 +32,11 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
 class MarketApp extends Component {
   constructor() {
     super();
-
-    this.state = {
-      searchQuery: ''
-    };
   }
 
   _onThemeClick() {
     this.props.setDarkThemeInStore(!this.props.isDarkTheme);
     localStorageSettings.setItem(localStorageSettings.KEYS.isDarkTheme, !this.props.isDarkTheme);
-  }
-
-  _onSearchChange(searchQuery) {
-    this.setState({searchQuery});
   }
 
   render() {
@@ -56,14 +48,11 @@ class MarketApp extends Component {
 
     return (
       <div className={cx}>
-        <NavigationHeader disableSearch={this.props.coinsData.length === 0}
-          showSearch={true}
+        <NavigationHeader
           onThemeClick={this._onThemeClick.bind(this)}
-          onSearchChange={this._onSearchChange.bind(this)}
           locale={this.props.locale} />
         <div className={classes.root__container}>
           <CoinsPage locale={this.props.locale}
-            dataManipulations={{searchQuery: this.state.searchQuery}}
             valuePairs={this.props.coinsData} />
         </div>
         <Services />

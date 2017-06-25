@@ -10,7 +10,6 @@ import {languages} from '../i18n';
 import classnamesjss from '../helpers/classnamesjss';
 
 import LanguageMenu from './LanguageMenu';
-import SearchCoinsInput from './SearchCoinsInput';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
@@ -31,10 +30,7 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
 
 class NavigationHeader extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.showSearch !== nextProps.showSearch ||
-      this.props.disableSearch !== nextProps.disableSearch ||
-      this.props.locale.code !== nextProps.locale.code ||
-      this.props.theme !== nextProps.theme;
+    return this.props.locale.code !== nextProps.locale.code || this.props.theme !== nextProps.theme;
   }
 
   render() {
@@ -59,9 +55,6 @@ class NavigationHeader extends Component {
           <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          {this.props.showSearch && <SearchCoinsInput disabled={this.props.disableSearch}
-            isRTL={this.props.locale.isRTL}
-            onChange={this.props.onSearchChange} />}
           <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />
           <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
             <LightbulbIcon />
@@ -73,9 +66,6 @@ class NavigationHeader extends Component {
 }
 
 NavigationHeader.propTypes = {
-  disableSearch: PropTypes.bool,
-  showSearch: PropTypes.bool,
-  onSearchChange: PropTypes.func.isRequired,
   onThemeClick: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
