@@ -93,7 +93,7 @@ export default class ValuePair {
     valuePair.marketCap = coin.mktcap;
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
     valuePair.price = coin.price;
-    valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, 8, locale.code);
+    valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, coin.price >= 1 ? 2 : 8, locale.code);
     valuePair.availableSupply = coin.supply;
     valuePair.displayAvailableSupply = toCurrencyFormat(coin.supply, locale.code, 0);
     valuePair.volume24h = coin.volume;
