@@ -71,7 +71,7 @@ class CoinsPage extends Component {
     return (
       <div className={classes.root}>
         <Toolbar className={this.props.classes.root_ToolBar}>
-          <SearchCoinsInput disabled={this.props.valuePairs.length === 0}
+          <SearchCoinsInput autoFocus={true} disabled={this.props.valuePairs.length === 0}
             isRTL={this.props.locale.isRTL}
             onChange={this._onSearchChange.bind(this)}/>
         </Toolbar>

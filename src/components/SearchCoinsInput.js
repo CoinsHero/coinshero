@@ -34,7 +34,9 @@ class SearchCoinsInput extends Component {
   }
 
   componentDidUpdate() {
-    this._focus();
+    if (this.props.autoFocus) {
+      this._focus();
+    }
   }
 
   render() {
@@ -65,6 +67,7 @@ class SearchCoinsInput extends Component {
 }
 
 SearchCoinsInput.propTypes = {
+  autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
