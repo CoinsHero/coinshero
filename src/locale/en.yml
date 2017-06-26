@@ -15,3 +15,6 @@ COINS_TABLE_EMPTY_STATE: Well, we've got nothing to show :)
 
 # SearchCoinsInput
 SEARCH_COINS_PLACEHOLDER: 'Search for coins'
+
+# CoinsPage
+LAST_UPDATE_TIME: 'Updated at: {time}'

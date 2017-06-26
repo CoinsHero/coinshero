@@ -2,7 +2,15 @@ import * as Immutable from 'seamless-immutable';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 
-const initialState = Immutable.from({ coinsList: {}, isUpdatingCoinsList: false, coinsData: [], isUpdatingData: false });
+const initialState = Immutable.from({
+  coinsList: {},
+  isUpdatingCoinsList: false,
+  coinsData: {
+    updateTimestamp: undefined,
+    valuePairs: []
+  },
+  isUpdatingData: false
+});
 
 /**
  * CoinsReducer
@@ -16,18 +24,21 @@ const CoinsReducer = (state = initialState, action) => {
   case Actions.FETCH_COINS_DATA_SUCCESS:
     return state.merge({
       isUpdatingData: false,
-      coinsData: action.payload
-        .filter((coin) => coin.mktcap && coin.mktcap !== 'NaN')
-        .map((coin, index) => {
-          const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
+      coinsData: {
+        valuePairs: action.payload
+          .filter((coin) => coin.mktcap && coin.mktcap !== 'NaN')
+          .map((coin, index) => {
+            const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
 
-          if (coinBaseInfo) {
-            coin.imageUrl = coinBaseInfo.imageUrl;
-          }
+            if (coinBaseInfo) {
+              coin.imageUrl = coinBaseInfo.imageUrl;
+            }
 
-          return ValuePair.parse(coin, action.meta.locale, index + 1);
-        })}
-    );
+            return ValuePair.parse(coin, action.meta.locale, index + 1);
+          }),
+        updateTimestamp: Date.now()
+      }
+    });
   case Actions.FETCH_COINS_DATA_FAILURE:
     return state.merge({
       isUpdatingData: false

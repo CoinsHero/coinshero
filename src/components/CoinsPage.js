@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-import { Toolbar } from 'material-ui';
+import { Toolbar, Typography } from 'material-ui';
+import T from 'i18n-react';
 
 import CoinsTable from './CoinsTable';
 import SearchCoinsInput from './SearchCoinsInput';
@@ -12,7 +13,21 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     marginBottom: theme.spacing.unit * 3
   },
   'root_ToolBar': {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 0
+  },
+  'root__ToolBar__LeftPanel': {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexGrow: 1
+  },
+  'root__ToolBar__RightPanel': {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 }));
 
@@ -21,7 +36,7 @@ class CoinsPage extends Component {
     super();
 
     this.state = {
-      displayedValuePairs: props.valuePairs,
+      displayedValuePairs: props.coinsData.valuePairs,
       searchQuery: ''
     };
   }
@@ -45,7 +60,7 @@ class CoinsPage extends Component {
 
   _onSearchChange(searchQuery) {
     const displayedValuePairs = this._performDataManipulation({
-      valuePairs: this.props.valuePairs,
+      valuePairs: this.props.coinsData.valuePairs,
       dataManipulations: {
         searchQuery
       }
@@ -56,7 +71,7 @@ class CoinsPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     const displayedValuePairs = this._performDataManipulation({
-      valuePairs: nextProps.valuePairs,
+      valuePairs: nextProps.coinsData.valuePairs,
       dataManipulations: {
         searchQuery: this.state.searchQuery
       }
@@ -65,16 +80,30 @@ class CoinsPage extends Component {
     this.setState({displayedValuePairs});
   }
 
+  _renderUpdateTime(updateTimestamp) {
+    return ( updateTimestamp ?
+      <Typography>
+        {T.translate('LAST_UPDATE_TIME', {time: new Date(updateTimestamp).toLocaleString(this.props.locale.code)})}
+      </Typography> :
+      null
+    );
+  }
+
   render() {
     const classes = this.props.classes;
 
     return (
       <div className={classes.root}>
         <Toolbar className={this.props.classes.root_ToolBar}>
-          <SearchCoinsInput autoFocus={true} isRTL={this.props.locale.isRTL} onChange={this._onSearchChange.bind(this)}/>
+          <div className={this.props.classes.root__ToolBar__LeftPanel}>
+            <SearchCoinsInput autoFocus={true} isRTL={this.props.locale.isRTL} onChange={this._onSearchChange.bind(this)}/>
+          </div>
+          <div className={this.props.classes.root__ToolBar__RightPanel}>
+            {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}
+          </div>
         </Toolbar>
         <CoinsTable locale={this.props.locale}
-          showLoading={this.props.valuePairs.length === 0}
+          showLoading={this.props.coinsData.valuePairs.length === 0}
           valuePairs={this.state.displayedValuePairs} />
       </div>
     );
@@ -83,7 +112,10 @@ class CoinsPage extends Component {
 
 CoinsPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  valuePairs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  coinsData: PropTypes.shape({
+    valuePairs: PropTypes.arrayOf(PropTypes.object),
+    updateTimestamp: PropTypes.number
+  }),
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool

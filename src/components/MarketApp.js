@@ -53,7 +53,7 @@ class MarketApp extends Component {
           locale={this.props.locale} />
         <div className={classes.root__container}>
           <CoinsPage locale={this.props.locale}
-            valuePairs={this.props.coinsData} />
+            coinsData={this.props.coinsData} />
         </div>
         <Services />
       </div>
@@ -73,7 +73,10 @@ MarketApp.propTypes = {
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }),
-  coinsData: PropTypes.array,
+  coinsData: PropTypes.shape({
+    valuePairs: PropTypes.arrayOf(PropTypes.object),
+    updateTimestamp: PropTypes.number
+  }),
   isDarkTheme: PropTypes.bool.isRequired
 };
 
