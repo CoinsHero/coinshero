@@ -4,6 +4,8 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { Toolbar, Typography } from 'material-ui';
 import T from 'i18n-react';
 
+import classnamesjss from '../helpers/classnamesjss';
+
 import CoinsTable from './CoinsTable';
 import SearchCoinsInput from './SearchCoinsInput';
 
@@ -28,6 +30,13 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  'root__ToolBar__RightPanel__update-time-hidden': {
+    transition: 'opacity 2s ease-in-out',
+    opacity: 0
+  },
+  'root__ToolBar__RightPanel__update-time-visible': {
+    opacity: 1
   }
 }));
 
@@ -81,11 +90,15 @@ class CoinsPage extends Component {
   }
 
   _renderUpdateTime(updateTimestamp) {
-    return ( updateTimestamp ?
-      <Typography>
+    const cx = classnamesjss(this.props.classes,
+      'root__ToolBar__RightPanel__update-time-hidden',
+      {'root__ToolBar__RightPanel__update-time-visible': updateTimestamp}
+    );
+
+    return (
+      <Typography className={cx}>
         {T.translate('LAST_UPDATE_TIME', {time: new Date(updateTimestamp).toLocaleString(this.props.locale.code)})}
-      </Typography> :
-      null
+      </Typography>
     );
   }
 
