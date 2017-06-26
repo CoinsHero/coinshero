@@ -23,40 +23,20 @@ const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
 }));
 
 class SearchCoinsInput extends Component {
-  constructor() {
-    super();
-
-    this._focus = this._focus.bind(this);
-  }
-
-  _focus() {
-    this.textInput.focus();
-  }
-
-  componentDidUpdate() {
-    if (this.props.autoFocus) {
-      this._focus();
-    }
-  }
-
   render() {
-    const props = this.props;
-
-    const cx = classnamesjss(props.classes,
-      {'root__SearchIcon': !props.isRTL},
-      {'root__SearchIcon--rtl': props.isRTL}
+    const cx = classnamesjss(this.props.classes,
+      {'root__SearchIcon': !this.props.isRTL},
+      {'root__SearchIcon--rtl': this.props.isRTL}
     );
 
-    const debounceOnChange = debounce(props.onChange, CLIENT_SIDE_DEBOUNCE_DELAY);
+    const debounceOnChange = debounce(this.props.onChange, CLIENT_SIDE_DEBOUNCE_DELAY);
 
     return (
-      <div className={props.classes.root}>
+      <div className={this.props.classes.root}>
         <SearchIcon className={cx} aria-label="Search for coins" />
         <TextField
-          inputRef={(input) => {
-            this.textInput = input;
-          }}
-          disabled={props.disabled}
+          inputProps={{ autoFocus: this.props.autoFocus }}
+          disabled={this.props.disabled}
           onChange={ (e) => debounceOnChange(e.target.value) }
           placeholder={T.translate('SEARCH_COINS_PLACEHOLDER')}
           type="search"
