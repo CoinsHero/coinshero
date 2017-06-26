@@ -15,3 +15,6 @@ COINS_TABLE_EMPTY_STATE: 'טוב, מסתבר שאין לנו מה להראות :
 
 # SearchCoinsInput
 SEARCH_COINS_PLACEHOLDER: 'חיפוש מטבעות'
+
+# CoinsPage
+LAST_UPDATE_TIME: 'שעת עדכון: {time}'
