@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {AppBar, Toolbar, Typography, IconButton} from 'material-ui';
+import {Toolbar, Typography, IconButton, Paper} from 'material-ui';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
@@ -13,18 +13,30 @@ import LanguageMenu from './LanguageMenu';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
-    'background-color': theme.palette.primary[600],
-    'color': theme.palette.getContrastText(theme.palette.primary[500]),
-    'position': 'fixed',
-    'top': '0px'
+    width: '100%',
+    backgroundColor: theme.palette.primary[600],
+    color: theme.palette.getContrastText(theme.palette.primary[500]),
+    position: 'fixed',
+    top: '0px',
+    zIndex: theme.zIndex.appBar
   },
   'root--dark': {
     'background-color': theme.palette.accent['A400'],
     'color': theme.palette.getContrastText(theme.palette.accent['A400'])
   },
-  'root__tabs': {
+  'root__appBar': {
+    paddingLeft: theme.spacing.unit * 3,
+    paddingRight: theme.spacing.unit * 3,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  'root__Tabs': {
     display: 'flex',
     flexGrow: 1
+  },
+  'root_ToolBox': {
+    padding: 0
   }
 }));
 
@@ -49,18 +61,20 @@ class NavigationHeader extends Component {
     }
 
     return (
-      <AppBar className={cx}>
-        <Toolbar>
+      <Paper className={cx} elevation={8}>
+        <div className={this.props.classes.root__appBar}>
           <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
-          <Tabs onChange={() => {}} index={0} className={this.props.classes['root__tabs']}>
+          <Tabs onChange={() => {}} index={0} className={this.props.classes.root__Tabs}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />
-          <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
-            <LightbulbIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+          <Toolbar className={this.props.classes.root_ToolBox}>
+            <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />
+            <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
+              <LightbulbIcon />
+            </IconButton>
+          </Toolbar>
+        </div>
+      </Paper>
     );
   }
 }
