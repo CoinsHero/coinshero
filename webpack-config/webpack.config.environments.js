@@ -33,6 +33,7 @@ config.plugins.push(new webpack.DefinePlugin({
   // using NODE_ENV=produciton. That's why for all the deployments we're setting NODE_ENV=production.
   'process.env.NODE_ENV': JSON.stringify('production')
 }));
+config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 
 config.module.rules.push({
   test: /\.(scss|css)$/,

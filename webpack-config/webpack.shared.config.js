@@ -131,6 +131,7 @@ const config = {
 
     // Async loaded vendors chunk
     new webpack.optimize.CommonsChunkPlugin({
+      name: 'application',
       async: 'vendors',
       children: true,
       minChunks: (module, count) => {

@@ -1,4 +1,5 @@
 import {round, toCurrencyFormat} from '../../helpers/numbers';
+import {NO_VALUE_DATA_SYMBOL} from '../../helpers/consts';
 
 class Currency {
   constructor(options) {
@@ -35,12 +36,16 @@ class Currency {
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {
-    value = round(value, decimalNumbers);
-    value = toCurrencyFormat(value, localeCode, decimalNumbers);
+    if (value === NO_VALUE_DATA_SYMBOL) {
+      return value;
+    } else {
+      value = round(value, decimalNumbers);
+      value = toCurrencyFormat(value, localeCode, decimalNumbers);
 
-    return currency.symbolLocation === Currency.SYMBOL_LOCATIONS.START ?
-      `${currency.symbol}${value}` :
-      `${value} ${currency.symbol}`;
+      return currency.symbolLocation === Currency.SYMBOL_LOCATIONS.START ?
+        `${currency.symbol}${value}` :
+        `${value} ${currency.symbol}`;
+    }
   }
 }
 
