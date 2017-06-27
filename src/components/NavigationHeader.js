@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Toolbar, Typography, IconButton, AppBar} from 'material-ui';
+import {AppBar, Toolbar, Typography, IconButton} from 'material-ui';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
