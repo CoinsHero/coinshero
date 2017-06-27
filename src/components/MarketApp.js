@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import T from 'i18n-react';
 import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
+import {Typography} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
 
@@ -15,10 +17,21 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
     direction: 'ltr',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    minHeight: '100vh'
+  },
+  'root--dark-theme': {
+    // TODO: How do i get this not hard coded?
+    backgroundColor: 'rgb(38, 38, 38)'
   },
   'root--rtl': {
     direction: 'rtl'
+  },
+  'root__legal': {
+    display: 'flex',
+    marginBottom: theme.spacing.unit * 3,
+    flexDirection: 'column',
+    textAlign: 'center'
   },
   'root__container': {
     display: 'flex',
@@ -43,8 +56,12 @@ class MarketApp extends Component {
     const classes = this.props.classes;
     const cx = classnamesjss(classes,
       'root',
-      {'root--rtl': this.props.locale.isRTL}
+      {
+        'root--dark-theme': this.props.isDarkTheme,
+        'root--rtl': this.props.locale.isRTL
+      }
     );
+    const legalClass = classnamesjss(classes, 'root__legal');
 
     return (
       <div className={cx}>
@@ -54,6 +71,13 @@ class MarketApp extends Component {
         <div className={classes.root__container}>
           <CoinsPage locale={this.props.locale}
             coinsData={this.props.coinsData} />
+        </div>
+        <div className={ legalClass }>
+          <Typography type="caption">{T.translate('DATA_REFRESH_RATE')}</Typography>
+          <Typography type="caption">{T.translate('DATA_MIGHT_NOT_BE_ACCURATE')}</Typography>
+          <Typography type="caption">{T.translate('DATA_CREDIT_COINCAP')}</Typography>
+          <Typography type="caption">{T.translate('DATA_CREDIT_CRYPTOCOMPARE')}</Typography>
+          <Typography type="caption">{T.translate('CORPORATE')}</Typography>
         </div>
         <Services />
       </div>

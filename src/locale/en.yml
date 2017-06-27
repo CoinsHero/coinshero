@@ -18,3 +18,10 @@ SEARCH_COINS_PLACEHOLDER: 'Search for coins'
 
 # CoinsPage
 LAST_UPDATE_TIME: 'Updated at: {time}'
+
+# Legal
+DATA_REFRESH_RATE: 'Data refreshes every 10 seconds.'
+DATA_MIGHT_NOT_BE_ACCURATE: 'Data might not be 100% accurate.'
+DATA_CREDIT_COINCAP: 'Making use of coincap.io API'
+DATA_CREDIT_CRYPTOCOMPARE: 'Making use of https://www.cryptocompare.com/ API'
+CORPORATE: '© coinsmarket'
