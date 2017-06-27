@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Toolbar, Typography, IconButton, Paper} from 'material-ui';
+import {Toolbar, Typography, IconButton, AppBar} from 'material-ui';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
@@ -13,12 +13,8 @@ import LanguageMenu from './LanguageMenu';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   'root': {
-    width: '100%',
     backgroundColor: theme.palette.primary[600],
-    color: theme.palette.getContrastText(theme.palette.primary[500]),
-    position: 'fixed',
-    top: '0px',
-    zIndex: theme.zIndex.appBar
+    color: theme.palette.getContrastText(theme.palette.primary[500])
   },
   'root--dark': {
     'background-color': theme.palette.accent['A400'],
@@ -61,7 +57,7 @@ class NavigationHeader extends Component {
     }
 
     return (
-      <Paper className={cx} elevation={8}>
+      <AppBar className={cx}>
         <div className={this.props.classes.root__appBar}>
           <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
           <Tabs onChange={() => {}} index={0} className={this.props.classes.root__Tabs}>
@@ -74,7 +70,7 @@ class NavigationHeader extends Component {
             </IconButton>
           </Toolbar>
         </div>
-      </Paper>
+      </AppBar>
     );
   }
 }
