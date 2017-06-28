@@ -4,6 +4,7 @@ TAB_MARKET: מסחר
 
 # CoinsTable
 TABLE_HEADER_RANK_TOOLTIP: דירוג המטבע על פי שווי השוק שלו
+TABLE_HEADER_RANK: '#'
 TABLE_HEADER_NAME: שם
 TABLE_HEADER_MARKET_CAP: שווי שוק
 TABLE_HEADER_PRICE: מחיר

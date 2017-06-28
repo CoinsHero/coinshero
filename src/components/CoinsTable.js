@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Table, {
+  // TableHead,
   TableCell,
   TableBody,
-  TableHead,
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
@@ -14,6 +14,8 @@ import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
+import {SORT_DIRECTIONS} from '../helpers/consts';
+import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
 
 const numbersStrength = 500;
@@ -64,6 +66,16 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     color: red[numbersStrength]
   }
 }));
+
+export const COLUMNS_IDS = {
+  RANK: 'rank',
+  NAME: 'name',
+  MARKET_CAP: 'mkcap',
+  PRICE: 'price',
+  AVAILABLE_SUPPLY: 'supply',
+  VOLUME: 'volume',
+  CHANGE: 'change'
+};
 
 class CoinsTable extends Component {
   _renderEmptyState() {
@@ -127,9 +139,9 @@ class CoinsTable extends Component {
     const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
     return columns.map((column) => {
       return (
-        <TableCell key={column.typography} className={tableHeaderCellClass}>
+        <TableCell key={column.label} className={tableHeaderCellClass}>
           <Typography>
-            {column.typography}
+            {column.label}
           </Typography>
         </TableCell>
       );
@@ -139,28 +151,38 @@ class CoinsTable extends Component {
   render() {
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     const headerColumns = [
-      {typography: '#'},
-      {typography: T.translate('TABLE_HEADER_NAME')},
-      {typography: T.translate('TABLE_HEADER_MARKET_CAP')},
-      {typography: T.translate('TABLE_HEADER_PRICE')},
-      {typography: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
-      {typography: T.translate('TABLE_HEADER_24H_VOLUME')},
-      {typography: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
+      {id: COLUMNS_IDS.RANK, label: T.translate('TABLE_HEADER_RANK')},
+      {id: COLUMNS_IDS.NAME, label: T.translate('TABLE_HEADER_NAME')},
+      {id: COLUMNS_IDS.MARKET_CAP, label: T.translate('TABLE_HEADER_MARKET_CAP')},
+      {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')},
+      {id: COLUMNS_IDS.AVAILABLE_SUPPLY, label: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
+      {id: COLUMNS_IDS.VOLUME, label: T.translate('TABLE_HEADER_24H_VOLUME')},
+      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
     ];
 
+    const {classes, sortOptions, showLoading} = this.props;
+    const {onRequestSort, order, orderBy} = sortOptions;
+
+    // <TableHead>
+    //   <TableRow>
+    //     {this._renderHeaderColumns(headerColumns)}
+    //   </TableRow>
+    // </TableHead>
+
     return (
-      <Paper className={this.props.classes.root} elevation={12}>
+      <Paper className={classes.root} elevation={12}>
         <Table>
-          <TableHead>
-            <TableRow>
-              {this._renderHeaderColumns(headerColumns)}
-            </TableRow>
-          </TableHead>
+
+          <EnhancedTableHead
+            columns={headerColumns}
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={onRequestSort} />
           <TableBody>
-            {!this.props.showLoading && this._renderRows(this.props)}
+            {!showLoading && this._renderRows(this.props)}
           </TableBody>
         </Table>
-        {this.props.showLoading && <CircularIndeterminate />}
+        {showLoading && <CircularIndeterminate />}
         {this._renderEmptyState()}
       </Paper>
     );
@@ -168,6 +190,14 @@ class CoinsTable extends Component {
 }
 
 CoinsTable.propTypes = {
+  sortOptions: PropTypes.shape({
+    onRequestSort: PropTypes.func,
+    order: PropTypes.oneOf([
+      SORT_DIRECTIONS.ASC,
+      SORT_DIRECTIONS.DESC
+    ]),
+    orderBy: PropTypes.oneOf(Object.values(COLUMNS_IDS))
+  }),
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
@@ -180,7 +210,8 @@ CoinsTable.propTypes = {
 
 CoinsTable.defaultProps = {
   valuePairs: [],
-  showRowHover: true
+  showRowHover: true,
+  sortOptions: {}
 };
 
 export default withStyles(styleSheet)(CoinsTable);
