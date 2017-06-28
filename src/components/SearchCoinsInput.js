@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {TextField, Input} from 'material-ui';
+import {TextField} from 'material-ui';
 import T from 'i18n-react';
 import SearchIcon from 'material-ui-icons/Search';
 import { withStyles, createStyleSheet } from 'material-ui/styles';

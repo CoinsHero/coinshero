@@ -6,7 +6,7 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import {Paper, Typography} from 'material-ui';
+import {Paper} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';

@@ -6,12 +6,13 @@ import {
   TableHead,
   TableRow
 } from 'material-ui/Table';
-import {Typography, Checkbox} from 'material-ui';
+import {Checkbox} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
 const styleSheet = createStyleSheet('EnhancedTableHead', (theme) => ({
   'root__TableHead__TableCell': {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: theme.typography.fontSize
   }
 }));
 
@@ -22,10 +23,11 @@ class EnhancedTableHead extends Component {
     this._createSortHandler.bind(this);
   }
 
-  _createSortHandler = (property, onRequestSort) => (event) => {
-    this.props.onRequestSort && this.props.onRequestSort(event, property);
-    onRequestSort && onRequestSort(event, property);
-  };
+  _createSortHandler(property) {
+    return (event) => {
+      this.props.onRequestSort && this.props.onRequestSort(event, property);
+    };
+  }
 
   _renderSelectAllClick(onSelectAllClick) {
     return onSelectAllClick ? (
@@ -42,9 +44,7 @@ class EnhancedTableHead extends Component {
       return (
         <TableCell key={column.id} className={classes.root__TableHead__TableCell}>
           <TableSortLabel active={orderBy === column.id} direction={order} onClick={this._createSortHandler(column.id)}>
-            <Typography>
-              {column.label}
-            </Typography>
+            {column.label}
           </TableSortLabel>
         </TableCell>
       );
