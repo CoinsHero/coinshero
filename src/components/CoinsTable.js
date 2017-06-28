@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import * as Immutable from 'seamless-immutable';
 import Table, {
   TableCell,
   TableBody,
@@ -13,7 +14,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
-import {SORT_DIRECTIONS} from '../helpers/consts';
+import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL} from '../helpers/consts';
 import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
 
@@ -63,14 +64,14 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   }
 }));
 
-export const COLUMNS_IDS = {
+const COLUMNS_IDS = {
   RANK: 'rank',
-  NAME: 'name',
-  MARKET_CAP: 'mkcap',
+  NAME: 'baseCurrency',
+  MARKET_CAP: 'marketCap',
   PRICE: 'price',
-  AVAILABLE_SUPPLY: 'supply',
-  VOLUME: 'volume',
-  CHANGE: 'change'
+  AVAILABLE_SUPPLY: 'availableSupply',
+  VOLUME: 'volume24h',
+  CHANGE: 'percentChange24h'
 };
 
 class CoinsTable extends Component {
@@ -79,7 +80,8 @@ class CoinsTable extends Component {
 
     this.state = {
       order: SORT_DIRECTIONS.DESC,
-      orderBy: COLUMNS_IDS.MARKET_CAP
+      orderBy: COLUMNS_IDS.MARKET_CAP,
+      displayedValuePairs: []
     };
 
     this._onRequestSort.bind(this);
@@ -95,32 +97,34 @@ class CoinsTable extends Component {
       null;
   }
 
-  _renderRows(props) {
-    return props.valuePairs.map((pair) => {
-      const percentChange24hClasses = classnamesjss(props.classes,
+  _renderRows() {
+    const {classes, locale, showRowHover} = this.props;
+
+    return this.state.displayedValuePairs.map((pair) => {
+      const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = props.classes.root__TableBody__TableCell;
+      const tableBodyCellClass = classes.root__TableBody__TableCell;
 
-      const nameContainerClass = classnamesjss(props.classes,
+      const nameContainerClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer',
-        {'root__TableBody__TableCell__displayedNameContainer--rtl': props.locale.isRTL}
+        {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
       );
 
-      const nameCellClass = classnamesjss(props.classes,
+      const nameCellClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
       );
 
       const icon = pair.baseCurrency.imageUrl ?
-        <img className={props.classes.root__TableBody__TableCell__displayedNameContainer__img}
+        <img className={classes.root__TableBody__TableCell__displayedNameContainer__img}
           src={pair.baseCurrency.imageUrl}
           alt={pair.baseCurrency.symbol} /> :
         <MonetizationOn />;
 
       return (
-        <TableRow hover={props.showRowHover} key={pair.rank}>
+        <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <div className={nameContainerClass}>
@@ -142,6 +146,46 @@ class CoinsTable extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps, nextState) {
+    let order = this.state.order;
+    let orderBy = this.state.orderBy;
+    const displayedValuePairs = this._getSortedTable(order, orderBy, nextProps.valuePairs);
+
+    this.setState({order, orderBy, displayedValuePairs});
+  }
+
+  _getSortedTable(order, orderBy, values) {
+    return Immutable.from([].concat(values).sort((a, b) => {
+      let aValue = a[orderBy];
+      let bValue = b[orderBy];
+      const EMPTY_VALUE = -999;
+
+      if (bValue === NO_VALUE_DATA_SYMBOL) {
+        bValue = EMPTY_VALUE;
+      }
+
+      if (aValue === NO_VALUE_DATA_SYMBOL) {
+        aValue = EMPTY_VALUE;
+      }
+
+      if (orderBy === COLUMNS_IDS.NAME) {
+        const nameField = 'displayName';
+        aValue = aValue[nameField].toLowerCase();
+        bValue = bValue[nameField].toLowerCase();
+      }
+
+      const multipleFactor = order === SORT_DIRECTIONS.DESC ? 1 : -1;
+
+      if (bValue > aValue) {
+        return multipleFactor;
+      } else if (aValue > bValue) {
+        return multipleFactor * -1;
+      }
+
+      return 0;
+    }));
+  }
+
   _onRequestSort(event, columnId) {
     let order = this.state.order;
     let orderBy = this.state.orderBy;
@@ -153,7 +197,9 @@ class CoinsTable extends Component {
       orderBy = columnId;
     }
 
-    this.setState({order, orderBy});
+    const displayedValuePairs = this._getSortedTable(order, orderBy, this.state.displayedValuePairs);
+
+    this.setState({order, orderBy, displayedValuePairs});
   }
 
   render() {
@@ -177,7 +223,7 @@ class CoinsTable extends Component {
             orderBy={this.state.orderBy}
             onRequestSort={this._onRequestSort.bind(this)} />
           <TableBody>
-            {!this.props.showLoading && this._renderRows(this.props)}
+            {!this.props.showLoading && this._renderRows()}
           </TableBody>
         </Table>
         {this.props.showLoading && <CircularIndeterminate />}
