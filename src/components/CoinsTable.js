@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Table, {
-  // TableHead,
   TableCell,
   TableBody,
   TableRow
@@ -34,9 +33,6 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   },
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
-  },
-  'root__TableHead__TableCell': {
-    textAlign: 'center'
   },
   'root__TableBody__TableCell': {
     direction: 'ltr',
@@ -78,6 +74,17 @@ export const COLUMNS_IDS = {
 };
 
 class CoinsTable extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      order: SORT_DIRECTIONS.DESC,
+      orderBy: COLUMNS_IDS.MARKET_CAP
+    };
+
+    this._onRequestSort.bind(this);
+  }
+
   _renderEmptyState() {
     const showEmptyState = !this.props.showLoading && this.props.valuePairs.length === 0;
     return showEmptyState ?
@@ -135,17 +142,18 @@ class CoinsTable extends Component {
     });
   }
 
-  _renderHeaderColumns(columns) {
-    const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
-    return columns.map((column) => {
-      return (
-        <TableCell key={column.label} className={tableHeaderCellClass}>
-          <Typography>
-            {column.label}
-          </Typography>
-        </TableCell>
-      );
-    });
+  _onRequestSort(event, columnId) {
+    let order = this.state.order;
+    let orderBy = this.state.orderBy;
+
+    if (columnId === this.state.orderBy) {
+      order = (order === SORT_DIRECTIONS.ASC) ? SORT_DIRECTIONS.DESC : SORT_DIRECTIONS.ASC;
+    } else {
+      order = SORT_DIRECTIONS.DESC;
+      orderBy = columnId;
+    }
+
+    this.setState({order, orderBy});
   }
 
   render() {
@@ -160,29 +168,19 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
     ];
 
-    const {classes, sortOptions, showLoading} = this.props;
-    const {onRequestSort, order, orderBy} = sortOptions;
-
-    // <TableHead>
-    //   <TableRow>
-    //     {this._renderHeaderColumns(headerColumns)}
-    //   </TableRow>
-    // </TableHead>
-
     return (
-      <Paper className={classes.root} elevation={12}>
+      <Paper className={this.props.classes.root} elevation={12}>
         <Table>
-
           <EnhancedTableHead
             columns={headerColumns}
-            order={order}
-            orderBy={orderBy}
-            onRequestSort={onRequestSort} />
+            order={this.state.order}
+            orderBy={this.state.orderBy}
+            onRequestSort={this._onRequestSort.bind(this)} />
           <TableBody>
-            {!showLoading && this._renderRows(this.props)}
+            {!this.props.showLoading && this._renderRows(this.props)}
           </TableBody>
         </Table>
-        {showLoading && <CircularIndeterminate />}
+        {this.props.showLoading && <CircularIndeterminate />}
         {this._renderEmptyState()}
       </Paper>
     );
@@ -190,14 +188,6 @@ class CoinsTable extends Component {
 }
 
 CoinsTable.propTypes = {
-  sortOptions: PropTypes.shape({
-    onRequestSort: PropTypes.func,
-    order: PropTypes.oneOf([
-      SORT_DIRECTIONS.ASC,
-      SORT_DIRECTIONS.DESC
-    ]),
-    orderBy: PropTypes.oneOf(Object.values(COLUMNS_IDS))
-  }),
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,

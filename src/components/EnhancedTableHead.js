@@ -9,7 +9,7 @@ import {
 import {Typography, Checkbox} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
-const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
+const styleSheet = createStyleSheet('EnhancedTableHead', (theme) => ({
   'root__TableHead__TableCell': {
     textAlign: 'center'
   }
@@ -23,6 +23,7 @@ class EnhancedTableHead extends Component {
   }
 
   _createSortHandler = (property, onRequestSort) => (event) => {
+    this.props.onRequestSort && this.props.onRequestSort(event, property);
     onRequestSort && onRequestSort(event, property);
   };
 
@@ -35,12 +36,12 @@ class EnhancedTableHead extends Component {
   }
 
   _renderHeaderColumns() {
-    const { order, orderBy, columns, classes, onRequestSort } = this.props;
+    const { order, orderBy, columns, classes } = this.props;
 
     return columns.map((column) => {
       return (
         <TableCell key={column.id} className={classes.root__TableHead__TableCell}>
-          <TableSortLabel active={orderBy === column.id} direction={order} onClick={this._createSortHandler(column.id, onRequestSort)}>
+          <TableSortLabel active={orderBy === column.id} direction={order} onClick={this._createSortHandler(column.id)}>
             <Typography>
               {column.label}
             </Typography>
