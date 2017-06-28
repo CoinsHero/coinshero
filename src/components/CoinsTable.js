@@ -131,7 +131,7 @@ class CoinsTable extends Component {
         <img className={imgCellClass}
           src={pair.baseCurrency.imageUrl}
           alt={pair.baseCurrency.symbol} /> :
-        <MonetizationOn />;
+        <MonetizationOn className={imgCellClass} />;
 
       return (
         <TableRow hover={showRowHover} key={pair.rank}>
