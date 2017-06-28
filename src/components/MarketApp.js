@@ -9,16 +9,28 @@ import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
 import CoinsPage from './CoinsPage';
 import Services from '../services/services';
+import Footer from './Footer';
 
 const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   'root': {
     direction: 'ltr',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    minHeight: '100vh'
+  },
+  'root--dark-theme': {
+    // TODO: How do i get this not hard coded?
+    backgroundColor: theme.palette.accent['A300']
   },
   'root--rtl': {
     direction: 'rtl'
+  },
+  'root__legal': {
+    display: 'flex',
+    marginBottom: theme.spacing.unit * 3,
+    flexDirection: 'column',
+    textAlign: 'center'
   },
   'root__container': {
     display: 'flex',
@@ -43,7 +55,10 @@ class MarketApp extends Component {
     const classes = this.props.classes;
     const cx = classnamesjss(classes,
       'root',
-      {'root--rtl': this.props.locale.isRTL}
+      {
+        'root--dark-theme': this.props.isDarkTheme,
+        'root--rtl': this.props.locale.isRTL
+      }
     );
 
     return (
@@ -55,6 +70,7 @@ class MarketApp extends Component {
           <CoinsPage locale={this.props.locale}
             coinsData={this.props.coinsData} />
         </div>
+        <Footer />
         <Services />
       </div>
     );

@@ -16,7 +16,7 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
     backgroundColor: theme.palette.primary[600],
     color: theme.palette.getContrastText(theme.palette.primary[500])
   },
-  'root--dark': {
+  'root--dark-theme': {
     'background-color': theme.palette.accent['A400'],
     'color': theme.palette.getContrastText(theme.palette.accent['A400'])
   },
@@ -44,7 +44,7 @@ class NavigationHeader extends Component {
   render() {
     const cx = classnamesjss(this.props.classes,
       'root',
-      {'root--dark': this.props.theme.palette.type === 'dark'}
+      {'root--dark-theme': this.props.theme.palette.type === 'dark'}
     );
     let selectedLocaleIndex = 0;
     let locales = Object.values(languages);
