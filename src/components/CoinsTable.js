@@ -37,22 +37,27 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   },
   'root__TableBody__TableCell': {
     direction: 'ltr',
-    textAlign: 'center'
+    textAlign: 'left'
+  },
+  'root__TableBody__TableCell--rtl': {
+    direction: 'ltr',
+    textAlign: 'right'
   },
   'root__TableBody__TableCell__displayedNameContainer': {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer--rtl': {
     flexDirection: 'row-reverse'
   },
-  'root__TableBody__TableCell__displayedNameContainer__name': {
-    flexGrow: 1
-  },
   'root__TableBody__TableCell__displayedNameContainer__img': {
     height: theme.spacing.unit * 3,
-    width: theme.spacing.unit * 3
+    width: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 1
+  },
+  'root__TableBody__TableCell__displayedNameContainer__img--rtl': {
+    marginLeft: theme.spacing.unit * 1,
+    marginRight: 0
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -107,19 +112,23 @@ class CoinsTable extends Component {
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = classes.root__TableBody__TableCell;
+      const tableBodyCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell',
+        {'root__TableBody__TableCell--rtl': locale.isRTL}
+      );
 
       const nameContainerClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer',
         {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
       );
 
-      const nameCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__name',
+      const imgCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell__displayedNameContainer__img',
+        {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
       );
 
       const icon = pair.baseCurrency.imageUrl ?
-        <img className={classes.root__TableBody__TableCell__displayedNameContainer__img}
+        <img className={imgCellClass}
           src={pair.baseCurrency.imageUrl}
           alt={pair.baseCurrency.symbol} /> :
         <MonetizationOn />;
@@ -130,7 +139,7 @@ class CoinsTable extends Component {
           <TableCell className={tableBodyCellClass}>
             <div className={nameContainerClass}>
               {icon}
-              <span className={nameCellClass}>
+              <span>
                 {pair.baseCurrency.displayName}
               </span>
             </div>
@@ -222,7 +231,8 @@ class CoinsTable extends Component {
             columns={headerColumns}
             order={this.state.order}
             orderBy={this.state.orderBy}
-            onRequestSort={this._onRequestSort.bind(this)} />
+            onRequestSort={this._onRequestSort.bind(this)}
+            locale={this.props.locale} />
           <TableBody>
             {!this.props.showLoading && this._renderRows()}
           </TableBody>

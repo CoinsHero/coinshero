@@ -9,10 +9,15 @@ import {
 import {Checkbox} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
+import classnamesjss from '../helpers/classnamesjss';
+
 const styleSheet = createStyleSheet('EnhancedTableHead', (theme) => ({
   'root__TableHead__TableCell': {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: theme.typography.fontSize
+  },
+  'root__TableHead__TableCell--rtl': {
+    textAlign: 'right'
   }
 }));
 
@@ -38,11 +43,15 @@ class EnhancedTableHead extends Component {
   }
 
   _renderHeaderColumns() {
-    const { order, orderBy, columns, classes } = this.props;
+    const { order, orderBy, columns, classes, locale } = this.props;
+    const cx = classnamesjss(classes,
+      'root__TableHead__TableCell',
+      {'root__TableHead__TableCell--rtl': locale.isRTL}
+    );
 
     return columns.map((column) => {
       return (
-        <TableCell key={column.id} className={classes.root__TableHead__TableCell}>
+        <TableCell key={column.id} className={cx}>
           <TableSortLabel active={orderBy === column.id} direction={order} onClick={this._createSortHandler(column.id)}>
             {column.label}
           </TableSortLabel>
@@ -72,7 +81,11 @@ EnhancedTableHead.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
-  }))
+  })),
+  locale: PropTypes.shape({
+    code: PropTypes.string,
+    isRTL: PropTypes.bool
+  }).isRequired
 };
 
 export default withStyles(styleSheet)(EnhancedTableHead);
