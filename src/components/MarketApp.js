@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import T from 'i18n-react';
 import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
-import {Typography} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
 
@@ -11,6 +9,7 @@ import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
 import CoinsPage from './CoinsPage';
 import Services from '../services/services';
+import Footer from './Footer';
 
 const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   'root': {
@@ -22,7 +21,7 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   },
   'root--dark-theme': {
     // TODO: How do i get this not hard coded?
-    backgroundColor: 'rgb(38, 38, 38)'
+    backgroundColor: theme.palette.accent['A300']
   },
   'root--rtl': {
     direction: 'rtl'
@@ -61,7 +60,6 @@ class MarketApp extends Component {
         'root--rtl': this.props.locale.isRTL
       }
     );
-    const legalClass = classnamesjss(classes, 'root__legal');
 
     return (
       <div className={cx}>
@@ -72,13 +70,7 @@ class MarketApp extends Component {
           <CoinsPage locale={this.props.locale}
             coinsData={this.props.coinsData} />
         </div>
-        <div className={ legalClass }>
-          <Typography type="caption">{T.translate('DATA_REFRESH_RATE')}</Typography>
-          <Typography type="caption">{T.translate('DATA_MIGHT_NOT_BE_ACCURATE')}</Typography>
-          <Typography type="caption">{T.translate('DATA_CREDIT_COINCAP')}</Typography>
-          <Typography type="caption">{T.translate('DATA_CREDIT_CRYPTOCOMPARE')}</Typography>
-          <Typography type="caption">{T.translate('CORPORATE')}</Typography>
-        </div>
+        <Footer />
         <Services />
       </div>
     );

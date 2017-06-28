@@ -20,8 +20,6 @@ SEARCH_COINS_PLACEHOLDER: 'חיפוש מטבעות'
 LAST_UPDATE_TIME: 'שעת עדכון: {time}'
 
 # Legal
-DATA_REFRESH_RATE: 'המידע מתעדכן כל 10 שניות.'
-DATA_MIGHT_NOT_BE_ACCURATE: 'ייתכן והמידע לא מדויק ב100%.'
-DATA_CREDIT_COINCAP: 'אנו עושים שימוש במידע המתקבל מ- coincap.io'
-DATA_CREDIT_CRYPTOCOMPARE: 'אנו עושים שימוש במידע המתקבל מ- /https://www.cryptocompare.com'
-CORPORATE: '© coinsmarket'
+DATA_DISCLAIMER: 'המידע המובא מוצג כמו שמתקבל למטרות אינפורמטיוביות בלבד, ולא לצורך מסחר או מתן עצה, וייתכן כי יתעכב. המידע מובא משירותים פיננסיים וייתכן כי מתעכב. CoinsMarket לא מאמתת את המידע ולא מתיימרת לעשות זאת.'
+DATA_CREDIT_COINCAP: 'אנו עושים שימוש במידע המתקבל מ- {link}'
+DATA_CREDIT_CRYPTOCOMPARE: 'אנו עושים שימוש במידע המתקבל מ- {link}'

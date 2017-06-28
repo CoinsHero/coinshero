@@ -9,6 +9,8 @@ const getSiteTheme = (options) => {
       primary: lightBlue,
       accent: {
         ...pink,
+        A300: '#383838',
+        link: '#499bda',
         A400: '#484848'
       },
       error: red,
