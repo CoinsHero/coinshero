@@ -85,6 +85,7 @@ class CoinsTable extends Component {
     };
 
     this._onRequestSort.bind(this);
+    this._getSortedTable.bind(this);
   }
 
   _renderEmptyState() {
@@ -169,9 +170,9 @@ class CoinsTable extends Component {
       }
 
       if (orderBy === COLUMNS_IDS.NAME) {
-        const nameField = 'displayName';
-        aValue = aValue[nameField].toLowerCase();
-        bValue = bValue[nameField].toLowerCase();
+        const NAME_FIELD = 'displayName';
+        aValue = aValue[NAME_FIELD].toLowerCase();
+        bValue = bValue[NAME_FIELD].toLowerCase();
       }
 
       const multipleFactor = order === SORT_DIRECTIONS.DESC ? 1 : -1;
