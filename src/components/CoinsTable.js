@@ -200,8 +200,7 @@ CoinsTable.propTypes = {
 
 CoinsTable.defaultProps = {
   valuePairs: [],
-  showRowHover: true,
-  sortOptions: {}
+  showRowHover: true
 };
 
 export default withStyles(styleSheet)(CoinsTable);
