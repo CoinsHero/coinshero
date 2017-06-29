@@ -20,7 +20,7 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
     'background-color': theme.palette.accent['A400'],
     color: theme.palette.getContrastText(theme.palette.accent['A400'])
   },
-  root__appBa: {
+  root__appBar: {
     paddingLeft: theme.spacing.unit * 3,
     paddingRight: theme.spacing.unit * 3,
     display: 'flex',
