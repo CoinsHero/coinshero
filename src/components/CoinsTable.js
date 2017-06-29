@@ -49,7 +49,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     flexDirection: 'row-reverse'
   },
   'root__TableBody__TableCell__displayedNameContainer__name': {
-    flexGrow: 1
+    flexGrow: 1,
+    color: 'inherit',
+    textDecoration: 'inherit',
+    '&:hover': {
+      textDecoration: 'underline',
+    }
   },
   'root__TableBody__TableCell__displayedNameContainer__img': {
     height: theme.spacing.unit * 3,
