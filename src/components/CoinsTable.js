@@ -100,15 +100,21 @@ class CoinsTable extends Component {
           alt={pair.baseCurrency.symbol} /> :
         <MonetizationOn />;
 
+      const name = pair.baseCurrency.officialUrl ?
+        <a href={pair.baseCurrency.officialUrl} target="_blank" className={nameCellClass}>
+          {pair.baseCurrency.displayName}
+        </a> :
+        <span className={nameCellClass}>
+          {pair.baseCurrency.displayName}
+        </span>;
+
       return (
         <TableRow hover={props.showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <div className={nameContainerClass}>
               {icon}
-              <span className={nameCellClass}>
-                {pair.baseCurrency.displayName}
-              </span>
+              {name}
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>

@@ -2,6 +2,9 @@ import * as Immutable from 'seamless-immutable';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL} from '../../helpers/consts';
+import * as coinsInfo from '../../assets/data/coinsInfo.json';
+
+let missingUrls = [];
 
 const initialState = Immutable.from({
   coinsList: {},
@@ -51,11 +54,26 @@ const CoinsReducer = (state = initialState, action) => {
         coin[keys[fieldIndex]] = currentValue;
       }
 
+      /**
+       * ******************************************
+       * Add additional data
+       * ******************************************/
       const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
 
       if (coinBaseInfo) {
         coin.imageUrl = coinBaseInfo.imageUrl;
       }
+
+      coin.officialUrl = coinsInfo[coin.short.toUpperCase()].officialUrl;
+
+      if (!coin.officialUrl) {
+        missingUrls && missingUrls.push(coin.short);
+      }
+
+      /**
+       * ******************************************
+       * End adding additional data
+       * ******************************************/
 
       const SORT_FIELD = 'mktcap';
 
@@ -71,6 +89,12 @@ const CoinsReducer = (state = initialState, action) => {
     for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
       coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1));
     }
+
+    if (missingUrls && missingUrls.length > 0) {
+      console.info(`You're missing some URLs for some coins (${missingUrls.length}) :` + JSON.stringify(missingUrls));
+    }
+
+    missingUrls = undefined;
 
     return state.merge({
       isUpdatingData: false,
