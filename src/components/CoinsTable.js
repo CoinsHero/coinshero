@@ -49,12 +49,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     flexDirection: 'row-reverse'
   },
   'root__TableBody__TableCell__displayedNameContainer__name': {
-    flexGrow: 1,
+    flexGrow: 1
   },
   'root__TableBody__TableCell__displayedNameContainer__name--link': {
     transition: 'font-size 1s ease-in-out',
     color: 'inherit',
-    textDecoration: 'inherit',
+    textDecoration: 'inherit', // eslint-disable-line quote-props
     '&:hover': {
       textDecoration: 'underline',
       fontSize: theme.typography.subheading.fontSize,

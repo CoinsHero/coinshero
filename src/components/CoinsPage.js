@@ -10,23 +10,23 @@ import CoinsTable from './CoinsTable';
 import SearchCoinsInput from './SearchCoinsInput';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
-  'root': {
+  root: {
     width: '90%',
     marginBottom: theme.spacing.unit * 3
   },
-  'root_ToolBar': {
+  root_ToolBar: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 0
   },
-  'root__ToolBar__LeftPanel': {
+  root__ToolBar__LeftPanel: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     flexGrow: 1
   },
-  'root__ToolBar__RightPanel': {
+  root__ToolBar__RightPanel: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center'
