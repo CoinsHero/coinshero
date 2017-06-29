@@ -9,12 +9,12 @@ import {debounce} from 'lodash';
 import {CLIENT_SIDE_DEBOUNCE_DELAY} from '../helpers/consts';
 
 const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
-  'root': {
+  root: {
     display: 'flex',
     alignItems: 'center',
     color: theme.palette.getContrastText(theme.palette.accent['A400'])
   },
-  'root__SearchIcon': {
+  root__SearchIcon: {
     marginRight: theme.spacing.unit * 1
   },
   'root__SearchIcon--rtl': {
@@ -25,7 +25,7 @@ const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
 class SearchCoinsInput extends Component {
   render() {
     const cx = classnamesjss(this.props.classes,
-      {'root__SearchIcon': !this.props.isRTL},
+      {root__SearchIcon: !this.props.isRTL},
       {'root__SearchIcon--rtl': this.props.isRTL}
     );
 

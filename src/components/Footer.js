@@ -6,13 +6,13 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import config from 'config';
 
 const styleSheet2 = createStyleSheet('Footer', (theme) => ({
-  'footer__legal': {
+  footer__legal: {
     display: 'flex',
     marginBottom: theme.spacing.unit * 3,
     flexDirection: 'column',
     textAlign: 'center'
   },
-  'footer__link': {
+  footer__link: {
     color: theme.palette.accent.link
   }
 }));

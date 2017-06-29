@@ -20,7 +20,7 @@ import CircularIndeterminate from './CircularIndeterminate';
 
 const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
-  'root': {
+  root: {
     overflowX: 'auto'
   },
   'root__empty-state': {
@@ -35,7 +35,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
   },
-  'root__TableBody__TableCell': {
+  root__TableBody__TableCell: {
     direction: 'ltr',
     textAlign: 'left'
   },
@@ -43,14 +43,14 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     direction: 'ltr',
     textAlign: 'right'
   },
-  'root__TableBody__TableCell__displayedNameContainer': {
+  root__TableBody__TableCell__displayedNameContainer: {
     display: 'flex',
     alignItems: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer--rtl': {
     flexDirection: 'row-reverse'
   },
-  'root__TableBody__TableCell__displayedNameContainer__name': {
+  root__TableBody__TableCell__displayedNameContainer__name: {
     flexGrow: 1
   },
   'root__TableBody__TableCell__displayedNameContainer__name--link': {
@@ -63,7 +63,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
       fontWeight: theme.typography.body2.fontWeight
     }
   },
-  'root__TableBody__TableCell__displayedNameContainer__img': {
+  root__TableBody__TableCell__displayedNameContainer__img: {
     height: theme.spacing.unit * 3,
     width: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 1
