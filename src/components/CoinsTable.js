@@ -50,10 +50,15 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   },
   'root__TableBody__TableCell__displayedNameContainer__name': {
     flexGrow: 1,
+  },
+  'root__TableBody__TableCell__displayedNameContainer__name--link': {
+    transition: 'font-size 1s ease-in-out',
     color: 'inherit',
     textDecoration: 'inherit',
     '&:hover': {
       textDecoration: 'underline',
+      fontSize: theme.typography.subheading.fontSize,
+      fontWeight: theme.typography.body2.fontWeight
     }
   },
   'root__TableBody__TableCell__displayedNameContainer__img': {
@@ -97,6 +102,7 @@ class CoinsTable extends Component {
 
       const nameCellClass = classnamesjss(props.classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
+        {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
       );
 
       const icon = pair.baseCurrency.imageUrl ?
@@ -106,7 +112,7 @@ class CoinsTable extends Component {
         <MonetizationOn />;
 
       const name = pair.baseCurrency.officialUrl ?
-        <a href={pair.baseCurrency.officialUrl} target="_blank" className={nameCellClass}>
+        <a href={pair.baseCurrency.officialUrl} rel="noopener noreferrer" target="_blank" className={nameCellClass}>
           {pair.baseCurrency.displayName}
         </a> :
         <span className={nameCellClass}>
