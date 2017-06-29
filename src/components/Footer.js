@@ -3,6 +3,7 @@ import {Typography} from 'material-ui';
 import T from 'i18n-react';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import config from 'config';
 
 const styleSheet2 = createStyleSheet('Footer', (theme) => ({
   'footer__legal': {
@@ -23,15 +24,15 @@ const Footer = ({ classes }) => {
       <Typography type="caption">
         {T.translate('DATA_CREDIT_COINCAP', {
           link: <a className={ classes.footer__link }
-            href="https://coincap.io"
+            href={config.ORIGINS.COINS_IO}
             rel="noopener noreferrer"
-            target="_blank">https://coincap.io</a>})}
+            target="_blank">{config.ORIGINS.COINS_IO}</a>})}
       </Typography>
       <Typography type="caption">{T.translate('DATA_CREDIT_CRYPTOCOMPARE', {
         link: <a className={ classes.footer__link }
-          href="https://www.cryptocompare.com/"
+          href={config.ORIGINS.CRYPTO_COMPARE}
           rel="noopener noreferrer"
-          target="_blank">https://www.cryptocompare.com/</a>})}
+          target="_blank">{config.ORIGINS.CRYPTO_COMPARE}</a>})}
       </Typography>
       <Typography type="caption" style={{ direction: 'ltr' }}>{T.translate('CORPORATE')}</Typography>
     </div>

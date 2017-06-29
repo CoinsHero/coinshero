@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import * as Immutable from 'seamless-immutable';
 import Table, {
   TableCell,
   TableBody,
-  TableHead,
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import {Paper, Typography} from 'material-ui';
+import {Paper} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
+import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL} from '../helpers/consts';
+import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
 
 const numbersStrength = 500;
@@ -33,17 +35,17 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
   },
-  'root__TableHead__TableCell': {
-    textAlign: 'center'
-  },
   'root__TableBody__TableCell': {
     direction: 'ltr',
-    textAlign: 'center'
+    textAlign: 'left'
+  },
+  'root__TableBody__TableCell--rtl': {
+    direction: 'ltr',
+    textAlign: 'right'
   },
   'root__TableBody__TableCell__displayedNameContainer': {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer--rtl': {
     flexDirection: 'row-reverse'
@@ -63,7 +65,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   },
   'root__TableBody__TableCell__displayedNameContainer__img': {
     height: theme.spacing.unit * 3,
-    width: theme.spacing.unit * 3
+    width: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 1
+  },
+  'root__TableBody__TableCell__displayedNameContainer__img--rtl': {
+    marginLeft: theme.spacing.unit * 1,
+    marginRight: 0
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -75,7 +82,30 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   }
 }));
 
+const COLUMNS_IDS = {
+  RANK: 'rank',
+  NAME: 'baseCurrency',
+  MARKET_CAP: 'marketCap',
+  PRICE: 'price',
+  AVAILABLE_SUPPLY: 'availableSupply',
+  VOLUME: 'volume24h',
+  CHANGE: 'percentChange24h'
+};
+
 class CoinsTable extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      order: SORT_DIRECTIONS.DESC,
+      orderBy: COLUMNS_IDS.MARKET_CAP,
+      displayedValuePairs: []
+    };
+
+    this._onRequestSort.bind(this);
+    this._getSortedTable.bind(this);
+  }
+
   _renderEmptyState() {
     const showEmptyState = !this.props.showLoading && this.props.valuePairs.length === 0;
     return showEmptyState ?
@@ -86,30 +116,40 @@ class CoinsTable extends Component {
       null;
   }
 
-  _renderRows(props) {
-    return props.valuePairs.map((pair) => {
-      const percentChange24hClasses = classnamesjss(props.classes,
+  _renderRows() {
+    const {classes, locale, showRowHover} = this.props;
+
+    return this.state.displayedValuePairs.map((pair) => {
+      const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = props.classes.root__TableBody__TableCell;
-
-      const nameContainerClass = classnamesjss(props.classes,
-        'root__TableBody__TableCell__displayedNameContainer',
-        {'root__TableBody__TableCell__displayedNameContainer--rtl': props.locale.isRTL}
+      const tableBodyCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell',
+        {'root__TableBody__TableCell--rtl': locale.isRTL}
       );
 
-      const nameCellClass = classnamesjss(props.classes,
+      const nameContainerClass = classnamesjss(classes,
+        'root__TableBody__TableCell__displayedNameContainer',
+        {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
+      );
+
+      const nameCellClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
         {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
       );
 
+      const imgCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell__displayedNameContainer__img',
+        {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
+      );
+
       const icon = pair.baseCurrency.imageUrl ?
-        <img className={props.classes.root__TableBody__TableCell__displayedNameContainer__img}
+        <img className={imgCellClass}
           src={pair.baseCurrency.imageUrl}
           alt={pair.baseCurrency.symbol} /> :
-        <MonetizationOn />;
+        <MonetizationOn className={imgCellClass} />;
 
       const name = pair.baseCurrency.officialUrl ?
         <a href={pair.baseCurrency.officialUrl} rel="noopener noreferrer" target="_blank" className={nameCellClass}>
@@ -120,7 +160,7 @@ class CoinsTable extends Component {
         </span>;
 
       return (
-        <TableRow hover={props.showRowHover} key={pair.rank}>
+        <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <div className={nameContainerClass}>
@@ -140,41 +180,85 @@ class CoinsTable extends Component {
     });
   }
 
-  _renderHeaderColumns(columns) {
-    const tableHeaderCellClass = this.props.classes['root__TableHead__TableCell'];
-    return columns.map((column) => {
-      return (
-        <TableCell key={column.typography} className={tableHeaderCellClass}>
-          <Typography>
-            {column.typography}
-          </Typography>
-        </TableCell>
-      );
-    });
+  componentWillReceiveProps(nextProps, nextState) {
+    let order = this.state.order;
+    let orderBy = this.state.orderBy;
+    const displayedValuePairs = this._getSortedTable(order, orderBy, nextProps.valuePairs);
+
+    this.setState({order, orderBy, displayedValuePairs});
+  }
+
+  _getSortedTable(order, orderBy, values) {
+    return Immutable.from([].concat(values).sort((a, b) => {
+      let aValue = a[orderBy];
+      let bValue = b[orderBy];
+      const EMPTY_VALUE = -999;
+
+      if (bValue === NO_VALUE_DATA_SYMBOL) {
+        bValue = EMPTY_VALUE;
+      }
+
+      if (aValue === NO_VALUE_DATA_SYMBOL) {
+        aValue = EMPTY_VALUE;
+      }
+
+      if (orderBy === COLUMNS_IDS.NAME) {
+        const NAME_FIELD = 'displayName';
+        aValue = aValue[NAME_FIELD].toLowerCase();
+        bValue = bValue[NAME_FIELD].toLowerCase();
+      }
+
+      const multipleFactor = order === SORT_DIRECTIONS.DESC ? 1 : -1;
+
+      if (bValue > aValue) {
+        return multipleFactor;
+      } else if (aValue > bValue) {
+        return multipleFactor * -1;
+      }
+
+      return 0;
+    }));
+  }
+
+  _onRequestSort(event, columnId) {
+    let order = this.state.order;
+    let orderBy = this.state.orderBy;
+
+    if (columnId === this.state.orderBy) {
+      order = (order === SORT_DIRECTIONS.ASC) ? SORT_DIRECTIONS.DESC : SORT_DIRECTIONS.ASC;
+    } else {
+      order = SORT_DIRECTIONS.DESC;
+      orderBy = columnId;
+    }
+
+    const displayedValuePairs = this._getSortedTable(order, orderBy, this.state.displayedValuePairs);
+
+    this.setState({order, orderBy, displayedValuePairs});
   }
 
   render() {
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     const headerColumns = [
-      {typography: '#'},
-      {typography: T.translate('TABLE_HEADER_NAME')},
-      {typography: T.translate('TABLE_HEADER_MARKET_CAP')},
-      {typography: T.translate('TABLE_HEADER_PRICE')},
-      {typography: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
-      {typography: T.translate('TABLE_HEADER_24H_VOLUME')},
-      {typography: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
+      {id: COLUMNS_IDS.RANK, label: T.translate('TABLE_HEADER_RANK')},
+      {id: COLUMNS_IDS.NAME, label: T.translate('TABLE_HEADER_NAME')},
+      {id: COLUMNS_IDS.MARKET_CAP, label: T.translate('TABLE_HEADER_MARKET_CAP')},
+      {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')},
+      {id: COLUMNS_IDS.AVAILABLE_SUPPLY, label: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
+      {id: COLUMNS_IDS.VOLUME, label: T.translate('TABLE_HEADER_24H_VOLUME')},
+      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
     ];
 
     return (
       <Paper className={this.props.classes.root} elevation={12}>
         <Table>
-          <TableHead>
-            <TableRow>
-              {this._renderHeaderColumns(headerColumns)}
-            </TableRow>
-          </TableHead>
+          <EnhancedTableHead
+            columns={headerColumns}
+            order={this.state.order}
+            orderBy={this.state.orderBy}
+            onRequestSort={this._onRequestSort.bind(this)}
+            locale={this.props.locale} />
           <TableBody>
-            {!this.props.showLoading && this._renderRows(this.props)}
+            {!this.props.showLoading && this._renderRows()}
           </TableBody>
         </Table>
         {this.props.showLoading && <CircularIndeterminate />}
