@@ -33,6 +33,11 @@ class Currency {
      * @type {string}
      */
     this.imageUrl = options.imageUrl;
+    /**
+     * The official website of the coin
+     * @type {string}
+     */
+    this.officialUrl = options.officialUrl;
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {

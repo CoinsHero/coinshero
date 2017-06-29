@@ -1,0 +1,1685 @@
+{
+  "BTC": {
+    "officialUrl": "https://bitcoin.org/en/"
+  },
+  "ETH": {
+    "officialUrl": "https://www.ethereum.org/"
+  },
+  "XRP": {
+    "officialUrl": "https://ripple.com/"
+  },
+  "LTC": {
+    "officialUrl": "https://litecoin.com"
+  },
+  "ETC": {
+    "officialUrl": "https://ethereumclassic.github.io/"
+  },
+  "XEM": {
+    "officialUrl": "https://www.nem.io/"
+  },
+  "DASH": {
+    "officialUrl": "https://www.dash.org/"
+  },
+  "MIOTA": {
+    "officialUrl": "https://iota.org/"
+  },
+  "STRAT": {
+    "officialUrl": "https://stratisplatform.com//"
+  },
+  "XMR": {
+    "officialUrl": "https://getmonero.org/home"
+  },
+  "BTS": {
+    "officialUrl": "https://bitshares.org/"
+  },
+  "ZEC": {
+    "officialUrl": "https://z.cash/"
+  },
+  "ANS": {
+    "officialUrl": "https://www.antshares.org/"
+  },
+  "GNT": {
+    "officialUrl": "https://golem.network/"
+  },
+  "STEEM": {
+    "officialUrl": "https://steem.io/"
+  },
+  "BCN": {
+    "officialUrl": "https://bytecoin.org/"
+  },
+  "SC": {
+    "officialUrl": "http://sia.tech/"
+  },
+  "WAVES": {
+    "officialUrl": "https://wavesplatform.com/"
+  },
+  "ICN": {
+    "officialUrl": "https://www.iconomi.net/"
+  },
+  "LSK": {
+    "officialUrl": "https://lisk.io/"
+  },
+  "XLM": {
+    "officialUrl": "https://www.stellar.org/"
+  },
+  "REP": {
+    "officialUrl": "https://augur.net/"
+  },
+  "GNO": {
+    "officialUrl": "https://gnosis.pm/"
+  },
+  "DOGE": {
+    "officialUrl": "http://dogecoin.com/"
+  },
+  "GAME": {
+    "officialUrl": "https://gamecredits.com/"
+  },
+  "FCT": {
+    "officialUrl": "https://www.factom.com/"
+  },
+  "GBYTE": {
+    "officialUrl": "https://byteball.org/"
+  },
+  "MAID": {
+    "officialUrl": "https://maidsafe.net/"
+  },
+  "USDT": {
+    "officialUrl": "https://tether.to/"
+  },
+  "ARDR": {
+    "officialUrl": "https://www.ardorplatform.org/"
+  },
+  "DCR": {
+    "officialUrl": "https://www.decred.org/"
+  },
+  "KMD": {
+    "officialUrl": "https://komodoplatform.com/"
+  },
+  "DGB": {
+    "officialUrl": "http://www.digibyte.co/"
+  },
+  "DGD": {
+    "officialUrl": "https://digix.io/"
+  },
+  "NXT": {
+    "officialUrl": "https://nxt.org/"
+  },
+  "1ST": {
+    "officialUrl": "https://firstblood.io/"
+  },
+  "BAT": {
+    "officialUrl": "https://basicattentiontoken.org/"
+  },
+  "ASC": {
+    "officialUrl": "http://asiccoin.biz/"
+  },
+  "SLM": {
+    "officialUrl": ""
+  },
+  "XXX": {
+    "officialUrl": ""
+  },
+  "OMC": {
+    "officialUrl": ""
+  },
+  "BTCS": {
+    "officialUrl": ""
+  },
+  "CYC": {
+    "officialUrl": ""
+  },
+  "PFC": {
+    "officialUrl": ""
+  },
+  "XMS": {
+    "officialUrl": ""
+  },
+  "UNC": {
+    "officialUrl": ""
+  },
+  "OPAL": {
+    "officialUrl": ""
+  },
+  "TBC": {
+    "officialUrl": ""
+  },
+  "PEERPLAYS": {
+    "officialUrl": ""
+  },
+  "APC": {
+    "officialUrl": ""
+  },
+  "XQN": {
+    "officialUrl": ""
+  },
+  "DAO": {
+    "officialUrl": ""
+  },
+  "XBS": {
+    "officialUrl": ""
+  },
+  "XAU": {
+    "officialUrl": ""
+  },
+  "ZRC": {
+    "officialUrl": ""
+  },
+  "CC": {
+    "officialUrl": ""
+  },
+  "CGA": {
+    "officialUrl": ""
+  },
+  "BUK": {
+    "officialUrl": ""
+  },
+  "BFX": {
+    "officialUrl": ""
+  },
+  "IEC": {
+    "officialUrl": ""
+  },
+  "BTG": {
+    "officialUrl": ""
+  },
+  "NTC": {
+    "officialUrl": ""
+  },
+  "GP": {
+    "officialUrl": ""
+  },
+  "GDC": {
+    "officialUrl": ""
+  },
+  "ELC": {
+    "officialUrl": ""
+  },
+  "BKS": {
+    "officialUrl": ""
+  },
+  "GAY": {
+    "officialUrl": ""
+  },
+  "QORA": {
+    "officialUrl": ""
+  },
+  "GML": {
+    "officialUrl": ""
+  },
+  "LTS": {
+    "officialUrl": ""
+  },
+  "TP1": {
+    "officialUrl": ""
+  },
+  "LFO": {
+    "officialUrl": ""
+  },
+  "ACCI": {
+    "officialUrl": ""
+  },
+  "VGC": {
+    "officialUrl": ""
+  },
+  "FFC": {
+    "officialUrl": ""
+  },
+  "BNT": {
+    "officialUrl": "https://www.bancor.network/"
+  },
+  "GSM": {
+    "officialUrl": ""
+  },
+  "MRY": {
+    "officialUrl": ""
+  },
+  "SNGLS": {
+    "officialUrl": ""
+  },
+  "PIVX": {
+    "officialUrl": ""
+  },
+  "SYS": {
+    "officialUrl": ""
+  },
+  "BTCD": {
+    "officialUrl": ""
+  },
+  "ANT": {
+    "officialUrl": ""
+  },
+  "EMC": {
+    "officialUrl": ""
+  },
+  "UBQ": {
+    "officialUrl": ""
+  },
+  "PPC": {
+    "officialUrl": ""
+  },
+  "LKK": {
+    "officialUrl": ""
+  },
+  "ARK": {
+    "officialUrl": ""
+  },
+  "AMP": {
+    "officialUrl": ""
+  },
+  "LEO": {
+    "officialUrl": ""
+  },
+  "RDD": {
+    "officialUrl": ""
+  },
+  "NXS": {
+    "officialUrl": ""
+  },
+  "CLOAK": {
+    "officialUrl": ""
+  },
+  "RLC": {
+    "officialUrl": ""
+  },
+  "OBITS": {
+    "officialUrl": ""
+  },
+  "MLN": {
+    "officialUrl": ""
+  },
+  "EDG": {
+    "officialUrl": ""
+  },
+  "SJCX": {
+    "officialUrl": ""
+  },
+  "LBC": {
+    "officialUrl": ""
+  },
+  "WINGS": {
+    "officialUrl": ""
+  },
+  "XVG": {
+    "officialUrl": ""
+  },
+  "NMC": {
+    "officialUrl": ""
+  },
+  "MONA": {
+    "officialUrl": ""
+  },
+  "BAY": {
+    "officialUrl": ""
+  },
+  "OMNI": {
+    "officialUrl": ""
+  },
+  "XCP": {
+    "officialUrl": ""
+  },
+  "NLG": {
+    "officialUrl": ""
+  },
+  "BLK": {
+    "officialUrl": ""
+  },
+  "XZC": {
+    "officialUrl": ""
+  },
+  "VIA": {
+    "officialUrl": ""
+  },
+  "XAUR": {
+    "officialUrl": ""
+  },
+  "DICE": {
+    "officialUrl": ""
+  },
+  "VSL": {
+    "officialUrl": ""
+  },
+  "BURST": {
+    "officialUrl": ""
+  },
+  "VTC": {
+    "officialUrl": ""
+  },
+  "AGRS": {
+    "officialUrl": ""
+  },
+  "BLOCK": {
+    "officialUrl": ""
+  },
+  "EAC": {
+    "officialUrl": ""
+  },
+  "NAV": {
+    "officialUrl": ""
+  },
+  "TRST": {
+    "officialUrl": ""
+  },
+  "YBC": {
+    "officialUrl": ""
+  },
+  "UNITY": {
+    "officialUrl": ""
+  },
+  "POT": {
+    "officialUrl": ""
+  },
+  "TKN": {
+    "officialUrl": ""
+  },
+  "GRC": {
+    "officialUrl": ""
+  },
+  "EXP": {
+    "officialUrl": ""
+  },
+  "EDR": {
+    "officialUrl": ""
+  },
+  "CRW": {
+    "officialUrl": ""
+  },
+  "GUP": {
+    "officialUrl": ""
+  },
+  "WDC": {
+    "officialUrl": ""
+  },
+  "SHIFT": {
+    "officialUrl": ""
+  },
+  "NEOS": {
+    "officialUrl": ""
+  },
+  "IOC": {
+    "officialUrl": ""
+  },
+  "RADS": {
+    "officialUrl": ""
+  },
+  "XDN": {
+    "officialUrl": ""
+  },
+  "SWT": {
+    "officialUrl": ""
+  },
+  "MOON": {
+    "officialUrl": ""
+  },
+  "BCAP": {
+    "officialUrl": ""
+  },
+  "NXC": {
+    "officialUrl": ""
+  },
+  "NVC": {
+    "officialUrl": ""
+  },
+  "ION": {
+    "officialUrl": ""
+  },
+  "ENRG": {
+    "officialUrl": ""
+  },
+  "QRK": {
+    "officialUrl": ""
+  },
+  "NOTE": {
+    "officialUrl": ""
+  },
+  "XBC": {
+    "officialUrl": ""
+  },
+  "VRC": {
+    "officialUrl": ""
+  },
+  "EMC2": {
+    "officialUrl": ""
+  },
+  "XPM": {
+    "officialUrl": ""
+  },
+  "IFC": {
+    "officialUrl": ""
+  },
+  "TIME": {
+    "officialUrl": ""
+  },
+  "SPHR": {
+    "officialUrl": ""
+  },
+  "FTC": {
+    "officialUrl": ""
+  },
+  "BCY": {
+    "officialUrl": ""
+  },
+  "JINN": {
+    "officialUrl": ""
+  },
+  "HEAT": {
+    "officialUrl": ""
+  },
+  "VOX": {
+    "officialUrl": ""
+  },
+  "FAIR": {
+    "officialUrl": ""
+  },
+  "MUE": {
+    "officialUrl": ""
+  },
+  "FLDC": {
+    "officialUrl": ""
+  },
+  "PLU": {
+    "officialUrl": ""
+  },
+  "CLAM": {
+    "officialUrl": ""
+  },
+  "RBY": {
+    "officialUrl": ""
+  },
+  "XCN": {
+    "officialUrl": ""
+  },
+  "SIB": {
+    "officialUrl": ""
+  },
+  "FLO": {
+    "officialUrl": ""
+  },
+  "BITCNY": {
+    "officialUrl": ""
+  },
+  "XBY": {
+    "officialUrl": ""
+  },
+  "GAM": {
+    "officialUrl": ""
+  },
+  "MEC": {
+    "officialUrl": ""
+  },
+  "PASC": {
+    "officialUrl": ""
+  },
+  "BELA": {
+    "officialUrl": ""
+  },
+  "ECC": {
+    "officialUrl": ""
+  },
+  "CRB": {
+    "officialUrl": ""
+  },
+  "ZEN": {
+    "officialUrl": ""
+  },
+  "SAFEX": {
+    "officialUrl": ""
+  },
+  "DEX": {
+    "officialUrl": ""
+  },
+  "MUSE": {
+    "officialUrl": ""
+  },
+  "AEON": {
+    "officialUrl": ""
+  },
+  "DMD": {
+    "officialUrl": ""
+  },
+  "MAX": {
+    "officialUrl": ""
+  },
+  "NAUT": {
+    "officialUrl": ""
+  },
+  "SLR": {
+    "officialUrl": ""
+  },
+  "GRS": {
+    "officialUrl": ""
+  },
+  "ZCC": {
+    "officialUrl": ""
+  },
+  "ZET": {
+    "officialUrl": ""
+  },
+  "UNO": {
+    "officialUrl": ""
+  },
+  "OK": {
+    "officialUrl": ""
+  },
+  "PINK": {
+    "officialUrl": ""
+  },
+  "SPR": {
+    "officialUrl": ""
+  },
+  "MED": {
+    "officialUrl": ""
+  },
+  "BLITZ": {
+    "officialUrl": ""
+  },
+  "DGC": {
+    "officialUrl": ""
+  },
+  "BITUSD": {
+    "officialUrl": ""
+  },
+  "ABY": {
+    "officialUrl": ""
+  },
+  "MUSIC": {
+    "officialUrl": ""
+  },
+  "BITB": {
+    "officialUrl": ""
+  },
+  "XVC": {
+    "officialUrl": ""
+  },
+  "RISE": {
+    "officialUrl": ""
+  },
+  "BOST": {
+    "officialUrl": ""
+  },
+  "SCOT": {
+    "officialUrl": ""
+  },
+  "DIME": {
+    "officialUrl": ""
+  },
+  "ICASH": {
+    "officialUrl": ""
+  },
+  "RIC": {
+    "officialUrl": ""
+  },
+  "GLD": {
+    "officialUrl": ""
+  },
+  "SBD": {
+    "officialUrl": ""
+  },
+  "AUR": {
+    "officialUrl": ""
+  },
+  "ANC": {
+    "officialUrl": ""
+  },
+  "APX": {
+    "officialUrl": ""
+  },
+  "CURE": {
+    "officialUrl": ""
+  },
+  "ZCL": {
+    "officialUrl": ""
+  },
+  "ZEIT": {
+    "officialUrl": ""
+  },
+  "BTM": {
+    "officialUrl": ""
+  },
+  "TRIG": {
+    "officialUrl": ""
+  },
+  "KORE": {
+    "officialUrl": ""
+  },
+  "GEMZ": {
+    "officialUrl": ""
+  },
+  "HUC": {
+    "officialUrl": ""
+  },
+  "LGD": {
+    "officialUrl": ""
+  },
+  "BRK": {
+    "officialUrl": ""
+  },
+  "TIPS": {
+    "officialUrl": ""
+  },
+  "XST": {
+    "officialUrl": ""
+  },
+  "BRX": {
+    "officialUrl": ""
+  },
+  "VPN": {
+    "officialUrl": ""
+  },
+  "CANN": {
+    "officialUrl": ""
+  },
+  "BTA": {
+    "officialUrl": ""
+  },
+  "SRC": {
+    "officialUrl": ""
+  },
+  "XC": {
+    "officialUrl": ""
+  },
+  "COINO": {
+    "officialUrl": ""
+  },
+  "MNE": {
+    "officialUrl": ""
+  },
+  "TIX": {
+    "officialUrl": ""
+  },
+  "TAG": {
+    "officialUrl": ""
+  },
+  "VTR": {
+    "officialUrl": ""
+  },
+  "SWIFT": {
+    "officialUrl": ""
+  },
+  "BLOCKPAY": {
+    "officialUrl": ""
+  },
+  "MINT": {
+    "officialUrl": ""
+  },
+  "START": {
+    "officialUrl": ""
+  },
+  "DOPE": {
+    "officialUrl": ""
+  },
+  "GEO": {
+    "officialUrl": ""
+  },
+  "INSANE": {
+    "officialUrl": ""
+  },
+  "PTC": {
+    "officialUrl": ""
+  },
+  "CELL": {
+    "officialUrl": ""
+  },
+  "XWC": {
+    "officialUrl": ""
+  },
+  "THC": {
+    "officialUrl": ""
+  },
+  "SXC": {
+    "officialUrl": ""
+  },
+  "PANGEA": {
+    "officialUrl": ""
+  },
+  "POSW": {
+    "officialUrl": ""
+  },
+  "TRUST": {
+    "officialUrl": ""
+  },
+  "AC": {
+    "officialUrl": ""
+  },
+  "HTML5": {
+    "officialUrl": ""
+  },
+  "ADZ": {
+    "officialUrl": ""
+  },
+  "XTC": {
+    "officialUrl": ""
+  },
+  "EXCL": {
+    "officialUrl": ""
+  },
+  "IXC": {
+    "officialUrl": ""
+  },
+  "PND": {
+    "officialUrl": ""
+  },
+  "WBB": {
+    "officialUrl": ""
+  },
+  "VNL": {
+    "officialUrl": ""
+  },
+  "SMLY": {
+    "officialUrl": ""
+  },
+  "HKG": {
+    "officialUrl": ""
+  },
+  "HYP": {
+    "officialUrl": ""
+  },
+  "BTB": {
+    "officialUrl": ""
+  },
+  "LDOGE": {
+    "officialUrl": ""
+  },
+  "NYC": {
+    "officialUrl": ""
+  },
+  "JBS": {
+    "officialUrl": ""
+  },
+  "BBR": {
+    "officialUrl": ""
+  },
+  "XMG": {
+    "officialUrl": ""
+  },
+  "NKA": {
+    "officialUrl": ""
+  },
+  "EFL": {
+    "officialUrl": ""
+  },
+  "TKS": {
+    "officialUrl": ""
+  },
+  "DVC": {
+    "officialUrl": ""
+  },
+  "NSR": {
+    "officialUrl": ""
+  },
+  "GLC": {
+    "officialUrl": ""
+  },
+  "CRAVE": {
+    "officialUrl": ""
+  },
+  "CDN": {
+    "officialUrl": ""
+  },
+  "FST": {
+    "officialUrl": ""
+  },
+  "INFX": {
+    "officialUrl": ""
+  },
+  "CRYPT": {
+    "officialUrl": ""
+  },
+  "SLK": {
+    "officialUrl": ""
+  },
+  "BLU": {
+    "officialUrl": ""
+  },
+  "NBT": {
+    "officialUrl": ""
+  },
+  "TRC": {
+    "officialUrl": ""
+  },
+  "CAGE": {
+    "officialUrl": ""
+  },
+  "BYC": {
+    "officialUrl": ""
+  },
+  "VRS": {
+    "officialUrl": ""
+  },
+  "TES": {
+    "officialUrl": ""
+  },
+  "CBX": {
+    "officialUrl": ""
+  },
+  "YOC": {
+    "officialUrl": ""
+  },
+  "UFO": {
+    "officialUrl": ""
+  },
+  "UIS": {
+    "officialUrl": ""
+  },
+  "HPC": {
+    "officialUrl": ""
+  },
+  "BUN": {
+    "officialUrl": ""
+  },
+  "GCN": {
+    "officialUrl": ""
+  },
+  "LOG": {
+    "officialUrl": ""
+  },
+  "SDC": {
+    "officialUrl": ""
+  },
+  "LTB": {
+    "officialUrl": ""
+  },
+  "FCN": {
+    "officialUrl": ""
+  },
+  "KOBO": {
+    "officialUrl": ""
+  },
+  "TRUMP": {
+    "officialUrl": ""
+  },
+  "BRIT": {
+    "officialUrl": ""
+  },
+  "PIGGY": {
+    "officialUrl": ""
+  },
+  "FIMK": {
+    "officialUrl": ""
+  },
+  "42": {
+    "officialUrl": ""
+  },
+  "I0C": {
+    "officialUrl": ""
+  },
+  "MYR": {
+    "officialUrl": ""
+  },
+  "NAS": {
+    "officialUrl": ""
+  },
+  "NOBL": {
+    "officialUrl": ""
+  },
+  "TIT": {
+    "officialUrl": ""
+  },
+  "POST": {
+    "officialUrl": ""
+  },
+  "ORB": {
+    "officialUrl": ""
+  },
+  "GB": {
+    "officialUrl": ""
+  },
+  "METAL": {
+    "officialUrl": ""
+  },
+  "UNB": {
+    "officialUrl": ""
+  },
+  "NET": {
+    "officialUrl": ""
+  },
+  "DEM": {
+    "officialUrl": ""
+  },
+  "BITZ": {
+    "officialUrl": ""
+  },
+  "BITS": {
+    "officialUrl": ""
+  },
+  "BTX": {
+    "officialUrl": ""
+  },
+  "J": {
+    "officialUrl": ""
+  },
+  "VOOT": {
+    "officialUrl": ""
+  },
+  "NTRN": {
+    "officialUrl": ""
+  },
+  "XCR": {
+    "officialUrl": ""
+  },
+  "FC2": {
+    "officialUrl": ""
+  },
+  "SMC": {
+    "officialUrl": ""
+  },
+  "MZC": {
+    "officialUrl": ""
+  },
+  "RBR": {
+    "officialUrl": ""
+  },
+  "NYAN": {
+    "officialUrl": ""
+  },
+  "TRI": {
+    "officialUrl": ""
+  },
+  "RBIES": {
+    "officialUrl": ""
+  },
+  "PLS": {
+    "officialUrl": ""
+  },
+  "XPY": {
+    "officialUrl": ""
+  },
+  "UTC": {
+    "officialUrl": ""
+  },
+  "BILS": {
+    "officialUrl": ""
+  },
+  "BITBTC": {
+    "officialUrl": ""
+  },
+  "JLH": {
+    "officialUrl": ""
+  },
+  "DP": {
+    "officialUrl": ""
+  },
+  "CCN": {
+    "officialUrl": ""
+  },
+  "XSI": {
+    "officialUrl": ""
+  },
+  "SUPER": {
+    "officialUrl": ""
+  },
+  "QTL": {
+    "officialUrl": ""
+  },
+  "GRE": {
+    "officialUrl": ""
+  },
+  "AMBER": {
+    "officialUrl": ""
+  },
+  "SLG": {
+    "officialUrl": ""
+  },
+  "007": {
+    "officialUrl": ""
+  },
+  "ONEC": {
+    "officialUrl": ""
+  },
+  "CORG": {
+    "officialUrl": ""
+  },
+  "NRS": {
+    "officialUrl": ""
+  },
+  "TOR": {
+    "officialUrl": ""
+  },
+  "TEK": {
+    "officialUrl": ""
+  },
+  "XGR": {
+    "officialUrl": ""
+  },
+  "PXC": {
+    "officialUrl": ""
+  },
+  "PTS": {
+    "officialUrl": ""
+  },
+  "LOT": {
+    "officialUrl": ""
+  },
+  "TRK": {
+    "officialUrl": ""
+  },
+  "HBN": {
+    "officialUrl": ""
+  },
+  "BABCOIN": {
+    "officialUrl": ""
+  },
+  "EMD": {
+    "officialUrl": ""
+  },
+  "8BIT": {
+    "officialUrl": ""
+  },
+  "LTBC": {
+    "officialUrl": ""
+  },
+  "SF0": {
+    "officialUrl": ""
+  },
+  "CSC": {
+    "officialUrl": ""
+  },
+  "GAIA": {
+    "officialUrl": ""
+  },
+  "MRKT": {
+    "officialUrl": ""
+  },
+  "FLT": {
+    "officialUrl": ""
+  },
+  "AU": {
+    "officialUrl": ""
+  },
+  "BITGOLD": {
+    "officialUrl": ""
+  },
+  "CAP": {
+    "officialUrl": ""
+  },
+  "LXC": {
+    "officialUrl": ""
+  },
+  "C2": {
+    "officialUrl": ""
+  },
+  "GUN": {
+    "officialUrl": ""
+  },
+  "ARG": {
+    "officialUrl": ""
+  },
+  "CZC": {
+    "officialUrl": ""
+  },
+  "RBT": {
+    "officialUrl": ""
+  },
+  "YAC": {
+    "officialUrl": ""
+  },
+  "QCN": {
+    "officialUrl": ""
+  },
+  "MAC": {
+    "officialUrl": ""
+  },
+  "LEAF": {
+    "officialUrl": ""
+  },
+  "KR": {
+    "officialUrl": ""
+  },
+  "XPD": {
+    "officialUrl": ""
+  },
+  "VLT": {
+    "officialUrl": ""
+  },
+  "CACH": {
+    "officialUrl": ""
+  },
+  "CAT": {
+    "officialUrl": ""
+  },
+  "CON": {
+    "officialUrl": ""
+  },
+  "BSTY": {
+    "officialUrl": ""
+  },
+  "CNMT": {
+    "officialUrl": ""
+  },
+  "MARYJ": {
+    "officialUrl": ""
+  },
+  "SWARM": {
+    "officialUrl": ""
+  },
+  "LIQUID": {
+    "officialUrl": ""
+  },
+  "POP": {
+    "officialUrl": ""
+  },
+  "VTA": {
+    "officialUrl": ""
+  },
+  "BLC": {
+    "officialUrl": ""
+  },
+  "HEX": {
+    "officialUrl": ""
+  },
+  "ARI": {
+    "officialUrl": ""
+  },
+  "ESP2": {
+    "officialUrl": ""
+  },
+  "XJO": {
+    "officialUrl": ""
+  },
+  "EXE": {
+    "officialUrl": ""
+  },
+  "NXTV": {
+    "officialUrl": ""
+  },
+  "FRK": {
+    "officialUrl": ""
+  },
+  "MMNXT": {
+    "officialUrl": ""
+  },
+  "RED": {
+    "officialUrl": ""
+  },
+  "PHS": {
+    "officialUrl": ""
+  },
+  "KARM": {
+    "officialUrl": ""
+  },
+  "NXTPRIVACY": {
+    "officialUrl": ""
+  },
+  "STV": {
+    "officialUrl": ""
+  },
+  "ERY": {
+    "officialUrl": ""
+  },
+  "SKYNET": {
+    "officialUrl": ""
+  },
+  "MEOW": {
+    "officialUrl": ""
+  },
+  "COMM": {
+    "officialUrl": ""
+  },
+  "EXC": {
+    "officialUrl": ""
+  },
+  "ACOIN": {
+    "officialUrl": ""
+  },
+  "FRC": {
+    "officialUrl": ""
+  },
+  "CYP": {
+    "officialUrl": ""
+  },
+  "SLING": {
+    "officialUrl": ""
+  },
+  "GAP": {
+    "officialUrl": ""
+  },
+  "DIEM": {
+    "officialUrl": ""
+  },
+  "PHO": {
+    "officialUrl": ""
+  },
+  "ARCO": {
+    "officialUrl": ""
+  },
+  "FRSH": {
+    "officialUrl": ""
+  },
+  "BANX": {
+    "officialUrl": ""
+  },
+  "SPT": {
+    "officialUrl": ""
+  },
+  "CREVA": {
+    "officialUrl": ""
+  },
+  "HAL": {
+    "officialUrl": ""
+  },
+  "RPC": {
+    "officialUrl": ""
+  },
+  "SYNC": {
+    "officialUrl": ""
+  },
+  "CESC": {
+    "officialUrl": ""
+  },
+  "PXI": {
+    "officialUrl": ""
+  },
+  "BOB": {
+    "officialUrl": ""
+  },
+  "XCO": {
+    "officialUrl": ""
+  },
+  "URC": {
+    "officialUrl": ""
+  },
+  "BLZ": {
+    "officialUrl": ""
+  },
+  "BVC": {
+    "officialUrl": ""
+  },
+  "XDP": {
+    "officialUrl": ""
+  },
+  "DEBUNE": {
+    "officialUrl": ""
+  },
+  "COL": {
+    "officialUrl": ""
+  },
+  "HYPER": {
+    "officialUrl": ""
+  },
+  "EUC": {
+    "officialUrl": ""
+  },
+  "SONG": {
+    "officialUrl": ""
+  },
+  "HZ": {
+    "officialUrl": ""
+  },
+  "U": {
+    "officialUrl": ""
+  },
+  "FIBRE": {
+    "officialUrl": ""
+  },
+  "BQC": {
+    "officialUrl": ""
+  },
+  "PRIVATEBET": {
+    "officialUrl": ""
+  },
+  "SOON": {
+    "officialUrl": ""
+  },
+  "URO": {
+    "officialUrl": ""
+  },
+  "NODE": {
+    "officialUrl": ""
+  },
+  "FLAP": {
+    "officialUrl": ""
+  },
+  "HIRO": {
+    "officialUrl": ""
+  },
+  "MMC": {
+    "officialUrl": ""
+  },
+  "CTM": {
+    "officialUrl": ""
+  },
+  "BTQ": {
+    "officialUrl": ""
+  },
+  "BCX": {
+    "officialUrl": ""
+  },
+  "XCH": {
+    "officialUrl": ""
+  },
+  "RBBT": {
+    "officialUrl": ""
+  },
+  "BIC": {
+    "officialUrl": ""
+  },
+  "MGW": {
+    "officialUrl": ""
+  },
+  "ADN": {
+    "officialUrl": ""
+  },
+  "PRT": {
+    "officialUrl": ""
+  },
+  "DTC": {
+    "officialUrl": ""
+  },
+  "DRKC": {
+    "officialUrl": ""
+  },
+  "PLNC": {
+    "officialUrl": ""
+  },
+  "QBK": {
+    "officialUrl": ""
+  },
+  "KDC": {
+    "officialUrl": ""
+  },
+  "TRON": {
+    "officialUrl": ""
+  },
+  "TAGR": {
+    "officialUrl": ""
+  },
+  "420G": {
+    "officialUrl": ""
+  },
+  "1CR": {
+    "officialUrl": ""
+  },
+  "ICB": {
+    "officialUrl": ""
+  },
+  "MRS": {
+    "officialUrl": ""
+  },
+  "SHA": {
+    "officialUrl": ""
+  },
+  "ARCH": {
+    "officialUrl": ""
+  },
+  "LKY": {
+    "officialUrl": ""
+  },
+  "MCN": {
+    "officialUrl": ""
+  },
+  "CASH": {
+    "officialUrl": ""
+  },
+  "NEC": {
+    "officialUrl": ""
+  },
+  "SCORE": {
+    "officialUrl": ""
+  },
+  "NTR": {
+    "officialUrl": ""
+  },
+  "COOL": {
+    "officialUrl": ""
+  },
+  "LTCD": {
+    "officialUrl": ""
+  },
+  "NXTTY": {
+    "officialUrl": ""
+  },
+  "HVC": {
+    "officialUrl": ""
+  },
+  "DARK": {
+    "officialUrl": ""
+  },
+  "RIN": {
+    "officialUrl": ""
+  },
+  "OC": {
+    "officialUrl": ""
+  },
+  "VIOR": {
+    "officialUrl": ""
+  },
+  "SMBR": {
+    "officialUrl": ""
+  },
+  "LSD": {
+    "officialUrl": ""
+  },
+  "SFR": {
+    "officialUrl": ""
+  },
+  "USDE": {
+    "officialUrl": ""
+  },
+  "APEX": {
+    "officialUrl": ""
+  },
+  "AM": {
+    "officialUrl": ""
+  },
+  "XLB": {
+    "officialUrl": ""
+  },
+  "JAY": {
+    "officialUrl": ""
+  },
+  "VCOIN": {
+    "officialUrl": ""
+  },
+  "SSD": {
+    "officialUrl": ""
+  },
+  "P7C": {
+    "officialUrl": ""
+  },
+  "SPA": {
+    "officialUrl": ""
+  },
+  "NXTI": {
+    "officialUrl": ""
+  },
+  "NOXT": {
+    "officialUrl": ""
+  },
+  "CLR": {
+    "officialUrl": ""
+  },
+  "RZR": {
+    "officialUrl": ""
+  },
+  "CF": {
+    "officialUrl": ""
+  },
+  "SAT2": {
+    "officialUrl": ""
+  },
+  "ELS": {
+    "officialUrl": ""
+  },
+  "BET": {
+    "officialUrl": ""
+  },
+  "ELT": {
+    "officialUrl": ""
+  },
+  "CRAIG": {
+    "officialUrl": ""
+  },
+  "MWC": {
+    "officialUrl": ""
+  },
+  "TOP": {
+    "officialUrl": ""
+  },
+  "DSB": {
+    "officialUrl": ""
+  },
+  "BTCRY": {
+    "officialUrl": ""
+  },
+  "GUE": {
+    "officialUrl": ""
+  },
+  "DRZ": {
+    "officialUrl": ""
+  },
+  "ZED": {
+    "officialUrl": ""
+  },
+  "SHLD": {
+    "officialUrl": ""
+  },
+  "XAI": {
+    "officialUrl": ""
+  },
+  "DBL": {
+    "officialUrl": ""
+  },
+  "LYC": {
+    "officialUrl": ""
+  },
+  "YUM": {
+    "officialUrl": ""
+  },
+  "ZS": {
+    "officialUrl": ""
+  },
+  "GUA": {
+    "officialUrl": ""
+  },
+  "ANAL": {
+    "officialUrl": ""
+  },
+  "ROS": {
+    "officialUrl": ""
+  },
+  "BEN": {
+    "officialUrl": ""
+  },
+  "ALN": {
+    "officialUrl": ""
+  },
+  "QSLV": {
+    "officialUrl": ""
+  },
+  "RT2": {
+    "officialUrl": ""
+  },
+  "CRACK": {
+    "officialUrl": ""
+  },
+  "JUDGE": {
+    "officialUrl": ""
+  },
+  "SOLE": {
+    "officialUrl": ""
+  },
+  "FIC": {
+    "officialUrl": ""
+  },
+  "MTR": {
+    "officialUrl": ""
+  },
+  "MAIA": {
+    "officialUrl": ""
+  },
+  "GLYPH": {
+    "officialUrl": ""
+  },
+  "PMP": {
+    "officialUrl": ""
+  },
+  "GHC": {
+    "officialUrl": ""
+  },
+  "CNL": {
+    "officialUrl": ""
+  },
+  "JKC": {
+    "officialUrl": ""
+  },
+  "ULTC": {
+    "officialUrl": ""
+  },
+  "UTIL": {
+    "officialUrl": ""
+  },
+  "PSEUD": {
+    "officialUrl": ""
+  },
+  "SHADE": {
+    "officialUrl": ""
+  },
+  "NMB": {
+    "officialUrl": ""
+  },
+  "OSC": {
+    "officialUrl": ""
+  },
+  "KUMA": {
+    "officialUrl": ""
+  },
+  "AXR": {
+    "officialUrl": ""
+  },
+  "CAIX": {
+    "officialUrl": ""
+  },
+  "VDO": {
+    "officialUrl": ""
+  },
+  "RIPO": {
+    "officialUrl": ""
+  },
+  "QB": {
+    "officialUrl": ""
+  },
+  "HAM": {
+    "officialUrl": ""
+  },
+  "ISR": {
+    "officialUrl": ""
+  },
+  "TAK": {
+    "officialUrl": ""
+  },
+  "PYC": {
+    "officialUrl": ""
+  },
+  "SOL": {
+    "officialUrl": ""
+  },
+  "ROOT": {
+    "officialUrl": ""
+  },
+  "EKN": {
+    "officialUrl": ""
+  },
+  "MNC": {
+    "officialUrl": ""
+  },
+  "COV": {
+    "officialUrl": ""
+  },
+  "CRT": {
+    "officialUrl": ""
+  },
+  "NRB": {
+    "officialUrl": ""
+  },
+  "XDQ": {
+    "officialUrl": ""
+  },
+  "ORO": {
+    "officialUrl": ""
+  },
+  "CKC": {
+    "officialUrl": ""
+  },
+  "TCO": {
+    "officialUrl": ""
+  }
+}

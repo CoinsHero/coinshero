@@ -12,7 +12,7 @@ import Services from '../services/services';
 import Footer from './Footer';
 
 const styleSheet = createStyleSheet('MarketApp', (theme) => ({
-  'root': {
+  root: {
     direction: 'ltr',
     display: 'flex',
     flexDirection: 'column',
@@ -26,13 +26,13 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
   'root--rtl': {
     direction: 'rtl'
   },
-  'root__legal': {
+  root__legal: {
     display: 'flex',
     marginBottom: theme.spacing.unit * 3,
     flexDirection: 'column',
     textAlign: 'center'
   },
-  'root__container': {
+  root__container: {
     display: 'flex',
     width: '95%',
     flexDirection: 'column',

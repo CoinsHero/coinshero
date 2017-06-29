@@ -11,10 +11,10 @@ import {setLanguage} from '../i18n';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
-  'root': {
+  root: {
     direction: 'ltr'
   },
-  'root__IconButton': {
+  root__IconButton: {
     textTransform: 'none',
     marginLeft: theme.spacing.unit
   },
@@ -23,14 +23,14 @@ const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
     marginLeft: 0,
     marginRight: theme.spacing.unit
   },
-  'root__IconButton__img': {
+  root__IconButton__img: {
     height: theme.spacing.unit * 2.5
   },
-  'MenuItem__container': {
+  MenuItem__container: {
     display: 'flex',
     alignItems: 'center'
   },
-  'MenuItem__container__icon': {
+  MenuItem__container__icon: {
     marginRight: theme.spacing.unit * 1.25,
     height: theme.spacing.unit * 2.5
   }

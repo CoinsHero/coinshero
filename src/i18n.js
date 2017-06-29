@@ -19,7 +19,7 @@ export const DEFAULT_LANGUAGE = {
 
 export const languages = {
   [DEFAULT_LANGUAGE.code]: DEFAULT_LANGUAGE,
-  'he': {
+  he: {
     code: 'he',
     isRTL: true,
     translationKey: 'LANGUAGE_HEBREW',

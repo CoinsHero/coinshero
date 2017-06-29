@@ -36,6 +36,7 @@
     "indent": ["error", 2],
     "no-console": 0,
     "no-warning-comments": ["warn", { "terms": ["todo"], "location": "start" }],
+    "quote-props": ["error", "as-needed"],
 
     /** no-unsafe-innerhtml rule **/
     "no-unsafe-innerhtml/no-unsafe-innerhtml" : 2,

@@ -12,26 +12,26 @@ import classnamesjss from '../helpers/classnamesjss';
 import LanguageMenu from './LanguageMenu';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
-  'root': {
+  root: {
     backgroundColor: theme.palette.primary[600],
     color: theme.palette.getContrastText(theme.palette.primary[500])
   },
   'root--dark-theme': {
     'background-color': theme.palette.accent['A400'],
-    'color': theme.palette.getContrastText(theme.palette.accent['A400'])
+    color: theme.palette.getContrastText(theme.palette.accent['A400'])
   },
-  'root__appBar': {
+  root__appBa: {
     paddingLeft: theme.spacing.unit * 3,
     paddingRight: theme.spacing.unit * 3,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center'
   },
-  'root__Tabs': {
+  root__Tabs: {
     display: 'flex',
     flexGrow: 1
   },
-  'root_ToolBox': {
+  root_ToolBox: {
     padding: 0
   }
 }));

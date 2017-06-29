@@ -12,7 +12,7 @@ import { withStyles, createStyleSheet } from 'material-ui/styles';
 import classnamesjss from '../helpers/classnamesjss';
 
 const styleSheet = createStyleSheet('EnhancedTableHead', (theme) => ({
-  'root__TableHead__TableCell': {
+  root__TableHead__TableCell: {
     textAlign: 'left',
     fontSize: theme.typography.fontSize
   },

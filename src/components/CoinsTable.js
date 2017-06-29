@@ -20,7 +20,7 @@ import CircularIndeterminate from './CircularIndeterminate';
 
 const numbersStrength = 500;
 const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
-  'root': {
+  root: {
     overflowX: 'auto'
   },
   'root__empty-state': {
@@ -35,7 +35,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__empty-state__InfoIcon': {
     marginBottom: theme.spacing.unit / 2
   },
-  'root__TableBody__TableCell': {
+  root__TableBody__TableCell: {
     direction: 'ltr',
     textAlign: 'left'
   },
@@ -43,14 +43,27 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     direction: 'ltr',
     textAlign: 'right'
   },
-  'root__TableBody__TableCell__displayedNameContainer': {
+  root__TableBody__TableCell__displayedNameContainer: {
     display: 'flex',
     alignItems: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer--rtl': {
     flexDirection: 'row-reverse'
   },
-  'root__TableBody__TableCell__displayedNameContainer__img': {
+  root__TableBody__TableCell__displayedNameContainer__name: {
+    flexGrow: 1
+  },
+  'root__TableBody__TableCell__displayedNameContainer__name--link': {
+    transition: 'font-size 1s ease-in-out',
+    color: 'inherit',
+    textDecoration: 'inherit', // eslint-disable-line quote-props
+    '&:hover': {
+      textDecoration: 'underline',
+      fontSize: theme.typography.subheading.fontSize,
+      fontWeight: theme.typography.body2.fontWeight
+    }
+  },
+  root__TableBody__TableCell__displayedNameContainer__img: {
     height: theme.spacing.unit * 3,
     width: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 1
@@ -122,6 +135,11 @@ class CoinsTable extends Component {
         {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
       );
 
+      const nameCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell__displayedNameContainer__name',
+        {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
+      );
+
       const imgCellClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer__img',
         {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
@@ -133,15 +151,21 @@ class CoinsTable extends Component {
           alt={pair.baseCurrency.symbol} /> :
         <MonetizationOn className={imgCellClass} />;
 
+      const name = pair.baseCurrency.officialUrl ?
+        <a href={pair.baseCurrency.officialUrl} rel="noopener noreferrer" target="_blank" className={nameCellClass}>
+          {pair.baseCurrency.displayName}
+        </a> :
+        <span className={nameCellClass}>
+          {pair.baseCurrency.displayName}
+        </span>;
+
       return (
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <div className={nameContainerClass}>
               {icon}
-              <span>
-                {pair.baseCurrency.displayName}
-              </span>
+              {name}
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
