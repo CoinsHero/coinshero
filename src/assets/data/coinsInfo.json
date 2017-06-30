@@ -925,7 +925,9 @@
     "status": "Active"
   },
   "BCAP": {
-    "officialUrl": "",
+    "officialUrl": "https://blockchaincapital.tokenhub.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1829499.0",
+    "explorer": "https://etherscan.io/token/BCAP",
     "status": "Active"
   },
   "NXC": {
@@ -1162,7 +1164,9 @@
     "status": "Active"
   },
   "ZEN": {
-    "officialUrl": "",
+    "officialUrl": "https://zensystem.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1819977.0",
+    "explorer": "http://node1.zenchain.info:8886/?",
     "status": "Active"
   },
   "SAFEX": {
@@ -1552,7 +1556,9 @@
     "status": "Active"
   },
   "VTR": {
-    "officialUrl": "",
+    "officialUrl": "http://vtorrent.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=889481.0",
+    "explorer": "http://cryptoguru.tk/NetworkInfo/index.php?Currency=VTR",
     "status": "Active"
   },
   "SWIFT": {
