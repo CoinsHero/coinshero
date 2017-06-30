@@ -557,7 +557,8 @@
     "status": "Active"
   },
   "ANT": {
-    "officialUrl": "",
+    "officialUrl": "https://aragon.one/",
+    "explorer": "https://etherscan.io/token/Aragon",
     "status": "Active"
   },
   "EMC": {
