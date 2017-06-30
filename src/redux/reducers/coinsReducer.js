@@ -1,4 +1,6 @@
 import * as Immutable from 'seamless-immutable';
+
+import USD from '../../models/currencies/USD';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
@@ -33,6 +35,7 @@ const CoinsReducer = (state = initialState, action) => {
     const coins = [];
     let index;
     let rankIndex;
+    const TARGET_CURRENCY = new USD();
 
     for (index = 0, rankIndex = 0; index < coinsLength; index++) {
       const coin = action.payload[index];
@@ -89,13 +92,13 @@ const CoinsReducer = (state = initialState, action) => {
       if (coin[SORT_FIELD] === NO_VALUE_DATA_SYMBOL) {
         unSortedCoins.push(coin);
       } else {
-        coins.push(ValuePair.parse(coin, action.meta.locale, rankIndex + 1));
+        coins.push(ValuePair.parse(coin, action.meta.locale, rankIndex + 1, TARGET_CURRENCY));
         rankIndex++;
       }
     }
 
     for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
-      coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1));
+      coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, TARGET_CURRENCY));
     }
 
     /**

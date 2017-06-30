@@ -4,11 +4,11 @@ import T from 'i18n-react';
 export default class USD extends Currency {
   constructor() {
     super({
-      code: 'USD',
-      name: T.translate('TARGET_CURRENCY_USD'),
-      symbol: '$',
+      code: 'NIS',
+      name: T.translate('TARGET_CURRENCY_NIS'),
+      symbol: '₪',
       symbolLocation: Currency.SYMBOL_LOCATIONS.START,
-      factorFromUSD: 1
+      factorFromUSD: 3.49
     });
   }
 }

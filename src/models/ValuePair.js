@@ -77,9 +77,8 @@ export default class ValuePair {
     this.lastUpdateTimestamp = undefined;
   }
 
-  static parse(coin, locale, index) {
+  static parse(coin, locale, index, targetCurrency = new USD()) {
     const valuePair = new ValuePair();
-    const targetCurrency = new USD();
 
     valuePair.baseCurrency = new Currency({
       code: coin.short,
@@ -88,21 +87,27 @@ export default class ValuePair {
       symbolLocation: Currency.SYMBOL_LOCATIONS.END,
       imageUrl: coin.imageUrl,
       officialUrl: coin.officialUrl,
-      status: coin.status
+      status: coin.status,
+      factorFromUSD: safeParseFloat(coin.price)
     });
     valuePair.percentChange24h = safeParseFloat(coin.cap24hrChange);
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
-    valuePair.rank = index;
+
     valuePair.marketCap = safeParseFloat(coin.mktcap);
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
+
     valuePair.price = safeParseFloat(coin.price);
     valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, coin.price >= 1 ? 2 : 8, locale.code);
+
     valuePair.availableSupply = safeParseInt(coin.supply);
     valuePair.displayAvailableSupply = coin.supply !== NO_VALUE_DATA_SYMBOL ?
       toCurrencyFormat(coin.supply, locale.code, 0) :
       NO_VALUE_DATA_SYMBOL;
+
     valuePair.volume24h = safeParseFloat(coin.volume);
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
+
+    valuePair.rank = index;
     valuePair.targetCurrency = targetCurrency;
     valuePair.lastUpdateTimestamp = coin.time;
 
