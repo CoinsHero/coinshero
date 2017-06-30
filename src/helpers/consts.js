@@ -4,3 +4,7 @@ export const SORT_DIRECTIONS = {
   ASC: 'asc',
   DESC: 'desc'
 };
+export const COIN_STATUSES = {
+  INACTIVE: 'Inactive',
+  ACTIVE: 'Active'
+};

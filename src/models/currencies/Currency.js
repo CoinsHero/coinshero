@@ -38,6 +38,11 @@ class Currency {
      * @type {string}
      */
     this.officialUrl = options.officialUrl;
+    /**
+     * The status of the coin
+     * @type {string}
+     */
+    this.status = options.status;
   }
 
   static adjustCurrencyValue(currency, value, decimalNumbers = 2, localeCode = 'en') {

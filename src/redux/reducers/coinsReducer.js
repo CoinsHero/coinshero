@@ -1,10 +1,11 @@
 import * as Immutable from 'seamless-immutable';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
-import {NO_VALUE_DATA_SYMBOL} from '../../helpers/consts';
+import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
 import * as coinsInfo from '../../assets/data/coinsInfo.json';
 
 let missingUrls = [];
+let missingStatuses = [];
 
 const initialState = Immutable.from({
   coinsList: {},
@@ -64,9 +65,14 @@ const CoinsReducer = (state = initialState, action) => {
         coin.imageUrl = coinBaseInfo.imageUrl;
       }
 
-      coin.officialUrl = coinsInfo[coin.short.toUpperCase()].officialUrl;
+      coin.officialUrl = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].officialUrl;
+      coin.status = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].status;
 
-      if (!coin.officialUrl) {
+      if (!coin.status) {
+        missingStatuses && missingStatuses.push(coin.short);
+      }
+
+      if (!coin.officialUrl && coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
         missingUrls && missingUrls.push(coin.short);
       }
 
@@ -90,11 +96,25 @@ const CoinsReducer = (state = initialState, action) => {
       coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1));
     }
 
+    /**
+     * ******************************************
+     * Report missing data
+     * ******************************************/
     if (missingUrls && missingUrls.length > 0) {
       console.info(`You're missing some URLs for some coins (${missingUrls.length}) :` + JSON.stringify(missingUrls));
     }
 
+    if (missingStatuses && missingStatuses.length > 0) {
+      console.info(`You're missing some statuses for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
+    }
+
+    missingStatuses = undefined;
     missingUrls = undefined;
+
+    /**
+     * ******************************************
+     * End reporting of missing data
+     * ******************************************/
 
     return state.merge({
       isUpdatingData: false,
