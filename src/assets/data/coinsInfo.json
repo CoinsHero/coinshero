@@ -569,7 +569,9 @@
     "status": "Active"
   },
   "UBQ": {
-    "officialUrl": "",
+    "officialUrl": "https://ubiqsmart.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1763606",
+    "explorer": "https://ubiqscan.io/en",
     "status": "Active"
   },
   "PPC": {
@@ -629,7 +631,9 @@
     "status": "Active"
   },
   "RLC": {
-    "officialUrl": "",
+    "officialUrl": "http://iex.ec/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1746241.0",
+    "explorer": "https://etherscan.io/token/RLC",
     "status": "Active"
   },
   "OBITS": {
@@ -647,7 +651,9 @@
     "status": "Active"
   },
   "EDG": {
-    "officialUrl": "",
+    "officialUrl": "https://edgeless.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1718384.0",
+    "explorer": "https://etherscan.io/token/Edgeless",
     "status": "Active"
   },
   "SJCX": {
@@ -665,7 +671,9 @@
     "status": "Active"
   },
   "WINGS": {
-    "officialUrl": "",
+    "officialUrl": "https://www.wings.ai/#!/home/discover",
+    "discussion": "https://bitcointalk.org/index.php?topic=1477055.0",
+    "explorer": "https://etherscan.io/token/Wings",
     "status": "Active"
   },
   "XVG": {
@@ -739,7 +747,9 @@
     "status": "Active"
   },
   "XAUR": {
-    "officialUrl": "",
+    "officialUrl": "http://www.xaurum.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1546279.0",
+    "explorer": "https://etherscan.io/token/Xaurum",
     "status": "Active"
   },
   "DICE": {
@@ -750,7 +760,9 @@
     "status": "Active"
   },
   "VSL": {
-    "officialUrl": "",
+    "officialUrl": "http://www.vslice.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1691524",
+    "explorer": "https://etherscan.io/token/vslice",
     "status": "Active"
   },
   "BURST": {
