@@ -35,6 +35,8 @@ const CoinsReducer = (state = initialState, action) => {
     const coins = [];
     let index;
     let rankIndex;
+
+    // TODO: Change temp value
     const TARGET_CURRENCY = new USD();
 
     for (index = 0, rankIndex = 0; index < coinsLength; index++) {

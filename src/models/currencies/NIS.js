@@ -8,6 +8,7 @@ export default class USD extends Currency {
       name: T.translate('TARGET_CURRENCY_NIS'),
       symbol: '₪',
       symbolLocation: Currency.SYMBOL_LOCATIONS.START,
+      // TODO: Change temp value
       factorFromUSD: 3.49
     });
   }
