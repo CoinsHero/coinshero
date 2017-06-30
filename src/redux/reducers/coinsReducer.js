@@ -4,7 +4,8 @@ import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
 import * as coinsInfo from '../../assets/data/coinsInfo.json';
 
-let missingUrls = [];
+let missingImageUrls = [];
+let missingOfficialUrls = [];
 let missingStatuses = [];
 
 const initialState = Immutable.from({
@@ -61,19 +62,20 @@ const CoinsReducer = (state = initialState, action) => {
        * ******************************************/
       const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
 
-      if (coinBaseInfo) {
-        coin.imageUrl = coinBaseInfo.imageUrl;
-      }
-
-      coin.officialUrl = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].officialUrl;
+      coin.imageUrl = coinBaseInfo && coinBaseInfo.imageUrl;
       coin.status = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].status;
+      coin.officialUrl = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].officialUrl;
+
+      if (!coin.imageUrl) {
+        missingImageUrls && missingImageUrls.push(coin.short);
+      }
 
       if (!coin.status) {
         missingStatuses && missingStatuses.push(coin.short);
       }
 
       if (!coin.officialUrl && coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
-        missingUrls && missingUrls.push(coin.short);
+        missingOfficialUrls && missingOfficialUrls.push(coin.short);
       }
 
       /**
@@ -100,16 +102,22 @@ const CoinsReducer = (state = initialState, action) => {
      * ******************************************
      * Report missing data
      * ******************************************/
-    if (missingUrls && missingUrls.length > 0) {
-      console.info(`You're missing some URLs for some coins (${missingUrls.length}) :` + JSON.stringify(missingUrls));
+    if (missingImageUrls && missingImageUrls.length > 0) {
+      console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}) :` + JSON.stringify(missingImageUrls));
     }
 
     if (missingStatuses && missingStatuses.length > 0) {
-      console.info(`You're missing some statuses for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
+      console.warn(`You're missing some !! Statuses !! for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
+    }
+
+    if (missingOfficialUrls && missingOfficialUrls.length > 0) {
+      console.warn(`You're missing some !! Official Urls !! for some coins (${missingOfficialUrls.length}) :` +
+        JSON.stringify(missingOfficialUrls));
     }
 
     missingStatuses = undefined;
-    missingUrls = undefined;
+    missingOfficialUrls = undefined;
+    missingImageUrls = undefined;
 
     /**
      * ******************************************
