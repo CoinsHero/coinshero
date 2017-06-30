@@ -1,1685 +1,4332 @@
 {
+  "42": {
+    "officialUrl": "https://www.reddit.com/r/42%20Coin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
   "BTC": {
-    "officialUrl": "https://bitcoin.org/en/"
+    "officialUrl": "https://www.reddit.com/r/Bitcoin",
+    "discussion": "reddit.com/r/btc",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://blockexplorer.com/",
+    "status": "Active"
   },
   "ETH": {
-    "officialUrl": "https://www.ethereum.org/"
+    "officialUrl": "https://www.ethereum.org/",
+    "discussion": "https://www.reddit.com/r/ethereum/",
+    "twitter": "ethereumproject",
+    "explorer": "https://etherchain.org/",
+    "status": "Active"
   },
   "XRP": {
-    "officialUrl": "https://ripple.com/"
+    "officialUrl": "https://ripple.com/",
+    "discussion": "https://www.xrpchat.com/",
+    "twitter": "Ripple",
+    "explorer": "https://www.ripplecharts.com/#/graph/",
+    "status": "Active"
   },
   "LTC": {
-    "officialUrl": "https://litecoin.com"
+    "officialUrl": "https://litecoin.com/",
+    "discussion": "https://litecointalk.org/",
+    "twitter": "LitecoinProject",
+    "explorer": "http://explorer.litecoin.net/chain/Litecoin",
+    "status": "Active"
   },
   "ETC": {
-    "officialUrl": "https://ethereumclassic.github.io/"
+    "officialUrl": "https://ethereumclassic.github.io/",
+    "discussion": "https://ethereumclassic.github.io/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.ethereumclassic.com/#/",
+    "status": "Active"
   },
   "XEM": {
-    "officialUrl": "https://www.nem.io/"
+    "officialUrl": "http://nem.io/",
+    "discussion": "https://forum.ournem.com/",
+    "twitter": "NEMofficial",
+    "explorer": "http://nembex.nem.ninja/#/blocks/0",
+    "status": "Active"
   },
   "DASH": {
-    "officialUrl": "https://www.dash.org/"
+    "officialUrl": "https://www.dashpay.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=421615.0",
+    "twitter": "Dashpay",
+    "explorer": "https://chainz.cryptoid.info/dash/",
+    "status": "Active"
   },
   "MIOTA": {
-    "officialUrl": "https://iota.org/"
+    "officialUrl": "https://iota.org/",
+    "status": "Active"
   },
   "STRAT": {
-    "officialUrl": "https://stratisplatform.com//"
+    "officialUrl": "http://stratisplatform.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1512202.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/strat/",
+    "status": "Active"
   },
   "XMR": {
-    "officialUrl": "https://getmonero.org/home"
+    "officialUrl": "https://getmonero.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=583449.0",
+    "twitter": "monerocurrency",
+    "explorer": "http://chainradar.com/xmr/blocks",
+    "status": "Active"
   },
   "BTS": {
-    "officialUrl": "https://bitshares.org/"
+    "officialUrl": "https://bitshares.org/",
+    "discussion": "https://bitsharestalk.org/",
+    "twitter": "_bitshares",
+    "explorer": "http://www.bitsharesblocks.com/",
+    "status": "Active"
   },
   "ZEC": {
-    "officialUrl": "https://z.cash/"
+    "officialUrl": "https://z.cash",
+    "discussion": "https://forum.z.cash",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.testnet.z.cash",
+    "status": "Active"
   },
   "ANS": {
-    "officialUrl": "https://www.antshares.org/"
+    "officialUrl": "https://www.antshares.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1571738.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://antcha.in/",
+    "status": "Active"
   },
   "GNT": {
-    "officialUrl": "https://golem.network/"
+    "officialUrl": "https://golem.network/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1655002.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/Golem",
+    "status": "Active"
   },
   "STEEM": {
-    "officialUrl": "https://steem.io/"
+    "officialUrl": "https://steem.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1410943.0",
+    "twitter": "steemit",
+    "explorer": "http://steemd.com/",
+    "status": "Active"
   },
   "BCN": {
-    "officialUrl": "https://bytecoin.org/"
+    "officialUrl": "http://bytecoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=512747.0",
+    "twitter": "bytecoin_dev",
+    "explorer": "http://chainradar.com/bcn/blocks",
+    "status": "Active"
   },
   "SC": {
-    "officialUrl": "http://sia.tech/"
+    "officialUrl": "https://sia.tech/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1060294.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explore.sia.tech/",
+    "status": "Active"
   },
   "WAVES": {
-    "officialUrl": "https://wavesplatform.com/"
+    "officialUrl": "https://wavesplatform.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1387944.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://wavesexplorer.com/",
+    "status": "Active"
   },
   "ICN": {
-    "officialUrl": "https://www.iconomi.net/"
+    "officialUrl": "https://www.iconomi.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1587736.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LSK": {
-    "officialUrl": "https://lisk.io/"
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1346646",
+    "discussion": "https://forum.lisk.io/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.lisk.io/",
+    "status": "Active"
   },
   "XLM": {
-    "officialUrl": "https://www.stellar.org/"
+    "officialUrl": "https://www.stellar.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=719019.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.stellar.org/stats/",
+    "status": "Active"
   },
   "REP": {
-    "officialUrl": "https://augur.net/"
+    "officialUrl": "https://www.augur.net/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GNO": {
-    "officialUrl": "https://gnosis.pm/"
+    "officialUrl": "https://gnosis.pm/",
+    "status": "Active"
   },
   "DOGE": {
-    "officialUrl": "http://dogecoin.com/"
+    "officialUrl": "http://dogecoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=361813.0",
+    "twitter": "dogecoin",
+    "explorer": "http://dogechain.info/chain/Dogecoin",
+    "status": "Active"
   },
   "GAME": {
-    "officialUrl": "https://gamecredits.com/"
+    "officialUrl": "http://gamecredits.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1010745",
+    "twitter": "Game_Credits",
+    "explorer": "http://gmc.cryptocloudhosting.org:3001/",
+    "status": "Active"
   },
   "FCT": {
-    "officialUrl": "https://www.factom.com/"
+    "officialUrl": "https://Factom.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.factom.org/",
+    "status": "Active"
   },
   "GBYTE": {
-    "officialUrl": "https://byteball.org/"
+    "officialUrl": "https://byteball.org/",
+    "status": "Active"
   },
   "MAID": {
-    "officialUrl": "https://maidsafe.net/"
+    "officialUrl": "http://maidsafe.net/",
+    "discussion": "",
+    "twitter": "maidsafe",
+    "explorer": "https://masterchest.info/lookupsp.aspx?sp=3",
+    "status": "Active"
   },
   "USDT": {
-    "officialUrl": "https://tether.to/"
+    "officialUrl": "https://tether.to/",
+    "discussion": "",
+    "twitter": "Tether_to",
+    "explorer": "http://omnichest.info/lookupsp.aspx?sp=31",
+    "status": "Active"
   },
   "ARDR": {
-    "officialUrl": "https://www.ardorplatform.org/"
+    "officialUrl": "https://www.ardorplatform.org/",
+    "discussion": "https://nxtforum.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.mynxt.info/asset/12422608354438203866",
+    "status": "Active"
   },
   "DCR": {
-    "officialUrl": "https://www.decred.org/"
+    "officialUrl": "https://www.decred.org/",
+    "discussion": "https://forum.decred.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://mainnet.decred.org/",
+    "status": "Active"
   },
   "KMD": {
-    "officialUrl": "https://komodoplatform.com/"
+    "officialUrl": "https://komodoplatform.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1605144.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://kpx.io/",
+    "status": "Active"
   },
   "DGB": {
-    "officialUrl": "http://www.digibyte.co/"
+    "officialUrl": "http://www.digibyte.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=408268.0",
+    "twitter": "DigiByteCoin",
+    "explorer": "http://digiexplorer.info/",
+    "status": "Active"
   },
   "DGD": {
-    "officialUrl": "https://digix.io/"
+    "officialUrl": "https://digix.io/#/",
+    "discussion": "https://forum.bitcoin.com/alternative-cryptocurrencies-altcoins/digixdao-token-dgd-pre-launch-via-ccedk-acount-digixdao-t7120.html",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://cryptofresh.com/a/OPEN.DGD",
+    "status": "Active"
   },
   "NXT": {
-    "officialUrl": "https://nxt.org/"
+    "officialUrl": "http://nxt.org/",
+    "discussion": "https://nxtforum.org/",
+    "twitter": "NxtCommunity",
+    "explorer": "http://mynxt.info/blockexplorer/",
+    "status": "Active"
   },
   "1ST": {
-    "officialUrl": "https://firstblood.io/"
+    "officialUrl": "https://firstblood.io/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/FirstBlood",
+    "status": "Active"
   },
   "BAT": {
-    "officialUrl": "https://basicattentiontoken.org/"
+    "officialUrl": "https://basicattentiontoken.org/",
+    "status": "Active"
   },
   "ASC": {
-    "officialUrl": "http://asiccoin.biz/"
+    "officialUrl": "https://www.reddit.com/r/AsicCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SLM": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Slimcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "XXX": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/XXXcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "OMC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.omnicoin.org/",
+    "discussion": "http://www.hackforums.net/forumdisplay.php?fid=310",
+    "twitter": "OmnicoinOrg",
+    "explorer": "https://omnicha.in/",
+    "status": "Active"
   },
   "BTCS": {
-    "officialUrl": ""
+    "officialUrl": "http://theotherbitcoin.com/",
+    "discussion": "https://cryptocointalk.com/forum/411-bitcoin-scrypt-btc/",
+    "twitter": "theotherbitcoin",
+    "explorer": "http://blocks.btcs.pw/chain/Bitcoin%20sCrypt",
+    "status": "Active"
   },
   "CYC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1117611.0",
+    "status": "Active"
   },
   "PFC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Inactive"
   },
   "XMS": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1040090.0",
+    "status": "Inactive"
   },
   "UNC": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/unioncoin/Unioncoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=365399.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://unioncoin.org/?reqp=1&reqr=",
+    "status": "Active"
   },
   "OPAL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.opal-coin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=778720.0",
+    "twitter": "OpalCoinTeam",
+    "explorer": "http://blockexperts.com/opal",
+    "status": "Active"
   },
   "TBC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.tbcoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PEERPLAYS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.peerplays.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1462351.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://cryptofresh.com/a/PEERPLAYS",
+    "status": "Active"
   },
   "APC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.applecoin.org/?from=@",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "XQN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Quotient",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DAO": {
-    "officialUrl": ""
+    "officialUrl": "https://daohub.org/",
+    "discussion": "https://forum.daohub.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/thedao-token-chart",
+    "status": "Active"
   },
   "XBS": {
-    "officialUrl": ""
+    "officialUrl": "https://bitstake.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=920272.0",
+    "twitter": "BitStake",
+    "explorer": "https://chainz.cryptoid.info/xbs/",
+    "status": "Active"
   },
   "XAU": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Xaurum",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ZRC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.ziftrcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=970363",
+    "twitter": "ziftrCOIN",
+    "explorer": "",
+    "status": "Active"
   },
   "CC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/CyberCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CGA": {
-    "officialUrl": ""
+    "officialUrl": "http://cganomaly.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=771830.0",
+    "twitter": "CGAnomaly",
+    "explorer": "http://www.crypto2.net/cga/blocks.php?chain=2",
+    "status": "Active"
   },
   "BUK": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptobuck.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=285224.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://buk.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "BFX": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://www.bitfinex.com/bfx_token_terms",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Inactive"
   },
   "IEC": {
-    "officialUrl": ""
+    "officialUrl": "http://ivugeocoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1026371.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.blockexperts.com/iec",
+    "status": "Active"
   },
   "BTG": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitgem.pw/",
+    "discussion": "https://bitcointalk.org/index.php?topic=207008.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.bitgem.pw/chain/Bitgem",
+    "status": "Active"
   },
   "NTC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/NineElevenTruthCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GP": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GoldPieces",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GDC": {
-    "officialUrl": ""
+    "officialUrl": "http://grandcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=255629.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://minemanic.com/gdc/",
+    "status": "Active"
   },
   "ELC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Elacoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BKS": {
-    "officialUrl": ""
+    "officialUrl": "https://bcexchange.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1033773.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://bcblockexplorer.com/",
+    "status": "Active"
   },
   "GAY": {
-    "officialUrl": ""
+    "officialUrl": "http://www.gaycoin.online/",
+    "discussion": "https://bitcointalk.org/index.php?topic=465940.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "QORA": {
-    "officialUrl": ""
+    "officialUrl": "http://www.qora.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1015379.0",
+    "twitter": "qoracoin",
+    "explorer": "http://qora.co.in/",
+    "status": "Active"
   },
   "GML": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GameLeagueCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LTS": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=959292.0",
+    "status": "Inactive"
   },
   "TP1": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1019421.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.cryptopia.co.nz/BlockExplorer?coin=CGN",
+    "status": "Active"
   },
   "LFO": {
-    "officialUrl": ""
+    "officialUrl": "http://lfofoundation.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Inactive"
   },
   "ACCI": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://nxtforum.org/general-discussion/the-chameleon-project/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://nxtportal.org/currencies/12966877553254092177",
+    "status": "Inactive"
   },
   "VGC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/VegasCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FFC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/FireFlyCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BNT": {
-    "officialUrl": "https://www.bancor.network/"
+    "officialUrl": "https://www.bancor.network/",
+    "status": "Active"
   },
   "GSM": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GSMcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MRY": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Murraycoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SNGLS": {
-    "officialUrl": ""
+    "officialUrl": "https://singulardtv.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1562292.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/SNGLS",
+    "status": "Active"
   },
   "PIVX": {
-    "officialUrl": ""
+    "officialUrl": "https://pivx.org/",
+    "discussion": "https://forum.pivx.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.presstab.pw/phpexplorer/PIVX/index.php",
+    "status": "Active"
   },
   "SYS": {
-    "officialUrl": ""
+    "officialUrl": "http://syscoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=757255",
+    "twitter": "syscoin",
+    "explorer": "http://blockexperts.com/sys",
+    "status": "Active"
   },
   "BTCD": {
-    "officialUrl": ""
+    "officialUrl": "http://bitcoindark.pw/",
+    "discussion": "https://bitcointalk.org/index.php?topic=684090.0",
+    "twitter": "BitcoinDark",
+    "explorer": "http://chain.explorebtcd.info/",
+    "status": "Active"
   },
   "ANT": {
-    "officialUrl": ""
+    "officialUrl": "https://aragon.one/",
+    "explorer": "https://etherscan.io/token/Aragon",
+    "status": "Active"
   },
   "EMC": {
-    "officialUrl": ""
+    "officialUrl": "http://emercoin.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://darkgamex.ch:2752/chain/Emercoin",
+    "status": "Active"
   },
   "UBQ": {
-    "officialUrl": ""
+    "officialUrl": "https://ubiqsmart.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1763606",
+    "explorer": "https://ubiqscan.io/en",
+    "status": "Active"
   },
   "PPC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.peercoin.net/",
+    "discussion": "https://www.peercointalk.org/",
+    "twitter": "PeercoinPPC",
+    "explorer": "http://ppc.blockr.io/",
+    "status": "Active"
   },
   "LKK": {
-    "officialUrl": ""
+    "officialUrl": "https://lykke.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1402110.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ARK": {
-    "officialUrl": ""
+    "officialUrl": "https://ark.io/",
+    "discussion": "https://forum.ark.io/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.ark.io/networkMonitor",
+    "status": "Active"
   },
   "AMP": {
-    "officialUrl": ""
+    "officialUrl": "http://www.synereo.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=995987",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://omnichest.info/lookupsp.aspx?sp=39",
+    "status": "Active"
   },
   "LEO": {
-    "officialUrl": ""
+    "officialUrl": "http://www.leocoin.org/",
+    "discussion": "https://www.reddit.com/r/LEOcoinorg/",
+    "twitter": "leocoinorg",
+    "explorer": "http://explorer.leocoin.org/",
+    "status": "Active"
   },
   "RDD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddcoin.com/",
+    "discussion": "http://live.reddcoin.com/",
+    "twitter": "reddcoin",
+    "explorer": "",
+    "status": "Active"
   },
   "NXS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.nexusearth.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=657601.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nexusoft.io/platform/Explorer",
+    "status": "Active"
   },
   "CLOAK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.cloakcoin.com/en/",
+    "discussion": "https://bitcointalk.org/index.php?topic=823143.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.cloakcoin.com/",
+    "status": "Active"
   },
   "RLC": {
-    "officialUrl": ""
+    "officialUrl": "http://iex.ec/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1746241.0",
+    "explorer": "https://etherscan.io/token/RLC",
+    "status": "Active"
   },
   "OBITS": {
-    "officialUrl": ""
+    "officialUrl": "https://obits.io/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptofresh.com/a/OBITS",
+    "status": "Active"
   },
   "MLN": {
-    "officialUrl": ""
+    "officialUrl": "https://melonport.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1763204.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/Melon",
+    "status": "Active"
   },
   "EDG": {
-    "officialUrl": ""
+    "officialUrl": "https://edgeless.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1718384.0",
+    "explorer": "https://etherscan.io/token/Edgeless",
+    "status": "Active"
   },
   "SJCX": {
-    "officialUrl": ""
+    "officialUrl": "http://storj.io/",
+    "discussion": "https://storjtalk.org/",
+    "twitter": "storjproject",
+    "explorer": "http://blockscan.com/assetInfo.aspx?q=SJCX",
+    "status": "Active"
   },
   "LBC": {
-    "officialUrl": ""
+    "officialUrl": "https://lbry.io/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.lbry.io/",
+    "status": "Active"
   },
   "WINGS": {
-    "officialUrl": ""
+    "officialUrl": "https://www.wings.ai/#!/home/discover",
+    "discussion": "https://bitcointalk.org/index.php?topic=1477055.0",
+    "explorer": "https://etherscan.io/token/Wings",
+    "status": "Active"
   },
   "XVG": {
-    "officialUrl": ""
+    "officialUrl": "http://vergecurrency.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptofresh.com/a/OBITS",
+    "status": "Active"
   },
   "NMC": {
-    "officialUrl": ""
+    "officialUrl": "http://namecoin.info/",
+    "discussion": "https://bitcointalk.org/?topic=6017.0",
+    "twitter": "NamecoinDotInfo",
+    "explorer": "http://explorer.namecoin.info/",
+    "status": "Active"
   },
   "MONA": {
-    "officialUrl": ""
+    "officialUrl": "http://monacoin.org/en/",
+    "discussion": "https://bitcointalk.org/index.php?topic=392436.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://abe.cryptocoinservice.net/chain/Monacoin/",
+    "status": "Active"
   },
   "BAY": {
-    "officialUrl": ""
+    "officialUrl": "http://bitbaymarket.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=890531",
+    "twitter": "bitbaytalk",
+    "explorer": "https://chainz.cryptoid.info/bay/",
+    "status": "Active"
   },
   "OMNI": {
-    "officialUrl": ""
+    "officialUrl": "http://www.omnilayer.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=242406.0",
+    "twitter": "Omni_Layer",
+    "explorer": "http://omnichest.info/",
+    "status": "Active"
   },
   "XCP": {
-    "officialUrl": ""
+    "officialUrl": "http://counterparty.io/",
+    "discussion": "https://counterpartytalk.org/",
+    "twitter": "CounterpartyXCP",
+    "explorer": "http://www.blockscan.com/",
+    "status": "Active"
   },
   "NLG": {
-    "officialUrl": ""
+    "officialUrl": "https://guldencoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=554412.0",
+    "twitter": "guldencoin",
+    "explorer": "https://explorer.guldencoin.com/#/",
+    "status": "Active"
   },
   "BLK": {
-    "officialUrl": ""
+    "officialUrl": "http://blackcoin.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=599299",
+    "twitter": "CoinBlack",
+    "explorer": "https://chainz.cryptoid.info/blk/",
+    "status": "Active"
   },
   "XZC": {
-    "officialUrl": ""
+    "officialUrl": "https://zcoin.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1638450",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.zcoin.io/",
+    "status": "Active"
   },
   "VIA": {
-    "officialUrl": ""
+    "officialUrl": "http://viacoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=699278.0",
+    "twitter": "viacoin",
+    "explorer": "https://chainz.cryptoid.info/via/",
+    "status": "Active"
   },
   "XAUR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.xaurum.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1546279.0",
+    "explorer": "https://etherscan.io/token/Xaurum",
+    "status": "Active"
   },
   "DICE": {
-    "officialUrl": ""
+    "officialUrl": "http://neodice.com/",
+    "discussion": "https://nxtforum.org/nxtventures/(pre-ann)-neodice/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=18184274154437352348",
+    "status": "Active"
   },
   "VSL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.vslice.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1691524",
+    "explorer": "https://etherscan.io/token/vslice",
+    "status": "Active"
   },
   "BURST": {
-    "officialUrl": ""
+    "officialUrl": "http://burstcoin.info/",
+    "discussion": "https://burstforum.com/index.php",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://burstcoin.eu/",
+    "status": "Active"
   },
   "VTC": {
-    "officialUrl": ""
+    "officialUrl": "https://vertcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=404364.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.thisisvtc.com/",
+    "status": "Active"
   },
   "AGRS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.idni.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=950309.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://omnichest.info/lookupsp.aspx?sp=35",
+    "status": "Active"
   },
   "BLOCK": {
-    "officialUrl": ""
+    "officialUrl": "http://blocknet.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=829576.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://block.blockexplorer.cc/chain/Blocknet",
+    "status": "Active"
   },
   "EAC": {
-    "officialUrl": ""
+    "officialUrl": "http://getearthcoin.com/",
+    "discussion": "",
+    "twitter": "getearthcoin",
+    "explorer": "http://earthchain.info/chain/EarthCoin",
+    "status": "Active"
   },
   "NAV": {
-    "officialUrl": ""
+    "officialUrl": "http://www.navajocoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=679791.0",
+    "twitter": "NavajoCoin",
+    "explorer": "http://navajocoin.org/block-explorer",
+    "status": "Active"
   },
   "TRST": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "YBC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.ybcoin.org/",
+    "discussion": "",
+    "twitter": "YBcoin",
+    "explorer": "http://explorer.ybcoin.com/chain/Ybcoin/",
+    "status": "Active"
   },
   "UNITY": {
-    "officialUrl": ""
+    "officialUrl": "http://www.supernet.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=762346",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=12071612744977229797",
+    "status": "Active"
   },
   "POT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.potcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=426324.0",
+    "twitter": "PotCoin",
+    "explorer": "https://chainz.cryptoid.info/pot/",
+    "status": "Active"
   },
   "TKN": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "GRC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.gridcoin.us/",
+    "discussion": "https://cryptocointalk.com/topic/31900-anngrc-gridcoin-research-a-secure-blockchain-developed-on-the-philosophy-of-benefiting-humanity/",
+    "twitter": "GridcoinNetwork",
+    "explorer": "http://explorer.gridcoin.us/",
+    "status": "Active"
   },
   "EXP": {
-    "officialUrl": ""
+    "officialUrl": "http://www.expanse.tech/",
+    "discussion": "http://forum.expanse.tech/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://stats.expanse.tech/",
+    "status": "Active"
   },
   "EDR": {
-    "officialUrl": ""
+    "officialUrl": "https://edinarcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1586602.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://wallet.edinarcoin.com/#/explorer/blocks",
+    "status": "Active"
   },
   "CRW": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/CrownCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GUP": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "WDC": {
-    "officialUrl": ""
+    "officialUrl": "http://worldcoin.global/",
+    "discussion": "http://forum.worldcoin.global/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.worldcoinexplorer.com/",
+    "status": "Active"
   },
   "SHIFT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.shiftnrg.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1155284.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.shiftnrg.org/",
+    "status": "Active"
   },
   "NEOS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.neoscoin.com/",
+    "discussion": "http://forum.neoscoin.com/",
+    "twitter": "NeosCoin",
+    "explorer": "http://explorer.neoscoin.com/chain/NeosCoin",
+    "status": "Active"
   },
   "IOC": {
-    "officialUrl": ""
+    "officialUrl": "http://iocoin.io/",
+    "discussion": "http://www.iocoinhub.io/index.php?r=dashboard/dashboard",
+    "twitter": "io_coin",
+    "explorer": "https://chainz.cryptoid.info/ioc/",
+    "status": "Active"
   },
   "RADS": {
-    "officialUrl": ""
+    "officialUrl": "http://projectradon.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1333026",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chain.blockpioneers.info/radium/explorer.php",
+    "status": "Active"
   },
   "XDN": {
-    "officialUrl": ""
+    "officialUrl": "http://darknote.cc/",
+    "discussion": "https://bitcointalk.org/index.php?topic=788916",
+    "twitter": "DarkNote_XDN",
+    "explorer": "http://chainradar.com/xdn/blocks",
+    "status": "Active"
   },
   "SWT": {
-    "officialUrl": ""
+    "officialUrl": "https://swarm.city/#/intro/welcome",
+    "discussion": "https://bitcointalk.org/index.php?topic=1794644",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/0xb9e7f8568e08d5659f5d29c4997173d84cdf2607",
+    "status": "Active"
   },
   "MOON": {
-    "officialUrl": ""
+    "officialUrl": "http://mooncoin.rocks/",
+    "discussion": "https://bitcointalk.org/index.php?topic=389403.0",
+    "twitter": "RealMooncoin",
+    "explorer": "http://www.moonchain.net/chain/Mooncoin",
+    "status": "Active"
   },
   "BCAP": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "NXC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "NVC": {
-    "officialUrl": ""
+    "officialUrl": "http://novacoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.novaco.in/",
+    "status": "Active"
   },
   "ION": {
-    "officialUrl": ""
+    "officialUrl": "https://ionomy.com/",
+    "discussion": "https://www.iontalk.net/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://ionchain.com/",
+    "status": "Active"
   },
   "ENRG": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Energycoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "QRK": {
-    "officialUrl": ""
+    "officialUrl": "http://www.qrk.cc/",
+    "discussion": "https://bitcointalk.org/index.php?topic=260031.0",
+    "twitter": "Quark_QRK",
+    "explorer": "http://qrk.blockr.io/",
+    "status": "Active"
   },
   "NOTE": {
-    "officialUrl": ""
+    "officialUrl": "http://dnotescoin.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://altexplorer.net/chain/DNote",
+    "status": "Active"
   },
   "XBC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitcoinplus.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=714606",
+    "twitter": "BitcoinPlusOrg",
+    "explorer": "http://blockexplorer.bitcoinplus.org/",
+    "status": "Active"
   },
   "VRC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.vericoin.info/",
+    "discussion": "https://www.vericoinforums.com/",
+    "twitter": "VeriCoin",
+    "explorer": "https://chainz.cryptoid.info/vrc/",
+    "status": "Active"
   },
   "EMC2": {
-    "officialUrl": ""
+    "officialUrl": "http://www.emc2foundation.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=494708.0",
+    "twitter": "einsteiniumcoin",
+    "explorer": "",
+    "status": "Active"
   },
   "XPM": {
-    "officialUrl": ""
+    "officialUrl": "http://primecoin.io/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://coinplorer.com/XPM",
+    "status": "Active"
   },
   "IFC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.infinitecoin.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://exploretheblocks.com:2750/chain/InfiniteCoin",
+    "status": "Active"
   },
   "TIME": {
-    "officialUrl": ""
+    "officialUrl": "https://chronobank.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1680361.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/TIME",
+    "status": "Active"
   },
   "SPHR": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1052560",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://sphere.iquidus.io/",
+    "status": "Active"
   },
   "FTC": {
-    "officialUrl": ""
+    "officialUrl": "http://feathercoin.com/",
+    "discussion": "https://forum.feathercoin.com/",
+    "twitter": "Feathercoin",
+    "explorer": "http://explorer.feathercoin.com/",
+    "status": "Active"
   },
   "BCY": {
-    "officialUrl": ""
+    "officialUrl": "http://bitcrystals.github.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=957797.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockscan.com/assetInfo/BITCRYSTALS",
+    "status": "Active"
   },
   "JINN": {
-    "officialUrl": ""
+    "officialUrl": "http://www.jinnlabs.com/",
+    "discussion": "https://nxtforum.org/news-and-announcements/(ann)-jinn/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=3061160746493230502",
+    "status": "Active"
   },
   "HEAT": {
-    "officialUrl": ""
+    "officialUrl": "http://heatledger.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1543991.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "VOX": {
-    "officialUrl": ""
+    "officialUrl": "https://www.voxelus.com/",
+    "discussion": "http://forum.voxelus.com/index.php",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.blockexperts.com/vox",
+    "status": "Active"
   },
   "FAIR": {
-    "officialUrl": ""
+    "officialUrl": "https://fair-coin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=702675.0",
+    "twitter": "FairCoinTeam",
+    "explorer": "https://chain.fair-coin.org/chain/FairCoin",
+    "status": "Active"
   },
   "MUE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/MonetaryUnit",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FLDC": {
-    "officialUrl": ""
+    "officialUrl": "http://foldingcoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=781352.0",
+    "twitter": "FoldingCoin",
+    "explorer": "http://blockscan.com/assetInfo.aspx?q=FLDC",
+    "status": "Active"
   },
   "PLU": {
-    "officialUrl": ""
+    "officialUrl": "https://plutus.it/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1521838.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://etherscan.io/token/Pluton",
+    "status": "Active"
   },
   "CLAM": {
-    "officialUrl": ""
+    "officialUrl": "http://www.clamcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=623147.0",
+    "twitter": "ClamClient",
+    "explorer": "http://khashier.com/chain/Clam",
+    "status": "Active"
   },
   "RBY": {
-    "officialUrl": ""
+    "officialUrl": "http://www.rubycoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=459622",
+    "twitter": "rubycoinorg",
+    "explorer": "https://chainz.cryptoid.info/rby/",
+    "status": "Active"
   },
   "XCN": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptonite.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=713538.0",
+    "twitter": "CryptoniteCoin",
+    "explorer": "http://explorer.cryptonite.info/",
+    "status": "Active"
   },
   "SIB": {
-    "officialUrl": ""
+    "officialUrl": "http://sibcoin.info/index.php",
+    "discussion": "https://bitcointalk.org/index.php?topic=1153781.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chain.sibcoin.net/",
+    "status": "Active"
   },
   "FLO": {
-    "officialUrl": ""
+    "officialUrl": "http://florincoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=236742",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://florincoin.info/explorer/",
+    "status": "Active"
   },
   "BITCNY": {
-    "officialUrl": ""
+    "officialUrl": "http://wiki.bitshares.org/index.php/Market_Peg",
+    "discussion": "http://wiki.bitshares.org/index.php/Market_Peg",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.bitsharesblocks.com/assets/market",
+    "status": "Active"
   },
   "XBY": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "GAM": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1051324.0",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/gam/",
+    "status": "Active"
   },
   "MEC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.megacoin.co.nz/",
+    "discussion": "https://forum.megacoin.co.nz/",
+    "twitter": "mega_coin",
+    "explorer": "http://mec.blockr.io/",
+    "status": "Active"
   },
   "PASC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.pascalcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1583719",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.pascalcoin.org/",
+    "status": "Active"
   },
   "BELA": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "ECC": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/Greg-Griffith/ECCoin/tree/master",
+    "discussion": "https://bitcointalk.org/index.php?topic=728071.0",
+    "twitter": "eccoin",
+    "explorer": "http://blockexperts.com/ecc",
+    "status": "Active"
   },
   "CRB": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "ZEN": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "SAFEX": {
-    "officialUrl": ""
+    "officialUrl": "https://safex.io/",
+    "discussion": "https://safe.exchange/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://omnichest.info/lookupsp.aspx?sp=56",
+    "status": "Active"
   },
   "DEX": {
-    "officialUrl": ""
+    "officialUrl": "http://instantdex.org/",
+    "discussion": "https://nxtforum.org/nxtventures/instantdex-realtime-trading-of-nxt-nxt-assets-btc-and-btc-clones/20/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=15344649963748848799",
+    "status": "Active"
   },
   "MUSE": {
-    "officialUrl": ""
+    "officialUrl": "http://peertracks.com/",
+    "discussion": "https://bitsharestalk.org/index.php/board,54.0.html",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://muse.cryptofresh.com/a/MUSE",
+    "status": "Active"
   },
   "AEON": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=641696.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chainradar.com/aeon/blocks",
+    "status": "Active"
   },
   "DMD": {
-    "officialUrl": ""
+    "officialUrl": "http://bit.diamonds/",
+    "discussion": "https://bitcointalk.org/index.php?topic=580725.0",
+    "twitter": "dmdcoin",
+    "explorer": "https://chainz.cryptoid.info/dmd/",
+    "status": "Active"
   },
   "MAX": {
-    "officialUrl": ""
+    "officialUrl": "http://www.maxcoin.co.uk/",
+    "discussion": "https://bitcointalk.org/index.php?topic=438150.0",
+    "twitter": "maxcoinproject",
+    "explorer": "http://explorer.maxcoin.co.uk/chain/Maxcoin",
+    "status": "Active"
   },
   "NAUT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.nautiluscoin.com/#store-of-value",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SLR": {
-    "officialUrl": ""
+    "officialUrl": "http://solarcoin.org/en/front-page/",
+    "discussion": "http://solarcoin.org/forum/",
+    "twitter": "SolarCoin_SLR",
+    "explorer": "http://blockexplorer.solarcoin.org/",
+    "status": "Active"
   },
   "GRS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.groestlcoin.org/",
+    "discussion": "http://www.groestlcoin.org/forum/",
+    "twitter": "GroestlcoinTeam",
+    "explorer": "https://chainz.cryptoid.info/grs/",
+    "status": "Active"
   },
   "ZCC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.zccoin.org/?lang=en",
+    "discussion": "http://www.zccoin.org/?page_id=34&lang=en",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ZET": {
-    "officialUrl": ""
+    "officialUrl": "http://zetacoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=267545.0",
+    "twitter": "zetacoincc",
+    "explorer": "http://darkgamex.ch:2751/chain/ZetaCoin",
+    "status": "Active"
   },
   "UNO": {
-    "officialUrl": ""
+    "officialUrl": "http://unobtanium.uno/",
+    "discussion": "https://bitcointalk.org/index.php?topic=527500.0",
+    "twitter": "unobtanium_uno",
+    "explorer": "https://chainz.cryptoid.info/uno/",
+    "status": "Active"
   },
   "OK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/OKCash",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PINK": {
-    "officialUrl": ""
+    "officialUrl": "http://crypto.pink/",
+    "discussion": "https://bitcointalk.org/index.php?topic=836437.0",
+    "twitter": "Pinkcoin_",
+    "explorer": "https://chainz.cryptoid.info/pink/",
+    "status": "Active"
   },
   "SPR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.spreadcoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1045373",
+    "twitter": "spread_coin",
+    "explorer": "",
+    "status": "Active"
   },
   "MED": {
-    "officialUrl": ""
+    "officialUrl": "http://www.mediterraneancoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=397831.0",
+    "twitter": "MEDDevTeam",
+    "explorer": "http://explorer.mediterraneancoin.org/chain/Mediterraneancoin",
+    "status": "Active"
   },
   "BLITZ": {
-    "officialUrl": ""
+    "officialUrl": "http://bitalize.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=848186.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptobe.com/chain/OcupyCoin",
+    "status": "Active"
   },
   "DGC": {
-    "officialUrl": ""
+    "officialUrl": "http://digitalcoin.co/",
+    "discussion": "https://forum.digitalcoin.co/",
+    "twitter": "FoundationDGC",
+    "explorer": "http://dgc.blockr.io/",
+    "status": "Active"
   },
   "BITUSD": {
-    "officialUrl": ""
+    "officialUrl": "http://whatisbitusd.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.bitsharesblocks.com/assets/market",
+    "status": "Active"
   },
   "ABY": {
-    "officialUrl": ""
+    "officialUrl": "http://www.applebyte.me/",
+    "discussion": "https://bitcointalk.org/index.php?topic=503131.0",
+    "twitter": "AppleByteMe",
+    "explorer": "",
+    "status": "Active"
   },
   "MUSIC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "BITB": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitbean.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=969676.0",
+    "twitter": "BitBeanCoin",
+    "explorer": "https://chainz.cryptoid.info/bitb/",
+    "status": "Active"
   },
   "XVC": {
-    "officialUrl": ""
+    "officialUrl": "https://v.cash/",
+    "discussion": "https://v.cash/forum/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.v.cash/",
+    "status": "Active"
   },
   "RISE": {
-    "officialUrl": ""
+    "officialUrl": "https://rise.vision/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1445947.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.rise.vision/",
+    "status": "Active"
   },
   "BOST": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=601965.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=601965.0",
+    "twitter": "boostcoin",
+    "explorer": "http://bost.blockexplorer.cc/chain/BoostCoin",
+    "status": "Active"
   },
   "SCOT": {
-    "officialUrl": ""
+    "officialUrl": "http://scotcoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockscan.com/assetInfo/SCOTCOIN",
+    "status": "Active"
   },
   "DIME": {
-    "officialUrl": ""
+    "officialUrl": "http://www.dimecoin.co/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://147.46.79.10/waf/deny02.html",
+    "status": "Active"
   },
   "ICASH": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/iCash",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RIC": {
-    "officialUrl": ""
+    "officialUrl": "http://riecoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/ric/",
+    "status": "Active"
   },
   "GLD": {
-    "officialUrl": ""
+    "officialUrl": "http://www.gldcoin.com/",
+    "discussion": "https://www.gldtalk.org/",
+    "twitter": "GoldCoinInfo",
+    "explorer": "http://gld.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "SBD": {
-    "officialUrl": ""
+    "officialUrl": "https://steem.io/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://steemd.com/",
+    "status": "Active"
   },
   "AUR": {
-    "officialUrl": ""
+    "officialUrl": "http://auroraspjall.is/",
+    "discussion": "https://bitcointalk.org/index.php?topic=446062.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockexplorer.auroracoin.eu/chain/AuroraCoin",
+    "status": "Active"
   },
   "ANC": {
-    "officialUrl": ""
+    "officialUrl": "https://anoncoin.net/",
+    "discussion": "",
+    "twitter": "AnoncoinNews",
+    "explorer": "http://abe.darkgamex.ch:2751/chain/Anoncoin",
+    "status": "Active"
   },
   "APX": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "CURE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.curecoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=603757.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://stats.curecoinfolding.com/",
+    "status": "Active"
   },
   "ZCL": {
-    "officialUrl": ""
+    "officialUrl": "http://zclassic.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1671982",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://classic.zcha.in/",
+    "status": "Active"
   },
   "ZEIT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.zeit-coin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=487814.0",
+    "twitter": "ZEITCOIN",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=ZEIT",
+    "status": "Active"
   },
   "BTM": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/project-bitmark/bitmark/wiki",
+    "discussion": "https://bitcointalk.org/index.php?topic=660544.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://bitmark.co:3000/",
+    "status": "Active"
   },
   "TRIG": {
-    "officialUrl": ""
+    "officialUrl": "https://www.blocksafefoundation.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1642159",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://coindaddy.io/search?network=xcp&q=triggers",
+    "status": "Active"
   },
   "KORE": {
-    "officialUrl": ""
+    "officialUrl": "http://korecoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=668886.0",
+    "twitter": "NewKoreCoin",
+    "explorer": "https://blockexperts.com/kore",
+    "status": "Active"
   },
   "GEMZ": {
-    "officialUrl": ""
+    "officialUrl": "http://getgems.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=758004.0",
+    "twitter": "getgemsorg",
+    "explorer": "https://www.blockscan.com/assetInfo/GEMZ",
+    "status": "Active"
   },
   "HUC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/HunterCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LGD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/LegendaryCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BRK": {
-    "officialUrl": ""
+    "officialUrl": "http://breakoutenterprise.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1509819.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chain.breakoutcoin.com/BlockCrawler/block_crawler.php",
+    "status": "Active"
   },
   "TIPS": {
-    "officialUrl": ""
+    "officialUrl": "http://fedoraco.in/",
+    "discussion": "https://bitcointalk.org/index.php?topic=552233.0",
+    "twitter": "TiPS_FedoraCoin",
+    "explorer": "http://chainexplorer.info/",
+    "status": "Active"
   },
   "XST": {
-    "officialUrl": ""
+    "officialUrl": "https://www.stealth-coin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=681725.0",
+    "twitter": "StealthCoin",
+    "explorer": "http://explorer.argakiig.us/chain/StealthCoin",
+    "status": "Active"
   },
   "BRX": {
-    "officialUrl": ""
+    "officialUrl": "http://breakoutenterprise.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1509819.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chain.breakoutcoin.com/BlockCrawler/block_crawler.php",
+    "status": "Active"
   },
   "VPN": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitnet.wang/index.html",
+    "discussion": "https://bitcointalk.org/index.php?topic=789961.0",
+    "twitter": "vpn_dev",
+    "explorer": "http://blockexperts.com/vpn",
+    "status": "Active"
   },
   "CANN": {
-    "officialUrl": ""
+    "officialUrl": "http://cannabiscoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=661885.0",
+    "twitter": "CannabisCoins",
+    "explorer": "https://chainz.cryptoid.info/cann/",
+    "status": "Active"
   },
   "BTA": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bata.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1040956.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/bta/",
+    "status": "Active"
   },
   "SRC": {
-    "officialUrl": ""
+    "officialUrl": "http://securecoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://altexplorer.net/chain/SecureCoin",
+    "status": "Active"
   },
   "XC": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=630547.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=630547.0",
+    "twitter": "XCurrency",
+    "explorer": "https://chainz.cryptoid.info/xc/",
+    "status": "Active"
   },
   "COINO": {
-    "officialUrl": ""
+    "officialUrl": "https://coinomat.com/coinousd.php",
+    "discussion": "https://bitcointalk.org/index.php?topic=775733.0",
+    "twitter": "coinomat",
+    "explorer": "http://nxtreporting.com/?as=12982485703607823902",
+    "status": "Active"
   },
   "MNE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Munne",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TIX": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/LotteryTickets/LotteryTickets",
+    "discussion": "https://bitcointalk.org/index.php?topic=297666.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TAG": {
-    "officialUrl": ""
+    "officialUrl": "http://tagcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=317408.0",
+    "twitter": "TagCoin",
+    "explorer": "http://tagcoin.org/tagexplorer/www/",
+    "status": "Active"
   },
   "VTR": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "SWIFT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitswift.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=807557.0",
+    "twitter": "Bit_Swift",
+    "explorer": "https://chainz.cryptoid.info/swift/",
+    "status": "Active"
   },
   "BLOCKPAY": {
-    "officialUrl": ""
+    "officialUrl": "https://blockpay.ch/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptofresh.com/a/BLOCKPAY",
+    "status": "Active"
   },
   "MINT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.mintcoinofficial.com/",
+    "discussion": "",
+    "twitter": "MintcoinTeam",
+    "explorer": "http://explorer.mintcoinofficial.com/",
+    "status": "Active"
   },
   "START": {
-    "officialUrl": ""
+    "officialUrl": "https://startcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=651307.0",
+    "twitter": "start_coin",
+    "explorer": "http://explorer.startcoin.org/",
+    "status": "Active"
   },
   "DOPE": {
-    "officialUrl": ""
+    "officialUrl": "http://www.dopecoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=467641.0",
+    "twitter": "DopeCoins",
+    "explorer": "http://explorer.dopecoin.com/",
+    "status": "Active"
   },
   "GEO": {
-    "officialUrl": ""
+    "officialUrl": "http://geocoin.cash/",
+    "discussion": "https://bitcointalk.org/index.php?topic=923995",
+    "twitter": "geo_coin",
+    "explorer": "http://104.236.52.122:3006/",
+    "status": "Active"
   },
   "INSANE": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "PTC": {
-    "officialUrl": ""
+    "officialUrl": "http://pesetacoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=403378",
+    "twitter": "oPesetaCoin",
+    "explorer": "http://www.pesetachain.info/",
+    "status": "Active"
   },
   "CELL": {
-    "officialUrl": ""
+    "officialUrl": "https://asset.cryptomining.farm/",
+    "discussion": "https://nxtforum.org/assets-board/(ann)-(cell)-solarfarm-asset-photovoltaic-power-station-in-thailand-18mw/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=18212211773827322818",
+    "status": "Active"
   },
   "XWC": {
-    "officialUrl": ""
+    "officialUrl": "http://whitecoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=804288.0",
+    "twitter": "WhiteCoiner",
+    "explorer": "http://explorer.whitecoin.info/chain/Whitecoin",
+    "status": "Active"
   },
   "THC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/HempCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SXC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.sexcoin.info/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockexplorer.lavajumper.com/chain/Sexcoin",
+    "status": "Active"
   },
   "PANGEA": {
-    "officialUrl": ""
+    "officialUrl": "https://nxtforum.org/nxtventures/pangea-poker/",
+    "discussion": "https://nxtforum.org/nxtventures/pangea-poker/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=6883271355794806507",
+    "status": "Active"
   },
   "POSW": {
-    "officialUrl": ""
+    "officialUrl": "https://poswallet.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1695121.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://poswallet.com/blockChain/posw/",
+    "status": "Active"
   },
   "TRUST": {
-    "officialUrl": ""
+    "officialUrl": "http://trustplus.co/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://trust.blockexplorer.cc/chain/TrustPlus",
+    "status": "Active"
   },
   "AC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.thecoin.asia/",
+    "discussion": "https://bitcointalk.org/index.php?topic=595999.0",
+    "twitter": "AsiaCoin_",
+    "explorer": "https://chainz.cryptoid.info/ac/",
+    "status": "Active"
   },
   "HTML5": {
-    "officialUrl": ""
+    "officialUrl": "http://www.htmlcoin.com/",
+    "discussion": "https://cryptocointalk.com/forum/1033-htmlcoin-html5/",
+    "twitter": "HTMLCOIN",
+    "explorer": "",
+    "status": "Active"
   },
   "ADZ": {
-    "officialUrl": ""
+    "officialUrl": "http://www.adzcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1292875.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://adzcoin.net/",
+    "status": "Active"
   },
   "XTC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.tilepay.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=761852.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.blockscan.com/assetInfo/TILECOINX",
+    "status": "Active"
   },
   "EXCL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/ExclusiveCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "IXC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.ixcoin.co/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://darkgamex.ch:2751/chain/ixcoin",
+    "status": "Active"
   },
   "PND": {
-    "officialUrl": ""
+    "officialUrl": "http://dev.digitalpandacoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=460037.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://pandachain.net/chain/PandaCoin/",
+    "status": "Active"
   },
   "WBB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/WildBeastBitcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "VNL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.vanillacoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=977245.0",
+    "twitter": "Vanillacoin1",
+    "explorer": "http://vnlbex.lbtcoin.org/",
+    "status": "Active"
   },
   "SMLY": {
-    "officialUrl": ""
+    "officialUrl": "http://tutor-web.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=845761.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://coinplorer.com/SMLY",
+    "status": "Active"
   },
   "HKG": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "HYP": {
-    "officialUrl": ""
+    "officialUrl": "http://hyperstake.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=678849.0;topicseen",
+    "twitter": "hyperstake",
+    "explorer": "http://hyp.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "BTB": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bitbar.biz/",
+    "discussion": "https://bitcointalk.org/index.php?topic=196125.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://btb.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "LDOGE": {
-    "officialUrl": ""
+    "officialUrl": "http://www.litedoge.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1077390.0",
+    "twitter": "LiteDoge",
+    "explorer": "https://blockexperts.com/ldoge",
+    "status": "Active"
   },
   "NYC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/NewYorkCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "JBS": {
-    "officialUrl": ""
+    "officialUrl": "http://coinmarketscoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=765082.0",
+    "twitter": "getjumbucks",
+    "explorer": "https://chainz.cryptoid.info/jbs/",
+    "status": "Active"
   },
   "BBR": {
-    "officialUrl": ""
+    "officialUrl": "http://boolberry.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=577267.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chainradar.com/bbr/blocks",
+    "status": "Active"
   },
   "XMG": {
-    "officialUrl": ""
+    "officialUrl": "http://coinmagi.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=735170",
+    "twitter": "CoinMagi",
+    "explorer": "https://chainz.cryptoid.info/xmg/",
+    "status": "Active"
   },
   "NKA": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/IncaKoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "EFL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.e-gulden.org/",
+    "discussion": "http://forum.e-gulden.org/",
+    "twitter": "eguldenfoundati",
+    "explorer": "",
+    "status": "Active"
   },
   "TKS": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "DVC": {
-    "officialUrl": ""
+    "officialUrl": "http://devcoin.org/",
+    "discussion": "http://forum.devcoin.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://devcoinblockexplorer.info/",
+    "status": "Active"
   },
   "NSR": {
-    "officialUrl": ""
+    "officialUrl": "https://nubits.com/nushares/introduction",
+    "discussion": "",
+    "twitter": "OfficialNuBits",
+    "explorer": "https://blockexplorer.nu/",
+    "status": "Active"
   },
   "GLC": {
-    "officialUrl": ""
+    "officialUrl": "https://globalco.in/",
+    "discussion": "https://bitcointalk.org/index.php?topic=243911.0",
+    "twitter": "globalcoin",
+    "explorer": "https://chainz.cryptoid.info/glc/",
+    "status": "Active"
   },
   "CRAVE": {
-    "officialUrl": ""
+    "officialUrl": "http://mycrave.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=997356.0",
+    "twitter": "CRAVECoin",
+    "explorer": "http://cryptoplorer.com/#crave",
+    "status": "Active"
   },
   "CDN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Canada eCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FST": {
-    "officialUrl": ""
+    "officialUrl": "http://www.fastcoin.ca/",
+    "discussion": "http://forum.frankos.org/",
+    "twitter": "fast_coin",
+    "explorer": "http://fst.webboise.com/chain/fastcoin",
+    "status": "Active"
   },
   "INFX": {
-    "officialUrl": ""
+    "officialUrl": "https://influxcoin.xyz/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1161953.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/infx/",
+    "status": "Active"
   },
   "CRYPT": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptco.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/crypt/",
+    "status": "Active"
   },
   "SLK": {
-    "officialUrl": ""
+    "officialUrl": "https://silknetwork.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1601099",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://slkexplorer.silknetwork.org/",
+    "status": "Active"
   },
   "BLU": {
-    "officialUrl": ""
+    "officialUrl": "http://bluecoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=580639.0",
+    "twitter": "bluecoin",
+    "explorer": "http://blockexperts.com/blu",
+    "status": "Active"
   },
   "NBT": {
-    "officialUrl": ""
+    "officialUrl": "https://nubits.com/nushares/introduction",
+    "discussion": "",
+    "twitter": "OfficialNuBits",
+    "explorer": "https://blockexplorer.nu/",
+    "status": "Active"
   },
   "TRC": {
-    "officialUrl": ""
+    "officialUrl": "http://terracoin.sourceforge.net/",
+    "discussion": "http://sourceforge.net/p/terracoin/discussion/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://trc.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "CAGE": {
-    "officialUrl": ""
+    "officialUrl": "http://cagecoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=734035.0",
+    "twitter": "CageCoin",
+    "explorer": "http://cagechain.info/chain/Cagecoin",
+    "status": "Active"
   },
   "BYC": {
-    "officialUrl": ""
+    "officialUrl": "http://bytecent.com/",
+    "discussion": "http://coinblab.com/forums/12/bytecent",
+    "twitter": "Bytecent_BYC",
+    "explorer": "https://chainz.cryptoid.info/byc/",
+    "status": "Active"
   },
   "VRS": {
-    "officialUrl": ""
+    "officialUrl": "https://veros.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.veros.org/",
+    "status": "Active"
   },
   "TES": {
-    "officialUrl": ""
+    "officialUrl": "http://teslacoins.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=419494.0",
+    "twitter": "Teslacoins",
+    "explorer": "http://teslachain.info/",
+    "status": "Active"
   },
   "CBX": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptobullion.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=951753.0",
+    "twitter": "CryptoBullionX",
+    "explorer": "http://blockexplorer.cryptobullion.io/chain/CryptoBullion",
+    "status": "Active"
   },
   "YOC": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1279956",
+    "discussion": "https://bitcointalk.org/index.php?topic=1279956",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.blockexperts.com/yoc",
+    "status": "Active"
   },
   "UFO": {
-    "officialUrl": ""
+    "officialUrl": "http://ufocoin.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=844754.0",
+    "twitter": "UFOCoins",
+    "explorer": "http://explorer.ufocoin.co:2750/chain/UFO",
+    "status": "Active"
   },
   "UIS": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Unitus",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "HPC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "BUN": {
-    "officialUrl": ""
+    "officialUrl": "http://bunnycoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=595766.0",
+    "twitter": "Bunnycoin",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=BUN",
+    "status": "Active"
   },
   "GCN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LOG": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Woodcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SDC": {
-    "officialUrl": ""
+    "officialUrl": "http://aboutshadow.com/",
+    "discussion": "http://shadowtalk.org/",
+    "twitter": "SDCoin",
+    "explorer": "http://shadow.blockexplorer.cc/chain/ShadowCash",
+    "status": "Active"
   },
   "LTB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/LiteBar",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FCN": {
-    "officialUrl": ""
+    "officialUrl": "http://fantomcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=598823.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chainradar.com/fcn/blocks",
+    "status": "Active"
   },
   "KOBO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Kobocoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TRUMP": {
-    "officialUrl": ""
+    "officialUrl": "http://www.trumpcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1681939.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/trump/",
+    "status": "Active"
   },
   "BRIT": {
-    "officialUrl": ""
+    "officialUrl": "http://britcoin.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=667820.0",
+    "twitter": "britcoinuk",
+    "explorer": "http://britcoin.io/explorer",
+    "status": "Active"
   },
   "PIGGY": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Piggycoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FIMK": {
-    "officialUrl": ""
-  },
-  "42": {
-    "officialUrl": ""
+    "officialUrl": "http://fimk.fi/",
+    "discussion": "https://bitcointalk.org/index.php?topic=633304.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://80.240.143.139/",
+    "status": "Active"
   },
   "I0C": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/I0Coin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MYR": {
-    "officialUrl": ""
+    "officialUrl": "http://myriadplatform.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=483515.0",
+    "twitter": "myriadcoin",
+    "explorer": "http://insight-myr.cryptap.us/",
+    "status": "Active"
   },
   "NAS": {
-    "officialUrl": ""
+    "officialUrl": "http://ww2.nascoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "NOBL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.noblemovement.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/nobl/",
+    "status": "Active"
   },
   "TIT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Titcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "POST": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "ORB": {
-    "officialUrl": ""
+    "officialUrl": "http://orbitcoin.org/",
+    "discussion": "https://cryptocointalk.com/forum/325-orbitcoin-orb",
+    "twitter": "Orbitcoin",
+    "explorer": "http://atlas.phoenixcoin.org:1080/chain/Orbitcoin",
+    "status": "Active"
   },
   "GB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GreenBacks",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "METAL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/MetalCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "UNB": {
-    "officialUrl": ""
+    "officialUrl": "http://www.unbreakablecoin.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptotrends.info/UNB",
+    "status": "Active"
   },
   "NET": {
-    "officialUrl": ""
+    "officialUrl": "http://netcoinfoundation.org/",
+    "discussion": "http://cryptomunity.boards.net/",
+    "twitter": "NETCOIN_NET",
+    "explorer": "http://explorer.netcoinfoundation.org/chain/Netcoin",
+    "status": "Active"
   },
   "DEM": {
-    "officialUrl": ""
+    "officialUrl": "http://www.deutsche-emark.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=310939.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://crypto2.net/dem/",
+    "status": "Active"
   },
   "BITZ": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/bitz",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BITS": {
-    "officialUrl": ""
+    "officialUrl": "http://bitstarcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=574652.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://blockexperts.com/bits",
+    "status": "Active"
   },
   "BTX": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1051266.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=1051266.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "J": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/joincoin/joincoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=737405.0",
+    "twitter": "Joincoin_Team",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=J",
+    "status": "Active"
   },
   "VOOT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.vootcoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=630628.0",
+    "twitter": "vootcoin",
+    "explorer": "https://chainz.cryptoid.info/voot/",
+    "status": "Active"
   },
   "NTRN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Neutron",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "XCR": {
-    "officialUrl": ""
+    "officialUrl": "https://crypti.me/",
+    "discussion": "https://bitcointalk.org/index.php?topic=654463.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://live.crypti.me/",
+    "status": "Active"
   },
   "FC2": {
-    "officialUrl": ""
+    "officialUrl": "http://fuelcrypto.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=589879.0",
+    "twitter": "fuelcoinNEWS",
+    "explorer": "http://blockexperts.com/fc2",
+    "status": "Active"
   },
   "SMC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/SmartCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MZC": {
-    "officialUrl": ""
+    "officialUrl": "https://mazacoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=508849.0",
+    "twitter": "MazaCoin",
+    "explorer": "https://mazacha.in/",
+    "status": "Active"
   },
   "RBR": {
-    "officialUrl": ""
+    "officialUrl": "https://ribbit.me/",
+    "discussion": "https://bitcointalk.org/index.php?topic=740977.0",
+    "twitter": "RibbitRewards",
+    "explorer": "https://ribbitchain.info/",
+    "status": "Active"
   },
   "NYAN": {
-    "officialUrl": ""
+    "officialUrl": "http://nyan-coin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=402085.0",
+    "twitter": "nyan_coin",
+    "explorer": "https://nyan.space/chain/Nyancoin",
+    "status": "Active"
   },
   "TRI": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Triangles",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RBIES": {
-    "officialUrl": ""
+    "officialUrl": "http://rbies.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1364104.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockexplorer.betterbets.io:8080/",
+    "status": "Active"
   },
   "PLS": {
-    "officialUrl": ""
+    "officialUrl": "https://dacplay.org/en/",
+    "discussion": "https://talk.dacplay.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://play.bitsharesblocks.com/",
+    "status": "Active"
   },
   "XPY": {
-    "officialUrl": ""
+    "officialUrl": "http://www.paycoin.com/",
+    "discussion": "https://cryptocointalk.com/topic/24969-paycoin-xpy-coin-information/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/xpy/",
+    "status": "Active"
   },
   "UTC": {
-    "officialUrl": ""
+    "officialUrl": "http://ultracoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=727023",
+    "twitter": "official_utc",
+    "explorer": "http://ultrabex.tumblingblock.com/chain/Ultracoin",
+    "status": "Active"
   },
   "BILS": {
-    "officialUrl": ""
+    "officialUrl": "http://www.bilshares.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BITBTC": {
-    "officialUrl": ""
+    "officialUrl": "http://wiki.bitshares.org/index.php/Market_Peg",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.bitsharesblocks.com/assets/market",
+    "status": "Active"
   },
   "JLH": {
-    "officialUrl": ""
+    "officialUrl": "http://www.jl777.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=6932037131189568014",
+    "status": "Active"
   },
   "DP": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "CCN": {
-    "officialUrl": ""
+    "officialUrl": "http://cannacoin.cc/index.php",
+    "discussion": "https://bitcointalk.org/index.php?topic=740903.0",
+    "twitter": "CCNProject",
+    "explorer": "https://chainz.cryptoid.info/ccn/",
+    "status": "Active"
   },
   "XSI": {
-    "officialUrl": ""
+    "officialUrl": "http://stabilityshares.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=XSI",
+    "status": "Active"
   },
   "SUPER": {
-    "officialUrl": ""
+    "officialUrl": "http://www.trustedcryptos.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=875651.0",
+    "twitter": "TrustedCrypto",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=SUPER",
+    "status": "Active"
   },
   "QTL": {
-    "officialUrl": ""
+    "officialUrl": "http://quatloos.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=655793.0",
+    "twitter": "quatloocoin",
+    "explorer": "http://explore.quatloos.org:2750/chain/Quatloo",
+    "status": "Active"
   },
   "GRE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Greencoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "AMBER": {
-    "officialUrl": ""
+    "officialUrl": "http://ambercoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=944408.0",
+    "twitter": "AmberTradeLTD",
+    "explorer": "http://altcoinguys.blockexperts.com/amber",
+    "status": "Active"
   },
   "SLG": {
-    "officialUrl": ""
+    "officialUrl": "http://sterlingcoin.org.uk/",
+    "discussion": "https://bitcointalk.org/index.php?topic=721936.0",
+    "twitter": "SterlingcoinSLG",
+    "explorer": "http://transactions.sterlingcoin.org.uk/",
+    "status": "Active"
   },
   "007": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "ONEC": {
-    "officialUrl": ""
+    "officialUrl": "http://madeby.one/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1547942.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.madeby.one/",
+    "status": "Active"
   },
   "CORG": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "NRS": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/NoirShares",
+    "discussion": "https://bitcointalk.org/index.php?topic=565623.0",
+    "twitter": "http://www.reddit.com/r/noirshares/",
+    "explorer": "",
+    "status": "Active"
   },
   "TOR": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/torcoindev/torcoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=677434.0",
+    "twitter": "TorCoinDev",
+    "explorer": "https://chainz.cryptoid.info/tor/",
+    "status": "Active"
   },
   "TEK": {
-    "officialUrl": ""
+    "officialUrl": "http://tekcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=320404",
+    "twitter": "TEKcoins",
+    "explorer": "http://blockexperts.com/tek",
+    "status": "Active"
   },
   "XGR": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GoldReserve",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PXC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Phoenixcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PTS": {
-    "officialUrl": ""
+    "officialUrl": "http://ptscrypto.com/",
+    "discussion": "https://bitsharestalk.org/index.php?board=1.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://pts.bitsharesblocks.com/officialUrl",
+    "status": "Active"
   },
   "LOT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/LottoCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TRK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Truckcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "HBN": {
-    "officialUrl": ""
+    "officialUrl": "http://hobonickels.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=303749.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://hbn.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "BABCOIN": {
-    "officialUrl": ""
+    "officialUrl": "http://bigapplebrits.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://counterpartychain.io/asset/BABCOIN",
+    "status": "Active"
   },
   "EMD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Emerald Crypto",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "8BIT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/8Bit",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LTBC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/LTBcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SF0": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/sharkfund0",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CSC": {
-    "officialUrl": ""
+    "officialUrl": "http://casinocoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=258090.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://csc.blockexp.info/chain/CasinoCoin",
+    "status": "Active"
   },
   "GAIA": {
-    "officialUrl": ""
+    "officialUrl": "http://gaiaplatform.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=763119.0",
+    "twitter": "gaia_coin",
+    "explorer": "http://gaiaplatform.com/explorer/",
+    "status": "Active"
   },
   "MRKT": {
-    "officialUrl": ""
+    "officialUrl": "http://nxtfreemarket.com/",
+    "discussion": "https://nxtforum.org/nxtventures/freemarket-official-thread/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=134138275353332190",
+    "status": "Active"
   },
   "FLT": {
-    "officialUrl": ""
+    "officialUrl": "http://fluttercoin.us/",
+    "discussion": "http://fluttercointalk.com/",
+    "twitter": "fluttercoin",
+    "explorer": "https://chainz.cryptoid.info/flt/",
+    "status": "Active"
   },
   "AU": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/AurumCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BITGOLD": {
-    "officialUrl": ""
+    "officialUrl": "https://bitshares.org/",
+    "discussion": "https://bitsharestalk.org/",
+    "twitter": "_bitshares",
+    "explorer": "http://www.bitsharesblocks.com/",
+    "status": "Active"
   },
   "CAP": {
-    "officialUrl": ""
+    "officialUrl": "http://coinwik.org/BottleCaps",
+    "discussion": "https://bitcointalk.org/index.php?topic=241445.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cap.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "LXC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.librexcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=703042.0",
+    "twitter": "LibrexCoin",
+    "explorer": "https://chainz.cryptoid.info/lxc/",
+    "status": "Active"
   },
   "C2": {
-    "officialUrl": ""
+    "officialUrl": "http://coinstore.me/wallet/",
+    "discussion": "https://bitcointalk.org/index.php?topic=824499.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://c2chain.info/",
+    "status": "Active"
   },
   "GUN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Guncoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ARG": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Argentum",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CZC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.czechcrowncoin.com/",
+    "discussion": "https://cryptocointalk.com/topic/14708-czechcrowncoin-czc-information/",
+    "twitter": "CzechCrownCoin",
+    "explorer": "http://czc-explorer.bitcoinnews.cz/",
+    "status": "Active"
   },
   "RBT": {
-    "officialUrl": ""
+    "officialUrl": "http://www.rimbit.com/",
+    "discussion": "http://rimbitforum.com/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://rimbitexplorer.com/chain/Rimbit",
+    "status": "Active"
   },
   "YAC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.yacoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=206577.0",
+    "twitter": "YACoinJoe",
+    "explorer": "https://coinplorer.com/YAC",
+    "status": "Active"
   },
   "QCN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/QuazarCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MAC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "LEAF": {
-    "officialUrl": ""
+    "officialUrl": "http://leafco.in/",
+    "discussion": "https://bitcointalk.org/index.php?topic=430091.0",
+    "twitter": "leafcoin",
+    "explorer": "",
+    "status": "Active"
   },
   "KR": {
-    "officialUrl": ""
+    "officialUrl": "http://krypton.rocks/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1368118.0",
+    "twitter": "covertress",
+    "explorer": "http://explorer.krypton.rocks/",
+    "status": "Active"
   },
   "XPD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/PetroDollar",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "VLT": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "CACH": {
-    "officialUrl": ""
+    "officialUrl": "http://cachecoin.org/",
+    "discussion": "",
+    "twitter": "CACHeCoin",
+    "explorer": "http://explorer.cachecoin.org/chain/Cachecoin",
+    "status": "Active"
   },
   "CAT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Catcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CON": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/PayCon",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BSTY": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GlobalBoost-Y",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CNMT": {
-    "officialUrl": ""
+    "officialUrl": "https://coinomat.com/",
+    "discussion": "https://nxtforum.org/cryptoasset-fund-projects/(ann)-coinomat-com/",
+    "twitter": "coinomat",
+    "explorer": "http://nxtreporting.com/?as=7474435909229872610",
+    "status": "Active"
   },
   "MARYJ": {
-    "officialUrl": ""
+    "officialUrl": "http://www.maryjanecoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=793704.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/maryj/",
+    "status": "Active"
   },
   "SWARM": {
-    "officialUrl": ""
+    "officialUrl": "https://swarm.fund/",
+    "discussion": "https://bitcointalk.org/index.php?topic=664071",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockscan.com/assetInfo.aspx?q=SWARM",
+    "status": "Active"
   },
   "LIQUID": {
-    "officialUrl": ""
+    "officialUrl": "http://www.liquidtech.info/",
+    "discussion": "https://nxtforum.org/liquid/(ann)-liquid-bot-asset-with-unprecedented-transparency/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=4630752101777892988",
+    "status": "Active"
   },
   "POP": {
-    "officialUrl": ""
+    "officialUrl": "http://popularcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=444745",
+    "twitter": "PopularCoinPOP",
+    "explorer": "http://popularcoin.info/chain/PopCoin",
+    "status": "Active"
   },
   "VTA": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Virtacoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=673775.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://blockexperts.com/vta",
+    "status": "Active"
   },
   "BLC": {
-    "officialUrl": ""
+    "officialUrl": "https://blakecoin.org/",
+    "discussion": "",
+    "twitter": "BlakeCoin",
+    "explorer": "http://blc.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "HEX": {
-    "officialUrl": ""
+    "officialUrl": "http://heisenberghex.info/",
+    "discussion": "https://cryptocointalk.com/topic/7526-heisenberg-hex-information/",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ARI": {
-    "officialUrl": ""
+    "officialUrl": "https://aricoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=909186.0",
+    "twitter": "AricoinCurrency",
+    "explorer": "",
+    "status": "Active"
   },
   "ESP2": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptocoderz.com/Espers.html",
+    "discussion": "https://bitcointalk.org/index.php?topic=1434700.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://espv2.miningalts.com/",
+    "status": "Active"
   },
   "XJO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Joulecoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "EXE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Execoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "NXTV": {
-    "officialUrl": ""
+    "officialUrl": "https://nxtforum.org/nxtventures/nxtventure-the-way-for-the-most-promising-enterprises-to-get-ae-listing/",
+    "discussion": "https://nxtforum.org/nxtventures/nxtventure-the-way-for-the-most-promising-enterprises-to-get-ae-listing/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=16212446818542881180",
+    "status": "Active"
   },
   "FRK": {
-    "officialUrl": ""
+    "officialUrl": "http://www.frankos.org/",
+    "discussion": "http://forum.frankos.org/",
+    "twitter": "FrankoCurrency",
+    "explorer": "https://coinplorer.com/FRK",
+    "status": "Active"
   },
   "MMNXT": {
-    "officialUrl": ""
+    "officialUrl": "https://nxtforum.org/cryptoasset-fund-projects/mmnxt-market-making-and-arbitrage-fund-for-nxt-ae/?PHPSESSID=16vv15ug6fbkpp1br85o4m9ls2",
+    "discussion": "https://nxtforum.org/cryptoasset-fund-projects/mmnxt-market-making-and-arbitrage-fund-for-nxt-ae/?PHPSESSID=16vv15ug6fbkpp1br85o4m9ls2",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=979292558519844732",
+    "status": "Active"
   },
   "RED": {
-    "officialUrl": ""
+    "officialUrl": "http://redcoin.pw/",
+    "discussion": "https://bitcointalk.org/index.php?topic=246693.0",
+    "twitter": "Redcoin",
+    "explorer": "http://minemanic.com/red/",
+    "status": "Active"
   },
   "PHS": {
-    "officialUrl": ""
+    "officialUrl": "http://phstones.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=263744.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.phstones.com/",
+    "status": "Active"
   },
   "KARM": {
-    "officialUrl": ""
+    "officialUrl": "http://www.givekarma.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=579973.0",
+    "twitter": "_KarmaTeam_",
+    "explorer": "https://chainz.cryptoid.info/karm/",
+    "status": "Active"
   },
   "NXTPRIVACY": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=657601.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=657601.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=17911762572811467637",
+    "status": "Active"
   },
   "STV": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Sativacoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ERY": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "SKYNET": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/SkyNET",
+    "discussion": "https://nxtforum.org/nxtventures/reserved-6826/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=6854596569382794790",
+    "status": "Active"
   },
   "MEOW": {
-    "officialUrl": ""
+    "officialUrl": "https://kittehcoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=448003.0",
+    "twitter": "KittehCoin",
+    "explorer": "https://explorer.kittehcoin.info/chain/Kittehcoin",
+    "status": "Active"
   },
   "COMM": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=558319.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=558319.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "EXC": {
-    "officialUrl": ""
+    "officialUrl": "http://extremecoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=276609.0",
+    "twitter": "extremecoin",
+    "explorer": "http://www.cryptoplorer.com:3005/",
+    "status": "Active"
   },
   "ACOIN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Acoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FRC": {
-    "officialUrl": ""
+    "officialUrl": "http://freico.in/",
+    "discussion": "",
+    "twitter": "Freicoin",
+    "explorer": "https://coinplorer.com/FRC",
+    "status": "Active"
   },
   "CYP": {
-    "officialUrl": ""
+    "officialUrl": "http://cryptobe.com/chain/Cypher",
+    "discussion": "https://bitcointalk.org/index.php?topic=1006527.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SLING": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1032166.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://sling.blockexplorer.cc/chain/Sling",
+    "status": "Active"
   },
   "GAP": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Gapcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DIEM": {
-    "officialUrl": ""
+    "officialUrl": "http://thehouseofdiem.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=588310.0",
+    "twitter": "DIEMCOIN",
+    "explorer": "http://carpediemexplorer.com/",
+    "status": "Active"
   },
   "PHO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Photon",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ARCO": {
-    "officialUrl": ""
+    "officialUrl": "http://aquariuscoin.com/",
+    "discussion": "https://www.blockexperts.com/arco",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/arco/",
+    "status": "Active"
   },
   "FRSH": {
-    "officialUrl": ""
+    "officialUrl": "http://www.freshcoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=670939.0",
+    "twitter": "https://twitter.com/freshcoin1",
+    "explorer": "",
+    "status": "Active"
   },
   "BANX": {
-    "officialUrl": ""
+    "officialUrl": "http://banxshares.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=813191.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://block.banxcapital.com/",
+    "status": "Active"
   },
   "SPT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Spots",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CREVA": {
-    "officialUrl": ""
+    "officialUrl": "http://www.crevacoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1066979",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://chains.crevacoin.com/",
+    "status": "Active"
   },
   "HAL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Halcyon",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RPC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/RonPaulCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SYNC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.synclub.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=607919.0",
+    "twitter": "syncdevs",
+    "explorer": "https://chainz.cryptoid.info/sync/",
+    "status": "Active"
   },
   "CESC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.cryptoescudo.org/",
+    "discussion": "",
+    "twitter": "cryptoescudo",
+    "explorer": "http://explorador.cryptoescudo.net/chain/CryptoEscudo",
+    "status": "Active"
   },
   "PXI": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "BOB": {
-    "officialUrl": ""
+    "officialUrl": "http://www.dobbscoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=792459.0;all",
+    "twitter": "Dobbscoin",
+    "explorer": "http://explorer.dobbscoin.info/chain/Dobbscoin",
+    "status": "Active"
   },
   "XCO": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1365894.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.blockexperts.com/xvg",
+    "status": "Active"
   },
   "URC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Unrealcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BLZ": {
-    "officialUrl": ""
+    "officialUrl": "http://blazeco.in/",
+    "discussion": "https://bitcointalk.org/index.php?topic=624778.0",
+    "twitter": "blazecoin",
+    "explorer": "https://chainz.cryptoid.info/blz/",
+    "status": "Active"
   },
   "BVC": {
-    "officialUrl": ""
+    "officialUrl": "http://beavercoin.org/en/",
+    "discussion": "https://bitcointalk.org/index.php?topic=761269.0",
+    "twitter": "]BeaverCoin_BVC",
+    "explorer": "http://blockchain.beavercoin.org/",
+    "status": "Active"
   },
   "XDP": {
-    "officialUrl": ""
+    "officialUrl": "http://www.dogeparty.io/",
+    "discussion": "http://dogepartytalk.org/",
+    "twitter": "theDogeparty",
+    "explorer": "https://dogepartychain.io/",
+    "status": "Active"
   },
   "DEBUNE": {
-    "officialUrl": ""
+    "officialUrl": "http://debune.org/",
+    "discussion": "",
+    "twitter": "1debune/",
+    "explorer": "http://nxtreporting.com/?as=6926770479287491943",
+    "status": "Active"
   },
   "COL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.colossuscoin.org/",
+    "discussion": "",
+    "twitter": "colossuscoin",
+    "explorer": "",
+    "status": "Active"
   },
   "HYPER": {
-    "officialUrl": ""
+    "officialUrl": "http://hypercrypto.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=624651.0",
+    "twitter": "HyperCrypto",
+    "explorer": "",
+    "status": "Active"
   },
   "EUC": {
-    "officialUrl": ""
+    "officialUrl": "http://eurocoin.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=499294.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.zpool.ca/explorer/EUC",
+    "status": "Active"
   },
   "SONG": {
-    "officialUrl": ""
+    "officialUrl": "http://www.songcoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=804527.0",
+    "twitter": "https://twitter.com/dynomania",
+    "explorer": "https://blockexperts.com/song",
+    "status": "Active"
   },
   "HZ": {
-    "officialUrl": ""
+    "officialUrl": "http://horizonplatform.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=823785",
+    "twitter": "Horizon_HZ",
+    "explorer": "https://explorer.horizonplatform.io/",
+    "status": "Active"
   },
   "U": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/UCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FIBRE": {
-    "officialUrl": ""
+    "officialUrl": "http://www.fibrecoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=737771.0",
+    "twitter": "fibrecoin",
+    "explorer": "http://cryptobe.com/chain/FibreCoin",
+    "status": "Active"
   },
   "BQC": {
-    "officialUrl": ""
+    "officialUrl": "http://bbqcoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://bbq.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "PRIVATEBET": {
-    "officialUrl": ""
+    "officialUrl": "http://nxtreporting.com/?as=17083334802666450484",
+    "discussion": "https://nxtforum.org/nxtventures/privatebet-fully-decentralized-peer-to-peer-betting/",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SOON": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/SoonCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "URO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Uro",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/uro/",
+    "status": "Active"
   },
   "NODE": {
-    "officialUrl": ""
+    "officialUrl": "http://nodecoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=590421.0",
+    "twitter": "NodeCoin",
+    "explorer": "http://block.nodemoney.com:18775/#/explorer/transaction",
+    "status": "Active"
   },
   "FLAP": {
-    "officialUrl": ""
+    "officialUrl": "http://www.goflap.io/",
+    "discussion": "",
+    "twitter": "iflappycoin",
+    "explorer": "https://chainz.cryptoid.info/flap/",
+    "status": "Active"
   },
   "HIRO": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=516349.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=516349.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MMC": {
-    "officialUrl": ""
+    "officialUrl": "http://memorycoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=598187",
+    "twitter": "MemoryCoinMMC",
+    "explorer": "http://blockexperts.com/mmc",
+    "status": "Active"
   },
   "CTM": {
-    "officialUrl": ""
+    "officialUrl": "https://cryptocointalk.com/forum/762-continuumcoin-ctm/",
+    "discussion": "https://bitcointalk.org/index.php?topic=440515.0",
+    "twitter": "continuumcoin",
+    "explorer": "",
+    "status": "Active"
   },
   "BTQ": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/BitQuark",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BCX": {
-    "officialUrl": ""
+    "officialUrl": "http://battlecoinxchange.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.dencoinpools.com/battlecoin/blockcrawler/block_crawler.php",
+    "status": "Active"
   },
   "XCH": {
-    "officialUrl": ""
+    "officialUrl": "https://clearwallet.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=734674.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RBBT": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=466621.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=466621.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "BIC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "http://forum.doufex.com/index.php?u=/topic/2/bikercoin-bic-cryptonight-based-crypto-currency",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://democats.org/blockchain/?name=bikercoin",
+    "status": "Active"
   },
   "MGW": {
-    "officialUrl": ""
+    "officialUrl": "http://multigateway.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://nxtblocks.info/#section/assets_exchange/market/10524562908394749924",
+    "status": "Active"
   },
   "ADN": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=558414.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=558414.0",
+    "twitter": "aidencoin",
+    "explorer": "http://aiden.cryptorus.com",
+    "status": "Active"
   },
   "PRT": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=392804.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=392804.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DTC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/DayTraderCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DRKC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/DarkCash",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PLNC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/PLNcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "QBK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Qibuck",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "KDC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/KlondikeCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TRON": {
-    "officialUrl": ""
+    "officialUrl": "http://positron.ninja/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1021029.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptobe.com/chain/PositronCoin",
+    "status": "Active"
   },
   "TAGR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.tagrcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1092796.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "420G": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "1CR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.1-credit.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/1cr/",
+    "status": "Active"
   },
   "ICB": {
-    "officialUrl": ""
+    "officialUrl": "http://www.icebergcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=673524.0",
+    "twitter": "icebergcoin",
+    "explorer": "",
+    "status": "Active"
   },
   "MRS": {
-    "officialUrl": ""
+    "officialUrl": "http://marscoin.org/",
+    "discussion": "",
+    "twitter": "marscoinorg",
+    "explorer": "http://explore.marscoin.org/chain/Marscoin/",
+    "status": "Active"
   },
   "SHA": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/SHACoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ARCH": {
-    "officialUrl": ""
+    "officialUrl": "https://www.archcoin.co/",
+    "discussion": "https://bitcointalk.org/index.php?topic=831777.0",
+    "twitter": "archcoin",
+    "explorer": "https://chainz.cryptoid.info/arch/",
+    "status": "Active"
   },
   "LKY": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Luckycoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MCN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/MonetaVerde",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CASH": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Cashcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "NEC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Neocoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SCORE": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "NTR": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Neutrino",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "COOL": {
-    "officialUrl": ""
+    "officialUrl": "http://www.coolxcoin.com",
+    "discussion": "https://bitcointalk.org/index.php?topic=601045.0",
+    "twitter": "Coin_Cool",
+    "explorer": "http://www.coinexplorers.com/chain/CoolCoin",
+    "status": "Active"
   },
   "LTCD": {
-    "officialUrl": ""
+    "officialUrl": "http://www.litecoindark.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=760143.0",
+    "twitter": "https://twitter.com/LitecoinDark",
+    "explorer": "https://chainz.cryptoid.info/ltcd/",
+    "status": "Active"
   },
   "NXTTY": {
-    "officialUrl": ""
+    "officialUrl": "http://nxtty.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=735878.0",
+    "twitter": "cryptomessenger",
+    "explorer": "http://nxtreporting.com/?as=18128686802152832026",
+    "status": "Active"
   },
   "HVC": {
-    "officialUrl": ""
+    "officialUrl": "http://heavycoin.github.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=506774",
+    "twitter": "heavycoinnews",
+    "explorer": "",
+    "status": "Active"
   },
   "DARK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.cryptopia.co.nz/CoinInfo?coin=DARK",
+    "discussion": "https://bitcointalk.org/index.php?topic=1002259",
+    "twitter": "TheNewDARK",
+    "explorer": "https://www.cryptopia.co.nz/BlockExplorer?coin=DARK",
+    "status": "Active"
   },
   "RIN": {
-    "officialUrl": ""
+    "officialUrl": "http://dkwzjw.github.io/ringo/",
+    "discussion": "",
+    "twitter": "Ringo_yaycoin",
+    "explorer": "http://abe-ringo.luna.ddns.vc/chain/Ringo",
+    "status": "Active"
   },
   "OC": {
-    "officialUrl": ""
+    "officialUrl": "http://orangecoins.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=581894.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.cryptoblox.com/chain/OrangeCoin",
+    "status": "Active"
   },
   "VIOR": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Viorcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SMBR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.sembrodevelopment.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=819427.0",
+    "twitter": "SembroDevelop",
+    "explorer": "https://chainz.cryptoid.info/smbr/",
+    "status": "Active"
   },
   "LSD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Lightspeed",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SFR": {
-    "officialUrl": ""
+    "officialUrl": "http://dkwzjw.github.io/ringo/",
+    "discussion": "https://bitcointalk.org/index.php?topic=586320",
+    "twitter": "SFRcoin",
+    "explorer": "http://180.179.50.63:3000/",
+    "status": "Active"
   },
   "USDE": {
-    "officialUrl": ""
+    "officialUrl": "http://www.usd-e.com/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.usdetrade.com/chain/USDe",
+    "status": "Active"
   },
   "APEX": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=686403.0",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "AM": {
-    "officialUrl": ""
+    "officialUrl": "http://www.aerome.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=955204.0",
+    "twitter": "aerocoin",
+    "explorer": "http://am.blockexplorer.cc/chain/AeroME",
+    "status": "Active"
   },
   "XLB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Libertycoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "JAY": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Jay",
+    "discussion": "https://nxtforum.org/jay-framework/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=8688289798928624137",
+    "status": "Active"
   },
   "VCOIN": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "SSD": {
-    "officialUrl": ""
+    "officialUrl": "https://play.google.com/store/apps/details?id=com.ssd.sonicVortex",
+    "discussion": "https://bitcointalk.org/index.php?topic=730844",
+    "twitter": "SonicScrewDev",
+    "explorer": "http://www.argakiig.us/blockchain/ssd/",
+    "status": "Active"
   },
   "P7C": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/P7Coin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SPA": {
-    "officialUrl": ""
+    "officialUrl": "http://spaincoin.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=500511.0",
+    "twitter": "SpainCoinDev",
+    "explorer": "http://explorer.spaincoin.org/chain/Spaincoin",
+    "status": "Active"
   },
   "NXTI": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://nxtforum.org/assets-board/(ann)-nxtinspect-the-first-cryptoaudit-service/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=14273984620270850703",
+    "status": "Active"
   },
   "NOXT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.noblemovement.com/noxt/0-FAQ-v3.pdf",
+    "discussion": "https://bitcointalk.org/index.php?topic=841741.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?a=6780060819348751348",
+    "status": "Active"
   },
   "CLR": {
-    "officialUrl": ""
+    "officialUrl": "https://copperlark.com/en/",
+    "discussion": "https://bitcointalk.org/index.php?topic=226956.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RZR": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=644498.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=644498.0",
+    "twitter": "TheRazorCoin",
+    "explorer": "",
+    "status": "Active"
   },
   "CF": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/Californium/Californium",
+    "discussion": "https://bitcointalk.org/index.php?topic=1027613.0",
+    "twitter": "CaliforniumCoin",
+    "explorer": "http://cf.altexplorers.info:3001/",
+    "status": "Active"
   },
   "SAT2": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=556105.960",
+    "discussion": "https://bitcointalk.org/index.php?topic=556105.960",
+    "twitter": "saturn2coin",
+    "explorer": "",
+    "status": "Active"
   },
   "ELS": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1777414.0",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockexp.com:7000/",
+    "status": "Active"
   },
   "BET": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/BetaCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ELT": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/Electron-Coin2014/Electron-ELT/",
+    "discussion": "https://bitcointalk.org/index.php?topic=624595.0",
+    "twitter": "electroncoin",
+    "explorer": "http://elt.cryptocoinexplorer.com/",
+    "status": "Active"
   },
   "CRAIG": {
-    "officialUrl": ""
+    "officialUrl": "http://list.craigscoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=780334.0",
+    "twitter": "CraigsCoin",
+    "explorer": "",
+    "status": "Active"
   },
   "MWC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.multiwalletcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=752808.0",
+    "twitter": "Multi_Wallet",
+    "explorer": "",
+    "status": "Active"
   },
   "TOP": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/TopCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DSB": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/DarkShibe/DarkShibe",
+    "discussion": "https://bitcointalk.org/index.php?topic=833133.0",
+    "twitter": "DarkShibe",
+    "explorer": "http://cryptobe.com/chain/DarkShibeCoin",
+    "status": "Active"
   },
   "BTCRY": {
-    "officialUrl": ""
+    "officialUrl": "http://bitcrystal.de/wiki",
+    "discussion": "https://bitcointalk.org/index.php?topic=966861.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://bitcrystal.de:2750/chain/Bitcrystal",
+    "status": "Active"
   },
   "GUE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Guerillacoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "DRZ": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "ZED": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Zedcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SHLD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/ShieldCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "XAI": {
-    "officialUrl": ""
+    "officialUrl": "http://www.blockchainsingularity.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=864895.0",
+    "twitter": "SapienceAIFX",
+    "explorer": "http://explorer.blockchainsingularity.com/",
+    "status": "Active"
   },
   "DBL": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/razorlove/doubloons",
+    "discussion": "https://bitcointalk.org/index.php?topic=206361",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "LYC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Lycancoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "YUM": {
-    "officialUrl": ""
+    "officialUrl": "https://candyco.in/",
+    "discussion": "https://bitcointalk.org/index.php?topic=560940.0",
+    "twitter": "eatsweetmoney",
+    "explorer": "",
+    "status": "Active"
   },
   "ZS": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/ZimStake",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GUA": {
-    "officialUrl": ""
+    "officialUrl": "http://guarany.co/",
+    "discussion": "https://cryptocointalk.com/topic/22552-ann-guarany-the-original-brazilian-cryptocurrency-gua/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://blockexplorer.guarany.co:8080/",
+    "status": "Active"
   },
   "ANAL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/AnalCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ROS": {
-    "officialUrl": ""
+    "officialUrl": "http://roscoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=769857.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://216.231.132.86:2000/chain/Roscoin",
+    "status": "Active"
   },
   "BEN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Benjamins",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ALN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Aliencoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "QSLV": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Quicksilver",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RT2": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CRACK": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=776696.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=776696.0",
+    "twitter": "CrackCoinDev",
+    "explorer": "http://pipe.crackco.in/",
+    "status": "Active"
   },
   "JUDGE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Judgecoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SOLE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Solecoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "FIC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=837752.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptobe.com/chain/FullIntegrityCoin",
+    "status": "Active"
   },
   "MTR": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/MasterTraderCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MAIA": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "GLYPH": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Glyph",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PMP": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/PreminePlus",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "GHC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/GamerholicCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CNL": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/concealcoin/concealcoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=700289.0",
+    "twitter": "ConcealCoin",
+    "explorer": "",
+    "status": "Active"
   },
   "JKC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Junkcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ULTC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Umbrella-LTC",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "UTIL": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/UtilityCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PSEUD": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/PseudoCash",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SHADE": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/ShadeCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "NMB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Nimbus",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "OSC": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "status": "Active"
   },
   "KUMA": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Kumacoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "AXR": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Axron",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CAIX": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=513613.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=513613.0",
+    "twitter": "JStuhlman",
+    "explorer": "http://cryptobe.com/chain/CaishenCoin",
+    "status": "Active"
   },
   "VDO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Vidio",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "RIPO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/RipoffCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "QB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Quarkbar",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "HAM": {
-    "officialUrl": ""
+    "officialUrl": "http://www.hamradiocoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=675564.0",
+    "twitter": "HamRadioCoin",
+    "explorer": "https://twitter.com/HamRadioCoin",
+    "status": "Active"
   },
   "ISR": {
-    "officialUrl": ""
+    "officialUrl": "http://www.isracoin.org/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "TAK": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/TakCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "PYC": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=268941.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=268941.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "SOL": {
-    "officialUrl": ""
+    "officialUrl": "",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "ROOT": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/RootCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "EKN": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Elektron",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "MNC": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Mincoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "COV": {
-    "officialUrl": ""
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1032465.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=1032465.0",
+    "twitter": "CovenCoin",
+    "explorer": "",
+    "status": "Active"
   },
   "CRT": {
-    "officialUrl": ""
+    "officialUrl": "http://crtcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=555578.0",
+    "twitter": "crtcoincom",
+    "explorer": "",
+    "status": "Active"
   },
   "NRB": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/Noirbits",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "XDQ": {
-    "officialUrl": ""
+    "officialUrl": "https://github.com/bryceweiner/Dirac",
+    "discussion": "https://bitcointalk.org/index.php?topic=616288.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://diracexplorer.org/chain/Dirac/",
+    "status": "Active"
   },
   "ORO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/ORObit",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
   },
   "CKC": {
-    "officialUrl": ""
+    "officialUrl": "http://www.checkcoin.cc/",
+    "discussion": "https://bitcointalk.org/index.php?topic=715563.0",
+    "twitter": "Checkcoincc",
+    "explorer": "http://cryptobe.com/chain/CheckCoin",
+    "status": "Active"
   },
   "TCO": {
-    "officialUrl": ""
+    "officialUrl": "https://www.reddit.com/r/TacoCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "SEC": {
+    "officialUrl": "http://safex.io/#officialUrl",
+    "discussion": "http://discuss.safex.io/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://omnichest.info/lookupsp.aspx?sp=56",
+    "status": "Active"
+  },
+  "STR": {
+    "officialUrl": "https://www.stellar.org/",
+    "discussion": "https://stellartalk.org/",
+    "twitter": "StellarOrg",
+    "explorer": "https://www.stellar.org/stats/",
+    "status": "Active"
+  },
+  "JPC": {
+    "officialUrl": "http://jackpotcoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=584481.0",
+    "twitter": "jackpotcoin",
+    "explorer": "",
+    "status": "Active"
+  },
+  "10K": {
+    "officialUrl": "https://www.reddit.com/r/Experiment 10k",
+    "discussion": "https://bitcointalk.org/index.php?topic=942977.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://10k.blockexplorer.cc/",
+    "status": "Active"
+  },
+  "DOGED": {
+    "officialUrl": "http://www.dogecoindark.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=817937.0",
+    "twitter": "Dogedcoin",
+    "explorer": "http://blockexperts.com/doged",
+    "status": "Active"
+  },
+  "ATOMIC": {
+    "officialUrl": "https://bitcointalk.org/index.php?topic=780833.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=780833",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=11694807213441909013",
+    "status": "Active"
+  },
+  "UCI": {
+    "officialUrl": "https://www.reddit.com/r/UCIcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "NOO": {
+    "officialUrl": "https://www.reddit.com/r/NooCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "MMXIV": {
+    "officialUrl": "http://www.mmxivcoin.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=623884.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://mmxiv.blockexplorer.cc/chain/MMXIV",
+    "status": "Active"
+  },
+  "SMAC": {
+    "officialUrl": "http://www.smac.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=952083",
+    "twitter": "SMACteam",
+    "explorer": "http://smac.explorer.ssdpool.com:9147/",
+    "status": "Active"
+  },
+  "HLC": {
+    "officialUrl": "http://www.hellascoin.gr",
+    "discussion": "http://forum.grcoin.gr/",
+    "twitter": "HellasCoinTeam",
+    "explorer": "",
+    "status": "Active"
+  },
+  "KEY": {
+    "officialUrl": "https://www.reddit.com/r/KeyCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "CIN": {
+    "officialUrl": "https://github.com/CrypTraider/Cinder",
+    "discussion": "https://bitcointalk.org/index.php?topic=849939.0",
+    "twitter": "CinderCoin",
+    "explorer": "https://chainz.cryptoid.info/cin/",
+    "status": "Active"
+  },
+  "XCASH": {
+    "officialUrl": "https://www.reddit.com/r/XCash",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "GLIDE": {
+    "officialUrl": "https://www.reddit.com/r/GlideSEC",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "WKC": {
+    "officialUrl": "https://www.reddit.com/r/WankCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "CXC": {
+    "officialUrl": "https://bitcointalk.org/index.php?topic=840437",
+    "discussion": "https://bitcointalk.org/index.php?topic=840437",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/cxc/",
+    "status": "Active"
+  },
+  "ASN": {
+    "officialUrl": "https://www.reddit.com/r/Ascension",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "MRC2": {
+    "officialUrl": "http://microcoin.alcurex.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=793538.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=MRC",
+    "status": "Active"
+  },
+  "WETK": {
+    "officialUrl": "http://www.faucetrotator.uni.me/weedtokens/",
+    "discussion": "https://bitcointalk.org/index.php?topic=924331.0",
+    "twitter": "WeedTokens",
+    "explorer": "http://blockexplorer.mysweetyweed.com:3001/",
+    "status": "Active"
+  },
+  "NKT": {
+    "officialUrl": "http://nakamotodark.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=896354.0",
+    "twitter": "getnakas",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=NKT",
+    "status": "Active"
+  },
+  "EVENT": {
+    "officialUrl": "https://www.reddit.com/r/EventToken",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "HRNXT": {
+    "officialUrl": "http://hashrate.org/",
+    "discussion": "https://nxtforum.org/nxt-indirect-mining/hashrate-org",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=17166680677145186899",
+    "status": "Active"
+  },
+  "VMC": {
+    "officialUrl": "https://www.reddit.com/r/VirtualMiningCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "GIZ": {
+    "officialUrl": "https://www.reddit.com/r/GIZMOcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "OPALTKN": {
+    "officialUrl": "https://www.reddit.com/r/OpalTKN",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "BOOM": {
+    "officialUrl": "http://cleverhash.com/boom/",
+    "discussion": "https://bitcointalk.org/index.php?topic=716699.0",
+    "twitter": "cleverhash",
+    "explorer": "http://www.argakiig.us/blockchain/boom/",
+    "status": "Active"
+  },
+  "EAGS": {
+    "officialUrl": "https://www.reddit.com/r/EagsCurrency",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "SHIBE": {
+    "officialUrl": "https://www.reddit.com/r/ShibeCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "BALLS": {
+    "officialUrl": "https://bitcointalk.org/index.php?topic=843495.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=843495.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "NXTCOINSCO": {
+    "officialUrl": "https://www.reddit.com/r/Tradebots",
+    "discussion": "https://nxtforum.org/nxtventures/nxtcoinsco-nodecoin-svmcoin-and-more-coins/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=17571711292785902558",
+    "status": "Active"
+  },
+  "MTC": {
+    "officialUrl": "http://www.marinecoin.org/",
+    "discussion": "",
+    "twitter": "MarineCoin_MTC",
+    "explorer": "http://info.marinecoin.org/",
+    "status": "Active"
+  },
+  "CINNI": {
+    "officialUrl": "http://www.cinnicoin.co/",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/cinni/",
+    "status": "Active"
+  },
+  "CCS": {
+    "officialUrl": "http://cfa-consulting.ch/en/cryptocoins",
+    "discussion": "https://nxtforum.org/asset-exchange-general/cryptocoins-the-first-crypto-hedge-fund-bridging-euro-and-asset-exchange/",
+    "twitter": "CFA_Consulting",
+    "explorer": "http://nxtreporting.com/?as=615502203617265072",
+    "status": "Active"
+  },
+  "MRCAM": {
+    "officialUrl": "https://midasrezerv.com/",
+    "discussion": "",
+    "twitter": "MidasRezerv",
+    "explorer": "https://blockscan.com/assetInfo/MRCAM",
+    "status": "Active"
+  },
+  "WATER": {
+    "officialUrl": "http://www.cleanwatercoin.org/",
+    "discussion": "",
+    "twitter": "CleanWaterCoin",
+    "explorer": "http://explorer.cleanwatercoin.org/chain/Cleanwatercoin",
+    "status": "Active"
+  },
+  "XAP": {
+    "officialUrl": "http://www.apinetwork.co/",
+    "discussion": "",
+    "twitter": "APIengineco",
+    "explorer": "https://masterchest.info/lookupsp.aspx?sp=27",
+    "status": "Active"
+  },
+  "XCPSCO": {
+    "officialUrl": "https://www.reddit.com/r/Scotcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "PLUGIN": {
+    "officialUrl": "http://nxtplugins.com/",
+    "discussion": "https://nxtforum.org/asset-exchange-general/nxtplugins/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=3779904130149819589",
+    "status": "Active"
+  },
+  "XWT": {
+    "officialUrl": "https://www.reddit.com/r/World Trade Funds",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "MIN": {
+    "officialUrl": "https://bitcointalk.org/index.php?topic=641057.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=641057.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://explorer.morningminerals.com/chain/Minerals",
+    "status": "Active"
+  },
+  "TRL": {
+    "officialUrl": "http://trollcoinbase.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=452810.0",
+    "twitter": "trollcoinbase",
+    "explorer": "https://chainz.cryptoid.info/trl/",
+    "status": "Active"
+  },
+  "DORCS": {
+    "officialUrl": "http://www.dorcsgames.com/",
+    "discussion": "https://nxtforum.org/lith-the-nxt-mmo/dorcs-games-asset-purchase-starts-now!/",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://nxtreporting.com/?as=2318361924203311027",
+    "status": "Active"
+  },
+  "SCSY": {
+    "officialUrl": "https://www.reddit.com/r/SecurityCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "KTK": {
+    "officialUrl": "https://www.reddit.com/r/Kryptkoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "SILK": {
+    "officialUrl": "http://www.silkcoin.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=676976",
+    "twitter": "Silkcoin?src=hash",
+    "explorer": "https://chainz.cryptoid.info/silk/",
+    "status": "Active"
+  },
+  "CHA": {
+    "officialUrl": "https://www.reddit.com/r/Chancecoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "GIVE": {
+    "officialUrl": "https://www.reddit.com/r/GiveCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "SBC": {
+    "officialUrl": "https://www.reddit.com/r/StableCoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "KGC": {
+    "officialUrl": "https://www.reddit.com/r/Krugercoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "MLS": {
+    "officialUrl": "https://www.reddit.com/r/MozzShare",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "FRAC": {
+    "officialUrl": "https://www.reddit.com/r/Fractalcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "OCTO": {
+    "officialUrl": "https://www.reddit.com/r/Octo",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "BEAR": {
+    "officialUrl": "https://www.reddit.com/r/BearMining",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "STK": {
+    "officialUrl": "https://www.reddit.com/r/Stakecoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "XBOT": {
+    "officialUrl": "https://www.reddit.com/r/SocialxBot",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "HRL": {
+    "officialUrl": "https://www.reddit.com/r/HRLTCGEAR",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "CREDIT": {
+    "officialUrl": "https://www.creditbit.org/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1237511.0",
+    "twitter": "https://twitter.com/creditbit?lang=en",
+    "explorer": "https://explorer.creditbit.org/",
+    "status": "Active"
+  },
+  "CATC": {
+    "officialUrl": "http://cataloniacoin.info/",
+    "discussion": "https://bitcointalk.org/index.php?topic=840542.0",
+    "twitter": "Cataloniacoin",
+    "explorer": "http://www.bitexp.net/explorer.php?coin=CataloniaCoin",
+    "status": "Active"
+  },
+  "BNCR": {
+    "officialUrl": "http://bancorcoin.net/",
+    "discussion": "https://bitcointalk.org/index.php?topic=505483.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://bancorcoin.net/block/chain/Bancorcoin",
+    "status": "Active"
+  },
+  "CHASH": {
+    "officialUrl": "http://cleverhash.com/",
+    "discussion": "https://bitcointalk.org/index.php?topic=826541.0",
+    "twitter": "cleverhash",
+    "explorer": "http://cryptobe.com/chain/CleverHash",
+    "status": "Active"
+  },
+  "LIMX": {
+    "officialUrl": "https://www.reddit.com/r/LimeCoinX",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "GSX": {
+    "officialUrl": "https://www.reddit.com/r/GlowShares",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "PLC2": {
+    "officialUrl": "https://www.reddit.com/r/Polcoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "BEL": {
+    "officialUrl": "https://www.reddit.com/r/Bellscoin",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "CND": {
+    "officialUrl": "https://github.com/cannabisdark/cannabisdarkcoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=825005.0",
+    "twitter": "cannabisdark?src=hash",
+    "explorer": "http://178.62.211.15/chain/CannabisDarkcoin",
+    "status": "Active"
+  },
+  "CAM": {
+    "officialUrl": "https://github.com/camorracoin/camorracoin",
+    "discussion": "https://bitcointalk.org/index.php?topic=827956.0",
+    "twitter": "camorra_coin",
+    "explorer": "http://cam.explorer.ssdpool.com:9129/",
+    "status": "Active"
+  },
+  "UNAT": {
+    "officialUrl": "https://www.reddit.com/r/Unattainium",
+    "discussion": "",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "BUB": {
+    "officialUrl": "https://bitcointalk.org/index.php?topic=1044272.0",
+    "discussion": "https://bitcointalk.org/index.php?topic=1044272.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptobe.com/chain/BubbleCoin",
+    "status": "Active"
+  },
+  "PRO": {
+    "officialUrl": "https://www.lamb-cooper.com/prosperitycoin/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1034606.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://www.ripplecharts.com/#/graph/rGh84RRDX4q6udARHpAA6Mq1v4rXqnzhRF",
+    "status": "Active"
+  },
+  "XPL": {
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=918132.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://www.multifaucet.tk/index.php?blockexplorer=XPL",
+    "status": "Active"
+  },
+  "SLFI": {
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=977167",
+    "twitter": "ShapeShift_io",
+    "explorer": "",
+    "status": "Active"
+  },
+  "SHELL": {
+    "officialUrl": "",
+    "discussion": "https://bitcointalk.org/index.php?topic=1054714.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "http://cryptobe.com/chain/ShellCoin",
+    "status": "Active"
+  },
+  "CRBITS": {
+    "officialUrl": "https://www.creditbit.org/",
+    "discussion": "https://forum.creditbit.org/",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://explorer.creditbit.org/",
+    "status": "Active"
+  },
+  "FAIL": {
+    "officialUrl": "http://www.failcoin.co.uk/",
+    "discussion": "https://bitcointalk.org/index.php?topic=505290.0",
+    "twitter": "ShapeShift_io",
+    "explorer": "https://chainz.cryptoid.info/fail/",
+    "status": "Active"
   }
 }

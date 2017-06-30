@@ -87,7 +87,8 @@ export default class ValuePair {
       symbol: coin.short,
       symbolLocation: Currency.SYMBOL_LOCATIONS.END,
       imageUrl: coin.imageUrl,
-      officialUrl: coin.officialUrl
+      officialUrl: coin.officialUrl,
+      status: coin.status
     });
     valuePair.percentChange24h = safeParseFloat(coin.cap24hrChange);
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;

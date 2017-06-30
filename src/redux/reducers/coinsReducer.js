@@ -1,10 +1,12 @@
 import * as Immutable from 'seamless-immutable';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
-import {NO_VALUE_DATA_SYMBOL} from '../../helpers/consts';
+import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
 import * as coinsInfo from '../../assets/data/coinsInfo.json';
 
-let missingUrls = [];
+let missingImageUrls = [];
+let missingOfficialUrls = [];
+let missingStatuses = [];
 
 const initialState = Immutable.from({
   coinsList: {},
@@ -60,14 +62,20 @@ const CoinsReducer = (state = initialState, action) => {
        * ******************************************/
       const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
 
-      if (coinBaseInfo) {
-        coin.imageUrl = coinBaseInfo.imageUrl;
+      coin.imageUrl = coinBaseInfo && coinBaseInfo.imageUrl;
+      coin.status = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].status;
+      coin.officialUrl = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].officialUrl;
+
+      if (!coin.imageUrl) {
+        missingImageUrls && missingImageUrls.push(coin.short);
       }
 
-      coin.officialUrl = coinsInfo[coin.short.toUpperCase()].officialUrl;
+      if (!coin.status) {
+        missingStatuses && missingStatuses.push(coin.short);
+      }
 
-      if (!coin.officialUrl) {
-        missingUrls && missingUrls.push(coin.short);
+      if (!coin.officialUrl && coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
+        missingOfficialUrls && missingOfficialUrls.push(coin.short);
       }
 
       /**
@@ -90,11 +98,31 @@ const CoinsReducer = (state = initialState, action) => {
       coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1));
     }
 
-    if (missingUrls && missingUrls.length > 0) {
-      console.info(`You're missing some URLs for some coins (${missingUrls.length}) :` + JSON.stringify(missingUrls));
+    /**
+     * ******************************************
+     * Report missing data
+     * ******************************************/
+    if (missingImageUrls && missingImageUrls.length > 0) {
+      console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}) :` + JSON.stringify(missingImageUrls));
     }
 
-    missingUrls = undefined;
+    if (missingStatuses && missingStatuses.length > 0) {
+      console.warn(`You're missing some !! Statuses !! for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
+    }
+
+    if (missingOfficialUrls && missingOfficialUrls.length > 0) {
+      console.warn(`You're missing some !! Official Urls !! for some coins (${missingOfficialUrls.length}) :` +
+        JSON.stringify(missingOfficialUrls));
+    }
+
+    missingStatuses = undefined;
+    missingOfficialUrls = undefined;
+    missingImageUrls = undefined;
+
+    /**
+     * ******************************************
+     * End reporting of missing data
+     * ******************************************/
 
     return state.merge({
       isUpdatingData: false,

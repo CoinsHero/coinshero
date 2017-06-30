@@ -7,14 +7,14 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import {Paper} from 'material-ui';
+import {Paper, Chip} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { red, green } from 'material-ui/styles/colors';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
-import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL} from '../helpers/consts';
+import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
 import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
 
@@ -56,7 +56,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__TableBody__TableCell__displayedNameContainer__name--link': {
     transition: 'font-size 1s ease-in-out',
     color: 'inherit',
-    textDecoration: 'inherit', // eslint-disable-line quote-props
+    textDecoration: 'inherit',
     '&:hover': {
       textDecoration: 'underline',
       fontSize: theme.typography.subheading.fontSize,
@@ -71,6 +71,15 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   'root__TableBody__TableCell__displayedNameContainer__img--rtl': {
     marginLeft: theme.spacing.unit * 1,
     marginRight: 0
+  },
+  root__TableBody__TableCell__displayedNameContainer__Chip: {
+    marginLeft: theme.spacing.unit * 1.5,
+    marginRight: 0,
+    backgroundColor: theme.palette.error[500]
+  },
+  'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': {
+    marginRight: theme.spacing.unit * 1.5,
+    marginLeft: 0
   },
   'root__TableCell__percent-change-twenty-four-h': {
     direction: 'ltr',
@@ -159,6 +168,15 @@ class CoinsTable extends Component {
           {pair.baseCurrency.displayName}
         </span>;
 
+      const inactiveChipCellClass = classnamesjss(classes,
+        'root__TableBody__TableCell__displayedNameContainer__Chip',
+        {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
+      );
+
+      const inactiveStatusChip = pair.baseCurrency.status === COIN_STATUSES.INACTIVE ?
+        <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} /> :
+        null;
+
       return (
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
@@ -166,6 +184,7 @@ class CoinsTable extends Component {
             <div className={nameContainerClass}>
               {icon}
               {name}
+              {inactiveStatusChip}
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>

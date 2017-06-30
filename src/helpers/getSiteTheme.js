@@ -23,6 +23,14 @@ const getSiteTheme = (options) => {
       root: {
         background: theme.palette.accent['A400']
       }
+    },
+    MuiTableCell: {
+      padding: {
+        padding: `0 ${theme.spacing.unit * 5}px 0 ${theme.spacing.unit * 3}px`,
+        '&:last-child': {
+          paddingRight: theme.spacing.unit * 3
+        }
+      }
     }
   };
 
