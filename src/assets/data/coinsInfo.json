@@ -7,7 +7,7 @@
     "status": "Active"
   },
   "BTC": {
-    "officialUrl": "https://www.reddit.com/r/Bitcoin",
+    "officialUrl": "https://www.bitcoin.com/",
     "discussion": "reddit.com/r/btc",
     "twitter": "ShapeShift_io",
     "explorer": "https://blockexplorer.com/",
@@ -808,7 +808,7 @@
     "status": "Active"
   },
   "TRST": {
-    "officialUrl": "",
+    "officialUrl": "https://www.wetrust.io/",
     "status": "Active"
   },
   "YBC": {
@@ -833,7 +833,7 @@
     "status": "Active"
   },
   "TKN": {
-    "officialUrl": "",
+    "officialUrl": "https://tokencard.io/",
     "status": "Active"
   },
   "GRC": {
@@ -865,7 +865,7 @@
     "status": "Active"
   },
   "GUP": {
-    "officialUrl": "",
+    "officialUrl": "https://matchpool.co/",
     "status": "Active"
   },
   "WDC": {
@@ -1122,7 +1122,7 @@
     "status": "Active"
   },
   "XBY": {
-    "officialUrl": "",
+    "officialUrl": "https://www.xtrabytes.global/#!/home",
     "status": "Active"
   },
   "GAM": {
@@ -1147,7 +1147,7 @@
     "status": "Active"
   },
   "BELA": {
-    "officialUrl": "",
+    "officialUrl": "http://belacoin.org/",
     "status": "Active"
   },
   "ECC": {
@@ -1158,7 +1158,7 @@
     "status": "Active"
   },
   "CRB": {
-    "officialUrl": "",
+    "officialUrl": "https://www.creditbit.org/",
     "status": "Active"
   },
   "ZEN": {
@@ -1187,7 +1187,7 @@
     "status": "Active"
   },
   "AEON": {
-    "officialUrl": "",
+    "officialUrl": "http://www.aeon.cash/",
     "discussion": "https://bitcointalk.org/index.php?topic=641696.0",
     "twitter": "ShapeShift_io",
     "explorer": "http://chainradar.com/aeon/blocks",
@@ -1306,7 +1306,7 @@
     "status": "Active"
   },
   "MUSIC": {
-    "officialUrl": "",
+    "officialUrl": "https://musicoin.org/",
     "status": "Active"
   },
   "BITB": {
@@ -1394,7 +1394,7 @@
     "status": "Active"
   },
   "APX": {
-    "officialUrl": "",
+    "officialUrl": "https://apxv.org/",
     "status": "Active"
   },
   "CURE": {
@@ -1598,7 +1598,7 @@
     "status": "Active"
   },
   "INSANE": {
-    "officialUrl": "",
+    "officialUrl": "https://insanecoin.com/",
     "status": "Active"
   },
   "PTC": {
@@ -1939,7 +1939,7 @@
     "status": "Active"
   },
   "HPC": {
-    "officialUrl": "",
+    "officialUrl": "https://happycoin.blog/",
     "status": "Active"
   },
   "BUN": {
@@ -2241,7 +2241,7 @@
     "status": "Active"
   },
   "DP": {
-    "officialUrl": "",
+    "officialUrl": "http://digitalprice.org/",
     "status": "Active"
   },
   "CCN": {
@@ -2305,7 +2305,7 @@
     "status": "Active"
   },
   "CORG": {
-    "officialUrl": "",
+    "officialUrl": "http://corgicoin.co.uk/",
     "status": "Active"
   },
   "NRS": {
@@ -2512,7 +2512,7 @@
     "status": "Active"
   },
   "MAC": {
-    "officialUrl": "",
+    "officialUrl": "https://www.machinecoin.org/",
     "status": "Active"
   },
   "LEAF": {
@@ -2709,7 +2709,7 @@
     "status": "Active"
   },
   "ERY": {
-    "officialUrl": "",
+    "officialUrl": "https://eryllium.com/",
     "status": "Active"
   },
   "SKYNET": {
@@ -2864,7 +2864,7 @@
     "status": "Active"
   },
   "XCO": {
-    "officialUrl": "",
+    "officialUrl": "http://x-coin.info/",
     "discussion": "https://bitcointalk.org/index.php?topic=1365894.0",
     "twitter": "ShapeShift_io",
     "explorer": "https://www.blockexperts.com/xvg",
@@ -3123,7 +3123,7 @@
     "status": "Active"
   },
   "420G": {
-    "officialUrl": "",
+    "officialUrl": "https://www.ganjacoinpro.com/",
     "status": "Active"
   },
   "1CR": {

@@ -54,12 +54,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     flexGrow: 1
   },
   'root__TableBody__TableCell__displayedNameContainer__name--link': {
-    transition: 'font-size 1s ease-in-out',
+    transition: 'font-size 0.2s ease-in-out',
     color: 'inherit',
     textDecoration: 'inherit',
     '&:hover': {
       textDecoration: 'underline',
-      fontSize: theme.typography.subheading.fontSize,
+      fontSize: theme.typography.body2.fontSize,
       fontWeight: theme.typography.body2.fontWeight
     }
   },
