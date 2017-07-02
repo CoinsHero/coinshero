@@ -67,8 +67,7 @@ class MarketApp extends Component {
           onThemeClick={this._onThemeClick.bind(this)}
           locale={this.props.locale} />
         <div className={classes.root__container}>
-          <CoinsPage locale={this.props.locale}
-            coinsData={this.props.coinsData} />
+          <CoinsPage locale={this.props.locale} coinsData={this.props.coinsData} targetCurrency={this.props.targetCurrency}/>
         </div>
         <Footer />
         <Services />
@@ -79,6 +78,7 @@ class MarketApp extends Component {
 
 const mapStateToProps = (state) => ({
   coinsData: state.coins.coinsData,
+  targetCurrency: state.coins.targetCurrency,
   isDarkTheme: state.site.isDarkTheme
 });
 
@@ -92,6 +92,12 @@ MarketApp.propTypes = {
   coinsData: PropTypes.shape({
     valuePairs: PropTypes.arrayOf(PropTypes.object),
     updateTimestamp: PropTypes.number
+  }),
+  targetCurrency: PropTypes.shape({
+    code: PropTypes.string.isRequired,
+    symbol: PropTypes.string.isRequired,
+    symbolLocation: PropTypes.string.isRequired,
+    factorFromUSD: PropTypes.number.isRequired
   }),
   isDarkTheme: PropTypes.bool.isRequired
 };

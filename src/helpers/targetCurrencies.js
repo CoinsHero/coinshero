@@ -1,14 +1,16 @@
-import BTC from './BTC';
-import ETH from './ETH';
-import USD from './USD';
-import EUR from './EUR';
-import NIS from './NIS';
+import BTC from '../models/currencies/BTC';
+import ETH from '../models/currencies/ETH';
+import USD from '../models/currencies/USD';
+import EUR from '../models/currencies/EUR';
+import NIS from '../models/currencies/NIS';
 
 const btc = new BTC();
 const eth = new ETH();
 const usd = new USD();
 const eur = new EUR();
 const nis = new NIS();
+
+export const DEFAULT_TARGET_CURRENCY = usd;
 
 const targetCurrencies = {
   [btc.code]: btc,

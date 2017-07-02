@@ -1,6 +1,7 @@
 import * as Immutable from 'seamless-immutable';
 
 import USD from '../../models/currencies/USD';
+import targetCurrencies, {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
@@ -17,7 +18,8 @@ const initialState = Immutable.from({
     updateTimestamp: undefined,
     valuePairs: []
   },
-  isUpdatingData: false
+  isUpdatingData: false,
+  targetCurrency: DEFAULT_TARGET_CURRENCY
 });
 
 /**
@@ -35,9 +37,6 @@ const CoinsReducer = (state = initialState, action) => {
     const coins = [];
     let index;
     let rankIndex;
-
-    // TODO: Change temp value
-    const TARGET_CURRENCY = new USD();
 
     for (index = 0, rankIndex = 0; index < coinsLength; index++) {
       const coin = action.payload[index];
@@ -94,13 +93,13 @@ const CoinsReducer = (state = initialState, action) => {
       if (coin[SORT_FIELD] === NO_VALUE_DATA_SYMBOL) {
         unSortedCoins.push(coin);
       } else {
-        coins.push(ValuePair.parse(coin, action.meta.locale, rankIndex + 1, TARGET_CURRENCY));
+        coins.push(ValuePair.parse(coin, action.meta.locale, rankIndex + 1, state.targetCurrency));
         rankIndex++;
       }
     }
 
     for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
-      coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, TARGET_CURRENCY));
+      coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency));
     }
 
     /**
@@ -173,6 +172,12 @@ const CoinsReducer = (state = initialState, action) => {
   case Actions.FETCH_COINS_LIST_FAILURE:
     return state.merge({
       isUpdatingCoinsList: false
+    });
+  case Actions.SET_TARGET_CURRENCY_CODE:
+    const targetCurrency = targetCurrencies[action.payload] || new USD();
+
+    return stste.merge({
+      targetCurrency
     });
   default:
     return state;
