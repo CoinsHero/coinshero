@@ -118,7 +118,7 @@ class CoinsPage extends Component {
           </div>
         </Toolbar>
         <CoinsTable locale={this.props.locale}
-          showLoading={this.props.coinsData.valuePairs.length === 0}
+          showLoading={this.props.showLoading}
           valuePairs={this.state.displayedValuePairs} />
       </div>
     );
@@ -134,7 +134,8 @@ CoinsPage.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }),
+  showLoading: PropTypes.bool.isRequired
 };
 
 export default withStyles(styleSheet)(CoinsPage);

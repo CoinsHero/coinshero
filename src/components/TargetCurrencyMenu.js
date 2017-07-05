@@ -8,7 +8,7 @@ import T from 'i18n-react';
 
 import classnamesjss from '../helpers/classnamesjss';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
-import targetCurrencies, {setTargetCurrencyLocalStorage} from '../helpers/targetCurrencies';
+import targetCurrencies, {setRegularTargetCurrencyLocalStorage} from '../helpers/targetCurrencies';
 
 const styleSheet = createStyleSheet('TargetCurrencyMenu', (theme) => ({
   root: {
@@ -47,7 +47,7 @@ class TargetCurrencyMenu extends Component {
 
     if (currentTarget.code !== newTarget.code) {
       this.props.setTargetCurrencyInStore(this.props.locale, newTarget);
-      setTargetCurrencyLocalStorage(newTarget.code);
+      setRegularTargetCurrencyLocalStorage(newTarget.code);
     }
 
     this.setState({ open: false, targetCurrencyCode: newTarget.code });

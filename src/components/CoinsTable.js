@@ -24,6 +24,9 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   root: {
     overflowX: 'auto'
   },
+  root__loader: {
+    margin: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px 0`
+  },
   'root__empty-state': {
     display: 'flex',
     flexDirection: 'column',
@@ -281,7 +284,7 @@ class CoinsTable extends Component {
             {!this.props.showLoading && this._renderRows()}
           </TableBody>
         </Table>
-        {this.props.showLoading && <CircularIndeterminate />}
+        {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}
         {this._renderEmptyState()}
       </Paper>
     );

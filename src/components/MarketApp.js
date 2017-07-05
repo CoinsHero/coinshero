@@ -61,13 +61,15 @@ class MarketApp extends Component {
       }
     );
 
+    const showLoading = this.props.coinsData.valuePairs.length === 0 || !this.props.isRegularCurrenciesFetched;
+
     return (
       <div className={cx}>
         <NavigationHeader
           onThemeClick={this._onThemeClick.bind(this)}
           locale={this.props.locale} />
         <div className={classes.root__container}>
-          <CoinsPage locale={this.props.locale} coinsData={this.props.coinsData}/>
+          <CoinsPage showLoading={showLoading} locale={this.props.locale} coinsData={this.props.coinsData}/>
         </div>
         <Footer />
         <Services />
@@ -78,7 +80,8 @@ class MarketApp extends Component {
 
 const mapStateToProps = (state) => ({
   coinsData: state.coins.coinsData,
-  isDarkTheme: state.site.isDarkTheme
+  isDarkTheme: state.site.isDarkTheme,
+  isRegularCurrenciesFetched: state.coins.isRegularCurrenciesFetched
 });
 
 MarketApp.propTypes = {

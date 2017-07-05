@@ -18,7 +18,9 @@ const initialState = Immutable.from({
     valuePairs: []
   },
   isUpdatingData: false,
-  targetCurrency: DEFAULT_TARGET_CURRENCY
+  targetCurrency: DEFAULT_TARGET_CURRENCY,
+  isUpdatingRegularCurrencies: false,
+  isRegularCurrenciesFetched: false
 });
 
 /**
@@ -171,10 +173,10 @@ const CoinsReducer = (state = initialState, action) => {
       isUpdatingData: false,
       coinsData: {
         valuePairs: coins,
-        updateTimestamp: Date.now(),
-        // If a target currency is set, update it just in case it's a coin currency and we just updated it
-        targetCurrency: targetCurrencies[state.targetCurrency.code]
-      }
+        updateTimestamp: Date.now()
+      },
+      // If a target currency is set, update it just in case it's a coin currency and we just updated it
+      targetCurrency: targetCurrencies[state.targetCurrency.code]
     });
   }
   case Actions.FETCH_COINS_DATA_FAILURE:
@@ -214,6 +216,31 @@ const CoinsReducer = (state = initialState, action) => {
     return state.merge({
       isUpdatingCoinsList: false
     });
+    case Actions.FETCH_REGULAR_CURRENCIES:
+      return state.merge({
+        isUpdatingRegularCurrencies: true
+      });
+    case Actions.FETCH_REGULAR_CURRENCIES_SUCCESS: {
+      const rateCodes = Object.keys(action.payload.rates);
+
+      // Update the rates
+      for (let index = 0; index < rateCodes.length; index++) {
+        if (targetCurrencies[rateCodes[index]]) {
+          targetCurrencies[rateCodes[index]].factorFromUSD = action.payload.rates[rateCodes[index]];
+        }
+      }
+
+      return state.merge({
+        // If a target currency is set, update it just in case it's a regular currency and we just updated it
+        targetCurrency: targetCurrencies[state.targetCurrency.code],
+        isUpdatingRegularCurrencies: false,
+        isRegularCurrenciesFetched: true
+      })
+    }
+    case Actions.FETCH_REGULAR_CURRENCIES_FAILURE:
+      return state.merge({
+        isUpdatingRegularCurrencies: false
+      });
   default:
     return state;
   }

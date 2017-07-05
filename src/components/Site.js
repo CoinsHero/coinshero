@@ -9,7 +9,7 @@ import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
 import {setLanguage, getUserDefaultLanguage} from '../i18n';
-import {setTargetCurrencyLocalStorage, getTargetCurrency} from '../helpers/targetCurrencies';
+import {regularTargetCurrencies, setRegularTargetCurrencyLocalStorage, DEFAULT_TARGET_CURRENCY} from '../helpers/targetCurrencies';
 
 import MarketApp from './MarketApp';
 
@@ -39,9 +39,14 @@ class Site extends Component {
 
   _handleTargetCurrency(props, locale) {
     let targetCurrencyCode = localStorageSettings.getItem(localStorageSettings.KEYS.targetCurrencyCode, undefined);
-    const targetCurrency = getTargetCurrency(targetCurrencyCode);
 
-    setTargetCurrencyLocalStorage(targetCurrencyCode);
+    let targetCurrency = regularTargetCurrencies[targetCurrencyCode];
+
+    if (!targetCurrency) {
+      targetCurrency = DEFAULT_TARGET_CURRENCY;
+    }
+
+    setRegularTargetCurrencyLocalStorage(targetCurrency.code);
     props.setTargetCurrencyInStore(locale, targetCurrency);
   }
 

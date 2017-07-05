@@ -1,13 +1,13 @@
 import Currency from './Currency';
 
-export default class USD extends Currency {
+export default class ILS extends Currency {
   constructor() {
     super({
-      code: 'NIS',
+      code: 'ILS',
       symbol: '₪',
       symbolLocation: Currency.SYMBOL_LOCATIONS.START
     });
 
-    this.translationKey = 'TARGET_CURRENCY_NIS';
+    this.translationKey = 'TARGET_CURRENCY_ILS';
   }
 }
