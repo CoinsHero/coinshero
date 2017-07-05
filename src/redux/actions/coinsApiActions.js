@@ -37,18 +37,18 @@ export const fetchRegularCurrencies = (currenciesToFetch) => {
   }, '');
 
   return ({
-  [CALL_API]: {
-    endpoint: `${config.ORIGINS.FIXER_IO}/latest?base=USD&symbols=${currencies}`,
-    method: 'GET',
-    types: [
-      Actions.FETCH_REGULAR_CURRENCIES,
-      {
-        type: Actions.FETCH_REGULAR_CURRENCIES_SUCCESS
-      },
-      Actions.FETCH_REGULAR_CURRENCIES_FAILURE
-    ]
-  }
-  })
+    [CALL_API]: {
+      endpoint: `${config.ORIGINS.FIXER_IO}/latest?base=USD&symbols=${currencies}`,
+      method: 'GET',
+      types: [
+        Actions.FETCH_REGULAR_CURRENCIES,
+        {
+          type: Actions.FETCH_REGULAR_CURRENCIES_SUCCESS
+        },
+        Actions.FETCH_REGULAR_CURRENCIES_FAILURE
+      ]
+    }
+  });
 };
 
 export const setTargetCurrencyInStore = (locale, payload) => ({

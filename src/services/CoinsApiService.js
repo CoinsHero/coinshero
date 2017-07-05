@@ -94,7 +94,7 @@ const mapStateToProps = (state) => ({
   locale: state.site.locale,
   isUpdatingData: state.coins.isUpdatingData,
   isUpdatingCoinsList: state.coins.isUpdatingCoinsList,
-  isUpdatingRegularCurrencies: state.coins.isUpdatingRegularCurrencies,
+  isUpdatingRegularCurrencies: state.coins.isUpdatingRegularCurrencies
 });
 
 export default connect(mapStateToProps, { fetchCoinsData, fetchCoinsList, fetchRegularCurrencies })(CoinsApiService);

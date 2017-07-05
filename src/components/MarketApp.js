@@ -95,7 +95,8 @@ MarketApp.propTypes = {
     valuePairs: PropTypes.arrayOf(PropTypes.object),
     updateTimestamp: PropTypes.number
   }),
-  isDarkTheme: PropTypes.bool.isRequired
+  isDarkTheme: PropTypes.bool.isRequired,
+  isRegularCurrenciesFetched: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(MarketApp));
