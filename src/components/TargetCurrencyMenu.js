@@ -45,7 +45,7 @@ class TargetCurrencyMenu extends Component {
     const currentTarget = targetCurrencies[this.state.targetCurrencyCode];
 
     if (currentTarget.code !== newTarget.code) {
-      this.props.setTargetCurrencyInStore(newTarget);
+      this.props.setTargetCurrencyInStore(this.props.locale, newTarget);
       setTargetCurrencyLocalStorage(newTarget.code);
     }
 
@@ -79,14 +79,14 @@ class TargetCurrencyMenu extends Component {
     return this.state.targetCurrencyCode !== nextState.targetCurrencyCode ||
         this.state.open !== nextState.open ||
         this.props.isDarkTheme !== nextProps.isDarkTheme ||
-      this.props.isRTL !== nextProps.isRTL;
+      this.props.locale.code !== nextProps.locale.code;
   }
 
   render() {
     const ariaId = 'switch-target-currency';
     const buttonClasses = classnamesjss(this.props.classes,
       'root__Button',
-      {'root__Button--rtl': this.props.isRTL}
+      {'root__Button--rtl': this.props.locale.isRTL}
     );
 
     return (
@@ -108,13 +108,14 @@ class TargetCurrencyMenu extends Component {
 
 const mapStateToProps = (state) => ({
   isDarkTheme: state.site.isDarkTheme,
-  targetCurrency: state.coins.targetCurrency
+  targetCurrency: state.coins.targetCurrency,
+  locale: state.site.locale
 });
 
 TargetCurrencyMenu.propTypes = {
   setTargetCurrencyInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-  isRTL: PropTypes.bool,
+  locale: PropTypes.object.isRequired,
   isDarkTheme: PropTypes.bool.isRequired,
   targetCurrency: PropTypes.shape({
     code: PropTypes.string.isRequired,

@@ -22,15 +22,18 @@ const targetCurrencies = {
   [nis.code]: nis
 };
 
-export const setTargetCurrencyLocalStorage = (targetCurrencyCode) => {
-  let targetCurrency = targetCurrencies[targetCurrencyCode];
+export const getTargetCurrency = (code) => {
+  let targetCurrency = code ? targetCurrencies[code] : undefined;
 
   if (!targetCurrency) {
     targetCurrency = DEFAULT_TARGET_CURRENCY;
   }
 
-  localStorageSettings.setItem(localStorageSettings.KEYS.targetCurrencyCode, targetCurrency.code);
   return targetCurrency;
+};
+
+export const setTargetCurrencyLocalStorage = (targetCurrencyCode) => {
+  localStorageSettings.setItem(localStorageSettings.KEYS.targetCurrencyCode, getTargetCurrency(targetCurrencyCode).code);
 };
 
 export default targetCurrencies;

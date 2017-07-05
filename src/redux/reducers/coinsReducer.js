@@ -26,10 +26,32 @@ const initialState = Immutable.from({
  */
 const CoinsReducer = (state = initialState, action) => {
   switch (action.type) {
-  case Actions.SET_TARGET_CURRENCY:
+  case Actions.SET_TARGET_CURRENCY: {
+    const targetCurrency = action.payload;
+    let newValuePairs;
+
+    // In case we need to update the existing data
+    if (state.coinsData && targetCurrency.factorFromUSD) {
+      newValuePairs = [];
+      const coinsLength = state.coinsData.valuePairs.length;
+      let index;
+
+      for (index = 0; index < coinsLength; index++) {
+        const valuePair = state.coinsData.valuePairs[index];
+        newValuePairs.push(ValuePair.changeCurrency(valuePair, action.meta.locale, targetCurrency));
+      }
+    } else {
+      newValuePairs = state.coinsData.valuePairs;
+    }
+
+    const coinsData = Object.assign({}, state.coinsData);
+    coinsData.valuePairs = newValuePairs;
+
     return state.merge({
-      targetCurrency: action.payload
+      targetCurrency,
+      coinsData
     });
+  }
   case Actions.FETCH_COINS_DATA:
     return state.merge({
       isUpdatingData: true

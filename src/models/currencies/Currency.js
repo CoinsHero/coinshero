@@ -27,7 +27,7 @@ class Currency {
      * If the symbol of the currency should appear at the start or the end of the price
      * @type {Currency.SYMBOL_LOCATIONS}
      */
-    this.symbolLocation = Currency.SYMBOL_LOCATIONS[options.symbolLocation] || Currency.SYMBOL_LOCATIONS.START;
+    this.symbolLocation = options.symbolLocation || Currency.SYMBOL_LOCATIONS.START;
     /**
      * The image url of the currency
      * @type {string}

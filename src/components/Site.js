@@ -9,7 +9,7 @@ import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
 import {setLanguage, getUserDefaultLanguage} from '../i18n';
-import {setTargetCurrencyLocalStorage, DEFAULT_TARGET_CURRENCY} from '../helpers/targetCurrencies';
+import {setTargetCurrencyLocalStorage, getTargetCurrency} from '../helpers/targetCurrencies';
 
 import MarketApp from './MarketApp';
 
@@ -25,6 +25,8 @@ class Site extends Component {
 
     const locale = setLanguage(localeCode);
     props.setLocaleInStore(locale);
+
+    return locale;
   }
 
   _handleTheme(props) {
@@ -35,23 +37,20 @@ class Site extends Component {
     }
   }
 
-  _handleTargetCurrency(props) {
+  _handleTargetCurrency(props, locale) {
     let targetCurrencyCode = localStorageSettings.getItem(localStorageSettings.KEYS.targetCurrencyCode, undefined);
+    const targetCurrency = getTargetCurrency(targetCurrencyCode);
 
-    if (!targetCurrencyCode) {
-      targetCurrencyCode = DEFAULT_TARGET_CURRENCY;
-    }
-
-    const targetCurrency = setTargetCurrencyLocalStorage(targetCurrencyCode);
-    props.setTargetCurrencyInStore(targetCurrency);
+    setTargetCurrencyLocalStorage(targetCurrencyCode);
+    props.setTargetCurrencyInStore(locale, targetCurrency);
   }
 
   constructor(props) {
     super(props);
 
-    this._handleLocale(props);
+    const locale = this._handleLocale(props);
     this._handleTheme(props);
-    this._handleTargetCurrency(props);
+    this._handleTargetCurrency(props, locale);
 
     try {
       // Needed for onTouchTap

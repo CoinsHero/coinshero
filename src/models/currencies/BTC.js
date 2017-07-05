@@ -6,7 +6,8 @@ export default class BTC extends Currency {
       code: 'BTC',
       name: 'Bitcoin',
       symbol: 'BTC',
-      symbolLocation: Currency.SYMBOL_LOCATIONS.END
+      symbolLocation: Currency.SYMBOL_LOCATIONS.END,
+      factorFromUSD: 100
     });
   }
 }
