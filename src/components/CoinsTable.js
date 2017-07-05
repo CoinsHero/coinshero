@@ -9,7 +9,8 @@ import Table, {
 import T from 'i18n-react';
 import {Paper, Chip} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
-import { red, green } from 'material-ui/styles/colors';
+import red from 'material-ui/colors/red';
+import green from 'material-ui/colors/green';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
