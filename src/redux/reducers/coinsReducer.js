@@ -124,6 +124,7 @@ const CoinsReducer = (state = initialState, action) => {
         coins.push(pair);
         rankIndex++;
 
+        // If the current coins is also a possible target currency, update its USD rate
         if (targetCurrencies[codeUpperCase]) {
           targetCurrencies[codeUpperCase].factorFromUSD = 1 / pair.price;
         }
@@ -134,6 +135,7 @@ const CoinsReducer = (state = initialState, action) => {
       const pair = ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency);
       coins.push(pair);
 
+      // If the current coins is also a possible target currency, update its USD rate
       if (targetCurrencies[pair.baseCurrency.code]) {
         targetCurrencies[pair.baseCurrency.code].factorFromUSD = 1 / pair.price;
       }
@@ -165,20 +167,15 @@ const CoinsReducer = (state = initialState, action) => {
      * End reporting of missing data
      * ******************************************/
 
-    const newState = {
+    return state.merge({
       isUpdatingData: false,
       coinsData: {
         valuePairs: coins,
-        updateTimestamp: Date.now()
+        updateTimestamp: Date.now(),
+        // If a target currency is set, update it just in case it's a coin currency and we just updated it
+        targetCurrency: targetCurrencies[state.targetCurrency.code]
       }
-    };
-
-    // If a target currency is set, update it just in case it's a coin currency and we just updated it
-    if (state.targetCurrency) {
-      newState.targetCurrency = targetCurrencies[state.targetCurrency.code];
-    }
-
-    return state.merge(newState);
+    });
   }
   case Actions.FETCH_COINS_DATA_FAILURE:
     return state.merge({
