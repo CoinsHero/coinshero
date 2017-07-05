@@ -1,5 +1,7 @@
 import { createMuiTheme } from 'material-ui/styles';
-import { lightBlue, pink, red } from 'material-ui/styles/colors';
+import lightBlue from 'material-ui/colors/lightBlue';
+import red from 'material-ui/colors/red';
+import pink from 'material-ui/colors/pink';
 import createPalette from 'material-ui/styles/palette';
 
 const getSiteTheme = (options) => {
