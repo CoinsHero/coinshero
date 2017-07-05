@@ -111,7 +111,7 @@ class CoinsPage extends Component {
         <Toolbar className={this.props.classes.root_ToolBar}>
           <div className={this.props.classes.root__ToolBar__LeftPanel}>
             <SearchCoinsInput autoFocus={true} isRTL={this.props.locale.isRTL} onChange={this._onSearchChange.bind(this)}/>
-            <TargetCurrencyMenu isRTL={this.props.locale.isRTL} />
+            <TargetCurrencyMenu />
           </div>
           <div className={this.props.classes.root__ToolBar__RightPanel}>
             {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}

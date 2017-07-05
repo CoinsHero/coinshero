@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
 import {Button} from 'material-ui';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import T from 'i18n-react';
 
 import classnamesjss from '../helpers/classnamesjss';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
@@ -64,16 +65,12 @@ class TargetCurrencyMenu extends Component {
           selected={currency.code === this.state.targetCurrencyCode}
           onClick={(event) => this._handleMenuItemClick.call(this, event, currency)}>
           <div className={this.props.classes.MenuItem__container}>
-            {currency.name}
+            {T.translate(currency.translationKey)}
           </div>
         </MenuItem>
       );
     });
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({targetCurrencyCode: nextProps.targetCurrencyCode});
-  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.targetCurrencyCode !== nextState.targetCurrencyCode ||
@@ -96,7 +93,7 @@ class TargetCurrencyMenu extends Component {
           aria-owns={ariaId}
           aria-haspopup="true"
           onClick={this._handleClick.bind(this)}>
-          {targetCurrencies[this.state.targetCurrencyCode].name}
+          {T.translate(targetCurrencies[this.state.targetCurrencyCode].translationKey)}
         </Button>
         <Menu id={ariaId} anchorEl={this.state.anchorEl} open={this.state.open} onRequestClose={this._handleRequestClose.bind(this)}>
           {this._renderMenuItems()}
@@ -115,11 +112,14 @@ const mapStateToProps = (state) => ({
 TargetCurrencyMenu.propTypes = {
   setTargetCurrencyInStore: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
-  locale: PropTypes.object.isRequired,
+  locale: PropTypes.shape({
+    code: PropTypes.string.isRequired,
+    isRTL: PropTypes.bool
+  }).isRequired,
   isDarkTheme: PropTypes.bool.isRequired,
   targetCurrency: PropTypes.shape({
     code: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    translationKey: PropTypes.string.isRequired
   }).isRequired
 };
 

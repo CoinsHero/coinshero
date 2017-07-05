@@ -4,3 +4,7 @@ LANGUAGE_HEBREW: עברית
 
 # Legal
 CORPORATE: '© CoinsMarket'
+
+# targetCurrencies
+TARGET_CURRENCY_BTC: Bitcoin
+TARGET_CURRENCY_ETH: Ethereum

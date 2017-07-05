@@ -83,21 +83,21 @@ export default class ValuePair {
 
     newPair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, newPair.marketCap, 0, locale.code);
     newPair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
-      newPair.price, ValuePair._getPriceDecimalDigits(newPair.price), locale.code);
+      newPair.price, ValuePair._getPriceDecimalDigits(targetCurrency, newPair.price), locale.code);
     newPair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, newPair.volume24h, 0, locale.code);
 
     return newPair;
   }
 
-  static _getPriceDecimalDigits(price) {
-    return price >= 1 ? 2 : 8;
+  static _getPriceDecimalDigits(targetCurrency, price) {
+    return (price * targetCurrency.factorFromUSD) >= 1 ? 2 : 8;
   }
 
   static parse(coin, locale, index, targetCurrency = new USD()) {
     const valuePair = new ValuePair();
 
     valuePair.baseCurrency = new Currency({
-      code: coin.short,
+      code: coin.short.toUpperCase(),
       name: coin.long,
       symbol: coin.short,
       symbolLocation: Currency.SYMBOL_LOCATIONS.END,
@@ -114,7 +114,7 @@ export default class ValuePair {
 
     valuePair.price = safeParseFloat(coin.price);
     valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
-      coin.price, ValuePair._getPriceDecimalDigits(coin.price), locale.code);
+      coin.price, ValuePair._getPriceDecimalDigits(targetCurrency, coin.price), locale.code);
 
     valuePair.availableSupply = safeParseInt(coin.supply);
     valuePair.displayAvailableSupply = coin.supply !== NO_VALUE_DATA_SYMBOL ?
