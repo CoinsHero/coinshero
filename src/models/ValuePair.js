@@ -3,6 +3,10 @@ import Currency from './currencies/Currency';
 import {toCurrencyFormat, round, safeParseFloat, safeParseInt} from '../helpers/numbers';
 import {NO_VALUE_DATA_SYMBOL} from '../helpers/consts';
 
+const _getPriceDecimalDigits = (targetCurrency, price) => {
+  return (price * targetCurrency.factorFromUSD) >= 1 ? 2 : 8;
+};
+
 export default class ValuePair {
   constructor(pair = {}) {
     /**
@@ -83,14 +87,10 @@ export default class ValuePair {
 
     newPair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, newPair.marketCap, 0, locale.code);
     newPair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
-      newPair.price, ValuePair._getPriceDecimalDigits(targetCurrency, newPair.price), locale.code);
+      newPair.price, _getPriceDecimalDigits(targetCurrency, newPair.price), locale.code);
     newPair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, newPair.volume24h, 0, locale.code);
 
     return newPair;
-  }
-
-  static _getPriceDecimalDigits(targetCurrency, price) {
-    return (price * targetCurrency.factorFromUSD) >= 1 ? 2 : 8;
   }
 
   static parse(coin, locale, index, targetCurrency = new USD()) {
@@ -114,7 +114,7 @@ export default class ValuePair {
 
     valuePair.price = safeParseFloat(coin.price);
     valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
-      coin.price, ValuePair._getPriceDecimalDigits(targetCurrency, coin.price), locale.code);
+      coin.price, _getPriceDecimalDigits(targetCurrency, coin.price), locale.code);
 
     valuePair.availableSupply = safeParseInt(coin.supply);
     valuePair.displayAvailableSupply = coin.supply !== NO_VALUE_DATA_SYMBOL ?

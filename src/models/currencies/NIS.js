@@ -5,9 +5,7 @@ export default class USD extends Currency {
     super({
       code: 'NIS',
       symbol: '₪',
-      symbolLocation: Currency.SYMBOL_LOCATIONS.START,
-      // TODO: Change temp value
-      factorFromUSD: 3.49
+      symbolLocation: Currency.SYMBOL_LOCATIONS.START
     });
 
     this.translationKey = 'TARGET_CURRENCY_NIS';
