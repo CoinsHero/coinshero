@@ -8,6 +8,7 @@ import classnamesjss from '../helpers/classnamesjss';
 
 import CoinsTable from './CoinsTable';
 import SearchCoinsInput from './SearchCoinsInput';
+import TargetCurrencyMenu from './TargetCurrencyMenu';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root: {
@@ -110,6 +111,7 @@ class CoinsPage extends Component {
         <Toolbar className={this.props.classes.root_ToolBar}>
           <div className={this.props.classes.root__ToolBar__LeftPanel}>
             <SearchCoinsInput autoFocus={true} isRTL={this.props.locale.isRTL} onChange={this._onSearchChange.bind(this)}/>
+            <TargetCurrencyMenu isRTL={this.props.locale.isRTL} />
           </div>
           <div className={this.props.classes.root__ToolBar__RightPanel}>
             {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}

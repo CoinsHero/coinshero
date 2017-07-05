@@ -31,4 +31,4 @@ export const fetchCoinsList = () => ({
   }
 });
 
-export const setTargetCurrencyCode = (payload) => ({ type: Actions.SET_TARGET_CURRENCY_CODE, payload });
+export const setTargetCurrencyInStore = (payload) => ({ type: Actions.SET_TARGET_CURRENCY, payload });

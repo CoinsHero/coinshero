@@ -1,3 +1,5 @@
+import localStorageSettings from './localStorageSettings';
+
 import BTC from '../models/currencies/BTC';
 import ETH from '../models/currencies/ETH';
 import USD from '../models/currencies/USD';
@@ -18,6 +20,17 @@ const targetCurrencies = {
   [usd.code]: usd,
   [eur.code]: eur,
   [nis.code]: nis
+};
+
+export const setTargetCurrencyLocalStorage = (targetCurrencyCode) => {
+  let targetCurrency = targetCurrencies[targetCurrencyCode];
+
+  if (!targetCurrency) {
+    targetCurrency = DEFAULT_TARGET_CURRENCY;
+  }
+
+  localStorageSettings.setItem(localStorageSettings.KEYS.targetCurrencyCode, targetCurrency.code);
+  return targetCurrency;
 };
 
 export default targetCurrencies;

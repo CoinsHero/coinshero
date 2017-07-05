@@ -7,7 +7,9 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
+import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
 import {setLanguage, getUserDefaultLanguage} from '../i18n';
+import {setTargetCurrencyLocalStorage, DEFAULT_TARGET_CURRENCY} from '../helpers/targetCurrencies';
 
 import MarketApp from './MarketApp';
 
@@ -33,11 +35,23 @@ class Site extends Component {
     }
   }
 
+  _handleTargetCurrency(props) {
+    let targetCurrencyCode = localStorageSettings.getItem(localStorageSettings.KEYS.targetCurrencyCode, undefined);
+
+    if (!targetCurrencyCode) {
+      targetCurrencyCode = DEFAULT_TARGET_CURRENCY;
+    }
+
+    const targetCurrency = setTargetCurrencyLocalStorage(targetCurrencyCode);
+    props.setTargetCurrencyInStore(targetCurrency);
+  }
+
   constructor(props) {
     super(props);
 
     this._handleLocale(props);
     this._handleTheme(props);
+    this._handleTargetCurrency(props);
 
     try {
       // Needed for onTouchTap
@@ -74,4 +88,4 @@ Site.propTypes = {
   }).isRequired
 };
 
-export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore, setTargetCurrencyInStore })(Site);

@@ -1,7 +1,6 @@
 import * as Immutable from 'seamless-immutable';
 
-import USD from '../../models/currencies/USD';
-import targetCurrencies, {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
+import {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
@@ -27,6 +26,10 @@ const initialState = Immutable.from({
  */
 const CoinsReducer = (state = initialState, action) => {
   switch (action.type) {
+  case Actions.SET_TARGET_CURRENCY:
+    return state.merge({
+      targetCurrency: action.payload
+    });
   case Actions.FETCH_COINS_DATA:
     return state.merge({
       isUpdatingData: true
@@ -78,7 +81,8 @@ const CoinsReducer = (state = initialState, action) => {
         missingStatuses && missingStatuses.push(coin.short);
       }
 
-      if (!coin.officialUrl && coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
+      if (!coin.officialUrl && coinsInfo && coinsInfo[coin.short.toUpperCase()] &&
+        coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
         missingOfficialUrls && missingOfficialUrls.push(coin.short);
       }
 
@@ -172,12 +176,6 @@ const CoinsReducer = (state = initialState, action) => {
   case Actions.FETCH_COINS_LIST_FAILURE:
     return state.merge({
       isUpdatingCoinsList: false
-    });
-  case Actions.SET_TARGET_CURRENCY_CODE:
-    const targetCurrency = targetCurrencies[action.payload] || new USD();
-
-    return stste.merge({
-      targetCurrency
     });
   default:
     return state;
