@@ -30,3 +30,25 @@ export const fetchCoinsList = () => ({
     ]
   }
 });
+
+export const fetchRegularCurrencies = (currenciesToFetch) => {
+  const currencies = Object.keys(currenciesToFetch).join(',');
+
+  return ({
+    [CALL_API]: {
+      endpoint: `${config.ORIGINS.FIXER_IO}/latest?base=USD&symbols=${currencies}`,
+      method: 'GET',
+      types: [
+        Actions.FETCH_REGULAR_CURRENCIES,
+        Actions.FETCH_REGULAR_CURRENCIES_SUCCESS,
+        Actions.FETCH_REGULAR_CURRENCIES_FAILURE
+      ]
+    }
+  });
+};
+
+export const setTargetCurrencyInStore = (locale, payload) => ({
+  type: Actions.SET_TARGET_CURRENCY,
+  payload,
+  meta: {locale}
+});

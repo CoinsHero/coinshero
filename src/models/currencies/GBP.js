@@ -1,13 +1,13 @@
 import Currency from './Currency';
 
-export default class EUR extends Currency {
+export default class GBP extends Currency {
   constructor() {
     super({
-      code: 'EUR',
-      symbol: '€',
+      code: 'GBP',
+      symbol: '£',
       symbolLocation: Currency.SYMBOL_LOCATIONS.START
     });
 
-    this.translationKey = 'TARGET_CURRENCY_EUR';
+    this.translationKey = 'TARGET_CURRENCY_GBP';
   }
 }

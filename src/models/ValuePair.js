@@ -3,106 +3,128 @@ import Currency from './currencies/Currency';
 import {toCurrencyFormat, round, safeParseFloat, safeParseInt} from '../helpers/numbers';
 import {NO_VALUE_DATA_SYMBOL} from '../helpers/consts';
 
+const _getPriceDecimalDigits = (targetCurrency, price) => {
+  return (price * targetCurrency.factorFromUSD) >= 1 ? 2 : 8;
+};
+
 export default class ValuePair {
-  constructor() {
+  constructor(pair = {}) {
     /**
      *
      * @type {Currency}
      */
-    this.baseCurrency = undefined;
+    this.baseCurrency = pair.baseCurrency;
     /**
      *
      * @type {Currency}
      */
-    this.targetCurrency = undefined;
+    this.targetCurrency = pair.targetCurrency;
     /**
      * The rank of the coin according to its market cap
      * @type {number}
      */
-    this.rank = undefined;
+    this.rank = pair.rank;
     /**
      *
      * @type {number}
      */
-    this.price = undefined;
+    this.price = pair.price;
     /**
      * Display the value acording to the currency and locale
      * @type {string}
      */
-    this.displayPrice = undefined;
+    this.displayPrice = pair.displayPrice;
     /**
      *
      * @type {number}
      */
-    this.percentChange24h = undefined;
+    this.percentChange24h = pair.percentChange24h;
     /**
      * Display the value acording to the currency and locale
      * @type {string}
      */
-    this.displayPercentChange24h = undefined;
+    this.displayPercentChange24h = pair.displayPercentChange24h;
     /**
      *
      * @type {number}
      */
-    this.volume24h = undefined;
+    this.volume24h = pair.volume24h;
     /**
      * Display the value acording to the currency and locale
      * @type {string}
      */
-    this.displayVolume24h = undefined;
+    this.displayVolume24h = pair.displayVolume24h;
     /**
      *
      * @type {Value}
      */
-    this.marketCap = undefined;
+    this.marketCap = pair.marketCap;
     /**
      * Display the value acording to the currency and locale
      * @type {string}
      */
-    this.displayMarketCap = undefined;
+    this.displayMarketCap = pair.displayMarketCap;
     /**
      * How many coins are there to trade in the world (Haven't been minded yet)
      * @type {number}
      */
-    this.availableSupply = undefined;
+    this.availableSupply = pair.availableSupply;
     /**
      * Display the value acording to the currency and locale
      * @type {string}
      */
-    this.displayAvailableSupply = undefined;
+    this.displayAvailableSupply = pair.displayAvailableSupply;
     /**
      * The UTC timestamp of the update of this coin
      * @type {undefined}
      */
-    this.lastUpdateTimestamp = undefined;
+    this.lastUpdateTimestamp = pair.lastUpdateTimestamp;
   }
 
-  static parse(coin, locale, index) {
+  static changeCurrency(valuePair, locale, targetCurrency) {
+    const newPair = new ValuePair(valuePair);
+    newPair.targetCurrency = targetCurrency;
+
+    newPair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, newPair.marketCap, 0, locale.code);
+    newPair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
+      newPair.price, _getPriceDecimalDigits(targetCurrency, newPair.price), locale.code);
+    newPair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, newPair.volume24h, 0, locale.code);
+
+    return newPair;
+  }
+
+  static parse(coin, locale, index, targetCurrency = new USD()) {
     const valuePair = new ValuePair();
-    const targetCurrency = new USD();
 
     valuePair.baseCurrency = new Currency({
-      code: coin.short,
+      code: coin.short.toUpperCase(),
       name: coin.long,
       symbol: coin.short,
       symbolLocation: Currency.SYMBOL_LOCATIONS.END,
       imageUrl: coin.imageUrl,
       officialUrl: coin.officialUrl,
-      status: coin.status
+      status: coin.status,
+      factorFromUSD: safeParseFloat(coin.price)
     });
     valuePair.percentChange24h = safeParseFloat(coin.cap24hrChange);
     valuePair.displayPercentChange24h = `${round(coin.cap24hrChange, 2)}%`;
-    valuePair.rank = index;
+
     valuePair.marketCap = safeParseFloat(coin.mktcap);
     valuePair.displayMarketCap = Currency.adjustCurrencyValue(targetCurrency, coin.mktcap, 0, locale.code);
+
     valuePair.price = safeParseFloat(coin.price);
-    valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency, coin.price, coin.price >= 1 ? 2 : 8, locale.code);
+    valuePair.displayPrice = Currency.adjustCurrencyValue(targetCurrency,
+      coin.price, _getPriceDecimalDigits(targetCurrency, coin.price), locale.code);
+
     valuePair.availableSupply = safeParseInt(coin.supply);
     valuePair.displayAvailableSupply = coin.supply !== NO_VALUE_DATA_SYMBOL ?
       toCurrencyFormat(coin.supply, locale.code, 0) :
       NO_VALUE_DATA_SYMBOL;
+
     valuePair.volume24h = safeParseFloat(coin.volume);
     valuePair.displayVolume24h = Currency.adjustCurrencyValue(targetCurrency, coin.volume, 0, locale.code);
+
+    valuePair.rank = index;
     valuePair.targetCurrency = targetCurrency;
     valuePair.lastUpdateTimestamp = coin.time;
 

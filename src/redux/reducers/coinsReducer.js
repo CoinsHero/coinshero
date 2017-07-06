@@ -1,4 +1,6 @@
 import * as Immutable from 'seamless-immutable';
+
+import targetCurrencies, {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
@@ -15,14 +17,50 @@ const initialState = Immutable.from({
     updateTimestamp: undefined,
     valuePairs: []
   },
-  isUpdatingData: false
+  isUpdatingData: false,
+  targetCurrency: DEFAULT_TARGET_CURRENCY,
+  isUpdatingRegularCurrencies: false,
+  isRegularCurrenciesFetched: false
 });
+
+const updateTargetCurrenciesFromPair = (pair) => {
+  // If the current coins is also a possible target currency, update its USD rate
+  if (targetCurrencies[pair.baseCurrency.code]) {
+    targetCurrencies[pair.baseCurrency.code].factorFromUSD = 1 / pair.price;
+  }
+};
 
 /**
  * CoinsReducer
  */
 const CoinsReducer = (state = initialState, action) => {
   switch (action.type) {
+  case Actions.SET_TARGET_CURRENCY: {
+    const targetCurrency = action.payload;
+    let newValuePairs;
+
+    // In case we need to update the existing data
+    if (state.coinsData && targetCurrency.factorFromUSD) {
+      newValuePairs = [];
+      const coinsLength = state.coinsData.valuePairs.length;
+      let index;
+
+      for (index = 0; index < coinsLength; index++) {
+        const valuePair = state.coinsData.valuePairs[index];
+        newValuePairs.push(ValuePair.changeCurrency(valuePair, action.meta.locale, targetCurrency));
+      }
+    } else {
+      newValuePairs = state.coinsData.valuePairs;
+    }
+
+    const coinsData = Object.assign({}, state.coinsData);
+    coinsData.valuePairs = newValuePairs;
+
+    return state.merge({
+      targetCurrency,
+      coinsData
+    });
+  }
   case Actions.FETCH_COINS_DATA:
     return state.merge({
       isUpdatingData: true
@@ -61,10 +99,11 @@ const CoinsReducer = (state = initialState, action) => {
        * Add additional data
        * ******************************************/
       const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
+      const codeUpperCase = coin.short.toUpperCase();
 
       coin.imageUrl = coinBaseInfo && coinBaseInfo.imageUrl;
-      coin.status = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].status;
-      coin.officialUrl = coinsInfo[coin.short.toUpperCase()] && coinsInfo[coin.short.toUpperCase()].officialUrl;
+      coin.status = coinsInfo[codeUpperCase] && coinsInfo[codeUpperCase].status;
+      coin.officialUrl = coinsInfo[codeUpperCase] && coinsInfo[codeUpperCase].officialUrl;
 
       if (!coin.imageUrl) {
         missingImageUrls && missingImageUrls.push(coin.short);
@@ -74,7 +113,8 @@ const CoinsReducer = (state = initialState, action) => {
         missingStatuses && missingStatuses.push(coin.short);
       }
 
-      if (!coin.officialUrl && coinsInfo[coin.short.toUpperCase()].status !== COIN_STATUSES.INACTIVE) {
+      if (!coin.officialUrl && coinsInfo && coinsInfo[codeUpperCase] &&
+        coinsInfo[codeUpperCase].status !== COIN_STATUSES.INACTIVE) {
         missingOfficialUrls && missingOfficialUrls.push(coin.short);
       }
 
@@ -89,13 +129,19 @@ const CoinsReducer = (state = initialState, action) => {
       if (coin[SORT_FIELD] === NO_VALUE_DATA_SYMBOL) {
         unSortedCoins.push(coin);
       } else {
-        coins.push(ValuePair.parse(coin, action.meta.locale, rankIndex + 1));
+        const pair = ValuePair.parse(coin, action.meta.locale, rankIndex + 1, state.targetCurrency);
+        coins.push(pair);
         rankIndex++;
+
+        updateTargetCurrenciesFromPair(pair);
       }
     }
 
     for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
-      coins.push(ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1));
+      const pair = ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency);
+      coins.push(pair);
+
+      updateTargetCurrenciesFromPair(pair);
     }
 
     /**
@@ -129,7 +175,9 @@ const CoinsReducer = (state = initialState, action) => {
       coinsData: {
         valuePairs: coins,
         updateTimestamp: Date.now()
-      }
+      },
+      // If a target currency is set, update it just in case it's a coin currency and we just updated it
+      targetCurrency: targetCurrencies[state.targetCurrency.code]
     });
   }
   case Actions.FETCH_COINS_DATA_FAILURE:
@@ -168,6 +216,31 @@ const CoinsReducer = (state = initialState, action) => {
   case Actions.FETCH_COINS_LIST_FAILURE:
     return state.merge({
       isUpdatingCoinsList: false
+    });
+  case Actions.FETCH_REGULAR_CURRENCIES:
+    return state.merge({
+      isUpdatingRegularCurrencies: true
+    });
+  case Actions.FETCH_REGULAR_CURRENCIES_SUCCESS: {
+    const rateCodes = Object.keys(action.payload.rates);
+
+    // Update the rates
+    for (let index = 0; index < rateCodes.length; index++) {
+      if (targetCurrencies[rateCodes[index]]) {
+        targetCurrencies[rateCodes[index]].factorFromUSD = action.payload.rates[rateCodes[index]];
+      }
+    }
+
+    return state.merge({
+      // If a target currency is set, update it just in case it's a regular currency and we just updated it
+      targetCurrency: targetCurrencies[state.targetCurrency.code],
+      isUpdatingRegularCurrencies: false,
+      isRegularCurrenciesFetched: true
+    });
+  }
+  case Actions.FETCH_REGULAR_CURRENCIES_FAILURE:
+    return state.merge({
+      isUpdatingRegularCurrencies: false
     });
   default:
     return state;

@@ -4334,5 +4334,20 @@
     "twitter": "ShapeShift_io",
     "explorer": "https://chainz.cryptoid.info/fail/",
     "status": "Active"
+  },
+  "EOS": {
+    "officialUrl": "https://eos.io/",
+    "explorer": "https://etherscan.io/token/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0",
+    "status": "Active"
+  },
+  "SNT": {
+    "officialUrl": "https://status.im/",
+    "explorer": "https://etherscan.io/token/StatusNetwork",
+    "status": "Active"
+  },
+  "NMR": {
+    "officialUrl": "https://numer.ai/",
+    "explorer": "https://etherscan.io/token/0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671",
+    "status": "Active"
   }
 }

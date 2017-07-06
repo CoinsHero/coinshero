@@ -24,3 +24,10 @@ LAST_UPDATE_TIME: 'שעת עדכון: {time}'
 DATA_DISCLAIMER: 'גילוי נאות: המידע המובא מוצג כמו שמתקבל למטרות אינפורמטיוביות בלבד, ולא לצורך מסחר או מתן עצה, וייתכן כי יתעכב. המידע מובא משירותים פיננסיים וייתכן כי מתעכב. CoinsMarket לא מאמתת את המידע ולא מתיימרת לעשות זאת.'
 DATA_CREDIT_COINCAP: 'אנו עושים שימוש במידע המתקבל מ- {link}'
 DATA_CREDIT_CRYPTOCOMPARE: 'אנו עושים שימוש במידע המתקבל מ- {link}'
+
+# targetCurrencies
+TARGET_CURRENCY_USD: דולר
+TARGET_CURRENCY_EUR: אירו
+TARGET_CURRENCY_ILS: שקל
+TARGET_CURRENCY_GBP: ליש"ט
+TARGET_CURRENCY_RUB: רובל רוסי

@@ -5,14 +5,18 @@ const config = {
   ORIGINS: {
     COINS_MARKET: 'http://local-coinsmarket.com:3001',
     COINS_IO: 'https://coincap.io',
-    CRYPTO_COMPARE: 'https://www.cryptocompare.com'
+    CRYPTO_COMPARE: 'https://www.cryptocompare.com',
+    FIXER_IO: 'https://api.fixer.io'
   },
   SERVICES: {
     COINS_IO: {
-      COINS_DATA_API_INTERVAL: 7000
+      COINS_DATA_API_INTERVAL: 1000 * 7
     },
     CRYPTO_COMPARE: {
       COINS_LIST_API_INTERVAL: 1000 * 60
+    },
+    FIXER_IO: {
+      CURRENCIES_API_INTERVAL: 1000 * 60 * 60
     }
   }
 };

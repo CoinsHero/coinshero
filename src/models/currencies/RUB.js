@@ -1,13 +1,13 @@
 import Currency from './Currency';
 
-export default class BTC extends Currency {
+export default class RUB extends Currency {
   constructor() {
     super({
-      code: 'BTC',
-      symbol: 'BTC',
+      code: 'RUB',
+      symbol: '₽',
       symbolLocation: Currency.SYMBOL_LOCATIONS.END
     });
 
-    this.translationKey = 'TARGET_CURRENCY_BTC';
+    this.translationKey = 'TARGET_CURRENCY_RUB';
   }
 }

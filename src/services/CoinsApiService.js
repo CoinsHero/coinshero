@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchCoinsData, fetchCoinsList } from '../redux/actions/coinsApiActions';
+import { fetchCoinsData, fetchCoinsList, fetchRegularCurrencies } from '../redux/actions/coinsApiActions';
+import {regularTargetCurrencies} from '../helpers/targetCurrencies';
 import config from 'config';
 
 class CoinsApiService extends React.Component {
@@ -10,6 +11,7 @@ class CoinsApiService extends React.Component {
 
     this.fetchCoinsDataInterval;
     this.fetchCoinsListInterval;
+    this.fetchRegularCurrenciesInterval;
   }
 
   componentWillMount() {
@@ -38,6 +40,18 @@ class CoinsApiService extends React.Component {
         this.props.fetchCoinsList();
       }
     }, config.SERVICES.CRYPTO_COMPARE.COINS_LIST_API_INTERVAL);
+
+    // Regular Currencies
+
+    this.props.fetchRegularCurrencies(regularTargetCurrencies);
+
+    this.fetchRegularCurrenciesInterval = setInterval(() => {
+      // Only fetch the data if we're not in the middle of fetching it
+      // This could be due to low network connectivity or anything like that
+      if (!this.props.isUpdatingRegularCurrencies) {
+        this.props.fetchRegularCurrencies(regularTargetCurrencies);
+      }
+    }, config.SERVICES.FIXER_IO.CURRENCIES_API_INTERVAL);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,6 +66,8 @@ class CoinsApiService extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.fetchCoinsDataInterval);
+    clearInterval(this.fetchCoinsListInterval);
+    clearInterval(this.fetchRegularCurrenciesInterval);
   }
 
   render() {
@@ -64,8 +80,10 @@ class CoinsApiService extends React.Component {
 CoinsApiService.propTypes = {
   fetchCoinsData: PropTypes.func.isRequired,
   fetchCoinsList: PropTypes.func.isRequired,
+  fetchRegularCurrencies: PropTypes.func.isRequired,
   isUpdatingData: PropTypes.bool.isRequired,
   isUpdatingCoinsList: PropTypes.bool.isRequired,
+  isUpdatingRegularCurrencies: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
@@ -75,7 +93,8 @@ CoinsApiService.propTypes = {
 const mapStateToProps = (state) => ({
   locale: state.site.locale,
   isUpdatingData: state.coins.isUpdatingData,
-  isUpdatingCoinsList: state.coins.isUpdatingCoinsList
+  isUpdatingCoinsList: state.coins.isUpdatingCoinsList,
+  isUpdatingRegularCurrencies: state.coins.isUpdatingRegularCurrencies
 });
 
-export default connect(mapStateToProps, { fetchCoinsData, fetchCoinsList })(CoinsApiService);
+export default connect(mapStateToProps, { fetchCoinsData, fetchCoinsList, fetchRegularCurrencies })(CoinsApiService);
