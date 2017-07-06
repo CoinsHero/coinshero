@@ -32,7 +32,7 @@ const targetCurrencies = Object.assign({
 }, regularTargetCurrencies);
 
 export const getRegularTargetCurrency = (code) => {
-  return code ? regularTargetCurrencies[code] : undefined;
+  return code && regularTargetCurrencies[code];
 };
 
 // We only allow regular currencies in the local storage in order to make things simpler when parsing all the coins in the system

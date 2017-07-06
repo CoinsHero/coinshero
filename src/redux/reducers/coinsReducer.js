@@ -23,6 +23,13 @@ const initialState = Immutable.from({
   isRegularCurrenciesFetched: false
 });
 
+const updateTargetCurrenciesFromPair = (pair) => {
+  // If the current coins is also a possible target currency, update its USD rate
+  if (targetCurrencies[pair.baseCurrency.code]) {
+    targetCurrencies[pair.baseCurrency.code].factorFromUSD = 1 / pair.price;
+  }
+};
+
 /**
  * CoinsReducer
  */
@@ -126,10 +133,7 @@ const CoinsReducer = (state = initialState, action) => {
         coins.push(pair);
         rankIndex++;
 
-        // If the current coins is also a possible target currency, update its USD rate
-        if (targetCurrencies[codeUpperCase]) {
-          targetCurrencies[codeUpperCase].factorFromUSD = 1 / pair.price;
-        }
+        updateTargetCurrenciesFromPair(pair);
       }
     }
 
@@ -137,10 +141,7 @@ const CoinsReducer = (state = initialState, action) => {
       const pair = ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency);
       coins.push(pair);
 
-      // If the current coins is also a possible target currency, update its USD rate
-      if (targetCurrencies[pair.baseCurrency.code]) {
-        targetCurrencies[pair.baseCurrency.code].factorFromUSD = 1 / pair.price;
-      }
+      updateTargetCurrenciesFromPair(pair);
     }
 
     /**

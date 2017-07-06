@@ -32,9 +32,7 @@ export const fetchCoinsList = () => ({
 });
 
 export const fetchRegularCurrencies = (currenciesToFetch) => {
-  const currencies = Object.values(currenciesToFetch).reduce((output, currency) => {
-    return `${output}${currency.code},`;
-  }, '');
+  const currencies = Object.keys(currenciesToFetch).join(',');
 
   return ({
     [CALL_API]: {
@@ -42,9 +40,7 @@ export const fetchRegularCurrencies = (currenciesToFetch) => {
       method: 'GET',
       types: [
         Actions.FETCH_REGULAR_CURRENCIES,
-        {
-          type: Actions.FETCH_REGULAR_CURRENCIES_SUCCESS
-        },
+        Actions.FETCH_REGULAR_CURRENCIES_SUCCESS,
         Actions.FETCH_REGULAR_CURRENCIES_FAILURE
       ]
     }
