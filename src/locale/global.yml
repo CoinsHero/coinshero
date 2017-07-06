@@ -1,9 +1,12 @@
+# NavigationHeader
+NAVIGATION_HEADER_TITLE: CoinsHero
+
 # LanguageSwitcher
 LANGUAGE_ENGLISH: English
 LANGUAGE_HEBREW: עברית
 
 # Legal
-CORPORATE: '© CoinsMarket'
+CORPORATE: '© CoinsHero'
 
 # targetCurrencies
 TARGET_CURRENCY_BTC: Bitcoin
