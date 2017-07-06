@@ -33,7 +33,7 @@ npm i
 #### hosts
 Set your hosts file (`/etc/hosts` on UNIX systems) to have:
 ```
-127.0.0.1   local-coinshero.com
+127.0.0.1   local-coinshero.io
 ```
 
 ## Run
