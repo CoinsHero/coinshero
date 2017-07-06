@@ -16,7 +16,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
 const configFilePath = path.resolve(`./webpack-config/env-configs/${process.env.NODE_ENV}.js`);
 const configFile = require(configFilePath);
-const siteURL = url.parse(configFile.ORIGINS.COINS_MARKET);
+const siteURL = url.parse(configFile.ORIGINS.COINS_HERO);
 
 const stats = process.env.STATS || false;
 const port = process.env.NODE_PORT || siteURL.port;
@@ -39,7 +39,7 @@ const srcPath = path.resolve(currentDirectory, 'src');
 const chunksPath = path.resolve(srcPath, 'chunks');
 const nodeModulesPath = path.resolve(currentDirectory, 'node_modules');
 const indexHtmlPath = path.resolve(currentDirectory, 'index.html');
-const indexHtmlTitle = 'Coins Market';
+const indexHtmlTitle = 'CoinsHero - בית מטבעות וירטואלים';
 const buildPath = path.resolve(currentDirectory, 'dist');
 
 const resourceHintsMetaTags = webpackUtils.buildResourceHintsMetaTags(configFile.RESOURCE_HINTS_ORIGINS, publicPath);
@@ -150,7 +150,7 @@ const config = {
       resourceHintsMetaTags,
       inject: true,
       template: indexHtmlPath,
-      favicon: srcPath + '/assets/favicons/coinsmarket-favicon.png'
+      favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
     }),
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {

@@ -10,7 +10,8 @@ const styleSheet2 = createStyleSheet('Footer', (theme) => ({
     display: 'flex',
     marginBottom: theme.spacing.unit * 3,
     flexDirection: 'column',
-    textAlign: 'center'
+    textAlign: 'center',
+    padding: '0 5%'
   },
   footer__link: {
     color: theme.palette.accent.link

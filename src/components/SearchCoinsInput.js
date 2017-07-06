@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {TextField} from 'material-ui';
 import T from 'i18n-react';
 import SearchIcon from 'material-ui-icons/Search';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
 import classnamesjss from '../helpers/classnamesjss';
 import {debounce} from 'lodash';
 import {CLIENT_SIDE_DEBOUNCE_DELAY} from '../helpers/consts';
@@ -17,6 +17,9 @@ const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
   root__SearchIcon: {
     marginRight: theme.spacing.unit * 1
   },
+  'root--SearchIcon--light-theme': {
+    color: theme.palette.accent['A400']
+  },
   'root__SearchIcon--rtl': {
     marginLeft: theme.spacing.unit * 1
   }
@@ -26,7 +29,8 @@ class SearchCoinsInput extends Component {
   render() {
     const cx = classnamesjss(this.props.classes,
       {root__SearchIcon: !this.props.isRTL},
-      {'root__SearchIcon--rtl': this.props.isRTL}
+      {'root__SearchIcon--rtl': this.props.isRTL},
+      {'root--SearchIcon--light-theme': this.props.theme.palette.type === 'light'}
     );
 
     const debounceOnChange = debounce(this.props.onChange, CLIENT_SIDE_DEBOUNCE_DELAY);
@@ -51,7 +55,8 @@ SearchCoinsInput.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
   isRTL: PropTypes.bool
 };
 
-export default withStyles(styleSheet)(SearchCoinsInput);
+export default withTheme(withStyles(styleSheet)(SearchCoinsInput));

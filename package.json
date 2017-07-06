@@ -1,5 +1,5 @@
 {
-  "name": "coinsmarket",
+  "name": "coinshero",
   "version": "0.0.1",
   "scripts": {
     "test:unit": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "setup:refresh": "npm prune && npm install && npm update",
     "prepush": "npm run lint",
     "start": "node_modules/.bin/cross-env BABEL_ENV=local NODE_ENV=local node --harmony ./scripts/start.js",
-    "start:environments": "node_modules/.bin/cross-env BABEL_ENV=local HOST_ADDRESS=local-coinsmarket.com HOST_PROTOCOL=http NODE_PORT=3001 node --harmony ./scripts/start.js",
+    "start:environments": "node_modules/.bin/cross-env BABEL_ENV=local HOST_ADDRESS=local-coinshero.com HOST_PROTOCOL=http NODE_PORT=3001 node --harmony ./scripts/start.js",
     "start:production": "node_modules/.bin/cross-env NODE_ENV=production npm run start:environments",
     "build": "node_modules/.bin/cross-env BABEL_ENV=es NODE_ENV=local node --harmony ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.local.js --progress",
     "build:stats": "node_modules/.bin/cross-env STATS=true npm run build",
@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kazazor/coinsmarket.git"
+    "url": "git+https://github.com/kazazor/coinshero.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kazazor/coinsmarket/issues"
+    "url": "https://github.com/kazazor/coinshero/issues"
   },
   "dependencies": {
     "classnames": "2.2.5",

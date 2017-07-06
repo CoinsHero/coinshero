@@ -13,7 +13,7 @@ import LanguageMenu from './LanguageMenu';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
   root: {
-    backgroundColor: theme.palette.primary[600],
+    backgroundColor: theme.palette.primary[50],
     color: theme.palette.getContrastText(theme.palette.primary[500])
   },
   'root--dark-theme': {

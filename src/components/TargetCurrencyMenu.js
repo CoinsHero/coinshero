@@ -14,6 +14,9 @@ const styleSheet = createStyleSheet('TargetCurrencyMenu', (theme) => ({
   root: {
     direction: 'ltr'
   },
+  'root--light-theme': {
+    color: theme.palette.accent['A400']
+  },
   root__Button: {
     marginLeft: theme.spacing.unit
   },
@@ -63,7 +66,7 @@ class TargetCurrencyMenu extends Component {
         <MenuItem
           key={currency.code}
           selected={currency.code === this.state.targetCurrencyCode}
-          onClick={(event) => this._handleMenuItemClick.call(this, event, currency)}>
+          onClick={(event) => this._handleMenuItemClick(event, currency)}>
           <div className={this.props.classes.MenuItem__container}>
             {T.translate(currency.translationKey)}
           </div>
@@ -83,7 +86,8 @@ class TargetCurrencyMenu extends Component {
     const ariaId = 'switch-target-currency';
     const buttonClasses = classnamesjss(this.props.classes,
       'root__Button',
-      {'root__Button--rtl': this.props.locale.isRTL}
+      {'root__Button--rtl': this.props.locale.isRTL},
+      {'root--light-theme': !this.props.isDarkTheme}
     );
 
     return (

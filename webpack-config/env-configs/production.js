@@ -3,7 +3,7 @@ const config = {
   },
   // Every entry that will be added here will be added as a resource hint in the index.html file
   ORIGINS: {
-    COINS_MARKET: 'https://coinsmarket.com',
+    COINS_HERO: 'https://coinshero.com',
     COINS_IO: 'https://coincap.io',
     CRYPTO_COMPARE: 'https://www.cryptocompare.com',
     FIXER_IO: 'https://api.fixer.io'

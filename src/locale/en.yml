@@ -1,5 +1,4 @@
 # NavigationHeader
-NAVIGATION_HEADER_TITLE: Coins Market
 TAB_MARKET: Market
 
 # CoinsTable
@@ -21,7 +20,7 @@ SEARCH_COINS_PLACEHOLDER: 'Search for coins'
 LAST_UPDATE_TIME: 'Updated at: {time}'
 
 # Legal
-DATA_DISCLAIMER: 'Disclaimer: Information is provided "as is" and solely for informational purposes, not for trading purposes or advice, and may be delayed. Data is provided by financial exchanges and may be delayed. CoinsMarket does not verify any data and disclaims any obligation to do so.'
+DATA_DISCLAIMER: 'Disclaimer: Information is provided "as is" and solely for informational purposes, not for trading purposes or advice, and may be delayed. Data is provided by financial exchanges and may be delayed. CoinsHero does not verify any data and disclaims any obligation to do so.'
 DATA_CREDIT_COINCAP: 'Making use of {link} API'
 DATA_CREDIT_CRYPTOCOMPARE: 'Making use of {link} API'
 
