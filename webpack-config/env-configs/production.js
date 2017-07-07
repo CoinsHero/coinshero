@@ -6,7 +6,8 @@ const config = {
     COINS_HERO: 'https://coinshero.io',
     COINS_IO: 'https://coincap.io',
     CRYPTO_COMPARE: 'https://www.cryptocompare.com',
-    FIXER_IO: 'https://api.fixer.io'
+    FIXER_IO: 'https://api.fixer.io',
+    CHANGELLY: 'https://changelly.com'
   },
   SERVICES: {
     COINS_IO: {
@@ -17,6 +18,9 @@ const config = {
     },
     FIXER_IO: {
       CURRENCIES_API_INTERVAL: 1000 * 60 * 60
+    },
+    CHANGELLY: {
+      REF_ID: '298522b89520'
     }
   }
 };
