@@ -12,7 +12,7 @@ import TargetCurrencyMenu from './TargetCurrencyMenu';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root: {
-    width: '90%',
+    width: '92%',
     marginBottom: theme.spacing.unit * 3
   },
   root_ToolBar: {
@@ -112,6 +112,7 @@ class CoinsPage extends Component {
           <div className={this.props.classes.root__ToolBar__LeftPanel}>
             <SearchCoinsInput autoFocus={true} isRTL={this.props.locale.isRTL} onChange={this._onSearchChange.bind(this)}/>
             <TargetCurrencyMenu />
+            <Typography type="caption">{ T.translate('USD_EURO_AVAILABLE') }</Typography>
           </div>
           <div className={this.props.classes.root__ToolBar__RightPanel}>
             {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}

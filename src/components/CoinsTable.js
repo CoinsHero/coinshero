@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import config from 'config';
 import * as Immutable from 'seamless-immutable';
 import Table, {
   TableCell,
@@ -7,8 +8,9 @@ import Table, {
   TableRow
 } from 'material-ui/Table';
 import T from 'i18n-react';
-import {Paper, Chip} from 'material-ui';
+import {Paper, Chip, Button} from 'material-ui';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import grey from 'material-ui/colors/grey';
 import red from 'material-ui/colors/red';
 import green from 'material-ui/colors/green';
 import classnamesjss from '../helpers/classnamesjss';
@@ -59,6 +61,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
   },
   'root__TableBody__TableCell__displayedNameContainer__name--link': {
     transition: 'font-size 0.2s ease-in-out',
+    willChange: 'font-size',
     color: 'inherit',
     textDecoration: 'inherit',
     '&:hover': {
@@ -90,6 +93,9 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     display: 'inline-block',
     color: green[numbersStrength]
   },
+  'root__TableCell__buy-button': {
+    color: grey[50]
+  },
   'root__TableCell__percent-change-twenty-four-h--negative': {
     color: red[numbersStrength]
   }
@@ -102,7 +108,8 @@ const COLUMNS_IDS = {
   PRICE: 'price',
   AVAILABLE_SUPPLY: 'availableSupply',
   VOLUME: 'volume24h',
-  CHANGE: 'percentChange24h'
+  CHANGE: 'percentChange24h',
+  BUY: 'buy'
 };
 
 class CoinsTable extends Component {
@@ -177,6 +184,8 @@ class CoinsTable extends Component {
         {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
       );
 
+      const buyButtonClass = classnamesjss(classes, 'root__TableCell__buy-button');
+
       const inactiveStatusChip = pair.baseCurrency.status === COIN_STATUSES.INACTIVE ?
         <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} /> :
         null;
@@ -197,6 +206,16 @@ class CoinsTable extends Component {
           <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
+          </TableCell>
+          <TableCell className={tableBodyCellClass}>
+            <Button
+              raised
+              color="primary"
+              target="_blank"
+              className={buyButtonClass}
+              href={ `${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}` }>
+              { T.translate('TABLE_BUY_BUTTON')}
+            </Button>
           </TableCell>
         </TableRow>
       );
@@ -268,7 +287,8 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')},
       {id: COLUMNS_IDS.AVAILABLE_SUPPLY, label: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
       {id: COLUMNS_IDS.VOLUME, label: T.translate('TABLE_HEADER_24H_VOLUME')},
-      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
+      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')},
+      {id: COLUMNS_IDS.BUY, label: ''}
     ];
 
     return (

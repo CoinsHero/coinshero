@@ -11,6 +11,7 @@ TABLE_HEADER_AVAILABLE_SUPPLY: מלאי זמין
 TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP: כמות המטבעות הנמצאת בידיהם של משתמשים בעולם
 TABLE_HEADER_24H_VOLUME: נפח מסחר 24 ש'
 TABLE_HEADER_24H_PERCENTAGE_CHANGE: "% שינוי 24 ש'"
+TABLE_BUY_BUTTON: קנה
 COINS_TABLE_EMPTY_STATE: 'טוב, מסתבר שאין לנו מה להראות :)'
 
 # SearchCoinsInput
@@ -18,6 +19,9 @@ SEARCH_COINS_PLACEHOLDER: 'חיפוש מטבעות'
 
 # CoinsPage
 LAST_UPDATE_TIME: 'שעת עדכון: {time}'
+
+# INFO
+USD_EURO_AVAILABLE: '* ניתן לקנות מטבעות בדולרים ויורו'
 
 # Legal
 DATA_DISCLAIMER: 'גילוי נאות: המידע המובא מוצג כמו שמתקבל למטרות אינפורמטיוביות בלבד, ולא לצורך מסחר או מתן עצה, וייתכן כי יתעכב. המידע מובא משירותים פיננסיים וייתכן כי מתעכב. CoinsHero לא מאמתת את המידע ולא מתיימרת לעשות זאת.'

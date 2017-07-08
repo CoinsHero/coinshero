@@ -11,6 +11,7 @@ TABLE_HEADER_AVAILABLE_SUPPLY: Available Supply
 TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP: The amount of coins thats users around the world have in their possession
 TABLE_HEADER_24H_VOLUME: 24H Volume
 TABLE_HEADER_24H_PERCENTAGE_CHANGE: 24H % change
+TABLE_BUY_BUTTON: BUY
 COINS_TABLE_EMPTY_STATE: Well, we've got nothing to show :)
 
 # SearchCoinsInput
@@ -18,6 +19,9 @@ SEARCH_COINS_PLACEHOLDER: 'Search for coins'
 
 # CoinsPage
 LAST_UPDATE_TIME: 'Updated at: {time}'
+
+# INFO
+USD_EURO_AVAILABLE: '* USD & EU purchases are available'
 
 # Legal
 DATA_DISCLAIMER: 'Disclaimer: Information is provided "as is" and solely for informational purposes, not for trading purposes or advice, and may be delayed. Data is provided by financial exchanges and may be delayed. CoinsHero does not verify any data and disclaims any obligation to do so.'
