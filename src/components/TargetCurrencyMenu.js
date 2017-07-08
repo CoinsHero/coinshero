@@ -89,6 +89,7 @@ class TargetCurrencyMenu extends Component {
     return (
       <div>
         <Button
+          raised
           className={buttonClasses}
           aria-owns={ariaId}
           aria-haspopup="true"

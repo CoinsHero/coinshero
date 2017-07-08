@@ -30,7 +30,8 @@ const getSiteTheme = (options) => {
       padding: {
         padding: `0 ${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 3}px`,
         '&:last-child': {
-          paddingRight: theme.spacing.unit * 3
+          paddingLeft: 0,
+          paddingRight: theme.spacing.unit
         }
       }
     }

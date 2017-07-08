@@ -12,7 +12,7 @@ import TargetCurrencyMenu from './TargetCurrencyMenu';
 
 const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root: {
-    width: '92%',
+    width: '95%',
     marginBottom: theme.spacing.unit * 3
   },
   root_ToolBar: {
