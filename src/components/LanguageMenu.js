@@ -6,8 +6,9 @@ import {IconButton} from 'material-ui';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import T from 'i18n-react';
 
+import config from 'config';
 import classnamesjss from '../helpers/classnamesjss';
-import {setLanguage} from '../i18n';
+import {DEFAULT_LANGUAGE} from '../i18n';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
 const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
@@ -56,11 +57,8 @@ class LanguageMenu extends Component {
     const newLocale = this.props.locales[index];
 
     if (currentLocaleCode !== newLocale.code) {
-      setLanguage(newLocale.code);
-      this.props.setLocaleInStore(newLocale);
+      window.location.href = `${config.ORIGINS.COINS_HERO}/${newLocale.code === DEFAULT_LANGUAGE.code ? '' : newLocale.code}`;
     }
-
-    this.setState({ open: false, selectedIndex: index });
   }
 
   _handleRequestClose() {
