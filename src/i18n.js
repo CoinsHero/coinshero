@@ -1,5 +1,4 @@
 import T from 'i18n-react';
-import localStorageSettings from './helpers/localStorageSettings';
 
 // Why not use dynamic loading?
 // We cannot use dynamic loading in a dynamic require statement. Which means we cannot decide what file to load dynamically at
@@ -43,8 +42,6 @@ export const setLanguage = (localeCode) => {
 
     currentLang = languages[localeCode];
     T.setTexts(Object.assign({}, globalTexts, languagesTexts[DEFAULT_LANGUAGE.code], languagesTexts[currentLang.code]));
-
-    localStorageSettings.setItem(localStorageSettings.KEYS.localeCode, localeCode);
   }
 
   return currentLang;

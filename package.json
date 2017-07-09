@@ -39,6 +39,7 @@
     "react-dom": "15.6.1",
     "react-load-script": "0.0.4",
     "react-redux": "5.0.5",
+    "react-router": "4.1.1",
     "react-tap-event-plugin": "2.0.1",
     "redux": "3.7.0",
     "seamless-immutable": "7.1.2"

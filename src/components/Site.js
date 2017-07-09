@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
@@ -16,12 +17,24 @@ import MarketApp from './MarketApp';
 import '../styles/components/_Site.scss';
 
 class Site extends Component {
-  _handleLocale(props) {
-    let localeCode = localStorageSettings.getItem(localStorageSettings.KEYS.localeCode, undefined);
+  constructor(props) {
+    super(props);
 
-    if (!localeCode) {
-      localeCode = getUserDefaultLanguage();
+    const locale = this._handleLocale(props);
+    this._handleTheme(props);
+    this._handleTargetCurrency(props, locale);
+
+    try {
+      // Needed for onTouchTap
+      // http://stackoverflow.com/a/34015469/988941
+      injectTapEventPlugin();
+    } catch (e) {
+      // Leave empty on purpose
     }
+  }
+
+  _handleLocale(props) {
+    let localeCode = props.match.params.lang || getUserDefaultLanguage();
 
     const locale = setLanguage(localeCode);
     props.setLocaleInStore(locale);
@@ -50,22 +63,6 @@ class Site extends Component {
     props.setTargetCurrencyInStore(locale, targetCurrency);
   }
 
-  constructor(props) {
-    super(props);
-
-    const locale = this._handleLocale(props);
-    this._handleTheme(props);
-    this._handleTargetCurrency(props, locale);
-
-    try {
-      // Needed for onTouchTap
-      // http://stackoverflow.com/a/34015469/988941
-      injectTapEventPlugin();
-    } catch (e) {
-      // Leave empty on purpose
-    }
-  }
-
   render() {
     const isRTL = this.props.locale.isRTL;
 
@@ -86,10 +83,11 @@ Site.propTypes = {
   setLocaleInStore: PropTypes.func.isRequired,
   setDarkThemeInStore: PropTypes.func.isRequired,
   isDarkTheme: PropTypes.bool.isRequired,
+  match: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }).isRequired
 };
 
-export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore, setTargetCurrencyInStore })(Site);
+export default connect(mapStateToProps, { setLocaleInStore, setDarkThemeInStore, setTargetCurrencyInStore })(withRouter(Site));
