@@ -208,14 +208,17 @@ class CoinsTable extends Component {
             <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
           </TableCell>
           <TableCell className={tableBodyCellClass}>
-            <Button
-              raised
-              color="primary"
-              target="_blank"
-              className={buyButtonClass}
-              href={ `${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}` }>
-              { T.translate('TABLE_BUY_BUTTON')}
-            </Button>
+            {
+              pair.baseCurrency.status !== COIN_STATUSES.INACTIVE &&
+              <Button
+                raised
+                color="primary"
+                target="_blank"
+                className={buyButtonClass}
+                href={ `${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}` }>
+                { T.translate('TABLE_BUY_BUTTON')}
+              </Button>
+            }
           </TableCell>
         </TableRow>
       );
