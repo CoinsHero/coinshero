@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
+import * as Navigator from '../helpers/navigator';
 import Site from '../components/Site';
 import store from '../redux/store';
 
@@ -12,8 +13,8 @@ const runMain = () => {
     <Provider store={ store }>
       <Router history={ createBrowserHistory() }>
         <div>
-          <Route exact path="/" component={ Site } />
-          <Route exact path="/:lang" component={ Site } />
+          <Route exact path={ Navigator.defaultRoute() } component={ Site } />
+          <Route exact path={ Navigator.languageRoute() } component={ Site } />
         </div>
       </Router>
     </Provider>,
