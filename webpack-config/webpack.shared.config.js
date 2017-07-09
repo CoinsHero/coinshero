@@ -39,7 +39,6 @@ const srcPath = path.resolve(currentDirectory, 'src');
 const chunksPath = path.resolve(srcPath, 'chunks');
 const nodeModulesPath = path.resolve(currentDirectory, 'node_modules');
 const indexHtmlPath = path.resolve(currentDirectory, 'index.html');
-const indexHtmlTitle = 'CoinsHero - בית מטבעות וירטואלים';
 const buildPath = path.resolve(currentDirectory, 'dist');
 
 const resourceHintsMetaTags = webpackUtils.buildResourceHintsMetaTags(configFile.RESOURCE_HINTS_ORIGINS, publicPath);
@@ -146,7 +145,6 @@ const config = {
       minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
-      title: indexHtmlTitle,
       resourceHintsMetaTags,
       inject: true,
       template: indexHtmlPath,
