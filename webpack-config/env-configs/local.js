@@ -22,6 +22,10 @@ const config = {
     CHANGELLY: {
       REF_ID: '298522b89520'
     }
+  },
+  GA_ANALYTICS: {
+    TRACKING_ID: 'UA-102569759-1',
+    DEBUG: true
   }
 };
 
