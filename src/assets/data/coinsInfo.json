@@ -4349,5 +4349,11 @@
     "officialUrl": "https://numer.ai/",
     "explorer": "https://etherscan.io/token/0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671",
     "status": "Active"
+  },
+  "FUN": {
+    "officialUrl": "https://funfair.io/",
+    "discussion": "https://bitcointalk.org/index.php?topic=1968383.0",
+    "explorer": "https://ethplorer.io/address/0xbbb1bd2d741f05e144e6c4517676a15554fd4b8d",
+    "status": "Active"
   }
 }

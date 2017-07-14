@@ -22,13 +22,13 @@ const withGATracker = (WrappedComponent) => {
     );
   };
 
-  return HOC;
-};
+  HOC.propTypes = {
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    }).isRequired
+  };
 
-GoogleAnalytics.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
-  }).isRequired
+  return HOC;
 };
 
 export default withGATracker;
