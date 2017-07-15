@@ -13,10 +13,9 @@ const createNewStore = () => {
   ));
 
   if (module.hot) {
-    // TODO: Not working!
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('./reducers/rootReducer', () => {
-      const nextRootReducer = require('./reducers/rootReducer');
+      const nextRootReducer = require('./reducers/rootReducer').default;
       store.replaceReducer(nextRootReducer);
     });
   }
