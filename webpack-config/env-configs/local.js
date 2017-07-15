@@ -1,5 +1,6 @@
 const config = {
   FEATURE_FLAGS: {
+    DEBUGGABLE: true
   },
   // Every entry that will be added here will be added as a resource hint in the index.html file
   ORIGINS: {
@@ -11,10 +12,10 @@ const config = {
   },
   SERVICES: {
     COINS_IO: {
-      COINS_DATA_API_INTERVAL: 1000 * 7
+      COINS_DATA_API_INTERVAL: 1000 * 60
     },
     CRYPTO_COMPARE: {
-      COINS_LIST_API_INTERVAL: 1000 * 60
+      COINS_LIST_API_INTERVAL: 1000 * 7
     },
     FIXER_IO: {
       CURRENCIES_API_INTERVAL: 1000 * 60 * 60
