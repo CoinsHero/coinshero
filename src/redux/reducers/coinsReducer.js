@@ -75,6 +75,13 @@ const CoinsReducer = (state = initialState, action) => {
         }
       }
 
+      const targetCurrenciesKeys = Object.keys(action.payload.targetCurrencies);
+
+      // Update all the currencies just in case some were updated here with new rates
+      for (index = 0; index < targetCurrenciesKeys.length; index ++) {
+        targetCurrencies[targetCurrenciesKeys[index]] = action.payload.targetCurrencies[targetCurrenciesKeys[index]];
+      }
+
       /**
        * ******************************************
        * Report missing data

@@ -137,7 +137,8 @@ self.onmessage = ({ data: action }) => {
 
     action.payload = {
       valuePairs: coins,
-      updateTimestamp: Date.now()
+      updateTimestamp: Date.now(),
+      targetCurrencies
     };
 
     self.postMessage(action);
