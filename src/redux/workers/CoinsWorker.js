@@ -151,5 +151,3 @@ self.onmessage = ({ data: action }) => {
   }
   }
 };
-
-// TODO: Add web worker polyfill

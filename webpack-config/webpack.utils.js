@@ -1,3 +1,8 @@
+const polyfills = [
+  'pseudo-worker',
+  'core-js'
+];
+
 module.exports = {
   isWatching() {
     return process.argv[1].indexOf('start.js') !== -1;
@@ -7,11 +12,23 @@ module.exports = {
       !/react-hot-loader/.test(resource);
   },
   isPolyfill(resource) {
-    return /core-js/.test(resource);
+    let regex = '';
+
+    for (let index = 0; index < polyfills.length; index++) {
+      regex += polyfills[index] + '|';
+    }
+
+    return new RegExp(regex.slice(0, -1)).test(resource);
   },
   shouldPrefetch() {
+    let regex = '';
+
+    for (let index = 0; index < polyfills.length; index++) {
+      regex += polyfills[index] + '|';
+    }
+
     // Accept only js files which does not contain core-js
-    return /^(?!.*core-js.*).+\.js/;
+    return new RegExp('^(?!.*' + regex.slice(0, -1) + '.*).+\.js'); // eslint-disable-line no-useless-escape
   },
   buildResourceHintsMetaTags(origins, publicPath) {
     // If origins is undefined we'll fail ON PURPOSE
