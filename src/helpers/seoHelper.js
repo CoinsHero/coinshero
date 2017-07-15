@@ -1,6 +1,3 @@
-import T from 'i18n-react';
-import config from 'config';
-
 let didSEORun = false;
 
 const runSEO = () => {
