@@ -17,7 +17,7 @@ class CoinsApiService extends React.Component {
   componentWillMount() {
     // Coins Data
 
-    if (this.props.targetCurrency.factorFromUSD) {
+    if (this.props.locale) {
       this.fetchCoinsData();
     }
 
@@ -55,14 +55,13 @@ class CoinsApiService extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // Get the data only if we already have the target currency rate, OR if we didn't have it and now we do
-    if (nextProps.targetCurrency.factorFromUSD && !this.props.targetCurrency.factorFromUSD) {
-      this.fetchCoinsData(nextProps.targetCurrency);
+    if (nextProps.locale && !this.props.locale) {
+      this.fetchCoinsData();
     }
   }
 
-  fetchCoinsData(targetCurrency = this.props.targetCurrency, locale = this.props.locale) {
-    this.props.fetchCoinsData(locale, targetCurrency);
+  fetchCoinsData() {
+    this.props.fetchCoinsData(this.props.locale);
   }
 
   componentWillUnmount() {
@@ -88,15 +87,11 @@ CoinsApiService.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  }),
-  targetCurrency: PropTypes.shape({
-    factorFromUSD: PropTypes.number
   })
 };
 
 const mapStateToProps = (state) => ({
   locale: state.site.locale,
-  targetCurrency: state.coins.targetCurrency,
   isUpdatingData: state.coins.isUpdatingData,
   isUpdatingCoinsList: state.coins.isUpdatingCoinsList,
   isUpdatingRegularCurrencies: state.coins.isUpdatingRegularCurrencies
