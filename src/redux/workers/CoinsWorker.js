@@ -69,9 +69,9 @@ self.onmessage = ({ data: action }) => {
       }
 
       /**
-         * ******************************************
-         * Add additional data
-         * ******************************************/
+       * ******************************************
+       * Add additional data
+       * ******************************************/
 
       const codeUpperCase = coin.short.toUpperCase();
 
@@ -88,9 +88,9 @@ self.onmessage = ({ data: action }) => {
       }
 
       /**
-         * ******************************************
-         * End adding additional data
-         * ******************************************/
+       * ******************************************
+       * End adding additional data
+       * ******************************************/
 
       const SORT_FIELD = 'mktcap';
 
@@ -114,9 +114,9 @@ self.onmessage = ({ data: action }) => {
     }
 
     /**
-       * ******************************************
-       * Report missing data
-       * ******************************************/
+     * ******************************************
+     * Report missing data
+     * ******************************************/
 
     if (missingStatuses && missingStatuses.length > 0) {
       console.warn(`You're missing some !! Statuses !! for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
@@ -131,9 +131,9 @@ self.onmessage = ({ data: action }) => {
     missingOfficialUrls = undefined;
 
     /**
-       * ******************************************
-       * End reporting of missing data
-       * ******************************************/
+     * ******************************************
+     * End reporting of missing data
+     * ******************************************/
 
     action.payload = {
       valuePairs: coins,
