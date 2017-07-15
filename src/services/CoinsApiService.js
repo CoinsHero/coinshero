@@ -61,7 +61,7 @@ class CoinsApiService extends React.Component {
   }
 
   fetchCoinsData() {
-    this.props.fetchCoinsData(this.props.locale);
+    this.props.fetchCoinsData(this.props.locale, this.props.targetCurrency);
   }
 
   componentWillUnmount() {
@@ -87,11 +87,15 @@ CoinsApiService.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
+  }),
+  targetCurrency: PropTypes.shape({
+    factorFromUSD: PropTypes.number
   })
 };
 
 const mapStateToProps = (state) => ({
   locale: state.site.locale,
+  targetCurrency: state.coins.targetCurrency,
   isUpdatingData: state.coins.isUpdatingData,
   isUpdatingCoinsList: state.coins.isUpdatingCoinsList,
   isUpdatingRegularCurrencies: state.coins.isUpdatingRegularCurrencies

@@ -3,12 +3,8 @@ import * as Immutable from 'seamless-immutable';
 import targetCurrencies, {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
-import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
-import * as coinsInfo from '../../assets/data/coinsInfo.json';
 
 let missingImageUrls = [];
-let missingOfficialUrls = [];
-let missingStatuses = [];
 
 const initialState = Immutable.from({
   coinsList: {},
@@ -22,13 +18,6 @@ const initialState = Immutable.from({
   isUpdatingRegularCurrencies: false,
   isRegularCurrenciesFetched: false
 });
-
-const updateTargetCurrenciesFromPair = (pair) => {
-  // If the current coins is also a possible target currency, update its USD rate
-  if (targetCurrencies[pair.baseCurrency.code]) {
-    targetCurrencies[pair.baseCurrency.code].factorFromUSD = 1 / pair.price;
-  }
-};
 
 /**
  * CoinsReducer
@@ -66,119 +55,48 @@ const CoinsReducer = (state = initialState, action) => {
       isUpdatingData: true
     });
   case Actions.FETCH_COINS_DATA_SUCCESS: {
-    const coinsLength = action.payload.length;
-    const unSortedCoins = [];
-    const coins = [];
-    let index;
-    let rankIndex;
+    // If the worker's job was done
+    if (!action.meta.WebWorker) {
+      let index;
+      const coinsLength = action.payload.valuePairs.length;
 
-    for (index = 0, rankIndex = 0; index < coinsLength; index++) {
-      const coin = action.payload[index];
-      const keys = Object.keys(coin);
-      const keysLength = keys.length;
-      let currentValue;
+      // Adding all the images to the currencies
+      // We're doing it here and not int he worker in order not to pass too much information to it +
+      // the fact that these are 2 separate API calls which means we'll need to wait for the coins list API
+      // before we could start the coins data if it will be int he worker
+      for (index = 0; index < coinsLength; index++) {
+        const currency = action.payload.valuePairs[index].baseCurrency;
+        const coinBaseInfo = state.coinsList[currency.code.toLowerCase()];
 
-      for (let fieldIndex = 0; fieldIndex < keysLength; fieldIndex++) {
-        switch (coin[keys[fieldIndex]]) {
-        case 'NaN':
-          currentValue = NO_VALUE_DATA_SYMBOL;
-          break;
-        case '':
-          currentValue = NO_VALUE_DATA_SYMBOL;
-          break;
-        default:
-          currentValue = coin[keys[fieldIndex]];
-          break;
+        currency.imageUrl = coinBaseInfo && coinBaseInfo.imageUrl;
+
+        if (!currency.imageUrl) {
+          missingImageUrls && missingImageUrls.push(currency.code);
         }
-
-        coin[keys[fieldIndex]] = currentValue;
       }
 
       /**
        * ******************************************
-       * Add additional data
+       * Report missing data
        * ******************************************/
-      const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
-      const codeUpperCase = coin.short.toUpperCase();
-
-      coin.imageUrl = coinBaseInfo && coinBaseInfo.imageUrl;
-      coin.status = coinsInfo[codeUpperCase] && coinsInfo[codeUpperCase].status;
-      coin.officialUrl = coinsInfo[codeUpperCase] && coinsInfo[codeUpperCase].officialUrl;
-
-      if (!coin.imageUrl) {
-        missingImageUrls && missingImageUrls.push(coin.short);
+      if (missingImageUrls && missingImageUrls.length > 0) {
+        console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}):` + JSON.stringify(missingImageUrls));
       }
 
-      if (!coin.status) {
-        missingStatuses && missingStatuses.push(coin.short);
-      }
+      missingImageUrls = undefined;
 
-      if (!coin.officialUrl && coinsInfo && coinsInfo[codeUpperCase] &&
-        coinsInfo[codeUpperCase].status !== COIN_STATUSES.INACTIVE) {
-        missingOfficialUrls && missingOfficialUrls.push(coin.short);
-      }
-
-      /**
-       * ******************************************
-       * End adding additional data
-       * ******************************************/
-
-      const SORT_FIELD = 'mktcap';
-
-      // Unsorted
-      if (coin[SORT_FIELD] === NO_VALUE_DATA_SYMBOL) {
-        unSortedCoins.push(coin);
-      } else {
-        const pair = ValuePair.parse(coin, action.meta.locale, rankIndex + 1, state.targetCurrency);
-        coins.push(pair);
-        rankIndex++;
-
-        updateTargetCurrenciesFromPair(pair);
-      }
+      return state.merge({
+        isUpdatingData: false,
+        coinsData: {
+          valuePairs: action.payload.valuePairs,
+          updateTimestamp: action.payload.updateTimestamp
+        },
+        // If a target currency is set, update it just in case it's a coin currency and we just updated it
+        targetCurrency: targetCurrencies[state.targetCurrency.code]
+      });
+    } else {
+      return state;
     }
-
-    for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
-      const pair = ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency);
-      coins.push(pair);
-
-      updateTargetCurrenciesFromPair(pair);
-    }
-
-    /**
-     * ******************************************
-     * Report missing data
-     * ******************************************/
-    if (missingImageUrls && missingImageUrls.length > 0) {
-      console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}) :` + JSON.stringify(missingImageUrls));
-    }
-
-    if (missingStatuses && missingStatuses.length > 0) {
-      console.warn(`You're missing some !! Statuses !! for some coins (${missingStatuses.length}) :` + JSON.stringify(missingStatuses));
-    }
-
-    if (missingOfficialUrls && missingOfficialUrls.length > 0) {
-      console.warn(`You're missing some !! Official Urls !! for some coins (${missingOfficialUrls.length}) :` +
-        JSON.stringify(missingOfficialUrls));
-    }
-
-    missingStatuses = undefined;
-    missingOfficialUrls = undefined;
-    missingImageUrls = undefined;
-
-    /**
-     * ******************************************
-     * End reporting of missing data
-     * ******************************************/
-
-    return state.merge({
-      isUpdatingData: false,
-      coinsData: {
-        valuePairs: coins,
-        updateTimestamp: Date.now()
-      },
-      // If a target currency is set, update it just in case it's a coin currency and we just updated it
-      targetCurrency: targetCurrencies[state.targetCurrency.code]
-    });
   }
   case Actions.FETCH_COINS_DATA_FAILURE:
     return state.merge({
@@ -189,15 +107,15 @@ const CoinsReducer = (state = initialState, action) => {
       isUpdatingCoinsList: true
     });
   case Actions.FETCH_COINS_LIST_SUCCESS: {
-    const newState = {
-      isUpdatingCoinsList: false
-    };
-
-    if (action.payload && action.payload.coinsList) {
-      newState.coinsList = action.payload.coinsList;
+    // If the worker's job was done
+    if (!action.meta.WebWorker) {
+      return state.merge({
+        coinsList: action.payload.coinsList,
+        isUpdatingCoinsList: false
+      });
+    } else {
+      return state;
     }
-
-    return state.merge(newState);
   }
   case Actions.FETCH_COINS_LIST_FAILURE:
     return state.merge({

@@ -1,6 +1,6 @@
 const config = {
   FEATURE_FLAGS: {
-    DEBUGGABLE: true
+    DEBUGGABLE: false
   },
   // Every entry that will be added here will be added as a resource hint in the index.html file
   ORIGINS: {
@@ -26,7 +26,7 @@ const config = {
   },
   GA_ANALYTICS: {
     TRACKING_ID: 'UA-102569759-1',
-    DEBUG: true
+    DEBUG: false
   }
 };
 
