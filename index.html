@@ -2,6 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.url %>">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta content="<%= htmlWebpackPlugin.options.description %>" property="og:description">
+    <meta content="<%= htmlWebpackPlugin.options.title %>" property="og:title" />
+    <meta content="<%= htmlWebpackPlugin.options.title %>" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta content="<%= htmlWebpackPlugin.options.url %>" property="og:url" />
+    <meta content="<%= htmlWebpackPlugin.options.locale %>" property="og:locale" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Resource Hints-->

@@ -147,7 +147,22 @@ const config = {
     new HtmlWebpackPlugin({
       resourceHintsMetaTags,
       inject: true,
+      title: 'CoinsHero - CryptoCurrency Market Cap',
+      description: 'CoinsHero - CryptoCurrency market cap rankings, charts, and more',
+      locale: 'en',
+      url: configFile.ORIGINS.COINS_HERO,
       template: indexHtmlPath,
+      favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
+    }),
+    new HtmlWebpackPlugin({
+      resourceHintsMetaTags,
+      inject: true,
+      template: indexHtmlPath,
+      title: 'CoinsHero - בית מטבעות וירטואלים',
+      description: 'CoinsHero - שווי שוק, דירוגים ועוד עבור מטבעות וירטואליים',
+      locale: 'he',
+      url: configFile.ORIGINS.COINS_HERO + '/he',
+      filename: 'he/index.html',
       favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
     }),
     new ScriptExtHtmlWebpackPlugin({
