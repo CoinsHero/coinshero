@@ -7,8 +7,8 @@ import logger from './middlewares/logger';
 
 const createNewStore = () => {
   const store = createStore(rootReducer, applyMiddleware(
-    worker,
     apiMiddleware,
+    worker,
     logger
   ));
 

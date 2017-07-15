@@ -1,10 +1,4 @@
 import createWorkerMiddleware from './createWorkerMiddleware';
-const CoinsListWorker = require('worker-loader?!../workers/CoinsListWorker');
+const CoinsWorker = require('worker-loader?!../workers/CoinsWorker');
 
-const coinsListWorker = new CoinsListWorker();
-
-const workerMiddleware = createWorkerMiddleware(
-  coinsListWorker
-);
-
-export default workerMiddleware;
+export default createWorkerMiddleware(new CoinsWorker());
