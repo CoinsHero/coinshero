@@ -3,12 +3,12 @@ import * as Immutable from 'seamless-immutable';
 import targetCurrencies, {DEFAULT_TARGET_CURRENCY} from '../../helpers/targetCurrencies';
 import ValuePair from '../../models/ValuePair';
 import * as Actions from '../ActionNames';
-import * as coinsInfo from '../../assets/data/coinsInfo.json';
 import {NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../../helpers/consts';
+import * as coinsInfo from '../../assets/data/coinsInfo.json';
 
+let missingImageUrls = [];
 let missingOfficialUrls = [];
 let missingStatuses = [];
-let missingImageUrls = [];
 
 const initialState = Immutable.from({
   coinsList: {},
@@ -151,7 +151,7 @@ const CoinsReducer = (state = initialState, action) => {
      * ******************************************/
 
     if (missingImageUrls && missingImageUrls.length > 0) {
-      console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}):` + JSON.stringify(missingImageUrls));
+      console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}) :` + JSON.stringify(missingImageUrls));
     }
 
     if (missingStatuses && missingStatuses.length > 0) {
@@ -166,6 +166,11 @@ const CoinsReducer = (state = initialState, action) => {
     missingStatuses = undefined;
     missingOfficialUrls = undefined;
     missingImageUrls = undefined;
+
+    /**
+     * ******************************************
+     * End reporting of missing data
+     * ******************************************/
 
     return state.merge({
       isUpdatingData: false,
