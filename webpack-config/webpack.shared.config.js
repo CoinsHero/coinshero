@@ -9,6 +9,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const InlineChunkWebpackPlugin = require('html-webpack-inline-chunk-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const webpackUtils = require('./webpack.utils');
 
@@ -144,11 +145,11 @@ const config = {
       name: 'manifest',
       minChunks: Infinity
     }),
+    new FaviconsWebpackPlugin(srcPath + '/assets/favicons/coinshero-favicon.png'),
     new HtmlWebpackPlugin({
       resourceHintsMetaTags,
       inject: true,
-      template: indexHtmlPath,
-      favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
+      template: indexHtmlPath
     }),
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {
