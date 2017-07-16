@@ -5,7 +5,6 @@ import { withRouter } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { MuiThemeProvider } from 'material-ui/styles';
 
-import runSEO from '../helpers/seoHelper';
 import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';
 import {setLocaleInStore, setDarkThemeInStore} from '../redux/actions/bootstrapActions';
@@ -22,7 +21,6 @@ class Site extends Component {
     super(props);
 
     const locale = this._handleLocale(props);
-    runSEO();
     this._handleTheme(props);
     this._handleTargetCurrency(props, locale);
 

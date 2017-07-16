@@ -16,6 +16,7 @@ export const DEFAULT_LANGUAGE = {
   icon: gbSVG
 };
 
+// This is being used in the webpack configuration but it's hard coded. When updated here it should also be updated there
 export const languages = {
   [DEFAULT_LANGUAGE.code]: DEFAULT_LANGUAGE,
   he: {

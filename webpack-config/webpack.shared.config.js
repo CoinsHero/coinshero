@@ -19,6 +19,8 @@ const configFilePath = path.resolve(`./webpack-config/env-configs/${process.env.
 const configFile = require(configFilePath);
 const siteURL = url.parse(configFile.ORIGINS.COINS_HERO);
 
+const YAML = require('yamljs');
+
 const stats = process.env.STATS || false;
 const port = process.env.NODE_PORT || siteURL.port;
 const hostAddress = process.env.HOST_ADDRESS || siteURL.hostname;
@@ -145,12 +147,34 @@ const config = {
       name: 'manifest',
       minChunks: Infinity
     }),
+    // // TODO: Add a link to the image to be shown here - with HTTP
+    // const ogImage = document.createElement('meta');
+    // ogImage.property = 'og:image';
+    // // ogImage.content = ;
+    // document.head.appendChild(ogImage);
+    //
+    // // TODO: Add a link to the image to be shown here - with HTTPS
+    // const ogImageSecureUrl = document.createElement('meta');
+    // ogImageSecureUrl.property = 'og:image:secure_url';
+    // // ogImageSecureUrl.content = ;
+    // document.head.appendChild(ogImageSecureUrl);
+    //
+    // // TODO: Add the mimetype of the image
+    // const ogImageMimeType = document.createElement('meta');
+    // ogImageMimeType.property = 'og:image:type';
+    // // ogImageMimeType.content = ;
+    // document.head.appendChild(ogImageMimeType);
+    //
+    // const ogImageWidth = document.createElement('meta');
+    // ogImageWidth.property = 'og:image:width';
+    // ogImageWidth.content = 200;
+    // document.head.appendChild(ogImageWidth);
+    //
+    // const ogImageHeight = document.createElement('meta');
+    // ogImageHeight.property = 'og:image:height';
+    // ogImageHeight.content = 200;
+    // document.head.appendChild(ogImageHeight);
     new FaviconsWebpackPlugin(srcPath + '/assets/favicons/coinshero-favicon.png'),
-    new HtmlWebpackPlugin({
-      resourceHintsMetaTags,
-      inject: true,
-      template: indexHtmlPath
-    }),
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {
         test: webpackUtils.shouldPrefetch(),
@@ -167,6 +191,28 @@ const config = {
     })
   ]
 };
+
+// This is taken from the i18n.js file, when updated here it should also be updated there
+['he', 'en'].forEach((locale) => {
+  const localeFilePath = path.resolve(`./src/locale/${locale}.yml`);
+  const file = YAML.load(localeFilePath);
+  const htmlConfig = {
+    resourceHintsMetaTags,
+    inject: true,
+    title: file.SITE_TITLE,
+    description: file.SITE_DESCRIPTION,
+    locale: locale,
+    canonicalURL: configFile.ORIGINS.COINS_HERO,
+    template: indexHtmlPath,
+    favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
+  };
+
+  if (locale !== 'en') {
+    htmlConfig.filename = `${locale}/index.html`;
+  }
+
+  config.plugins.push(new HtmlWebpackPlugin(htmlConfig));
+});
 
 if (webpackUtils.isWatching()) {
   const Dashboard = require('webpack-dashboard');
