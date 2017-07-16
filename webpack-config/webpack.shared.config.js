@@ -192,6 +192,7 @@ const config = {
   ]
 };
 
+// This is taken from the i18n.js file, when updated here it should also be updated there
 ['he', 'en'].forEach((locale) => {
   const localeFilePath = path.resolve(`./src/locale/${locale}.yml`);
   const file = YAML.load(localeFilePath);
