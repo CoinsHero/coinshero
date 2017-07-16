@@ -98,6 +98,7 @@ const CoinsReducer = (state = initialState, action) => {
        * ******************************************
        * Add additional data
        * ******************************************/
+
       const coinBaseInfo = state.coinsList[coin.short.toLowerCase()];
       const codeUpperCase = coin.short.toUpperCase();
 
@@ -148,6 +149,7 @@ const CoinsReducer = (state = initialState, action) => {
      * ******************************************
      * Report missing data
      * ******************************************/
+
     if (missingImageUrls && missingImageUrls.length > 0) {
       console.warn(`You're missing some !! imageUrls !! for some coins (${missingImageUrls.length}) :` + JSON.stringify(missingImageUrls));
     }
@@ -188,31 +190,17 @@ const CoinsReducer = (state = initialState, action) => {
     return state.merge({
       isUpdatingCoinsList: true
     });
-  case Actions.FETCH_COINS_LIST_SUCCESS:
-    if (action.payload && action.payload.BaseImageUrl && action.payload.Data) {
-      const baseImageUrl = action.payload.BaseImageUrl;
-      const coinsKeys = Object.keys(action.payload.Data);
-      const coinsLength = coinsKeys.length;
-      const coinsList = {};
-      let index;
-      let imageRelativeUrl;
-
-      for (index = 0; index < coinsLength; index++) {
-        imageRelativeUrl = action.payload.Data[coinsKeys[index]].ImageUrl;
-        coinsList[coinsKeys[index].toLowerCase()] = {
-          imageUrl: imageRelativeUrl ? `${baseImageUrl}${imageRelativeUrl}` : undefined
-        };
-      }
-
+  case Actions.FETCH_COINS_LIST_SUCCESS: {
+    // If the worker's job was done
+    if (!action.meta.WebWorker) {
       return state.merge({
-        coinsList,
+        coinsList: action.payload.coinsList,
         isUpdatingCoinsList: false
       });
     } else {
-      return state.merge({
-        isUpdatingCoinsList: false
-      });
+      return state;
     }
+  }
   case Actions.FETCH_COINS_LIST_FAILURE:
     return state.merge({
       isUpdatingCoinsList: false
