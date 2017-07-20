@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import grey from 'material-ui/colors/grey';
 import {withStyles, createStyleSheet} from 'material-ui/styles';
 import {Button} from 'material-ui';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import T from 'i18n-react';
 
-import classnamesjss from '../helpers/classnamesjss';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
 import targetCurrencies, {setRegularTargetCurrencyLocalStorage} from '../helpers/targetCurrencies';
 
@@ -14,12 +14,10 @@ const styleSheet = createStyleSheet('TargetCurrencyMenu', (theme) => ({
   root: {
     direction: 'ltr'
   },
-  'root--light-theme': {
-    color: theme.palette.accent['A400']
-  },
   root__Button: {
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing.unit,
+    color: grey[50]
   },
   MenuItem__container: {
     display: 'flex',
@@ -81,16 +79,14 @@ class TargetCurrencyMenu extends Component {
 
   render() {
     const ariaId = 'switch-target-currency';
-    const buttonClasses = classnamesjss(this.props.classes,
-      'root__Button',
-      {'root--light-theme': !this.props.isDarkTheme}
-    );
 
     return (
       <div>
         <Button
           raised
-          className={buttonClasses}
+          dense
+          color="primary"
+          className={this.props.classes.root__Button}
           aria-owns={ariaId}
           aria-haspopup="true"
           onClick={this._handleClick.bind(this)}>

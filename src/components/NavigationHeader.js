@@ -11,30 +11,34 @@ import classnamesjss from '../helpers/classnamesjss';
 
 import LanguageMenu from './LanguageMenu';
 
-const styleSheet = createStyleSheet('NavigationHeader', (theme) => ({
-  root: {
-    backgroundColor: theme.palette.primary[50],
-    color: theme.palette.getContrastText(theme.palette.primary[500])
-  },
-  'root--dark-theme': {
-    'background-color': theme.palette.accent['A400'],
-    color: theme.palette.getContrastText(theme.palette.accent['A400'])
-  },
-  root__appBar: {
-    paddingLeft: theme.spacing.unit * 3,
-    paddingRight: theme.spacing.unit * 3,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  root__Tabs: {
-    display: 'flex',
-    flexGrow: 1
-  },
-  root_ToolBox: {
-    padding: 0
-  }
-}));
+const styleSheet = createStyleSheet('NavigationHeader', (theme) => {
+  const lightColor = theme.palette.primary[200];
+
+  return ({
+    root: {
+      backgroundColor: lightColor,
+      color: theme.palette.getContrastText(lightColor)
+    },
+    'root--dark-theme': {
+      'background-color': theme.palette.accent['A400'],
+      color: theme.palette.getContrastText(theme.palette.accent['A400'])
+    },
+    root__appBar: {
+      paddingLeft: theme.spacing.unit * 3,
+      paddingRight: theme.spacing.unit * 3,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    root__Tabs: {
+      display: 'flex',
+      flexGrow: 1
+    },
+    root_ToolBox: {
+      padding: 0
+    }
+  });
+});
 
 class NavigationHeader extends Component {
   shouldComponentUpdate(nextProps, nextState) {

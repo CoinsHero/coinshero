@@ -28,7 +28,7 @@ const getSiteTheme = (options) => {
     },
     MuiTableCell: {
       padding: {
-        padding: `0 ${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 3}px`,
+        padding: `0 0 0 ${theme.spacing.unit * 2}px`,
         '&:last-child': {
           paddingLeft: 0,
           paddingRight: theme.spacing.unit
