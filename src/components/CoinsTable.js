@@ -80,12 +80,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     marginRight: 0
   },
   root__TableBody__TableCell__displayedNameContainer__Chip: {
-    marginLeft: theme.spacing.unit * 1.5,
+    marginLeft: theme.spacing.unit,
     marginRight: 0,
     backgroundColor: theme.palette.error[500]
   },
   'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': {
-    marginRight: theme.spacing.unit * 1.5,
+    marginRight: theme.spacing.unit,
     marginLeft: 0
   },
   'root__TableCell__percent-change-twenty-four-h': {
@@ -186,10 +186,6 @@ class CoinsTable extends Component {
 
       const buyButtonClass = classnamesjss(classes, 'root__TableCell__buy-button');
 
-      const inactiveStatusChip = pair.baseCurrency.status === COIN_STATUSES.INACTIVE ?
-        <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} /> :
-        null;
-
       return (
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
@@ -197,7 +193,6 @@ class CoinsTable extends Component {
             <div className={nameContainerClass}>
               {icon}
               {name}
-              {inactiveStatusChip}
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
@@ -209,15 +204,16 @@ class CoinsTable extends Component {
           </TableCell>
           <TableCell className={tableBodyCellClass}>
             {
-              pair.baseCurrency.status !== COIN_STATUSES.INACTIVE &&
-              <Button
-                raised
-                color="primary"
-                target="_blank"
-                className={buyButtonClass}
-                href={ `${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}` }>
-                { T.translate('TABLE_BUY_BUTTON')}
-              </Button>
+              pair.baseCurrency.status !== COIN_STATUSES.INACTIVE ?
+                <Button
+                  raised
+                  color="primary"
+                  target="_blank"
+                  className={buyButtonClass}
+                  href={`${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}`}>
+                  { T.translate('TABLE_BUY_BUTTON')}
+                </Button> :
+                <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} />
             }
           </TableCell>
         </TableRow>
