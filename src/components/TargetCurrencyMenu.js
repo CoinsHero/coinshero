@@ -90,6 +90,8 @@ class TargetCurrencyMenu extends Component {
       <div>
         <Button
           raised
+          dense
+          color="contrast"
           className={buttonClasses}
           aria-owns={ariaId}
           aria-haspopup="true"
