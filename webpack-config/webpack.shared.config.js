@@ -201,6 +201,7 @@ const config = {
     inject: true,
     title: file.SITE_TITLE,
     description: file.SITE_DESCRIPTION,
+    keywords: file.SITE_KEYWORDS,
     locale: locale,
     canonicalURL: configFile.ORIGINS.COINS_HERO,
     template: indexHtmlPath,
