@@ -46,7 +46,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     textAlign: 'left'
   },
   'root__TableBody__TableCell--rtl': {
-    direction: 'ltr',
+    direction: 'rtl',
     textAlign: 'right'
   },
   root__TableBody__TableCell__displayedNameContainer: {
