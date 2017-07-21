@@ -17,8 +17,8 @@
     "build:environments": "node_modules/.bin/cross-env BABEL_ENV=es node --harmony ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.environments.js --progress",
     "build:production": "node_modules/.bin/cross-env NODE_ENV=production npm run build:environments",
     "build:production:stats": "node_modules/.bin/cross-env STATS=true npm run build:production",
-    "aws:upload": "",
-    "aws:upload:production": "node_modules/.bin/cross-env AWS_ENV=production npm run aws:upload"
+    "aws:upload": "chmod +x ./scripts/awsUpload.sh && ./scripts/awsUpload.sh",
+    "aws:upload:production": "npm run setup:refresh && npm run build:production && node_modules/.bin/cross-env AWS_ENV=production npm run aws:upload"
   },
   "repository": {
     "type": "git",
@@ -99,9 +99,9 @@
     "webpack-bundle-analyzer": "2.8.3",
     "webpack-dashboard": "0.4.0",
     "webpack-dev-server": "2.5.1",
+    "worker-loader": "0.8.1",
     "yaml-loader": "0.5.0",
-    "yamljs": "0.3.0",
-    "worker-loader": "0.8.1"
+    "yamljs": "0.3.0"
   },
   "jest": {
     "moduleNameMapper": {
