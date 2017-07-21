@@ -20,6 +20,10 @@ const getSiteTheme = (options) => {
     })
   });
 
+  const tablePadding = options.isRTL ?
+    `0 ${theme.spacing.unit * 2}px 0 0` :
+    `0 0 0 ${theme.spacing.unit * 2}px`;
+
   theme.overrides = {
     MuiAppBar: {
       root: {
@@ -28,7 +32,7 @@ const getSiteTheme = (options) => {
     },
     MuiTableCell: {
       padding: {
-        padding: `0 0 0 ${theme.spacing.unit * 2}px`,
+        padding: tablePadding,
         '&:last-child': {
           paddingLeft: 0,
           paddingRight: theme.spacing.unit
