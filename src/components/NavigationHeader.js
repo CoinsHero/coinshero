@@ -12,16 +12,19 @@ import classnamesjss from '../helpers/classnamesjss';
 import LanguageMenu from './LanguageMenu';
 
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => {
-  const lightColor = theme.palette.primary[200];
+  const lightBackgroundColor = theme.palette.primary[300];
+  const lightColor = theme.palette.common.black;
+  const colorBackgroundDark = theme.palette.accent['A400'];
+  const colorDark = theme.palette.getContrastText(colorBackgroundDark);
 
   return ({
     root: {
-      backgroundColor: lightColor,
-      color: theme.palette.getContrastText(lightColor)
+      backgroundColor: lightBackgroundColor,
+      color: lightColor
     },
     'root--dark-theme': {
-      'background-color': theme.palette.accent['A400'],
-      color: theme.palette.getContrastText(theme.palette.accent['A400'])
+      'background-color': colorBackgroundDark,
+      color: colorDark
     },
     root__appBar: {
       paddingLeft: theme.spacing.unit * 3,
@@ -29,6 +32,12 @@ const styleSheet = createStyleSheet('NavigationHeader', (theme) => {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center'
+    },
+    root__appBar__title: {
+      color: lightColor
+    },
+    'root__appBar__title--dark-theme': {
+      color: colorDark
     },
     root__Tabs: {
       display: 'flex',
@@ -46,10 +55,18 @@ class NavigationHeader extends Component {
   }
 
   render() {
+    const isDark = this.props.theme.palette.type === 'dark';
+
     const cx = classnamesjss(this.props.classes,
       'root',
-      {'root--dark-theme': this.props.theme.palette.type === 'dark'}
+      {'root--dark-theme': isDark}
     );
+
+    const cxTitle = classnamesjss(this.props.classes,
+      'root__appBar__title',
+      {'root__appBar__title--dark-theme': isDark}
+    );
+
     let selectedLocaleIndex = 0;
     let locales = Object.values(languages);
 
@@ -60,14 +77,16 @@ class NavigationHeader extends Component {
       }
     }
 
+    const {classes} = this.props;
+
     return (
       <AppBar className={cx}>
-        <div className={this.props.classes.root__appBar}>
-          <Typography type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
-          <Tabs onChange={() => {}} index={0} className={this.props.classes.root__Tabs}>
+        <div className={classes.root__appBar}>
+          <Typography className={cxTitle} type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
+          <Tabs onChange={() => {}} index={0} className={classes.root__Tabs}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
-          <Toolbar className={this.props.classes.root_ToolBox}>
+          <Toolbar className={classes.root_ToolBox}>
             <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />
             <IconButton color="inherit" onClick={this.props.onThemeClick} aria-label="Toggle light/dark theme">
               <LightbulbIcon />

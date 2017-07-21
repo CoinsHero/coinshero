@@ -3,6 +3,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
+import grey from 'material-ui/colors/grey';
 
 import localStorageSettings from '../helpers/localStorageSettings';
 import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
@@ -17,10 +18,11 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    minHeight: '100vh'
+    minHeight: '100vh',
+    backgroundColor: grey[100],
+    fontWeight: theme.typography.body1.fontWeight
   },
   'root--dark-theme': {
-    // TODO: How do i get this not hard coded?
     backgroundColor: theme.palette.accent['A300']
   },
   'root--rtl': {
