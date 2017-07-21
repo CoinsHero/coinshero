@@ -16,7 +16,9 @@
     "build:stats": "node_modules/.bin/cross-env STATS=true npm run build",
     "build:environments": "node_modules/.bin/cross-env BABEL_ENV=es node --harmony ./node_modules/.bin/webpack --config ./webpack-config/webpack.config.environments.js --progress",
     "build:production": "node_modules/.bin/cross-env NODE_ENV=production npm run build:environments",
-    "build:production:stats": "node_modules/.bin/cross-env STATS=true npm run build:production"
+    "build:production:stats": "node_modules/.bin/cross-env STATS=true npm run build:production",
+    "aws:upload": "",
+    "aws:upload:production": "node_modules/.bin/cross-env AWS_ENV=production npm run aws:upload"
   },
   "repository": {
     "type": "git",

@@ -1,2 +1,2 @@
 export const defaultRoute = () => '/';
-export const languageRoute = (lang = ':lang') => `/${lang}`;
+export const languageRoute = (lang = ':lang') => `/${lang}/`;
