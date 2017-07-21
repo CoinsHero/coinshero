@@ -50,10 +50,12 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
     textAlign: 'right'
   },
   root__TableBody__TableCell__displayedNameContainer: {
+    direction: 'ltr',
     display: 'flex',
     alignItems: 'center'
   },
   'root__TableBody__TableCell__displayedNameContainer--rtl': {
+    direction: 'ltr',
     flexDirection: 'row-reverse'
   },
   root__TableBody__TableCell__displayedNameContainer__name: {
