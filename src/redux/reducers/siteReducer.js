@@ -1,7 +1,7 @@
 import * as Immutable from 'seamless-immutable';
 import * as Actions from '../ActionNames';
 
-const initialState = Immutable.from({locale: {}, isDarkTheme: true});
+const initialState = Immutable.from({locale: {}, isDarkTheme: false});
 
 /**
  * MainReducer
