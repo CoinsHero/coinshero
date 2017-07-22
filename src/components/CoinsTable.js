@@ -201,8 +201,8 @@ class CoinsTable extends Component {
               {name}
             </div>
           </TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
+          <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
           <TableCell className={tableBodyCellClass}>
@@ -290,8 +290,8 @@ class CoinsTable extends Component {
     const headerColumns = [
       {id: COLUMNS_IDS.RANK, label: T.translate('TABLE_HEADER_RANK')},
       {id: COLUMNS_IDS.NAME, label: T.translate('TABLE_HEADER_NAME')},
-      {id: COLUMNS_IDS.MARKET_CAP, label: T.translate('TABLE_HEADER_MARKET_CAP')},
       {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')},
+      {id: COLUMNS_IDS.MARKET_CAP, label: T.translate('TABLE_HEADER_MARKET_CAP')},
       {id: COLUMNS_IDS.AVAILABLE_SUPPLY, label: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
       {id: COLUMNS_IDS.VOLUME, label: T.translate('TABLE_HEADER_24H_VOLUME')},
       {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')},
