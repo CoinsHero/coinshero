@@ -192,6 +192,8 @@ const config = {
   ]
 };
 
+const versionDate = new Date().toString();
+
 // This is taken from the i18n.js file, when updated here it should also be updated there
 ['he', 'en'].forEach((locale) => {
   const localeFilePath = path.resolve(`./src/locale/${locale}.yml`);
@@ -199,11 +201,13 @@ const config = {
   const htmlConfig = {
     resourceHintsMetaTags,
     inject: true,
+    version: versionDate,
     title: file.SITE_TITLE,
     description: file.SITE_DESCRIPTION,
     keywords: file.SITE_KEYWORDS,
     locale: locale,
     canonicalURL: configFile.ORIGINS.COINS_HERO,
+    localeURL: locale === 'en' ? configFile.ORIGINS.COINS_HERO : configFile.ORIGINS.COINS_HERO + `/${locale}`,
     template: indexHtmlPath,
     favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
   };

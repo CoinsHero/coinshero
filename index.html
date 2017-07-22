@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="version" content="<%= htmlWebpackPlugin.options.version %>">
+
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <link rel="canonical" href="<%= htmlWebpackPlugin.options.canonicalURL %>">
@@ -10,7 +12,7 @@
     <meta content="<%= htmlWebpackPlugin.options.title %>" property="og:title" />
     <meta content="<%= htmlWebpackPlugin.options.title %>" property="og:site_name" />
     <meta content="website" property="og:type" />
-    <meta content="<%= htmlWebpackPlugin.options.canonicalURL %>" property="og:url" />
+    <meta content="<%= htmlWebpackPlugin.options.localeURL %>" property="og:url" />
     <meta content="<%= htmlWebpackPlugin.options.locale %>" property="og:locale" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
