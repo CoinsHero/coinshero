@@ -65,7 +65,7 @@ class SimpleSnackbar extends Component {
 }
 
 SimpleSnackbar.propTypes = {
-  className: PropTypes.object.isRequired,
+  className: PropTypes.string,
   open: PropTypes.bool.isRequired,
   message: PropTypes.string.isRequired,
   onClose: PropTypes.func

@@ -58,21 +58,22 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     cursor: 'pointer',
     '&:hover': {
       background: 'linear-gradient(to bottom, #fafafa 0%,#eeeeee 100%)'
-    },
-    '&--rtl': {
-      marginRight: theme.spacing.unit
-    },
-    '--dark-theme': {
-      color: theme.palette.getContrastText(theme.palette.accent['A400'])
     }
+  },
+  'root__ToolBar__DonateBar--rtl': {
+    marginRight: theme.spacing.unit
+  },
+  'root__ToolBar__DonateBar--dark-theme': {
+    color: theme.palette.accent['A400']
   },
   root__ToolBar__DonateBar__Icon: {
     height: '15px',
     width: '15px',
-    marginRight: '5px',
-    '&--rtl': {
-      marginLeft: theme.spacing.unit
-    }
+    marginRight: '5px'
+  },
+  'root__ToolBar__DonateBar__Icon--rtl': {
+    marginLeft: theme.spacing.unit,
+    marginRight: 0
   },
   'root_ToolBar__snackbar--rtl': {
     paddingLeft: '0',
