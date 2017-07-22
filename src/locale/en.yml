@@ -33,6 +33,12 @@ DATA_DISCLAIMER: 'Disclaimer: Information is provided "as is" and solely for inf
 DATA_CREDIT_COINCAP: 'Making use of {link} API'
 DATA_CREDIT_CRYPTOCOMPARE: 'Making use of {link} API'
 
+# Donations
+DONATE_BITCOIN: Donate Bitcoin
+DONATE_LITECOIN: Donate Litecoin
+DONATE_ETHEREUM: Donate Ethereum
+DONATE_TEXT: 'Copy wallet address - {address}'
+
 # targetCurrencies
 TARGET_CURRENCY_USD: USD
 TARGET_CURRENCY_EUR: EUR
