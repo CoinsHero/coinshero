@@ -195,12 +195,12 @@ const config = {
 // We do that in order to enable the right name in the Add To Home Screen option in mobile browsers:
 // https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen
 // You can see it in the manifest.webapp file in the output of the favicon plugin folder
-const localeFilePath = path.resolve('./src/locale/en.yml');
-const enFile = YAML.load(localeFilePath);
+const localeFilePath = path.resolve('./src/locale/global.yml');
+const globalFile = YAML.load(localeFilePath);
 
 config.plugins.push(new FaviconsWebpackPlugin({
   logo: `${srcPath}/assets/favicons/coinshero-favicon.png`,
-  title: enFile.SITE_TITLE
+  title: globalFile.APP_NAME
 }));
 
 const versionDate = new Date().toString();
