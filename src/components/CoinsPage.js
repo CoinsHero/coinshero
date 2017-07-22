@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { Toolbar, Typography } from 'material-ui';
 import T from 'i18n-react';
+import ClipboardButton from 'react-clipboard.js';
 
 import config from 'config';
 import classnamesjss from '../helpers/classnamesjss';
@@ -49,22 +50,22 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginLeft: theme.spacing.unit,
-    background: 'linear-gradient(to bottom, #eeeeee 0%,#fafafa 100%)',
+    background: `linear-gradient(to bottom, ${theme.palette.accent.gray} 0%, ${theme.palette.accent.lightgray} 100%)`,
     padding: '2px 4px',
-    border: '1px solid #ccc',
+    borderRight: `1px solid ${theme.palette.accent['A400']}`,
+    borderBottom: `1px solid ${theme.palette.accent['A400']}`,
     boxShadow: '1px 1px 4px rgba(0,0,0,0.075), inset 1px 1px 0px rgba(255,255,255,0.8)',
     borderRadius: '2px 2px 2px 2px',
     cursor: 'pointer',
     '&:hover': {
-      background: 'linear-gradient(to bottom, #fafafa 0%,#eeeeee 100%)'
+      background: `linear-gradient(to bottom, ${theme.palette.accent.lightgray} 0%, ${theme.palette.accent.gray} 100%)`
     }
   },
-  'root__ToolBar__DonateBar--rtl': {
-    marginRight: theme.spacing.unit
-  },
   'root__ToolBar__DonateBar--dark-theme': {
-    color: theme.palette.accent['A400']
+    background: `linear-gradient(to bottom, ${theme.palette.accent['A300']} 0%, #0a0a0a 100%)`,
+    '&:hover': {
+      background: `linear-gradient(to bottom, #0a0a0a 0%, ${theme.palette.accent['A300']} 100%)`
+    }
   },
   root__ToolBar__DonateBar__Icon: {
     height: '15px',
@@ -75,11 +76,22 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     marginLeft: theme.spacing.unit,
     marginRight: 0
   },
-  'root_ToolBar__snackbar--rtl': {
+  'root__ToolBar__snackbar--rtl': {
     paddingLeft: '0',
     '& div:nth-child(2)': {
       paddingLeft: '0'
     }
+  },
+  'root__ToolBar__hidden-copy-button': {
+    background: 'transparent',
+    border: 'none',
+    outline: 'none',
+    padding: 0,
+    marginLeft: theme.spacing.unit
+  },
+  'root__ToolBar__hidden-copy-button--rtl': {
+    marginLeft: 0,
+    marginRight: theme.spacing.unit
   }
 }));
 
@@ -155,14 +167,16 @@ class CoinsPage extends Component {
     const isRTL = this.props.locale.isRTL;
     const classes = this.props.classes;
     const donateClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar', {
-      'root__ToolBar__DonateBar--rtl': isRTL,
       'root__ToolBar__DonateBar--dark-theme': this.props.isDarkTheme
     });
     const logoClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar__Icon', {
       'root__ToolBar__DonateBar__Icon--rtl': isRTL
     });
     const snackbarClass = classnamesjss(this.props.classes, {
-      'root_ToolBar__snackbar--rtl': isRTL
+      'root__ToolBar__snackbar--rtl': isRTL
+    });
+    const copyButton = classnamesjss(this.props.classes, 'root__ToolBar__hidden-copy-button', {
+      'root__ToolBar__hidden-copy-button--rtl': isRTL
     });
 
     return (
@@ -172,21 +186,26 @@ class CoinsPage extends Component {
             <SearchCoinsInput autoFocus={true} isRTL={isRTL} onChange={this._onSearchChange.bind(this)}/>
             <TargetCurrencyMenu />
             <Typography type="caption">{ T.translate('USD_EURO_AVAILABLE') }</Typography>
-            <span onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.BITCOIN })) }>
+            <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.BITCOIN }
+              onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.BITCOIN, coin: 'Bitcoin' })) }>
               <Typography type="caption" className={donateClass}><img src={ BitcoinLogo } className={logoClass} />
                 { T.translate('DONATE_BITCOIN') }
               </Typography>
-            </span>
-            <span onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.ETHEREUM })) }>
+            </ClipboardButton>
+            <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.ETHEREUM }
+              onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.ETHEREUM, coin: 'Ethereum' })) }>
               <Typography type="caption" className={donateClass}><img src={ EthereumLogo } className={logoClass} />
+                <input id="ethereum_address" hidden readOnly value={ config.DONATION.ETHEREUM } />
                 { T.translate('DONATE_ETHEREUM') }
               </Typography>
-            </span>
-            <span onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.LITECOIN })) }>
+            </ClipboardButton>
+            <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.LITECOIN }
+              onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.LITECOIN, coin: 'Litecoin' })) }>
               <Typography type="caption" className={donateClass}>
+                <input id="litecoin_address" hidden readOnly value={ config.DONATION.LITECOIN } />
                 <img src={ LitecoinLogo } className={logoClass} />{ T.translate('DONATE_LITECOIN') }
               </Typography>
-            </span>
+            </ClipboardButton>
           </div>
           <div className={this.props.classes.root__ToolBar__RightPanel}>
             {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}

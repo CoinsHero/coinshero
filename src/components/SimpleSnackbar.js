@@ -41,7 +41,7 @@ class SimpleSnackbar extends Component {
             horizontal: 'right'
           }}
           open={this.props.open}
-          autoHideDuration={6e3}
+          autoHideDuration={5000}
           onRequestClose={this._handleRequestClose}
           SnackbarContentProps={{
             'aria-describedby': 'message-id',

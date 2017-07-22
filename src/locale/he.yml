@@ -32,7 +32,7 @@ USD_EURO_AVAILABLE: '* בלינק הקנייה תתאפשר רכישה בדול�
 DONATE_BITCOIN: תרומת Bitcoin
 DONATE_LITECOIN: תרומת Litecoin
 DONATE_ETHEREUM: תרומת Ethereum
-DONATE_TEXT: 'העתק כתובת ארנק - {address}'
+DONATE_TEXT: 'כתובת {address} - {coin} הועתקה ללוח כתיבה'
 
 # Legal
 DATA_DISCLAIMER: 'גילוי נאות: המידע המובא מוצג כמו שמתקבל למטרות אינפורמטיוביות בלבד, ולא לצורך מסחר או מתן עצה, וייתכן כי יתעכב. המידע מובא משירותים פיננסיים וייתכן כי מתעכב. CoinsHero לא מאמתת את המידע ולא מתיימרת לעשות זאת.'

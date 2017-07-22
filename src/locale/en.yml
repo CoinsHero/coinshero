@@ -37,7 +37,7 @@ DATA_CREDIT_CRYPTOCOMPARE: 'Making use of {link} API'
 DONATE_BITCOIN: Donate Bitcoin
 DONATE_LITECOIN: Donate Litecoin
 DONATE_ETHEREUM: Donate Ethereum
-DONATE_TEXT: 'Copy wallet address - {address}'
+DONATE_TEXT: '{coin} address - {address} has been copied to clipboard!'
 
 # targetCurrencies
 TARGET_CURRENCY_USD: USD

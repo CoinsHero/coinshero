@@ -13,7 +13,9 @@ const getSiteTheme = (options) => {
         ...pink,
         A300: '#383838',
         link: '#499bda',
-        A400: '#484848'
+        A400: '#484848',
+        gray: '#eeeeee',
+        lightgray: '#fafafa'
       },
       error: red,
       type: options.isDarkTheme ? 'dark' : 'light'
