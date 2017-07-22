@@ -53,6 +53,6 @@ This will start the webpack-dev-server
 
 ## Upload to S3
 
-* Get the `hiddenS3UploadCredentials.json` file from a team member and place it in the `scripts` folder.
+* Get the `hiddenS3Data.json` file from a team member and place it in the `scripts` folder.
 * Install the `awscli` (on macOS we recommend using `brew install awscli`. Install [brew](https://brew.sh/) if needed).
 * `npm run aws:upload:production`
