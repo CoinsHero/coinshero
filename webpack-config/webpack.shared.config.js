@@ -174,7 +174,6 @@ const config = {
     // ogImageHeight.property = 'og:image:height';
     // ogImageHeight.content = 200;
     // document.head.appendChild(ogImageHeight);
-    new FaviconsWebpackPlugin(srcPath + '/assets/favicons/coinshero-favicon.png'),
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {
         test: webpackUtils.shouldPrefetch(),
@@ -191,6 +190,18 @@ const config = {
     })
   ]
 };
+
+// Adds the favicon according to the title of the site.
+// We do that in order to enable the right name in the Add To Home Screen option in mobile browsers:
+// https://developers.google.com/web/updates/2017/02/improved-add-to-home-screen
+// You can see it in the manifest.webapp file in the output of the favicon plugin folder
+const localeFilePath = path.resolve('./src/locale/en.yml');
+const enFile = YAML.load(localeFilePath);
+
+config.plugins.push(new FaviconsWebpackPlugin({
+  logo: `${srcPath}/assets/favicons/coinshero-favicon.png`,
+  title: enFile.SITE_TITLE
+}));
 
 const versionDate = new Date().toString();
 
