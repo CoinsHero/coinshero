@@ -1,12 +1,12 @@
-const environmentBaseFolder = `${process.env.AWS_ENV}/dist`;
 const GRANTS = '--grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers';
 const NUM_OF_DAYS_UNTIL_EXPIRATION = 40;
-const CLOUDFRONT_DISTRIBUTION_ID = 'E3NXLGWM70B44V';
 
 try {
   const hiddenData = require('./hiddenS3Data.json');
+  const CLOUDFRONT_DISTRIBUTION_ID = hiddenData[process.env.AWS_ENV].CLOUDFRONT_DISTRIBUTION_ID;
+
   // eslint-disable-next-line max-len
-  const command = `bash ./scripts/s3Upload.sh "${hiddenData.S3_BUCKET_URL}" "${environmentBaseFolder}" "${GRANTS}" ${NUM_OF_DAYS_UNTIL_EXPIRATION} ${CLOUDFRONT_DISTRIBUTION_ID} ${hiddenData.AWS_ACCESS_KEY_ID} ${hiddenData.AWS_SECRET_ACCESS_KEY}`;
+  const command = `bash ./scripts/s3Upload.sh "${hiddenData[process.env.AWS_ENV].S3_BUCKET_URL}" "${GRANTS}" ${NUM_OF_DAYS_UNTIL_EXPIRATION} ${CLOUDFRONT_DISTRIBUTION_ID} ${hiddenData.AWS_ACCESS_KEY_ID} ${hiddenData.AWS_SECRET_ACCESS_KEY}`;
   try {
     require('child_process').execSync(command, {stdio: [process.stdin, process.stdout, process.stderr]});
   } catch (e) {
