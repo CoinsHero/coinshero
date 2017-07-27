@@ -63,7 +63,7 @@ const CoinsReducer = (state = initialState, action) => {
   }
   case Actions.FETCH_COINS_DATA:
     return state.merge({
-      isUpdatingData: true
+      isUpdatingData: !action.error
     });
   case Actions.FETCH_COINS_DATA_SUCCESS: {
     const coinsLength = action.payload.length;
@@ -188,7 +188,7 @@ const CoinsReducer = (state = initialState, action) => {
     });
   case Actions.FETCH_COINS_LIST:
     return state.merge({
-      isUpdatingCoinsList: true
+      isUpdatingCoinsList: !action.error
     });
   case Actions.FETCH_COINS_LIST_SUCCESS: {
     // If the worker's job was done
@@ -207,7 +207,7 @@ const CoinsReducer = (state = initialState, action) => {
     });
   case Actions.FETCH_REGULAR_CURRENCIES:
     return state.merge({
-      isUpdatingRegularCurrencies: true
+      isUpdatingRegularCurrencies: !action.error
     });
   case Actions.FETCH_REGULAR_CURRENCIES_SUCCESS: {
     const rateCodes = Object.keys(action.payload.rates);
