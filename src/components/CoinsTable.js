@@ -143,30 +143,39 @@ class CoinsTable extends Component {
   _renderRows() {
     const {classes, locale, showRowHover} = this.props;
 
+    const tableBodyCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell',
+      {'root__TableBody__TableCell--rtl': locale.isRTL}
+    );
+
+    const nameContainerClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer',
+      {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
+    );
+
+    const imgCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__img',
+      {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
+    );
+
+    const inactiveChipCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__Chip',
+      {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
+    );
+
+    const buyContainer = classnamesjss(classes,
+      {'root__TableCell__buy-container--rtl': locale.isRTL}
+    );
+
     return this.state.displayedValuePairs.map((pair) => {
       const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell',
-        {'root__TableBody__TableCell--rtl': locale.isRTL}
-      );
-
-      const nameContainerClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer',
-        {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
-      );
-
       const nameCellClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
         {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
-      );
-
-      const imgCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__img',
-        {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
       );
 
       const icon = pair.baseCurrency.imageUrl ?
@@ -182,15 +191,6 @@ class CoinsTable extends Component {
         <span className={nameCellClass}>
           {pair.baseCurrency.displayName}
         </span>;
-
-      const inactiveChipCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__Chip',
-        {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
-      );
-
-      const buyContainer = classnamesjss(classes,
-        {'root__TableCell__buy-container--rtl': locale.isRTL}
-      );
 
       return (
         <TableRow hover={showRowHover} key={pair.rank}>
