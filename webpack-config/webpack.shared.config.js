@@ -206,8 +206,20 @@ config.plugins.push(new FaviconsWebpackPlugin({
 const versionDate = new Date().toString();
 
 // This is taken from the i18n.js file, when updated here it should also be updated there
-['he', 'en'].forEach((locale) => {
-  const localeFilePath = path.resolve(`./src/locale/${locale}.yml`);
+const locales = ['he', 'en'];
+const languages = [];
+
+locales.forEach((locale) => {
+  languages.push({
+    code: locale,
+    localeURL: locale === 'en' ? configFile.ORIGINS.COINS_HERO : configFile.ORIGINS.COINS_HERO + `/${locale}/`
+  });
+});
+
+const HreflangLinkTags = webpackUtils.buildHreflangLinkTags(languages);
+
+languages.forEach((language) => {
+  const localeFilePath = path.resolve(`./src/locale/${language.code}.yml`);
   const file = YAML.load(localeFilePath);
   const htmlConfig = {
     resourceHintsMetaTags,
@@ -216,15 +228,16 @@ const versionDate = new Date().toString();
     title: file.SITE_TITLE,
     description: file.SITE_DESCRIPTION,
     keywords: file.SITE_KEYWORDS,
-    locale: locale,
+    locale: language.code,
     canonicalURL: configFile.ORIGINS.COINS_HERO,
-    localeURL: locale === 'en' ? configFile.ORIGINS.COINS_HERO : configFile.ORIGINS.COINS_HERO + `/${locale}`,
+    localeURL: language.localeURL,
     template: indexHtmlPath,
-    favicon: srcPath + '/assets/favicons/coinshero-favicon.png'
+    favicon: srcPath + '/assets/favicons/coinshero-favicon.png',
+    HreflangLinkTags
   };
 
-  if (locale !== 'en') {
-    htmlConfig.filename = `${locale}/index.html`;
+  if (language.code !== 'en') {
+    htmlConfig.filename = `${language.code}/index.html`;
   }
 
   config.plugins.push(new HtmlWebpackPlugin(htmlConfig));
