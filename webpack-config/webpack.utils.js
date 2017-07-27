@@ -42,5 +42,10 @@ module.exports = {
 
       return tags + dnPrefetch + preconnect;
     }, '');
+  },
+  buildHreflangLinkTags(languages) {
+    return languages.reduce((tags, language) => {
+      return tags + `<link rel="alternate" href="${language.localeURL}" hreflang="${language.code}">\n`;
+    }, '');
   }
 };
