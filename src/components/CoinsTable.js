@@ -129,11 +129,18 @@ class CoinsTable extends Component {
       scrollTop: 0
     };
 
-    // TODO: Remove it upon distruction
-    document.getElementById('root').addEventListener('scroll', (event) => {
+    this.listeners = [];
+    const rootElement = document.getElementById('root');
+    const listenerScroll = rootElement.addEventListener('scroll', (event) => {
       this.setState({
         scrollTop: event.target.scrollTop
       });
+    });
+
+    this.listeners.push({
+      target: rootElement,
+      listener: listenerScroll,
+      type: 'scroll'
     });
 
     this._onRequestSort.bind(this);
@@ -257,6 +264,15 @@ class CoinsTable extends Component {
     }
 
     return rows;
+  }
+
+  componentWillUnmount() {
+    let currentListener;
+
+    for (let index = 0; index < this.listeners.length; index++) {
+      currentListener = this.listeners[index];
+      currentListener.target.removeEventListener(currentListener.type, currentListener.listener);
+    }
   }
 
   componentDidMount() {
