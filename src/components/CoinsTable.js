@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import config from 'config';
 import * as Immutable from 'seamless-immutable';
@@ -9,7 +10,7 @@ import Table, {
 } from 'material-ui/Table';
 import T from 'i18n-react';
 import {Paper, Chip, Button} from 'material-ui';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
+import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
 import grey from 'material-ui/colors/grey';
 import red from 'material-ui/colors/red';
 import green from 'material-ui/colors/green';
@@ -17,6 +18,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
+import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
 import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
@@ -117,14 +119,22 @@ const COLUMNS_IDS = {
 };
 
 class CoinsTable extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
-      displayedValuePairs: []
+      displayedValuePairs: [],
+      scrollTop: 0
     };
+
+    // TODO: Remove it upon distruction
+    document.getElementById('root').addEventListener('scroll', (event) => {
+      this.setState({
+        scrollTop: event.target.scrollTop
+      });
+    });
 
     this._onRequestSort.bind(this);
     this._getSortedTable.bind(this);
@@ -167,7 +177,23 @@ class CoinsTable extends Component {
       {'root__TableCell__buy-container--rtl': locale.isRTL}
     );
 
-    return this.state.displayedValuePairs.map((pair) => {
+    const rowHeight = this.props.rowHeight;
+    const numRows = this.props.valuePairs.length;
+    // const totalHeight = rowHeight * numRows;
+    const availableHeight = window.innerHeight;
+    const { scrollTop } = this.state;
+    const scrollTopInsideTable = Math.abs(scrollTop - this.state.tableOffset.top);
+    const scrollBottom = scrollTopInsideTable + availableHeight;
+
+    const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
+    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+
+    let index = startIndex;
+    let rows = [];
+
+    while (index < endIndex) {
+      const pair = this.props.valuePairs[index];
+
       const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
@@ -192,7 +218,7 @@ class CoinsTable extends Component {
           {pair.baseCurrency.displayName}
         </span>;
 
-      return (
+      rows.push(
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
@@ -226,6 +252,17 @@ class CoinsTable extends Component {
           </TableCell>
         </TableRow>
       );
+
+      index++;
+    }
+
+    return rows;
+  }
+
+  componentDidMount() {
+    this.setState({
+      // eslint-disable-next-line react/no-find-dom-node
+      tableOffset: this.tableNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.tableNode)) : {top: 0, left: 0}
     });
   }
 
@@ -300,7 +337,7 @@ class CoinsTable extends Component {
 
     return (
       <Paper className={this.props.classes.root} elevation={12}>
-        <Table>
+        <Table ref={(node) => this.tableNode = node}>
           <EnhancedTableHead
             columns={headerColumns}
             order={this.state.order}
@@ -322,16 +359,21 @@ CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
   showLoading: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }),
+  rowHeight: PropTypes.number,
+  scrollOffset: PropTypes.number
 };
 
 CoinsTable.defaultProps = {
   valuePairs: [],
-  showRowHover: true
+  showRowHover: true,
+  scrollOffset: 20,
+  rowHeight: 48
 };
 
-export default withStyles(styleSheet)(CoinsTable);
+export default withTheme(withStyles(styleSheet)(CoinsTable));
