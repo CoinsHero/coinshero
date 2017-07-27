@@ -185,10 +185,10 @@ class CoinsTable extends Component {
       {'root__TableCell__buy-container--rtl': locale.isRTL}
     );
 
-    let index = startIndex;
+    let index;
     let rows = [];
 
-    while (index < endIndex) {
+    for (index = startIndex; index < endIndex; index++) {
       const pair = this.props.valuePairs[index];
 
       const percentChange24hClasses = classnamesjss(classes,
@@ -249,8 +249,6 @@ class CoinsTable extends Component {
           </TableCell>
         </TableRow>
       );
-
-      index++;
     }
 
     return rows;
