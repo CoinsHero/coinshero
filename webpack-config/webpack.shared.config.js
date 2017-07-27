@@ -229,7 +229,6 @@ languages.forEach((language) => {
     description: file.SITE_DESCRIPTION,
     keywords: file.SITE_KEYWORDS,
     locale: language.code,
-    canonicalURL: configFile.ORIGINS.COINS_HERO,
     localeURL: language.localeURL,
     template: indexHtmlPath,
     favicon: srcPath + '/assets/favicons/coinshero-favicon.png',
