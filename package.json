@@ -18,7 +18,7 @@
     "build:production": "node_modules/.bin/cross-env NODE_ENV=production npm run build:environments",
     "build:production:stats": "node_modules/.bin/cross-env STATS=true npm run build:production",
     "aws:upload": "node --harmony ./scripts/awsUpload.js",
-    "aws:upload:production": "npm run setup:refresh && npm run build:production && node_modules/.bin/cross-env AWS_ENV=production npm run aws:upload"
+    "aws:upload:production": "npm run setup:refresh && npm run build:production && node_modules/.bin/cross-env AWS_ENV=PRODUCTION npm run aws:upload"
   },
   "repository": {
     "type": "git",
