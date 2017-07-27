@@ -126,7 +126,8 @@ class CoinsTable extends Component {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
       displayedValuePairs: [],
-      scrollTop: 0
+      scrollTop: 0,
+      tableOffset: {top: 0, left: 0}
     };
 
     this.listeners = [];
@@ -157,7 +158,7 @@ class CoinsTable extends Component {
       null;
   }
 
-  _renderRows() {
+  _renderRows(startIndex, endIndex) {
     const {classes, locale, showRowHover} = this.props;
 
     const tableBodyCellClass = classnamesjss(classes,
@@ -183,17 +184,6 @@ class CoinsTable extends Component {
     const buyContainer = classnamesjss(classes,
       {'root__TableCell__buy-container--rtl': locale.isRTL}
     );
-
-    const rowHeight = this.props.rowHeight;
-    const numRows = this.props.valuePairs.length;
-    // const totalHeight = rowHeight * numRows;
-    const availableHeight = window.innerHeight;
-    const { scrollTop } = this.state;
-    const scrollTopInsideTable = Math.abs(scrollTop - this.state.tableOffset.top);
-    const scrollBottom = scrollTopInsideTable + availableHeight;
-
-    const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
-    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
 
     let index = startIndex;
     let rows = [];
@@ -351,6 +341,17 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.BUY, label: ''}
     ];
 
+    const rowHeight = this.props.rowHeight;
+    const numRows = this.props.valuePairs.length;
+
+    const availableHeight = window.innerHeight;
+
+    const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top);
+    const scrollBottom = scrollTopInsideTable + availableHeight;
+
+    const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
+    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+
     return (
       <Paper className={this.props.classes.root} elevation={12}>
         <Table ref={(node) => this.tableNode = node}>
@@ -361,7 +362,7 @@ class CoinsTable extends Component {
             onRequestSort={this._onRequestSort.bind(this)}
             locale={this.props.locale} />
           <TableBody>
-            {!this.props.showLoading && this._renderRows()}
+            {!this.props.showLoading && this._renderRows(startIndex, endIndex)}
           </TableBody>
         </Table>
         {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}

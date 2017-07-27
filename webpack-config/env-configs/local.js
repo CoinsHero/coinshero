@@ -12,7 +12,7 @@ const config = {
   },
   SERVICES: {
     COINS_IO: {
-      COINS_DATA_API_INTERVAL: 1000 * 7
+      COINS_DATA_API_INTERVAL: 1000 * 1000
     },
     CRYPTO_COMPARE: {
       COINS_LIST_API_INTERVAL: 1000 * 60
