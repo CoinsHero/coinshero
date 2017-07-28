@@ -55,11 +55,12 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '2px 10px 2px 4px',
+
+    padding: `${theme.spacing.unit / 4}px ${theme.spacing.unit * 1.25}px ${theme.spacing.unit / 4}px ${theme.spacing.unit / 2}px`,
     cursor: 'pointer'
   },
   'root__ToolBar__DonateBar--rtl': {
-    padding: '2px 4px 2px 10px'
+    padding: `${theme.spacing.unit / 4}px ${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px ${theme.spacing.unit * 1.25}px`
   },
   'root__ToolBar__DonateBar--dark-theme': {
     background: `linear-gradient(to bottom, ${theme.palette.accent['A300']} 0%, #0a0a0a 100%)`,
