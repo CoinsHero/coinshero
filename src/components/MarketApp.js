@@ -3,6 +3,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import {connect} from 'react-redux';
+import debounce from 'lodash/debounce';
 import grey from 'material-ui/colors/grey';
 
 import localStorageSettings from '../helpers/localStorageSettings';
@@ -48,7 +49,7 @@ class MarketApp extends Component {
   constructor() {
     super();
 
-    this.handleScroll = this.handleScroll.bind(this);
+    this.handleScroll = debounce(this.handleScroll.bind(this), 300);
   }
 
   componentDidMount() {

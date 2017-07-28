@@ -154,16 +154,23 @@ class CoinsTable extends Component {
     const { scrollTop } = this.props;
 
     const { availableHeight } = this.state;
-    const scrollBottom = scrollTop + availableHeight;
+
+    //const scrollBottom = scrollTop + availableHeight;
     const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 20);
-    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20);
-    // const endIndex = startIndex + 20 + 20 + 20;
+    console.log(scrollTop, startIndex);
+    // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20);
+    const endIndex = startIndex + 20 + 20 + 20;
     const items = [];
 
     let index = startIndex;
+
     while (index < endIndex) {
-      items.push(this._renderRowAtIndex(index));
-      index++;
+      if (index < this.state.displayedValuePairs.length) {
+        items.push(this._renderRowAtIndex(index));
+        index++;
+      } else {
+        break;
+      }
     }
 
     return (
@@ -341,7 +348,7 @@ class CoinsTable extends Component {
             orderBy={this.state.orderBy}
             onRequestSort={this._onRequestSort.bind(this)}
             locale={this.props.locale} />
-          {!this.props.showLoading && this._renderRows(20, 10)}
+          {!this.props.showLoading && this._renderRows(20, 48)}
         </Table>
         {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}
         {this._renderEmptyState()}
