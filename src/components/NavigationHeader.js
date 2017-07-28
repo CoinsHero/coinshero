@@ -11,11 +11,13 @@ import classnamesjss from '../helpers/classnamesjss';
 
 import LanguageMenu from './LanguageMenu';
 
+let indicatorColor;
 const styleSheet = createStyleSheet('NavigationHeader', (theme) => {
-  const lightBackgroundColor = theme.palette.primary[300];
-  const lightColor = theme.palette.common.black;
+  const lightBackgroundColor = theme.palette.primary['A400'];
+  const lightColor = theme.palette.common.white;
   const colorBackgroundDark = theme.palette.accent['A400'];
   const colorDark = theme.palette.getContrastText(colorBackgroundDark);
+  indicatorColor = lightColor;
 
   return ({
     root: {
@@ -83,7 +85,7 @@ class NavigationHeader extends Component {
       <AppBar className={cx}>
         <div className={classes.root__appBar}>
           <Typography className={cxTitle} type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
-          <Tabs onChange={() => {}} index={0} className={classes.root__Tabs}>
+          <Tabs onChange={() => {}} index={0} className={classes.root__Tabs} indicatorColor={indicatorColor}>
             <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
           <Toolbar className={classes.root_ToolBox}>

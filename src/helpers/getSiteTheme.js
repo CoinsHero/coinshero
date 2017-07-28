@@ -1,5 +1,5 @@
 import { createMuiTheme } from 'material-ui/styles';
-import lightBlue from 'material-ui/colors/lightBlue';
+import blue from 'material-ui/colors/blue';
 import red from 'material-ui/colors/red';
 import pink from 'material-ui/colors/pink';
 import createPalette from 'material-ui/styles/palette';
@@ -8,7 +8,7 @@ const getSiteTheme = (options) => {
   const theme = createMuiTheme({
     direction: options.isRTL ? 'rtl' : 'ltr',
     palette: createPalette({
-      primary: lightBlue,
+      primary: blue,
       accent: {
         ...pink,
         A300: '#383838',
