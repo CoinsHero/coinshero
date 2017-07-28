@@ -55,7 +55,7 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '2px 4px',
+    padding: `${theme.spacing.unit / 4}px ${theme.spacing.unit / 2}px`,
     cursor: 'pointer'
   },
   'root__ToolBar__DonateBar--dark-theme': {
@@ -65,9 +65,9 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     }
   },
   root__ToolBar__DonateBar__Icon: {
-    height: '15px',
-    width: '15px',
-    marginRight: '5px'
+    height: theme.spacing.unit * 2,
+    width: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit / 2
   },
   'root__ToolBar__DonateBar__Icon--rtl': {
     marginLeft: theme.spacing.unit,
@@ -82,7 +82,7 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   'root__ToolBar__purchases-caption': {
     position: 'absolute',
     right: '0',
-    bottom: '5px'
+    bottom: (theme.spacing.unit / 2 ) + 1
   },
   'root__ToolBar__hidden-copy-button': {
     background: 'transparent',
