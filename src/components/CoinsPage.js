@@ -55,8 +55,11 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: `${theme.spacing.unit / 4}px ${theme.spacing.unit / 2}px`,
+    padding: '2px 10px 2px 4px',
     cursor: 'pointer'
+  },
+  'root__ToolBar__DonateBar--rtl': {
+    padding: '2px 4px 2px 10px'
   },
   'root__ToolBar__DonateBar--dark-theme': {
     background: `linear-gradient(to bottom, ${theme.palette.accent['A300']} 0%, #0a0a0a 100%)`,
@@ -67,7 +70,7 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root__ToolBar__DonateBar__Icon: {
     height: theme.spacing.unit * 2,
     width: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit / 2
+    marginRight: theme.spacing.unit
   },
   'root__ToolBar__DonateBar__Icon--rtl': {
     marginLeft: theme.spacing.unit,
@@ -82,6 +85,11 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   'root__ToolBar__purchases-caption': {
     position: 'absolute',
     right: '0',
+    bottom: (theme.spacing.unit / 2 ) + 1
+  },
+  'root__ToolBar__purchases-caption--rtl': {
+    position: 'absolute',
+    left: '0',
     bottom: (theme.spacing.unit / 2 ) + 1
   },
   'root__ToolBar__hidden-copy-button': {
@@ -167,7 +175,9 @@ class CoinsPage extends Component {
 
   renderDonations() {
     const isRTL = this.props.locale.isRTL;
-    const donateClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar');
+    const donateClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar', {
+      'root__ToolBar__DonateBar--rtl': isRTL
+    });
     const logoClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar__Icon', {
       'root__ToolBar__DonateBar__Icon--rtl': isRTL
     });
@@ -221,7 +231,10 @@ class CoinsPage extends Component {
   render() {
     const isRTL = this.props.locale.isRTL;
     const classes = this.props.classes;
-    const usdEUClass = classnamesjss(classes, 'root__ToolBar__purchases-caption');
+    const usdEUClass = classnamesjss(classes, {
+      'root__ToolBar__purchases-caption': !isRTL,
+      'root__ToolBar__purchases-caption--rtl': isRTL
+    });
     const snackbarClass = classnamesjss(classes, {
       'root__ToolBar__snackbar--rtl': isRTL
     });
