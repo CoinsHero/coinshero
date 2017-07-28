@@ -153,9 +153,9 @@ class CoinsTable extends Component {
   _renderRows(numRows, rowHeight) {
     const { scrollTop } = this.props;
 
-    const { availableHeight } = this.state;
+    // const { availableHeight } = this.state;
 
-    //const scrollBottom = scrollTop + availableHeight;
+    // const scrollBottom = scrollTop + availableHeight;
     const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 20);
     console.log(scrollTop, startIndex);
     // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20);
