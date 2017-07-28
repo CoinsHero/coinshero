@@ -63,11 +63,11 @@ class Site extends Component {
     props.setTargetCurrencyInStore(locale, targetCurrency);
   }
 
-  handleScroll(event){
-    console.log('ess')
-    //this.setState({
+  handleScroll(event) {
+    console.log('ess');
+    // this.setState({
     //  scrollTop: event.target.scrollTop
-    //})
+    // })
   }
 
   render() {

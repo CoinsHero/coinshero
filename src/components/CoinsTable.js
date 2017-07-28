@@ -136,7 +136,7 @@ class CoinsTable extends Component {
   componentDidMount() {
     this.setState({
       availableHeight: findDOMNode(this.node).clientHeight
-    })
+    });
   }
 
 
@@ -153,116 +153,114 @@ class CoinsTable extends Component {
   _renderRows(numRows, rowHeight) {
     const { scrollTop } = this.props;
 
-    const totalHeight = rowHeight * numRows
+    const { availableHeight } = this.state;
+    const scrollBottom = scrollTop + availableHeight;
+    const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 20);
+    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20);
+    // const endIndex = startIndex + 20 + 20 + 20;
+    const items = [];
 
-    const { availableHeight } = this.state
-    const scrollBottom = scrollTop + availableHeight
-    const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 20)
-    //const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20)
-    const endIndex = startIndex + 20 + 20 + 20;
-    const items = []
-
-    let index = startIndex
+    let index = startIndex;
     while (index < endIndex) {
-      items.push(this._renderRowAtIndex(index))
-      index++
+      items.push(this._renderRowAtIndex(index));
+      index++;
     }
 
     return (
       <TableBody>
-          {items}
+        {items}
       </TableBody>
-    )
+    );
   }
 
   _renderRowAtIndex(index) {
     const {classes, locale, showRowHover} = this.props;
 
     const pair = this.state.displayedValuePairs[index];
-    //return this.state.displayedValuePairs.map((pair) => {
-      const percentChange24hClasses = classnamesjss(classes,
-        'root__TableCell__percent-change-twenty-four-h',
-        {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
-      );
+    // return this.state.displayedValuePairs.map((pair) => {
+    const percentChange24hClasses = classnamesjss(classes,
+      'root__TableCell__percent-change-twenty-four-h',
+      {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
+    );
 
-      const tableBodyCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell',
-        {'root__TableBody__TableCell--rtl': locale.isRTL}
-      );
+    const tableBodyCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell',
+      {'root__TableBody__TableCell--rtl': locale.isRTL}
+    );
 
-      const nameContainerClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer',
-        {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
-      );
+    const nameContainerClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer',
+      {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
+    );
 
-      const nameCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__name',
-        {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
-      );
+    const nameCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__name',
+      {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
+    );
 
-      const imgCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__img',
-        {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
-      );
+    const imgCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__img',
+      {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
+    );
 
-      const icon = pair.baseCurrency.imageUrl ?
-        <img className={imgCellClass}
-          src={pair.baseCurrency.imageUrl}
-          alt={pair.baseCurrency.symbol} /> :
-        <MonetizationOn className={imgCellClass} />;
+    const icon = pair.baseCurrency.imageUrl ?
+      <img className={imgCellClass}
+        src={pair.baseCurrency.imageUrl}
+        alt={pair.baseCurrency.symbol} /> :
+      <MonetizationOn className={imgCellClass} />;
 
-      const name = pair.baseCurrency.officialUrl ?
-        <a href={pair.baseCurrency.officialUrl} rel="noopener noreferrer" target="_blank" className={nameCellClass}>
-          {pair.baseCurrency.displayName}
-        </a> :
-        <span className={nameCellClass}>
-          {pair.baseCurrency.displayName}
-        </span>;
+    const name = pair.baseCurrency.officialUrl ?
+      <a href={pair.baseCurrency.officialUrl} rel="noopener noreferrer" target="_blank" className={nameCellClass}>
+        {pair.baseCurrency.displayName}
+      </a> :
+      <span className={nameCellClass}>
+        {pair.baseCurrency.displayName}
+      </span>;
 
-      const inactiveChipCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__Chip',
-        {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
-      );
+    const inactiveChipCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__Chip',
+      {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
+    );
 
-      const buyContainer = classnamesjss(classes,
-        {'root__TableCell__buy-container--rtl': locale.isRTL}
-      );
+    const buyContainer = classnamesjss(classes,
+      {'root__TableCell__buy-container--rtl': locale.isRTL}
+    );
 
-      return (
-        <TableRow hover={showRowHover} key={pair.rank}>
-          <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
-          <TableCell className={tableBodyCellClass}>
-            <div className={nameContainerClass}>
-              {icon}
-              {name}
-            </div>
-          </TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
-          <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
-          <TableCell className={tableBodyCellClass}>
-            <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
-          </TableCell>
-          <TableCell className={tableBodyCellClass}>
-            <div className={buyContainer}>
-              {
-                pair.baseCurrency.status !== COIN_STATUSES.INACTIVE ?
-                  <Button
-                    raised
-                    color="primary"
-                    target="_blank"
-                    className={classes['root__TableCell__buy-container__buy-button']}
-                    href={`${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}`}>
-                    { T.translate('TABLE_BUY_BUTTON')}
-                  </Button> :
-                  <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} />
-              }
-            </div>
-          </TableCell>
-        </TableRow>
-      );
-    //});
+    return (
+      <TableRow hover={showRowHover} key={pair.rank}>
+        <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
+        <TableCell className={tableBodyCellClass}>
+          <div className={nameContainerClass}>
+            {icon}
+            {name}
+          </div>
+        </TableCell>
+        <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
+        <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
+        <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
+        <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
+        <TableCell className={tableBodyCellClass}>
+          <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
+        </TableCell>
+        <TableCell className={tableBodyCellClass}>
+          <div className={buyContainer}>
+            {
+              pair.baseCurrency.status !== COIN_STATUSES.INACTIVE ?
+                <Button
+                  raised
+                  color="primary"
+                  target="_blank"
+                  className={classes['root__TableCell__buy-container__buy-button']}
+                  href={`${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}`}>
+                  { T.translate('TABLE_BUY_BUTTON')}
+                </Button> :
+                <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} />
+            }
+          </div>
+        </TableCell>
+      </TableRow>
+    );
+    // });
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -335,7 +333,7 @@ class CoinsTable extends Component {
     ];
 
     return (
-      <Paper className={this.props.classes.root} elevation={12} ref={node => this.node = node}>
+      <Paper className={this.props.classes.root} elevation={12} ref={(node) => this.node = node}>
         <Table>
           <EnhancedTableHead
             columns={headerColumns}
@@ -343,7 +341,7 @@ class CoinsTable extends Component {
             orderBy={this.state.orderBy}
             onRequestSort={this._onRequestSort.bind(this)}
             locale={this.props.locale} />
-            {!this.props.showLoading && this._renderRows(20, 10)}
+          {!this.props.showLoading && this._renderRows(20, 10)}
         </Table>
         {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}
         {this._renderEmptyState()}

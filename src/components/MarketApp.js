@@ -69,7 +69,6 @@ class MarketApp extends Component {
   }
 
 
-
   render() {
     const classes = this.props.classes;
     const cx = classnamesjss(classes,
@@ -105,6 +104,7 @@ const mapStateToProps = (state) => ({
 
 MarketApp.propTypes = {
   setDarkThemeInStore: PropTypes.func.isRequired,
+  setScrollTop: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
