@@ -63,11 +63,18 @@ class Site extends Component {
     props.setTargetCurrencyInStore(locale, targetCurrency);
   }
 
+  handleScroll(event){
+    console.log('ess')
+    //this.setState({
+    //  scrollTop: event.target.scrollTop
+    //})
+  }
+
   render() {
     const isRTL = this.props.locale.isRTL;
 
     return (
-      <MuiThemeProvider theme={getSiteTheme({isRTL, isDarkTheme: this.props.isDarkTheme})}>
+      <MuiThemeProvider theme={getSiteTheme({isRTL, isDarkTheme: this.props.isDarkTheme})} onScroll={() => this.handleScroll()}>
         <MarketApp locale={this.props.locale}/>
       </MuiThemeProvider>
     );

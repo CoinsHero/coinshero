@@ -7,6 +7,7 @@ import grey from 'material-ui/colors/grey';
 
 import localStorageSettings from '../helpers/localStorageSettings';
 import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
+import {setScrollTop} from '../redux/actions/utilActions.js';
 import NavigationHeader from './NavigationHeader';
 import CoinsPage from './CoinsPage';
 import Services from '../services/services';
@@ -46,12 +47,28 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
 class MarketApp extends Component {
   constructor() {
     super();
+
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    this.props.setScrollTop(event.target.scrollingElement.scrollTop);
   }
 
   _onThemeClick() {
     this.props.setDarkThemeInStore(!this.props.isDarkTheme);
     localStorageSettings.setItem(localStorageSettings.KEYS.isDarkTheme, !this.props.isDarkTheme);
   }
+
+
 
   render() {
     const classes = this.props.classes;
@@ -101,4 +118,4 @@ MarketApp.propTypes = {
   isRegularCurrenciesFetched: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(MarketApp));
+export default connect(mapStateToProps, {setDarkThemeInStore, setScrollTop})(withStyles(styleSheet)(MarketApp));

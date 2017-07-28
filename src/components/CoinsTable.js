@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {findDOMNode} from 'react-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import config from 'config';
 import * as Immutable from 'seamless-immutable';
@@ -123,12 +125,20 @@ class CoinsTable extends Component {
     this.state = {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
-      displayedValuePairs: []
+      displayedValuePairs: [],
+      availableHeight: 0
     };
 
     this._onRequestSort.bind(this);
     this._getSortedTable.bind(this);
   }
+
+  componentDidMount() {
+    this.setState({
+      availableHeight: findDOMNode(this.node).clientHeight
+    })
+  }
+
 
   _renderEmptyState() {
     const showEmptyState = !this.props.showLoading && this.props.valuePairs.length === 0;
@@ -140,10 +150,36 @@ class CoinsTable extends Component {
       null;
   }
 
-  _renderRows() {
+  _renderRows(numRows, rowHeight) {
+    const { scrollTop } = this.props;
+
+    const totalHeight = rowHeight * numRows
+
+    const { availableHeight } = this.state
+    const scrollBottom = scrollTop + availableHeight
+    const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 20)
+    //const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 20)
+    const endIndex = startIndex + 20 + 20 + 20;
+    const items = []
+
+    let index = startIndex
+    while (index < endIndex) {
+      items.push(this._renderRowAtIndex(index))
+      index++
+    }
+
+    return (
+      <TableBody>
+          {items}
+      </TableBody>
+    )
+  }
+
+  _renderRowAtIndex(index) {
     const {classes, locale, showRowHover} = this.props;
 
-    return this.state.displayedValuePairs.map((pair) => {
+    const pair = this.state.displayedValuePairs[index];
+    //return this.state.displayedValuePairs.map((pair) => {
       const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
@@ -226,7 +262,7 @@ class CoinsTable extends Component {
           </TableCell>
         </TableRow>
       );
-    });
+    //});
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -299,7 +335,7 @@ class CoinsTable extends Component {
     ];
 
     return (
-      <Paper className={this.props.classes.root} elevation={12}>
+      <Paper className={this.props.classes.root} elevation={12} ref={node => this.node = node}>
         <Table>
           <EnhancedTableHead
             columns={headerColumns}
@@ -307,9 +343,7 @@ class CoinsTable extends Component {
             orderBy={this.state.orderBy}
             onRequestSort={this._onRequestSort.bind(this)}
             locale={this.props.locale} />
-          <TableBody>
-            {!this.props.showLoading && this._renderRows()}
-          </TableBody>
+            {!this.props.showLoading && this._renderRows(20, 10)}
         </Table>
         {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}
         {this._renderEmptyState()}
@@ -326,7 +360,8 @@ CoinsTable.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }),
+  scrollTop: PropTypes.number
 };
 
 CoinsTable.defaultProps = {
@@ -334,4 +369,8 @@ CoinsTable.defaultProps = {
   showRowHover: true
 };
 
-export default withStyles(styleSheet)(CoinsTable);
+const mapStateToProps = (state) => ({
+  scrollTop: state.site.scrollTop
+});
+
+export default connect(mapStateToProps)(withStyles(styleSheet)(CoinsTable));
