@@ -127,7 +127,7 @@ class CoinsTable extends Component {
       orderBy: COLUMNS_IDS.MARKET_CAP,
       displayedValuePairs: [],
       scrollTop: 0,
-      tableOffset: {top: 0, left: 0}
+      paperOffset: {top: 0, left: 0}
     };
 
     this.listeners = [];
@@ -158,7 +158,9 @@ class CoinsTable extends Component {
   }
 
   _renderRows(startIndex, endIndex) {
-    console.log(`Start index: ${startIndex}, End index: ${endIndex}, scrollTop: ${this.state.scrollTop}, tableOffset: ${this.state.tableOffset.top}`);
+    // TODO: Delete me
+    console.log(`Start index: ${startIndex}, End index: ${endIndex}, scrollTop: ${this.state.scrollTop},
+    rows: ${document.getElementsByTagName('tr').length - 1}`);
 
     const {classes, locale, showRowHover} = this.props;
 
@@ -267,7 +269,7 @@ class CoinsTable extends Component {
   componentDidMount() {
     this.setState({
       // eslint-disable-next-line react/no-find-dom-node
-      tableOffset: this.tableNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.tableNode)) : {top: 0, left: 0}
+      paperOffset: this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0}
     });
   }
 
@@ -341,7 +343,6 @@ class CoinsTable extends Component {
     ];
 
     let paperVirtualScrollStyle;
-    let tableVirtualScrollStyle;
     let startIndex = 0;
     let endIndex = 0;
 
@@ -349,39 +350,22 @@ class CoinsTable extends Component {
       const rowHeight = this.props.rowHeight;
       const numRows = this.props.valuePairs.length;
 
-      // +1 for the header row
-      // const totalHeight = (numRows + 1) * rowHeight;
+      // +2 for the header row which is bigger
+      const totalHeight = (numRows + 2) * rowHeight;
+      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.paperOffset.top);
 
-      // const availableHeight = window.innerHeight;
+      const scrollBottom = scrollTopInsideTable + window.innerHeight;
 
-      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top);
-      const percFromHeight = scrollTopInsideTable / Math.ceil(rowHeight * numRows);
-      const percLocationInRows = Math.floor(percFromHeight * numRows);
+      startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
+      endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
 
-      // TODO: Move to shouldComponentUpdate??
-      if (numRows <= this.props.scrollOffset) {
-        startIndex = 0;
-      } else {
-        startIndex = Math.max(0, percLocationInRows - this.props.scrollOffset);
-
-        // So we won't pass the number of rows for the start index
-        startIndex = Math.min(numRows - this.props.scrollOffset, startIndex);
-      }
-
-      endIndex = Math.min(numRows, percLocationInRows + this.props.scrollOffset);
-
-      // const scrollBottom = scrollTopInsideTable + availableHeight;
-
-      // const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
-      // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
-
-      paperVirtualScrollStyle = { paddingTop: (startIndex * rowHeight) };
-      tableVirtualScrollStyle = { paddingTop: (startIndex * rowHeight) };
+      const paddingTop = startIndex * rowHeight;
+      paperVirtualScrollStyle = { paddingTop, pointerEvents: 'none', height: totalHeight - paddingTop, maxHeight: totalHeight };
     }
 
     return (
-      <Paper style={paperVirtualScrollStyle} className={this.props.classes.root} elevation={12}>
-        <Table style={tableVirtualScrollStyle} ref={(node) => this.tableNode = node}>
+      <Paper ref={(node) => this.paperNode = node} style={paperVirtualScrollStyle} className={this.props.classes.root} elevation={12}>
+        <Table>
           <EnhancedTableHead
             columns={headerColumns}
             order={this.state.order}
@@ -416,7 +400,7 @@ CoinsTable.propTypes = {
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
-  scrollOffset: 35,
+  scrollOffset: 50,
   rowHeight: 48
 };
 
