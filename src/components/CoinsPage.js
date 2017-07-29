@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { Toolbar, Typography, Button } from 'material-ui';
 import T from 'i18n-react';
-import ClipboardButton from 'react-clipboard.js';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 import config from 'config';
 import classnamesjss from '../helpers/classnamesjss';
@@ -93,14 +93,11 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     left: '0',
     bottom: (theme.spacing.unit / 2 ) + 1
   },
-  'root__ToolBar__hidden-copy-button': {
-    background: 'transparent',
-    border: 'none',
-    outline: 'none',
-    padding: 0,
+  root__ToolBar__CopyButton: {
+    padding: theme.spacing.unit,
     marginLeft: theme.spacing.unit
   },
-  'root__ToolBar__hidden-copy-button--rtl': {
+  'root__ToolBar__CopyButton--rtl': {
     marginLeft: 0,
     marginRight: theme.spacing.unit
   }
@@ -182,49 +179,55 @@ class CoinsPage extends Component {
     const logoClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar__Icon', {
       'root__ToolBar__DonateBar__Icon--rtl': isRTL
     });
-    const copyButton = classnamesjss(this.props.classes, 'root__ToolBar__hidden-copy-button', {
-      'root__ToolBar__hidden-copy-button--rtl': isRTL
+    const copyButton = classnamesjss(this.props.classes, 'root__ToolBar__CopyButton', {
+      'root__ToolBar__CopyButton--rtl': isRTL
     });
     const donationsBar = classnamesjss(this.props.classes, 'root__DonationsBar');
 
+    const donations = [
+      {
+        donateSnackBarText: T.translate('DONATE_TEXT', { address: config.DONATION.BITCOIN, coin: 'Bitcoin' }),
+        copyValue: config.DONATION.BITCOIN,
+        buttonText: T.translate('DONATE_BITCOIN'),
+        ariaText: 'donate-bitcoin',
+        srcURL: BitcoinLogo
+      },
+      {
+        donateSnackBarText: T.translate('DONATE_TEXT', { address: config.DONATION.ETHEREUM, coin: 'Ethereum' }),
+        copyValue: config.DONATION.ETHEREUM,
+        buttonText: T.translate('DONATE_ETHEREUM'),
+        ariaText: 'donate-ethereum',
+        srcURL: EthereumLogo
+      },
+      {
+        donateSnackBarText: T.translate('DONATE_TEXT', { address: config.DONATION.LITECOIN, coin: 'Litecoin' }),
+        copyValue: config.DONATION.LITECOIN,
+        buttonText: T.translate('DONATE_LITECOIN'),
+        ariaText: 'donate-litecoin',
+        srcURL: LitecoinLogo
+      }
+    ];
+
     return (
       <div className={donationsBar}>
-        <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.BITCOIN }
-          onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.BITCOIN, coin: 'Bitcoin' })) }>
-          <Button
-            raised
-            color="primary"
-            className={donateClass}
-            aria-owns={'donate-bitcoin'}
-            aria-haspopup="true">
-            <img src={ BitcoinLogo } className={logoClass} />
-            { T.translate('DONATE_BITCOIN') }
-          </Button>
-        </ClipboardButton>
-        <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.ETHEREUM }
-          onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.ETHEREUM, coin: 'Ethereum' })) }>
-          <Button
-            raised
-            color="primary"
-            className={donateClass}
-            aria-owns={'donate-ethereum'}
-            aria-haspopup="true">
-            <img src={ EthereumLogo } className={logoClass} />
-            { T.translate('DONATE_ETHEREUM') }
-          </Button>
-        </ClipboardButton>
-        <ClipboardButton className={ copyButton } data-clipboard-text={ config.DONATION.LITECOIN }
-          onClick={ () => this.donate(T.translate('DONATE_TEXT', { address: config.DONATION.LITECOIN, coin: 'Litecoin' })) }>
-          <Button
-            raised
-            color="primary"
-            className={donateClass}
-            aria-owns={'donate-litecoin'}
-            aria-haspopup="true">
-            <img src={ LitecoinLogo } className={logoClass} />
-            { T.translate('DONATE_LITECOIN') }
-          </Button>
-        </ClipboardButton>
+        {
+          donations.map((donation, index) => {
+            return (
+              <CopyToClipboard key={index} text={donation.copyValue} className={ copyButton }
+                onCopy={() => this.donate(donation.donateSnackBarText)}>
+                <Button
+                  raised
+                  color="primary"
+                  className={donateClass}
+                  aria-owns={donation.ariaText}
+                  aria-haspopup="true">
+                  <img src={ donation.srcURL } className={logoClass} />
+                  { donation.buttonText }
+                </Button>
+              </CopyToClipboard>
+            );
+          })
+        }
       </div>
     );
   }
