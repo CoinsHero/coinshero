@@ -39,7 +39,7 @@
     "prop-types": "15.5.10",
     "pseudo-worker": "1.1.1",
     "react": "15.6.1",
-    "react-clipboard.js": "1.1.2",
+    "react-copy-to-clipboard": "^5.0.0",
     "react-dom": "15.6.1",
     "react-ga": "2.2.0",
     "react-load-script": "0.0.6",
