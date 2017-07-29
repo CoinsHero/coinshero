@@ -289,7 +289,17 @@ class CoinsTable extends Component {
   }
 
   _getSortedTable(order, orderBy, values) {
-    return Immutable.from([].concat(values).sort((a, b) => {
+    const badValues = [];
+    const filteredValues = [].concat(values).filter((value) => {
+      if (value[orderBy] === NO_VALUE_DATA_SYMBOL) {
+        badValues.push(value);
+        return false;
+      }
+
+      return true;
+    });
+
+    filteredValues.sort((a, b) => {
       let aValue = a[orderBy];
       let bValue = b[orderBy];
       const EMPTY_VALUE = -999;
@@ -317,7 +327,9 @@ class CoinsTable extends Component {
       }
 
       return 0;
-    }));
+    });
+
+    return Immutable.from(filteredValues.concat(badValues));
   }
 
   _onRequestSort(event, columnId) {

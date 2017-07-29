@@ -138,8 +138,26 @@ const CoinsReducer = (state = initialState, action) => {
       }
     }
 
-    for (index = 0, rankIndex = coins.length; index < unSortedCoins.length; index++, rankIndex++) {
-      const pair = ValuePair.parse(unSortedCoins[index], action.meta.locale, rankIndex + 1, state.targetCurrency);
+    /**
+     * Fix sorting & rank due to stupid API
+     */
+    coins.sort((a, b) => {
+      if (b.marketCap > a.marketCap) {
+        return 1;
+      } else if (a.marketCap > b.marketCap) {
+        return -1;
+      }
+
+      return 0;
+    });
+
+    const sortedCoinsLength = coins.length;
+    for (rankIndex = 0; rankIndex < sortedCoinsLength; rankIndex++) {
+      coins[rankIndex].rank = rankIndex + 1;
+    }
+
+    for (let unsortedIndex = 0, rankIndex = coins.length; unsortedIndex < unSortedCoins.length; unsortedIndex++, rankIndex++) {
+      const pair = ValuePair.parse(unSortedCoins[unsortedIndex], action.meta.locale, rankIndex + 1, state.targetCurrency);
       coins.push(pair);
 
       updateTargetCurrenciesFromPair(pair);
