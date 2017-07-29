@@ -17,6 +17,7 @@ import green from 'material-ui/colors/green';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
+import {debounce} from 'lodash';
 
 import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
@@ -131,11 +132,11 @@ class CoinsTable extends Component {
     };
 
     this.listeners = [];
-    const listenerScroll = window.addEventListener('scroll', (event) => {
+    const listenerScroll = window.addEventListener('scroll', debounce((event) => {
       this.setState({
         scrollTop: event.target.scrollingElement.scrollTop
       });
-    });
+    }, 30));
 
     this.listeners.push({
       target: window,
@@ -345,13 +346,13 @@ class CoinsTable extends Component {
     let paperVirtualScrollStyle;
     let startIndex = 0;
     let endIndex = 0;
+    const numRows = this.props.valuePairs.length;
 
-    if (!this.props.showLoading) {
+    if (!this.props.showLoading && numRows > 0) {
       const rowHeight = this.props.rowHeight;
-      const numRows = this.props.valuePairs.length;
 
-      // +2 for the header row which is bigger
-      const totalHeight = (numRows + 2) * rowHeight;
+      // +1.4 for the header row which is bigger
+      const totalHeight = (numRows + 1.4) * rowHeight;
       const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.paperOffset.top);
 
       const scrollBottom = scrollTopInsideTable + window.innerHeight;
@@ -400,7 +401,7 @@ CoinsTable.propTypes = {
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
-  scrollOffset: 50,
+  scrollOffset: 40,
   rowHeight: 48
 };
 
