@@ -17,7 +17,6 @@ import green from 'material-ui/colors/green';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
-import {debounce} from 'lodash';
 
 import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
@@ -120,7 +119,7 @@ const COLUMNS_IDS = {
 };
 
 class CoinsTable extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -132,11 +131,16 @@ class CoinsTable extends Component {
     };
 
     this.listeners = [];
-    const listenerScroll = window.addEventListener('scroll', debounce((event) => {
-      this.setState({
-        scrollTop: event.target.scrollingElement.scrollTop
-      });
-    }, 30));
+    const listenerScroll = window.addEventListener('scroll', (event) => {
+      // The bigger the factor the fewer renders will be happening
+      const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
+
+      if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
+        this.setState({
+          scrollTop: event.target.scrollingElement.scrollTop
+        });
+      }
+    });
 
     this.listeners.push({
       target: window,
