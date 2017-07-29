@@ -72,7 +72,7 @@ const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
       fontSize: theme.typography.body2.fontSize,
       fontWeight: theme.typography.body2.fontWeight
     },
-    maxWidth: theme.spacing.unit * 12
+    maxWidth: theme.spacing.unit * 17
   },
   root__TableBody__TableCell__displayedNameContainer__img: {
     height: theme.spacing.unit * 3,
