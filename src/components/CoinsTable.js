@@ -119,7 +119,7 @@ const COLUMNS_IDS = {
 };
 
 class CoinsTable extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
