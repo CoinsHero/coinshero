@@ -10,7 +10,7 @@ import Table, {
 } from 'material-ui/Table';
 import T from 'i18n-react';
 import {Paper, Chip, Button} from 'material-ui';
-import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
 import grey from 'material-ui/colors/grey';
 import red from 'material-ui/colors/red';
 import green from 'material-ui/colors/green';
@@ -352,6 +352,7 @@ class CoinsTable extends Component {
     let endIndex = 0;
     const numRows = this.props.valuePairs.length;
 
+    // There are rows to display
     if (!this.props.showLoading && numRows > 0) {
       const rowHeight = this.props.rowHeight;
 
@@ -392,7 +393,6 @@ CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
   showLoading: PropTypes.bool.isRequired,
   locale: PropTypes.shape({
     code: PropTypes.string,
@@ -410,4 +410,4 @@ CoinsTable.defaultProps = {
   rowHeight: 48
 };
 
-export default withTheme(withStyles(styleSheet)(CoinsTable));
+export default withStyles(styleSheet)(CoinsTable);
