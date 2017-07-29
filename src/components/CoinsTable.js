@@ -17,6 +17,7 @@ import green from 'material-ui/colors/green';
 import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
+import debounce from 'lodash/debounce';
 
 import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
@@ -132,11 +133,14 @@ class CoinsTable extends Component {
 
     this.listeners = [];
     const rootElement = document.getElementById('root');
-    const listenerScroll = rootElement.addEventListener('scroll', (event) => {
+
+    const scrollHandler = debounce((event) => {
       this.setState({
         scrollTop: event.target.scrollTop
       });
-    });
+    }, 0);
+
+    const listenerScroll = rootElement.addEventListener('scroll', scrollHandler);
 
     this.listeners.push({
       target: rootElement,
@@ -159,6 +163,8 @@ class CoinsTable extends Component {
   }
 
   _renderRows(startIndex, endIndex) {
+    console.log(`Start index: ${startIndex}, End index: ${endIndex}, scrollTop: ${this.state.scrollTop}, tableOffset: ${this.state.tableOffset.top}`);
+
     const {classes, locale, showRowHover} = this.props;
 
     const tableBodyCellClass = classnamesjss(classes,
@@ -339,19 +345,33 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.BUY, label: ''}
     ];
 
-    const rowHeight = this.props.rowHeight;
-    const numRows = this.props.valuePairs.length;
+    let paperVirtualScrollStyle;
+    let startIndex = 0;
+    let endIndex = 0;
 
-    const availableHeight = window.innerHeight;
+    if (!this.props.showLoading) {
+      const rowHeight = this.props.rowHeight;
+      const numRows = this.props.valuePairs.length;
+      const totalHeight = numRows * rowHeight;
 
-    const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top);
-    const scrollBottom = scrollTopInsideTable + availableHeight;
+      // const availableHeight = window.innerHeight;
 
-    const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
-    const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top + this.props.scrollOffset);
+      const percFromHeight = scrollTopInsideTable / Math.ceil(rowHeight * numRows);
+
+      startIndex = Math.max(0, Math.floor(percFromHeight * numRows) - this.props.scrollOffset);
+      endIndex = Math.min(numRows, Math.floor(percFromHeight * numRows) + (this.props.scrollOffset * 2));
+
+      // const scrollBottom = scrollTopInsideTable + availableHeight;
+
+      // const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
+      // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+
+      paperVirtualScrollStyle = { paddingTop: (startIndex * rowHeight), pointerEvents: 'none', height: totalHeight };
+    }
 
     return (
-      <Paper className={this.props.classes.root} elevation={12}>
+      <Paper style={paperVirtualScrollStyle} className={this.props.classes.root} elevation={12}>
         <Table ref={(node) => this.tableNode = node}>
           <EnhancedTableHead
             columns={headerColumns}
