@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import config from 'config';
 import * as Immutable from 'seamless-immutable';
@@ -17,6 +18,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
+import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
 import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
@@ -117,14 +119,37 @@ const COLUMNS_IDS = {
 };
 
 class CoinsTable extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
-      displayedValuePairs: []
+      displayedValuePairs: [],
+      scrollTop: 0,
+      paperOffset: {top: 0, left: 0}
     };
+
+    this.listeners = [];
+
+    if (props.virtualScrollEnabled) {
+      const listenerScroll = window.addEventListener('scroll', (event) => {
+        // The bigger the factor the fewer renders will be happening
+        const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
+
+        if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
+          this.setState({
+            scrollTop: event.target.scrollingElement.scrollTop
+          });
+        }
+      });
+
+      this.listeners.push({
+        target: window,
+        listener: listenerScroll,
+        type: 'scroll'
+      });
+    }
 
     this._onRequestSort.bind(this);
     this._getSortedTable.bind(this);
@@ -140,33 +165,47 @@ class CoinsTable extends Component {
       null;
   }
 
-  _renderRows() {
+  _renderRows(startIndex, endIndex) {
     const {classes, locale, showRowHover} = this.props;
 
-    return this.state.displayedValuePairs.map((pair) => {
+    const tableBodyCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell',
+      {'root__TableBody__TableCell--rtl': locale.isRTL}
+    );
+
+    const nameContainerClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer',
+      {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
+    );
+
+    const imgCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__img',
+      {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
+    );
+
+    const inactiveChipCellClass = classnamesjss(classes,
+      'root__TableBody__TableCell__displayedNameContainer__Chip',
+      {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
+    );
+
+    const buyContainer = classnamesjss(classes,
+      {'root__TableCell__buy-container--rtl': locale.isRTL}
+    );
+
+    let index;
+    let rows = [];
+
+    for (index = startIndex; index < endIndex; index++) {
+      const pair = this.props.valuePairs[index];
+
       const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
         {'root__TableCell__percent-change-twenty-four-h--negative': pair.percentChange24h < 0}
       );
 
-      const tableBodyCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell',
-        {'root__TableBody__TableCell--rtl': locale.isRTL}
-      );
-
-      const nameContainerClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer',
-        {'root__TableBody__TableCell__displayedNameContainer--rtl': locale.isRTL}
-      );
-
       const nameCellClass = classnamesjss(classes,
         'root__TableBody__TableCell__displayedNameContainer__name',
         {'root__TableBody__TableCell__displayedNameContainer__name--link': pair.baseCurrency.officialUrl}
-      );
-
-      const imgCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__img',
-        {'root__TableBody__TableCell__displayedNameContainer__img--rtl': locale.isRTL}
       );
 
       const icon = pair.baseCurrency.imageUrl ?
@@ -183,16 +222,7 @@ class CoinsTable extends Component {
           {pair.baseCurrency.displayName}
         </span>;
 
-      const inactiveChipCellClass = classnamesjss(classes,
-        'root__TableBody__TableCell__displayedNameContainer__Chip',
-        {'root__TableBody__TableCell__displayedNameContainer__Chip--rtl': locale.isRTL}
-      );
-
-      const buyContainer = classnamesjss(classes,
-        {'root__TableCell__buy-container--rtl': locale.isRTL}
-      );
-
-      return (
+      rows.push(
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
           <TableCell className={tableBodyCellClass}>
@@ -226,7 +256,27 @@ class CoinsTable extends Component {
           </TableCell>
         </TableRow>
       );
-    });
+    }
+
+    return rows;
+  }
+
+  componentWillUnmount() {
+    let currentListener;
+
+    for (let index = 0; index < this.listeners.length; index++) {
+      currentListener = this.listeners[index];
+      currentListener.target.removeEventListener(currentListener.type, currentListener.listener);
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.virtualScrollEnabled) {
+      this.setState({
+        // eslint-disable-next-line react/no-find-dom-node
+        paperOffset: this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0}
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -298,8 +348,33 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.BUY, label: ''}
     ];
 
+    let paperVirtualScrollStyle;
+    let startIndex = 0;
+    const numRows = this.props.valuePairs.length;
+    let endIndex = numRows;
+
+    // If virtual scroll enable d+ we have rows to show
+    const isVirtualScrollEnabled = this.props.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
+
+    // There are rows to display
+    if (isVirtualScrollEnabled) {
+      const rowHeight = this.props.rowHeight;
+
+      // +1.4 for the header row which is bigger
+      const totalHeight = (numRows + 1.4) * rowHeight;
+      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.paperOffset.top);
+
+      const scrollBottom = scrollTopInsideTable + window.innerHeight;
+
+      startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
+      endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+
+      const paddingTop = startIndex * rowHeight;
+      paperVirtualScrollStyle = { paddingTop, height: totalHeight - paddingTop, maxHeight: totalHeight };
+    }
+
     return (
-      <Paper className={this.props.classes.root} elevation={12}>
+      <Paper ref={(node) => this.paperNode = node} style={paperVirtualScrollStyle} className={this.props.classes.root} elevation={12}>
         <Table>
           <EnhancedTableHead
             columns={headerColumns}
@@ -308,7 +383,7 @@ class CoinsTable extends Component {
             onRequestSort={this._onRequestSort.bind(this)}
             locale={this.props.locale} />
           <TableBody>
-            {!this.props.showLoading && this._renderRows()}
+            {!this.props.showLoading && this._renderRows(startIndex, endIndex)}
           </TableBody>
         </Table>
         {this.props.showLoading && <div className={this.props.classes.root__loader}><CircularIndeterminate /></div>}
@@ -326,12 +401,20 @@ CoinsTable.propTypes = {
   locale: PropTypes.shape({
     code: PropTypes.string,
     isRTL: PropTypes.bool
-  })
+  }),
+  rowHeight: PropTypes.number,
+  scrollOffset: PropTypes.number,
+  virtualScrollEnabled: PropTypes.bool
 };
 
 CoinsTable.defaultProps = {
   valuePairs: [],
-  showRowHover: true
+  showRowHover: true,
+  // TODO: when developing breakpoints it ('scrollOffset)' should be set to 20 on small screens
+  scrollOffset: 55,
+  rowHeight: 48,
+  // TODO: when developing breakpoints MAYBE it should be set to false on big screens (in the CoinsPage.js)
+  virtualScrollEnabled: true
 };
 
 export default withStyles(styleSheet)(CoinsTable);
