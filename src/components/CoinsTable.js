@@ -352,27 +352,28 @@ class CoinsTable extends Component {
     if (!this.props.showLoading) {
       const rowHeight = this.props.rowHeight;
       const numRows = this.props.valuePairs.length;
+      const scrollOffset = this.props.scrollOffset >= numRows ? 0 : this.props.scrollOffset / 2;
 
       // +1 for the header row
       // const totalHeight = (numRows + 1) * rowHeight;
 
       // const availableHeight = window.innerHeight;
 
-      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top + this.props.scrollOffset);
+      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.state.tableOffset.top);
       const percFromHeight = scrollTopInsideTable / Math.ceil(rowHeight * numRows);
       const percLocationInRows = Math.floor(percFromHeight * numRows);
 
       // TODO: Move to shouldComponentUpdate??
-      startIndex = Math.min(numRows - this.props.scrollOffset, Math.max(0, percLocationInRows - this.props.scrollOffset));
-      endIndex = Math.min(numRows, percLocationInRows + (this.props.scrollOffset));
+      startIndex = Math.min(numRows - scrollOffset, Math.max(0, percLocationInRows - scrollOffset));
+      endIndex = Math.min(numRows, percLocationInRows + scrollOffset);
 
       // const scrollBottom = scrollTopInsideTable + availableHeight;
 
-      // const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
-      // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+      // const startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - scrollOffset);
+      // const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + scrollOffset);
 
-      paperVirtualScrollStyle = { paddingTop: (startIndex * rowHeight), pointerEvents: 'none' };
-      tableVirtualScrollStyle = { paddingTop: (startIndex * rowHeight), pointerEvents: 'none' };
+      paperVirtualScrollStyle = { paddingTop: (startIndex * rowHeight) };
+      tableVirtualScrollStyle = { paddingTop: (startIndex * rowHeight) };
     }
 
     return (
