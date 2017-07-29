@@ -353,7 +353,7 @@ class CoinsTable extends Component {
     const numRows = this.props.valuePairs.length;
     let endIndex = numRows;
 
-    // If virtual scroll enable d+ we have rows to show
+    // If virtual scroll enabled + we have rows to show
     const isVirtualScrollEnabled = this.props.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
 
     // There are rows to display
