@@ -93,11 +93,11 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     left: '0',
     bottom: (theme.spacing.unit / 2 ) + 1
   },
-  'root__ToolBar-copy-button': {
+  root__ToolBar__CopyButton: {
     padding: theme.spacing.unit,
     marginLeft: theme.spacing.unit
   },
-  'root__ToolBar-copy-button--rtl': {
+  'root__ToolBar__CopyButton--rtl': {
     marginLeft: 0,
     marginRight: theme.spacing.unit
   }
@@ -179,8 +179,8 @@ class CoinsPage extends Component {
     const logoClass = classnamesjss(this.props.classes, 'root__ToolBar__DonateBar__Icon', {
       'root__ToolBar__DonateBar__Icon--rtl': isRTL
     });
-    const copyButton = classnamesjss(this.props.classes, 'root__ToolBar-copy-button', {
-      'root__ToolBar-copy-button--rtl': isRTL
+    const copyButton = classnamesjss(this.props.classes, 'root__ToolBar__CopyButton', {
+      'root__ToolBar__CopyButton--rtl': isRTL
     });
     const donationsBar = classnamesjss(this.props.classes, 'root__DonationsBar');
 
