@@ -131,18 +131,14 @@ class CoinsTable extends Component {
     };
 
     this.listeners = [];
-    const rootElement = document.getElementById('root');
-
-    // const scrollHandler = debounce(, 0);
-
-    const listenerScroll = rootElement.addEventListener('scroll', (event) => {
+    const listenerScroll = window.addEventListener('scroll', (event) => {
       this.setState({
-        scrollTop: event.target.scrollTop
+        scrollTop: event.target.scrollingElement.scrollTop
       });
     });
 
     this.listeners.push({
-      target: rootElement,
+      target: window,
       listener: listenerScroll,
       type: 'scroll'
     });
