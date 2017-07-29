@@ -131,22 +131,25 @@ class CoinsTable extends Component {
     };
 
     this.listeners = [];
-    const listenerScroll = window.addEventListener('scroll', (event) => {
-      // The bigger the factor the fewer renders will be happening
-      const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
 
-      if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
-        this.setState({
-          scrollTop: event.target.scrollingElement.scrollTop
-        });
-      }
-    });
+    if (props.virtualScrollEnabled) {
+      const listenerScroll = window.addEventListener('scroll', (event) => {
+        // The bigger the factor the fewer renders will be happening
+        const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
 
-    this.listeners.push({
-      target: window,
-      listener: listenerScroll,
-      type: 'scroll'
-    });
+        if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
+          this.setState({
+            scrollTop: event.target.scrollingElement.scrollTop
+          });
+        }
+      });
+
+      this.listeners.push({
+        target: window,
+        listener: listenerScroll,
+        type: 'scroll'
+      });
+    }
 
     this._onRequestSort.bind(this);
     this._getSortedTable.bind(this);
@@ -163,10 +166,6 @@ class CoinsTable extends Component {
   }
 
   _renderRows(startIndex, endIndex) {
-    // TODO: Delete me
-    console.log(`Start index: ${startIndex}, End index: ${endIndex}, scrollTop: ${this.state.scrollTop},
-    rows: ${document.getElementsByTagName('tr').length - 1}`);
-
     const {classes, locale, showRowHover} = this.props;
 
     const tableBodyCellClass = classnamesjss(classes,
@@ -272,10 +271,12 @@ class CoinsTable extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      // eslint-disable-next-line react/no-find-dom-node
-      paperOffset: this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0}
-    });
+    if (this.props.virtualScrollEnabled) {
+      this.setState({
+        // eslint-disable-next-line react/no-find-dom-node
+        paperOffset: this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0}
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -349,11 +350,14 @@ class CoinsTable extends Component {
 
     let paperVirtualScrollStyle;
     let startIndex = 0;
-    let endIndex = 0;
     const numRows = this.props.valuePairs.length;
+    let endIndex = numRows;
+
+    // If virtual scroll enable d+ we have rows to show
+    const isVirtualScrollEnabled = this.props.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
 
     // There are rows to display
-    if (!this.props.showLoading && numRows > 0) {
+    if (isVirtualScrollEnabled) {
       const rowHeight = this.props.rowHeight;
 
       // +1.4 for the header row which is bigger
@@ -399,15 +403,18 @@ CoinsTable.propTypes = {
     isRTL: PropTypes.bool
   }),
   rowHeight: PropTypes.number,
-  scrollOffset: PropTypes.number
+  scrollOffset: PropTypes.number,
+  virtualScrollEnabled: PropTypes.bool
 };
 
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
   // TODO: when developing breakpoints it ('scrollOffset)' should be set to 20 on small screens
-  scrollOffset: 40,
-  rowHeight: 48
+  scrollOffset: 55,
+  rowHeight: 48,
+  // TODO: when developing breakpoints MAYBE it should be set to false on big screens (in the CoinsPage.js)
+  virtualScrollEnabled: true
 };
 
 export default withStyles(styleSheet)(CoinsTable);
