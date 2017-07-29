@@ -365,7 +365,7 @@ class CoinsTable extends Component {
       endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
 
       const paddingTop = startIndex * rowHeight;
-      paperVirtualScrollStyle = { paddingTop, pointerEvents: 'none', height: totalHeight - paddingTop, maxHeight: totalHeight };
+      paperVirtualScrollStyle = { paddingTop, height: totalHeight - paddingTop, maxHeight: totalHeight };
     }
 
     return (
@@ -405,6 +405,7 @@ CoinsTable.propTypes = {
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
+  // TODO: when developing breakpoints it ('scrollOffset)' should be set to 20 on small screens
   scrollOffset: 40,
   rowHeight: 48
 };
