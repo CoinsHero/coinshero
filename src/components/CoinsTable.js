@@ -197,7 +197,7 @@ class CoinsTable extends Component {
     let rows = [];
 
     for (index = startIndex; index < endIndex; index++) {
-      const pair = this.props.valuePairs[index];
+      const pair = this.state.displayedValuePairs[index];
 
       const percentChange24hClasses = classnamesjss(classes,
         'root__TableCell__percent-change-twenty-four-h',
@@ -351,7 +351,7 @@ class CoinsTable extends Component {
 
     let paperVirtualScrollStyle;
     let startIndex = 0;
-    const numRows = this.props.valuePairs.length;
+    const numRows = this.state.displayedValuePairs.length;
     let endIndex = numRows;
 
     // If virtual scroll enabled + we have rows to show
