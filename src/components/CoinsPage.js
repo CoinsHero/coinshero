@@ -219,7 +219,7 @@ class CoinsPage extends Component {
                   raised
                   color="primary"
                   className={donateClass}
-                  aria-owns={'donate-bitcoin'}
+                  aria-owns={donation.ariaText}
                   aria-haspopup="true">
                   <img src={ donation.srcURL } className={logoClass} />
                   { donation.buttonText }
