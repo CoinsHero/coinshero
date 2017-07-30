@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import config from 'config';
 import * as Immutable from 'seamless-immutable';
 import Table, {
@@ -123,20 +124,22 @@ class CoinsTable extends Component {
   constructor(props) {
     super();
 
+    const mobileValues = this.getMobileStateValues(props.windowSize);
     this.state = {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
       displayedValuePairs: [],
       scrollTop: 0,
-      paperOffset: {top: 0, left: 0}
+      paperOffset: {top: 0, left: 0},
+      ...mobileValues
     };
 
     this.listeners = [];
 
-    if (props.virtualScrollEnabled) {
+    if (this.state.virtualScrollEnabled) {
       const listenerScroll = window.addEventListener('scroll', (event) => {
         // The bigger the factor the fewer renders will be happening
-        const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
+        const changeThreshold = props.rowHeight * (this.state.scrollOffset * 0.8);
 
         if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
           this.setState({
@@ -272,7 +275,7 @@ class CoinsTable extends Component {
   }
 
   componentDidMount() {
-    if (this.props.virtualScrollEnabled) {
+    if (this.state.virtualScrollEnabled) {
       this.setState({
         // eslint-disable-next-line react/no-find-dom-node
         paperOffset: this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0}
@@ -280,16 +283,36 @@ class CoinsTable extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps, nextState) {
+  componentWillReceiveProps(nextProps) {
     let order = this.state.order;
     let orderBy = this.state.orderBy;
     const displayedValuePairs = this._getSortedTable(order, orderBy, nextProps.valuePairs);
 
-    this.setState({order, orderBy, displayedValuePairs});
+    const mobileValues = this.getMobileStateValues(nextProps.windowSize);
+
+    this.setState({order, orderBy, displayedValuePairs, ...mobileValues});
+  }
+
+  getMobileStateValues(windowSize) {
+    const mobileView = windowSize === 'xs';
+    return {
+      scrollOffset: mobileView ? 20 : 55,
+      virtualScrollEnabled: mobileView
+    };
   }
 
   _getSortedTable(order, orderBy, values) {
-    return Immutable.from([].concat(values).sort((a, b) => {
+    const badValues = [];
+    const filteredValues = [].concat(values).filter((value) => {
+      if (value[orderBy] === NO_VALUE_DATA_SYMBOL) {
+        badValues.push(value);
+        return false;
+      }
+
+      return true;
+    });
+
+    filteredValues.sort((a, b) => {
       let aValue = a[orderBy];
       let bValue = b[orderBy];
       const EMPTY_VALUE = -999;
@@ -317,7 +340,9 @@ class CoinsTable extends Component {
       }
 
       return 0;
-    }));
+    });
+
+    return Immutable.from(filteredValues.concat(badValues));
   }
 
   _onRequestSort(event, columnId) {
@@ -355,7 +380,7 @@ class CoinsTable extends Component {
     let endIndex = numRows;
 
     // If virtual scroll enabled + we have rows to show
-    const isVirtualScrollEnabled = this.props.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
+    const isVirtualScrollEnabled = this.state.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
 
     // There are rows to display
     if (isVirtualScrollEnabled) {
@@ -367,8 +392,8 @@ class CoinsTable extends Component {
 
       const scrollBottom = scrollTopInsideTable + window.innerHeight;
 
-      startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.props.scrollOffset);
-      endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.props.scrollOffset);
+      startIndex = Math.max(0, Math.floor(scrollTopInsideTable / rowHeight) - this.state.scrollOffset);
+      endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + this.state.scrollOffset);
 
       const paddingTop = startIndex * rowHeight;
       paperVirtualScrollStyle = { paddingTop, height: totalHeight - paddingTop, maxHeight: totalHeight };
@@ -394,6 +419,10 @@ class CoinsTable extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  windowSize: state.site.windowSize
+});
+
 CoinsTable.propTypes = {
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
@@ -403,6 +432,7 @@ CoinsTable.propTypes = {
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }),
+  windowSize: PropTypes.string.isRequired,
   rowHeight: PropTypes.number,
   scrollOffset: PropTypes.number,
   virtualScrollEnabled: PropTypes.bool
@@ -411,11 +441,7 @@ CoinsTable.propTypes = {
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
-  // TODO: when developing breakpoints it ('scrollOffset)' should be set to 20 on small screens
-  scrollOffset: 55,
-  rowHeight: 48,
-  // TODO: when developing breakpoints MAYBE it should be set to false on big screens (in the CoinsPage.js)
-  virtualScrollEnabled: true
+  rowHeight: 48
 };
 
-export default withStyles(styleSheet)(CoinsTable);
+export default connect(mapStateToProps)(withStyles(styleSheet)(CoinsTable));
