@@ -22,11 +22,15 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     width: '95%',
     marginBottom: theme.spacing.unit * 3
   },
-  root_ToolBar: {
+  root__ToolBar: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 0
+  },
+  'root__ToolBar--xs': {
+    flexDirection: 'column',
+    height: theme.spacing.unit * 10
   },
   root__ToolBar__LeftPanel: {
     display: 'flex',
@@ -34,10 +38,19 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     alignItems: 'center',
     flexGrow: 1
   },
+  'root__ToolBar__LeftPanel--xs': {
+    width: '100%'
+  },
   root__ToolBar__RightPanel: {
     display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end'
+  },
+  'root__ToolBar__RightPanel--xs': {
     flexDirection: 'row',
-    alignItems: 'center'
+    width: '100%',
+    justifyContent: 'space-between',
+    marginBottom: '5px'
   },
   'root__ToolBar__RightPanel__update-time-hidden': {
     transition: 'opacity 2s ease-in-out',
@@ -45,6 +58,9 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   },
   'root__ToolBar__RightPanel__update-time-visible': {
     opacity: 1
+  },
+  'root__ToolBar__RightPanel__update-time-visible--xs': {
+    fontSize: theme.typography.caption.fontSize
   },
   root__DonationsBar: {
     display: 'flex',
@@ -84,14 +100,6 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     }
   },
   'root__ToolBar__purchases-caption': {
-    position: 'absolute',
-    right: '0',
-    bottom: (theme.spacing.unit / 2 ) + 1
-  },
-  'root__ToolBar__purchases-caption--rtl': {
-    position: 'absolute',
-    left: '0',
-    bottom: (theme.spacing.unit / 2 ) + 1
   },
   root__ToolBar__CopyButton: {
     padding: theme.spacing.unit,
@@ -157,6 +165,7 @@ class CoinsPage extends Component {
   _renderUpdateTime(updateTimestamp) {
     const cx = classnamesjss(this.props.classes,
       'root__ToolBar__RightPanel__update-time-hidden',
+      `root__ToolBar__RightPanel__update-time-visible--${this.props.windowSize}`,
       {'root__ToolBar__RightPanel__update-time-visible': updateTimestamp}
     );
 
@@ -243,17 +252,21 @@ class CoinsPage extends Component {
       'root__ToolBar__snackbar--rtl': isRTL
     });
 
+    const toolbarClasses = `${this.props.classes.root__ToolBar} ${this.props.classes['root__ToolBar' + '--' + this.props.windowSize]}`;
+    const leftPanelClasses = classnamesjss(classes, 'root__ToolBar__LeftPanel', `root__ToolBar__LeftPanel--${this.props.windowSize}`);
+    const rightPanelClasses = classnamesjss(classes, 'root__ToolBar__RightPanel', `root__ToolBar__RightPanel--${this.props.windowSize}`);
+
     return (
       <div className={classes.root}>
         { this.renderDonations() }
-        <Toolbar className={this.props.classes.root_ToolBar}>
-          <div className={this.props.classes.root__ToolBar__LeftPanel}>
+        <Toolbar classes={{ root: toolbarClasses }}>
+          <div className={leftPanelClasses}>
             <SearchCoinsInput autoFocus={true} isRTL={isRTL} onChange={this._onSearchChange.bind(this)}/>
             <TargetCurrencyMenu />
-            <Typography type="caption" className={ usdEUClass }>{ T.translate('USD_EURO_AVAILABLE') }</Typography>
           </div>
-          <div className={this.props.classes.root__ToolBar__RightPanel}>
+          <div className={rightPanelClasses}>
             {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}
+            <Typography type="caption" className={ usdEUClass }>{ T.translate('USD_EURO_AVAILABLE') }</Typography>
           </div>
         </Toolbar>
         <SimpleSnackbar
@@ -270,7 +283,8 @@ class CoinsPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isDarkTheme: state.site.isDarkTheme
+  isDarkTheme: state.site.isDarkTheme,
+  windowSize: state.site.windowSize
 });
 
 CoinsPage.propTypes = {
@@ -284,6 +298,7 @@ CoinsPage.propTypes = {
     isRTL: PropTypes.bool
   }),
   isDarkTheme: PropTypes.bool.isRequired,
+  windowSize: PropTypes.string.isRequired,
   showLoading: PropTypes.bool.isRequired
 };
 

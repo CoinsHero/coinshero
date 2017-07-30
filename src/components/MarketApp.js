@@ -2,9 +2,13 @@ import React, {Component} from 'react';
 import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
+import compose from 'recompose/compose';
+import debounce from 'lodash/debounce';
 import {connect} from 'react-redux';
+import withWidth from 'material-ui/utils/withWidth';
 import grey from 'material-ui/colors/grey';
 
+import {setWindowSize} from '../redux/actions/uiActions.js';
 import localStorageSettings from '../helpers/localStorageSettings';
 import {setDarkThemeInStore} from '../redux/actions/bootstrapActions';
 import NavigationHeader from './NavigationHeader';
@@ -44,8 +48,23 @@ const styleSheet = createStyleSheet('MarketApp', (theme) => ({
 }));
 
 class MarketApp extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.handleResize = debounce(this.handleResize.bind(this), 300);
+    props.setWindowSize(props.width);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.props.setWindowSize(this.props.width);
   }
 
   _onThemeClick() {
@@ -93,12 +112,14 @@ MarketApp.propTypes = {
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }),
+  width: PropTypes.string.isRequired,
   coinsData: PropTypes.shape({
     valuePairs: PropTypes.arrayOf(PropTypes.object),
     updateTimestamp: PropTypes.number
   }),
   isDarkTheme: PropTypes.bool.isRequired,
+  setWindowSize: PropTypes.func.isRequired,
   isRegularCurrenciesFetched: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps, {setDarkThemeInStore})(withStyles(styleSheet)(MarketApp));
+export default connect(mapStateToProps, {setDarkThemeInStore, setWindowSize})(compose(withStyles(styleSheet), withWidth())(MarketApp));
