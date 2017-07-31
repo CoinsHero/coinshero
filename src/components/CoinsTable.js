@@ -131,6 +131,7 @@ class CoinsTable extends Component {
       displayedValuePairs: [],
       scrollTop: 0,
       paperOffset: {top: 0, left: 0},
+      virtualScrollEnabled: true,
       ...mobileValues
     };
 
@@ -296,8 +297,7 @@ class CoinsTable extends Component {
   getMobileStateValues(windowSize) {
     const mobileView = windowSize === 'xs';
     return {
-      scrollOffset: mobileView ? 20 : 55,
-      virtualScrollEnabled: mobileView
+      scrollOffset: mobileView ? 20 : 55
     };
   }
 
