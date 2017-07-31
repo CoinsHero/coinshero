@@ -51,7 +51,7 @@ class MarketApp extends Component {
   constructor(props) {
     super(props);
 
-    this.handleResize = debounce(this.handleResize.bind(this), 300);
+    this.handleResize = debounce(this.handleResize.bind(this), 50);
     props.setWindowSize(props.width);
   }
 
