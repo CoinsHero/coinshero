@@ -3,7 +3,6 @@ import classnamesjss from '../helpers/classnamesjss';
 import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import compose from 'recompose/compose';
-import debounce from 'lodash/debounce';
 import {connect} from 'react-redux';
 import withWidth from 'material-ui/utils/withWidth';
 import grey from 'material-ui/colors/grey';
@@ -51,20 +50,13 @@ class MarketApp extends Component {
   constructor(props) {
     super(props);
 
-    this.handleResize = debounce(this.handleResize.bind(this), 300);
     props.setWindowSize(props.width);
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleResize() {
-    this.props.setWindowSize(this.props.width);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.width !== this.props.width) {
+      this.props.setWindowSize(nextProps.width);
+    }
   }
 
   _onThemeClick() {
