@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import { CircularProgress } from 'material-ui/Progress';
 
-const styleSheet = createStyleSheet('CircularIndeterminate', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center'

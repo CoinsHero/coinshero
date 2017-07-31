@@ -15,7 +15,7 @@ import CoinsPage from './CoinsPage';
 import Services from '../services/services';
 import Footer from './Footer';
 
-const styleSheet = createStyleSheet('MarketApp', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     direction: 'ltr',
     display: 'flex',

@@ -10,7 +10,7 @@ import T from 'i18n-react';
 import {setTargetCurrencyInStore} from '../redux/actions/coinsApiActions';
 import targetCurrencies, {setRegularTargetCurrencyLocalStorage} from '../helpers/targetCurrencies';
 
-const styleSheet = createStyleSheet('TargetCurrencyMenu', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     direction: 'ltr'
   },

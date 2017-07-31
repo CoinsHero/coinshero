@@ -25,7 +25,7 @@ import EnhancedTableHead from './EnhancedTableHead';
 import CircularIndeterminate from './CircularIndeterminate';
 
 const numbersStrength = 500;
-const styleSheet = createStyleSheet('CoinsTable', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     overflowX: 'auto'
   },
