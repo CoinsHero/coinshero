@@ -420,7 +420,6 @@ class CoinsTable extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isDarkTheme: state.site.isDarkTheme,
   windowSize: state.site.windowSize
 });
 
@@ -433,7 +432,6 @@ CoinsTable.propTypes = {
     code: PropTypes.string,
     isRTL: PropTypes.bool
   }),
-  isDarkTheme: PropTypes.bool.isRequired,
   windowSize: PropTypes.string.isRequired,
   rowHeight: PropTypes.number,
   scrollOffset: PropTypes.number,
