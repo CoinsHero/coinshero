@@ -4,7 +4,6 @@ import {AppBar, Toolbar, Typography, IconButton} from 'material-ui';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import T from 'i18n-react';
 import LightbulbIcon from 'material-ui-icons/LightbulbOutline';
-import MonetizationOn from 'material-ui-icons/MonetizationOn';
 import { withTheme, withStyles, createStyleSheet } from 'material-ui/styles';
 import {languages} from '../i18n';
 import classnamesjss from '../helpers/classnamesjss';
@@ -12,7 +11,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import LanguageMenu from './LanguageMenu';
 
 let indicatorColor;
-const styleSheet = createStyleSheet('NavigationHeader', (theme) => {
+const styleSheet = createStyleSheet((theme) => {
   const lightBackgroundColor = theme.palette.primary['A400'];
   const lightColor = theme.palette.common.white;
   const colorBackgroundDark = theme.palette.accent['A400'];
@@ -86,7 +85,7 @@ class NavigationHeader extends Component {
         <div className={classes.root__appBar}>
           <Typography className={cxTitle} type="title">{T.translate('NAVIGATION_HEADER_TITLE')}</Typography>
           <Tabs onChange={() => {}} index={0} className={classes.root__Tabs} indicatorColor={indicatorColor}>
-            <Tab icon={<MonetizationOn />} aria-label="Market" label={T.translate('TAB_MARKET')} />
+            <Tab aria-label="Market" label={T.translate('TAB_MARKET')} />
           </Tabs>
           <Toolbar className={classes.root_ToolBox}>
             <LanguageMenu locales={locales} selectedIndex={selectedLocaleIndex} />

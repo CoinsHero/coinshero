@@ -17,7 +17,7 @@ import CoinsTable from './CoinsTable';
 import SearchCoinsInput from './SearchCoinsInput';
 import TargetCurrencyMenu from './TargetCurrencyMenu';
 
-const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     width: '95%',
     marginBottom: theme.spacing.unit * 3

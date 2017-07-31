@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { MuiThemeProvider } from 'material-ui/styles';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import localStorageSettings from '../helpers/localStorageSettings';
 import getSiteTheme from '../helpers/getSiteTheme';

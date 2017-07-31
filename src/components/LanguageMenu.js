@@ -12,7 +12,7 @@ import { languageRoute } from '../helpers/navigator';
 import {DEFAULT_LANGUAGE} from '../i18n';
 import {setLocaleInStore} from '../redux/actions/bootstrapActions';
 
-const styleSheet = createStyleSheet('LanguageMenu', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     direction: 'ltr'
   },

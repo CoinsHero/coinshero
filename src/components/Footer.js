@@ -6,7 +6,7 @@ import Script from 'react-load-script';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import config from 'config';
 
-const styleSheet2 = createStyleSheet('Footer', (theme) => ({
+const styleSheet2 = createStyleSheet((theme) => ({
   root: {
     display: 'flex',
     marginBottom: theme.spacing.unit * 3,

@@ -9,7 +9,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import {debounce} from 'lodash';
 import {CLIENT_SIDE_DEBOUNCE_DELAY} from '../helpers/consts';
 
-const styleSheet = createStyleSheet('SearchCoinsInput', (theme) => ({
+const styleSheet = createStyleSheet((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
