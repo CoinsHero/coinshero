@@ -25,8 +25,9 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root__ToolBar: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
-    padding: 0
+    alignItems: 'flex-end',
+    padding: 0,
+    marginBottom: `${theme.spacing.unit * 1.25}px`
   },
   'root__ToolBar--xs': {
     flexDirection: 'column',
@@ -36,7 +37,8 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    flexGrow: 1
+    flexGrow: 1,
+    paddingBottom: theme.spacing.unit / 2
   },
   'root__ToolBar__LeftPanel--xs': {
     width: '100%'
@@ -44,13 +46,15 @@ const styleSheet = createStyleSheet('CoinsPage', (theme) => ({
   root__ToolBar__RightPanel: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end'
   },
   'root__ToolBar__RightPanel--xs': {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    alignItems: 'center'
   },
   'root__ToolBar__RightPanel__update-time-hidden': {
     transition: 'opacity 2s ease-in-out',
@@ -169,9 +173,13 @@ class CoinsPage extends Component {
       {'root__ToolBar__RightPanel__update-time-visible': updateTimestamp}
     );
 
+    let date = new Date(updateTimestamp);
+    date = this.props.windowSize === 'xs'
+      ? date.toLocaleTimeString(this.props.locale.code)
+      : date.toLocaleString(this.props.locale.code);
     return (
       <Typography className={cx}>
-        {T.translate('LAST_UPDATE_TIME', {time: new Date(updateTimestamp).toLocaleString(this.props.locale.code)})}
+        {T.translate('LAST_UPDATE_TIME', {time: date})}
       </Typography>
     );
   }
@@ -265,8 +273,8 @@ class CoinsPage extends Component {
             <TargetCurrencyMenu />
           </div>
           <div className={rightPanelClasses}>
-            {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}
             <Typography type="caption" className={ usdEUClass }>{ T.translate('USD_EURO_AVAILABLE') }</Typography>
+            {this._renderUpdateTime(this.props.coinsData.updateTimestamp)}
           </div>
         </Toolbar>
         <SimpleSnackbar
