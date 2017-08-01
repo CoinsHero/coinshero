@@ -50,11 +50,21 @@ class EnhancedTableHead extends Component {
     );
 
     return columns.map((column) => {
-      return (
-        <TableCell key={column.id} className={cx}>
+      let columnComponent;
+
+      if (column.sortable) {
+        columnComponent = (
           <TableSortLabel active={orderBy === column.id} direction={order} onClick={this._createSortHandler(column.id)}>
             {column.label}
           </TableSortLabel>
+        );
+      } else {
+        columnComponent = column.label;
+      }
+
+      return (
+        <TableCell key={column.id} className={cx}>
+          {columnComponent}
         </TableCell>
       );
     });
@@ -80,7 +90,8 @@ EnhancedTableHead.propTypes = {
   orderBy: PropTypes.string,
   columns: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    sortable: PropTypes.bool
   })),
   locale: PropTypes.shape({
     code: PropTypes.string,
