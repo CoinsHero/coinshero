@@ -229,6 +229,25 @@ class CoinsTable extends Component {
           {pair.baseCurrency.displayName}
         </span>;
 
+      const buyCell = (
+        <TableCell className={tableBodyCellClass}>
+          <div className={buyContainer}>
+            {
+              pair.baseCurrency.status !== COIN_STATUSES.INACTIVE ?
+                <Button
+                  raised
+                  color="primary"
+                  target="_blank"
+                  className={classes['root__TableCell__buy-container__buy-button']}
+                  href={`${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}`}>
+                  { T.translate('TABLE_BUY_BUTTON')}
+                </Button> :
+                <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} />
+            }
+          </div>
+        </TableCell>
+      );
+
       rows.push(
         <TableRow hover={showRowHover} key={pair.rank}>
           <TableCell className={tableBodyCellClass}>{pair.rank}</TableCell>
@@ -239,28 +258,14 @@ class CoinsTable extends Component {
             </div>
           </TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayPrice}</TableCell>
+          {this.isMobileView && buyCell}
           <TableCell className={tableBodyCellClass}>{pair.displayMarketCap}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayAvailableSupply}</TableCell>
           <TableCell className={tableBodyCellClass}>{pair.displayVolume24h}</TableCell>
           <TableCell className={tableBodyCellClass}>
             <span className={percentChange24hClasses}>{pair.displayPercentChange24h}</span>
           </TableCell>
-          <TableCell className={tableBodyCellClass}>
-            <div className={buyContainer}>
-              {
-                pair.baseCurrency.status !== COIN_STATUSES.INACTIVE ?
-                  <Button
-                    raised
-                    color="primary"
-                    target="_blank"
-                    className={classes['root__TableCell__buy-container__buy-button']}
-                    href={`${config.ORIGINS.CHANGELLY}/exchange/USD/${pair.baseCurrency.code}/1?ref_id=${config.SERVICES.CHANGELLY.REF_ID}`}>
-                    { T.translate('TABLE_BUY_BUTTON')}
-                  </Button> :
-                  <Chip label={COIN_STATUSES.INACTIVE} className={inactiveChipCellClass} />
-              }
-            </div>
-          </TableCell>
+          {!this.isMobileView && buyCell}
         </TableRow>
       );
     }
@@ -353,17 +358,31 @@ class CoinsTable extends Component {
   }
 
   render() {
+    this.isMobileView = this.props.windowSize === 'xs' || this.props.windowSize === 'sm';
+
     // TODO: Add TABLE_HEADER_RANK_TOOLTIP & TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP once https://github.com/callemall/material-ui/issues/2230
     const headerColumns = [
       {id: COLUMNS_IDS.RANK, label: T.translate('TABLE_HEADER_RANK')},
       {id: COLUMNS_IDS.NAME, label: T.translate('TABLE_HEADER_NAME')},
-      {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')},
+      {id: COLUMNS_IDS.PRICE, label: T.translate('TABLE_HEADER_PRICE')}
+    ];
+
+    const regularColumns = [
       {id: COLUMNS_IDS.MARKET_CAP, label: T.translate('TABLE_HEADER_MARKET_CAP')},
       {id: COLUMNS_IDS.AVAILABLE_SUPPLY, label: T.translate('TABLE_HEADER_AVAILABLE_SUPPLY')},
       {id: COLUMNS_IDS.VOLUME, label: T.translate('TABLE_HEADER_24H_VOLUME')},
-      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')},
-      {id: COLUMNS_IDS.BUY, label: ''}
+      {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE')}
     ];
+
+    const buyColumn = {id: COLUMNS_IDS.BUY, label: 'Buy'};
+
+    if (this.isMobileView) {
+      headerColumns.push(buyColumn);
+      headerColumns.push(...regularColumns);
+    } else {
+      headerColumns.push(...regularColumns);
+      headerColumns.push(buyColumn);
+    }
 
     let paperVirtualScrollStyle;
     let startIndex = 0;
