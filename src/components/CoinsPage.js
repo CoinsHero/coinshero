@@ -264,6 +264,8 @@ class CoinsPage extends Component {
     const leftPanelClasses = classnamesjss(classes, 'root__ToolBar__LeftPanel', `root__ToolBar__LeftPanel--${this.props.windowSize}`);
     const rightPanelClasses = classnamesjss(classes, 'root__ToolBar__RightPanel', `root__ToolBar__RightPanel--${this.props.windowSize}`);
 
+    const scrollOffset = this.props.windowSize === 'xs' ? 20 : 55;
+
     return (
       <div className={classes.root}>
         { this.renderDonations() }
@@ -282,7 +284,9 @@ class CoinsPage extends Component {
           message={ this.state.snackbarMessage }
           open={this.state.snackbarOpen}
           onClose={ () => this.setState({ snackbarOpen: false })} />
-        <CoinsTable locale={this.props.locale}
+        <CoinsTable
+          scrollOffset={scrollOffset}
+          locale={this.props.locale}
           showLoading={this.props.showLoading}
           valuePairs={this.state.displayedValuePairs} />
       </div>
