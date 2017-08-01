@@ -285,6 +285,7 @@ class CoinsPage extends Component {
           open={this.state.snackbarOpen}
           onClose={ () => this.setState({ snackbarOpen: false })} />
         <CoinsTable
+          windowSize={this.props.windowSize}
           scrollOffset={scrollOffset}
           locale={this.props.locale}
           showLoading={this.props.showLoading}
