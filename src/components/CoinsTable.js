@@ -138,16 +138,22 @@ class CoinsTable extends Component {
     this.listeners = [];
 
     if (this.state.virtualScrollEnabled) {
-      const listenerScroll = window.addEventListener('scroll', (event) => {
-        // The bigger the factor the fewer renders will be happening
-        const changeThreshold = props.rowHeight * (this.state.scrollOffset * 0.8);
+      // The bigger the factor the fewer renders will be happening
+      const changeThreshold = props.rowHeight * (this.state.scrollOffset * 1);
 
-        if (Math.abs(event.target.scrollingElement.scrollTop - this.state.scrollTop) >= changeThreshold) {
-          this.setState({
-            scrollTop: event.target.scrollingElement.scrollTop
-          });
-        }
-      });
+      const onScroll = (event) => {
+        window.requestAnimationFrame(() => {
+          const lastKnownScrollTop = window.scrollY;
+
+          if (Math.abs(lastKnownScrollTop - this.state.scrollTop) >= changeThreshold) {
+            this.setState({
+              scrollTop: lastKnownScrollTop
+            });
+          }
+        });
+      };
+
+      const listenerScroll = window.addEventListener('scroll', onScroll);
 
       this.listeners.push({
         target: window,
