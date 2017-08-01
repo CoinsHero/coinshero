@@ -374,7 +374,7 @@ class CoinsTable extends Component {
       {id: COLUMNS_IDS.CHANGE, label: T.translate('TABLE_HEADER_24H_PERCENTAGE_CHANGE'), sortable: true}
     ];
 
-    const buyColumn = {id: COLUMNS_IDS.BUY, label: 'Buy'};
+    const buyColumn = {id: COLUMNS_IDS.BUY, label: T.translate('TABLE_HEADER_PURCHASE')};
 
     if (this.isMobileView) {
       headerColumns.push(buyColumn);

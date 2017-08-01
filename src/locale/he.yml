@@ -16,6 +16,7 @@ TABLE_HEADER_AVAILABLE_SUPPLY: מלאי זמין
 TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP: כמות המטבעות הנמצאת בידיהם של משתמשים בעולם
 TABLE_HEADER_24H_VOLUME: נפח מסחר 24 ש'
 TABLE_HEADER_24H_PERCENTAGE_CHANGE: "% שינוי 24 ש'"
+TABLE_HEADER_PURCHASE: קנייה
 TABLE_BUY_BUTTON: קנה
 COINS_TABLE_EMPTY_STATE: 'טוב, מסתבר שאין לנו מה להראות :)'
 

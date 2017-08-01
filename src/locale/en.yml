@@ -16,6 +16,7 @@ TABLE_HEADER_AVAILABLE_SUPPLY: Available Supply
 TABLE_HEADER_AVAILABLE_SUPPLY_TOOLTIP: The amount of coins thats users around the world have in their possession
 TABLE_HEADER_24H_VOLUME: 24H Volume
 TABLE_HEADER_24H_PERCENTAGE_CHANGE: 24H % change
+TABLE_HEADER_PURCHASE: Purchase
 TABLE_BUY_BUTTON: Buy
 COINS_TABLE_EMPTY_STATE: Well, we've got nothing to show :)
 
