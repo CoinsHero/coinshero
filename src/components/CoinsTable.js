@@ -139,7 +139,7 @@ class CoinsTable extends Component {
 
     if (this.state.virtualScrollEnabled) {
       // The bigger the factor the fewer renders will be happening
-      const changeThreshold = props.rowHeight * (this.state.scrollOffset * 1);
+      const changeThreshold = props.rowHeight * (this.state.scrollOffset * 0.8);
 
       const onScroll = (event) => {
         window.requestAnimationFrame(() => {
