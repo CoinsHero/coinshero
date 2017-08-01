@@ -310,7 +310,13 @@ CoinsPage.propTypes = {
     isRTL: PropTypes.bool
   }),
   isDarkTheme: PropTypes.bool.isRequired,
-  windowSize: PropTypes.string.isRequired,
+  windowSize: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl'
+  ]).isRequired,
   showLoading: PropTypes.bool.isRequired
 };
 

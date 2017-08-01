@@ -421,7 +421,14 @@ CoinsTable.propTypes = {
   }),
   rowHeight: PropTypes.number,
   scrollOffset: PropTypes.number,
-  virtualScrollEnabled: PropTypes.bool
+  virtualScrollEnabled: PropTypes.bool,
+  windowSize: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl'
+  ])
 };
 
 CoinsTable.defaultProps = {
