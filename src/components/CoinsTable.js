@@ -129,6 +129,7 @@ class CoinsTable extends Component {
       displayedValuePairs: []
     };
 
+    this.lastKnownScrollTop = props.scrollTop;
     this.paperOffset = {top: 0, left: 0};
 
     this._onRequestSort.bind(this);
@@ -249,6 +250,25 @@ class CoinsTable extends Component {
   componentDidMount() {
     // eslint-disable-next-line react/no-find-dom-node
     this.paperOffset = this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0};
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const changeThreshold = nextProps.rowHeight * (nextProps.scrollOffset * 0.8);
+    let scrollPassedThreshold = false;
+
+    if (Math.abs(nextProps.scrollTop - this.lastKnownScrollTop) >= changeThreshold) {
+      scrollPassedThreshold = true;
+      this.lastKnownScrollTop = nextProps.scrollTop;
+    }
+
+    return this.props.isDarkTheme !== nextProps.isDarkTheme ||
+      this.props.scrollOffset !== nextProps.scrollOffset ||
+      this.props.locale.code !== nextProps.locale.code ||
+      this.props.showLoading !== nextProps.showLoading ||
+      this.props.valuePairs !== nextProps.valuePairs ||
+      this.state.order !== nextState.order ||
+      this.state.orderBy !== nextState.orderBy ||
+      scrollPassedThreshold;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -392,6 +412,7 @@ class CoinsTable extends Component {
 }
 
 CoinsTable.propTypes = {
+  isDarkTheme: PropTypes.bool.isRequired,
   valuePairs: PropTypes.arrayOf(PropTypes.object),
   showRowHover: PropTypes.bool,
   classes: PropTypes.object.isRequired,

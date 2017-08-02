@@ -289,6 +289,7 @@ class CoinsPage extends Component {
         <WindowScroller>
           {({ scrollTop }) => (
             <CoinsTable
+              isDarkTheme={this.props.isDarkTheme}
               scrollTop={scrollTop}
               windowSize={this.props.windowSize}
               scrollOffset={scrollOffset}
