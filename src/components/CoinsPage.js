@@ -6,6 +6,8 @@ import { Toolbar, Typography, Button } from 'material-ui';
 import T from 'i18n-react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
+import { WindowScroller } from 'react-virtualized';
+
 import config from 'config';
 import classnamesjss from '../helpers/classnamesjss';
 
@@ -284,12 +286,17 @@ class CoinsPage extends Component {
           message={ this.state.snackbarMessage }
           open={this.state.snackbarOpen}
           onClose={ () => this.setState({ snackbarOpen: false })} />
-        <CoinsTable
-          windowSize={this.props.windowSize}
-          scrollOffset={scrollOffset}
-          locale={this.props.locale}
-          showLoading={this.props.showLoading}
-          valuePairs={this.state.displayedValuePairs} />
+        <WindowScroller>
+          {({ scrollTop }) => (
+            <CoinsTable
+              scrollTop={scrollTop}
+              windowSize={this.props.windowSize}
+              scrollOffset={scrollOffset}
+              locale={this.props.locale}
+              showLoading={this.props.showLoading}
+              valuePairs={this.state.displayedValuePairs} />
+          )}
+        </WindowScroller>
       </div>
     );
   }

@@ -14,6 +14,7 @@ import {regularTargetCurrencies, setRegularTargetCurrencyLocalStorage, DEFAULT_T
 
 import MarketApp from './MarketApp';
 
+import 'react-virtualized/styles.css'; // Only needs to be imported once
 import '../styles/components/_Site.scss';
 
 class Site extends Component {

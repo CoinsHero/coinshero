@@ -1,13 +1,16 @@
+const path = require('path');
 const autoprefixer = require('autoprefixer');
 
 const config = require('./webpack.shared.config').config;
 const srcPath = require('./webpack.shared.config').srcPath;
+const nodeModulesPath = require('./webpack.shared.config').nodeModulesPath;
+const reactVirtualizedPath = path.resolve(nodeModulesPath, 'react-virtualized');
 
 config.devtool = 'source-map';
 
 config.module.rules.push({
   test: /\.(scss|css)$/,
-  include: [srcPath],
+  include: [srcPath, reactVirtualizedPath],
   use: [
     {
       loader: 'style-loader'

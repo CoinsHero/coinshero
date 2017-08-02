@@ -46,6 +46,7 @@
     "react-redux": "5.0.5",
     "react-router": "4.1.2",
     "react-tap-event-plugin": "2.0.1",
+    "react-virtualized": "9.9.0",
     "recompose": "0.24.0",
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
