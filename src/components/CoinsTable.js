@@ -126,37 +126,10 @@ class CoinsTable extends Component {
     this.state = {
       order: SORT_DIRECTIONS.DESC,
       orderBy: COLUMNS_IDS.MARKET_CAP,
-      displayedValuePairs: [],
-      scrollTop: 0
+      displayedValuePairs: []
     };
 
     this.paperOffset = {top: 0, left: 0};
-    this.listeners = [];
-
-    if (props.virtualScrollEnabled) {
-      // The bigger the factor the fewer renders will be happening
-      const changeThreshold = props.rowHeight * (props.scrollOffset * 0.8);
-
-      const onScroll = (event) => {
-        window.requestAnimationFrame(() => {
-          const lastKnownScrollTop = window.scrollY;
-
-          if (Math.abs(lastKnownScrollTop - this.state.scrollTop) >= changeThreshold) {
-            this.setState({
-              scrollTop: lastKnownScrollTop
-            });
-          }
-        });
-      };
-
-      const listenerScroll = window.addEventListener('scroll', onScroll);
-
-      this.listeners.push({
-        target: window,
-        listener: listenerScroll,
-        type: 'scroll'
-      });
-    }
 
     this._onRequestSort.bind(this);
     this._getSortedTable.bind(this);
@@ -273,20 +246,9 @@ class CoinsTable extends Component {
     return rows;
   }
 
-  componentWillUnmount() {
-    let currentListener;
-
-    for (let index = 0; index < this.listeners.length; index++) {
-      currentListener = this.listeners[index];
-      currentListener.target.removeEventListener(currentListener.type, currentListener.listener);
-    }
-  }
-
   componentDidMount() {
-    if (this.props.virtualScrollEnabled) {
-      // eslint-disable-next-line react/no-find-dom-node
-      this.paperOffset = this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0};
-    }
+    // eslint-disable-next-line react/no-find-dom-node
+    this.paperOffset = this.paperNode ? getRecursiveOffset(ReactDOM.findDOMNode(this.paperNode)) : {top: 0, left: 0};
   }
 
   componentWillReceiveProps(nextProps) {
@@ -390,7 +352,7 @@ class CoinsTable extends Component {
     let endIndex = numRows;
 
     // If virtual scroll enabled + we have rows to show
-    const isVirtualScrollEnabled = this.props.virtualScrollEnabled && (!this.props.showLoading && numRows > 0);
+    const isVirtualScrollEnabled = !this.props.showLoading && numRows > 0;
 
     // There are rows to display
     if (isVirtualScrollEnabled) {
@@ -398,7 +360,7 @@ class CoinsTable extends Component {
 
       // +1.4 for the header row which is bigger
       const totalHeight = (numRows + 1.4) * rowHeight;
-      const scrollTopInsideTable = Math.max(0, this.state.scrollTop - this.paperOffset.top);
+      const scrollTopInsideTable = Math.max(0, this.props.scrollTop - this.paperOffset.top);
 
       const scrollBottom = scrollTopInsideTable + window.innerHeight;
 
@@ -440,21 +402,21 @@ CoinsTable.propTypes = {
   }),
   rowHeight: PropTypes.number,
   scrollOffset: PropTypes.number,
-  virtualScrollEnabled: PropTypes.bool,
   windowSize: PropTypes.oneOf([
     'xs',
     'sm',
     'md',
     'lg',
     'xl'
-  ])
+  ]),
+  scrollTop: PropTypes.number
 };
 
 CoinsTable.defaultProps = {
   valuePairs: [],
   showRowHover: true,
   rowHeight: 48,
-  virtualScrollEnabled: true
+  scrollTop: 0
 };
 
 export default withStyles(styleSheet)(CoinsTable);

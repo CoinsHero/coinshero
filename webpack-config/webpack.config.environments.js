@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
@@ -6,6 +7,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = require('./webpack.shared.config').config;
 const srcPath = require('./webpack.shared.config').srcPath;
+const nodeModulesPath = require('./webpack.shared.config').nodeModulesPath;
+const reactVirtualizedPath = path.resolve(nodeModulesPath, 'react-virtualized');
 
 config.plugins.push(new webpack.optimize.UglifyJsPlugin({
   compressor: {
@@ -37,7 +40,7 @@ config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 
 config.module.rules.push({
   test: /\.(scss|css)$/,
-  include: [srcPath],
+  include: [srcPath, reactVirtualizedPath],
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [

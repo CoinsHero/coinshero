@@ -263,5 +263,6 @@ if (stats) {
 module.exports = {
   config,
   srcPath,
-  port
+  port,
+  nodeModulesPath
 };
