@@ -266,7 +266,7 @@ class CoinsPage extends Component {
     const leftPanelClasses = classnamesjss(classes, 'root__ToolBar__LeftPanel', `root__ToolBar__LeftPanel--${this.props.windowSize}`);
     const rightPanelClasses = classnamesjss(classes, 'root__ToolBar__RightPanel', `root__ToolBar__RightPanel--${this.props.windowSize}`);
 
-    const scrollOffset = this.props.windowSize === 'xs' ? 20 : 55;
+    const scrollOffset = this.props.windowSize === 'xs' ? 30 : 55;
 
     return (
       <div className={classes.root}>
