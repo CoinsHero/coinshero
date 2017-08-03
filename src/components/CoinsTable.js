@@ -18,6 +18,7 @@ import classnamesjss from '../helpers/classnamesjss';
 import InfoOutline from 'material-ui-icons/InfoOutline';
 import MonetizationOn from 'material-ui-icons/MonetizationOn';
 
+import {VIRTUAL_SCROLL} from '../helpers/consts';
 import getRecursiveOffset from '../helpers/getRecursiveOffset';
 import {SORT_DIRECTIONS, NO_VALUE_DATA_SYMBOL, COIN_STATUSES} from '../helpers/consts';
 import EnhancedTableHead from './EnhancedTableHead';
@@ -253,7 +254,7 @@ class CoinsTable extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const changeThreshold = nextProps.rowHeight * (nextProps.scrollOffset * 0.8);
+    const changeThreshold = nextProps.rowHeight * (nextProps.scrollOffset * VIRTUAL_SCROLL.SCROLL_THRESHOLD_FACTOR);
     let scrollPassedThreshold = false;
 
     if (Math.abs(nextProps.scrollTop - this.lastKnownScrollTop) >= changeThreshold) {
