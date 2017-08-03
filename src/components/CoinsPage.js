@@ -10,6 +10,7 @@ import { WindowScroller } from 'react-virtualized';
 
 import config from 'config';
 import classnamesjss from '../helpers/classnamesjss';
+import {VIRTUAL_SCROLL} from '../helpers/consts';
 
 import BitcoinLogo from '../assets/images/bitcoin_logo.png';
 import LitecoinLogo from '../assets/images/litecoin_logo.png';
@@ -266,7 +267,7 @@ class CoinsPage extends Component {
     const leftPanelClasses = classnamesjss(classes, 'root__ToolBar__LeftPanel', `root__ToolBar__LeftPanel--${this.props.windowSize}`);
     const rightPanelClasses = classnamesjss(classes, 'root__ToolBar__RightPanel', `root__ToolBar__RightPanel--${this.props.windowSize}`);
 
-    const scrollOffset = this.props.windowSize === 'xs' ? 30 : 55;
+    const scrollOffset = this.props.windowSize === 'xs' ? VIRTUAL_SCROLL.MOBILE_SCROLL_OFFSET : VIRTUAL_SCROLL.SCROLL_OFFSET;
 
     return (
       <div className={classes.root}>
