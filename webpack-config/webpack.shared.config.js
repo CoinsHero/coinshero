@@ -10,6 +10,7 @@ const InlineChunkWebpackPlugin = require('html-webpack-inline-chunk-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const webpackUtils = require('./webpack.utils');
 
@@ -43,6 +44,7 @@ const chunksPath = path.resolve(srcPath, 'chunks');
 const nodeModulesPath = path.resolve(currentDirectory, 'node_modules');
 const indexHtmlPath = path.resolve(currentDirectory, 'index.html');
 const buildPath = path.resolve(currentDirectory, 'dist');
+const faviconPath = `${srcPath}/assets/favicons/coinshero-favicon.png`;
 
 const resourceHintsMetaTags = webpackUtils.buildResourceHintsMetaTags(configFile.RESOURCE_HINTS_ORIGINS, publicPath);
 
@@ -128,6 +130,7 @@ const config = {
   },
   plugins: [
     new CleanPlugin(['dist'], {root: currentDirectory}),
+    new CopyPlugin([{ from: faviconPath, to: path.basename(faviconPath) }]),
     // For more moment locales change `en` with `en|fr|hu`
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
 
@@ -147,33 +150,6 @@ const config = {
       name: 'manifest',
       minChunks: Infinity
     }),
-    // // TODO: Add a link to the image to be shown here - with HTTP
-    // const ogImage = document.createElement('meta');
-    // ogImage.property = 'og:image';
-    // // ogImage.content = ;
-    // document.head.appendChild(ogImage);
-    //
-    // // TODO: Add a link to the image to be shown here - with HTTPS
-    // const ogImageSecureUrl = document.createElement('meta');
-    // ogImageSecureUrl.property = 'og:image:secure_url';
-    // // ogImageSecureUrl.content = ;
-    // document.head.appendChild(ogImageSecureUrl);
-    //
-    // // TODO: Add the mimetype of the image
-    // const ogImageMimeType = document.createElement('meta');
-    // ogImageMimeType.property = 'og:image:type';
-    // // ogImageMimeType.content = ;
-    // document.head.appendChild(ogImageMimeType);
-    //
-    // const ogImageWidth = document.createElement('meta');
-    // ogImageWidth.property = 'og:image:width';
-    // ogImageWidth.content = 200;
-    // document.head.appendChild(ogImageWidth);
-    //
-    // const ogImageHeight = document.createElement('meta');
-    // ogImageHeight.property = 'og:image:height';
-    // ogImageHeight.content = 200;
-    // document.head.appendChild(ogImageHeight);
     new ScriptExtHtmlWebpackPlugin({
       prefetch: {
         test: webpackUtils.shouldPrefetch(),
@@ -199,7 +175,7 @@ const localeFilePath = path.resolve('./src/locale/global.yml');
 const globalFile = YAML.load(localeFilePath);
 
 config.plugins.push(new FaviconsWebpackPlugin({
-  logo: `${srcPath}/assets/favicons/coinshero-favicon.png`,
+  logo: faviconPath,
   title: globalFile.APP_NAME
 }));
 
@@ -231,8 +207,11 @@ languages.forEach((language) => {
     locale: language.code,
     localeURL: language.localeURL,
     template: indexHtmlPath,
-    favicon: srcPath + '/assets/favicons/coinshero-favicon.png',
-    HreflangLinkTags
+    favicon: faviconPath,
+    HreflangLinkTags,
+    imageType: path.extname(faviconPath).substring(1),
+    imageHttp: `${configFile.ORIGINS.COINS_HERO}/${path.basename(faviconPath)}`,
+    imageHttps: `${configFile.ORIGINS.COINS_HERO}/${path.basename(faviconPath)}`
   };
 
   if (language.code !== 'en') {
