@@ -25,9 +25,9 @@ const config = {
     }
   },
   DONATION: {
-    LITECOIN: 'LgjuDeBWAXdV9Bib1gLJcWYkkmLKs4dvdM',
+    LITECOIN: 'Ld9X6aaq9EkXeRRQVPaZuXet8unyu7f7kT',
     BITCOIN: '18gsEV5FaKMhJEtrQkun2SvwKCzvRwrUGD',
-    ETHEREUM: '0xC620A3b5CB29Dee1532d39cdA5c7cE9dDE912CC4'
+    ETHEREUM: '0xeae32e0b5fde43dad837b4e6133aec19eee25d0e'
   },
   GA_ANALYTICS: {
     TRACKING_ID: 'UA-102569759-1',
