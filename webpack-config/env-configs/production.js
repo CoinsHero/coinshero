@@ -5,7 +5,7 @@ const config = {
   ORIGINS: {
     COINS_HERO: 'https://www.coinshero.io',
     COINS_IO: 'https://coincap.io',
-    CRYPTO_COMPARE: 'https://www.cryptocompare.com',
+    CRYPTO_COMPARE: 'https://cors-anywhere.herokuapp.com/https://www.cryptocompare.com',
     FIXER_IO: 'https://api.fixer.io',
     CHANGELLY: 'https://changelly.com'
   },
@@ -24,7 +24,7 @@ const config = {
     }
   },
   DONATION: {
-    LITECOIN: 'Ld9X6aaq9EkXeRRQVPaZuXet8unyu7f7kT',
+    LITECOIN: 'LhMKQHwH76BGRuYNoFhPpdkkUDyJ9pQxNC',
     BITCOIN: '1NPbjGGKp4B1UAFHGtsp6MHVUGNUzDmHi9',
     ETHEREUM: '0xeae32e0b5fde43dad837b4e6133aec19eee25d0e'
   },
