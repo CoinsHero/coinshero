@@ -1,5 +1,4 @@
 const polyfills = [
-  'pseudo-worker',
   'core-js'
 ];
 

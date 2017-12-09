@@ -37,7 +37,6 @@
     "material-ui": "1.0.0-beta.3",
     "material-ui-icons": "1.0.0-alpha.19",
     "prop-types": "15.5.10",
-    "pseudo-worker": "1.1.1",
     "react": "15.6.1",
     "react-copy-to-clipboard": "5.0.0",
     "react-dom": "15.6.1",
@@ -103,7 +102,6 @@
     "webpack-bundle-analyzer": "2.8.3",
     "webpack-dashboard": "0.4.0",
     "webpack-dev-server": "2.6.1",
-    "worker-loader": "0.8.1",
     "yaml-loader": "0.5.0",
     "yamljs": "0.3.0"
   },
@@ -125,7 +123,7 @@
     }
   },
   "engines": {
-    "node": ">=8.1.0",
+    "node": ">=6.11.1",
     "npm": ">-5.0.3"
   }
 }
