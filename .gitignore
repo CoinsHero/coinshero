@@ -26,3 +26,5 @@ webpack.stats.json
 
 # zips
 *.zip
+
+hiddenS3Data.json

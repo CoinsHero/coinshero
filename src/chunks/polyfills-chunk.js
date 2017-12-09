@@ -7,8 +7,7 @@ if (!window.Promise) {
 const loadAllPolyfills = () => {
   const polyfills = [
     () => !window.Object.assign ? import(/* webpackChunkName: "core-js_object_assign" */ 'core-js/fn/object/assign') : null,
-    () => !window.Object.values ? import(/* webpackChunkName: "core-js_object_values" */ 'core-js/fn/object/values') : null,
-    () => !window.Worker ? import(/* webpackChunkName: "pseudo-worker" */ 'pseudo-worker/polyfill') : null
+    () => !window.Object.values ? import(/* webpackChunkName: "core-js_object_values" */ 'core-js/fn/object/values') : null
   ];
 
   return Promise.all(polyfills.map((polyfill) => polyfill()));

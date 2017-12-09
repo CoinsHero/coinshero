@@ -191,14 +191,29 @@ const CoinsReducer = (state = initialState, action) => {
       isUpdatingCoinsList: true
     });
   case Actions.FETCH_COINS_LIST_SUCCESS: {
-    // If the worker's job was done
-    if (!action.meta.WebWorker) {
+    if (action.payload && action.payload.BaseImageUrl && action.payload.Data) {
+      const baseImageUrl = action.payload.BaseImageUrl;
+      const coinsKeys = Object.keys(action.payload.Data);
+      const coinsLength = coinsKeys.length;
+      const coinsList = {};
+      let index;
+      let imageRelativeUrl;
+
+      for (index = 0; index < coinsLength; index++) {
+        imageRelativeUrl = action.payload.Data[coinsKeys[index]].ImageUrl;
+        coinsList[coinsKeys[index].toLowerCase()] = {
+          imageUrl: imageRelativeUrl ? `${baseImageUrl}${imageRelativeUrl}` : undefined
+        };
+      }
+
       return state.merge({
-        coinsList: action.payload.coinsList,
+        coinsList,
         isUpdatingCoinsList: false
       });
     } else {
-      return state;
+      return state.merge({
+        isUpdatingCoinsList: false
+      });
     }
   }
   case Actions.FETCH_COINS_LIST_FAILURE:

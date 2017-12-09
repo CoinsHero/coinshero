@@ -35,7 +35,6 @@
     "material-ui": "1.0.0-alpha.21",
     "material-ui-icons": "1.0.0-alpha.19",
     "prop-types": "15.5.10",
-    "pseudo-worker": "1.1.1",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-ga": "2.2.0",
@@ -98,8 +97,7 @@
     "webpack-dashboard": "0.4.0",
     "webpack-dev-server": "2.5.1",
     "yaml-loader": "0.5.0",
-    "yamljs": "0.3.0",
-    "worker-loader": "0.8.1"
+    "yamljs": "0.3.0"
   },
   "jest": {
     "moduleNameMapper": {

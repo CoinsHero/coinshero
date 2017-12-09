@@ -5,7 +5,7 @@ const config = {
   ORIGINS: {
     COINS_HERO: 'https://coinshero.io',
     COINS_IO: 'https://coincap.io',
-    CRYPTO_COMPARE: 'https://www.cryptocompare.com',
+    CRYPTO_COMPARE: 'https://cors-anywhere.herokuapp.com/https://www.cryptocompare.com',
     FIXER_IO: 'https://api.fixer.io',
     CHANGELLY: 'https://changelly.com'
   },

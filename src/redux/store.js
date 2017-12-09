@@ -1,14 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
 
 import rootReducer from './reducers/rootReducer';
-import worker from './middlewares/worker';
 import { apiMiddleware } from 'redux-api-middleware';
 import logger from './middlewares/logger';
 
 const createNewStore = () => {
   const store = createStore(rootReducer, applyMiddleware(
     apiMiddleware,
-    worker,
     logger
   ));
 

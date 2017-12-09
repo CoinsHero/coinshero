@@ -24,10 +24,7 @@ export const fetchCoinsList = () => ({
     types: [
       Actions.FETCH_COINS_LIST,
       {
-        type: Actions.FETCH_COINS_LIST_SUCCESS,
-        meta: {
-          WebWorker: true
-        }
+        type: Actions.FETCH_COINS_LIST_SUCCESS
       },
       Actions.FETCH_COINS_LIST_FAILURE
     ]
